@@ -30,16 +30,18 @@ a{color:var(--text-accent)}a:hover{color:var(--text-primary)}
 <div data-theme="{{ theme }}" data-accent="{{ accent }}" style="background:var(--bg-page);color:var(--text-primary);font:var(--type-body);min-height:100vh;overflow-x:clip">
 
 <header style="position:sticky;top:0;z-index:40;background:color-mix(in srgb, var(--bg-page) 82%, transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
-  <div style="max-width:var(--max-content);margin:0 auto;padding:0 var(--margin-page);height:72px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px">
+  <div style="max-width:var(--max-content);margin:0 auto;padding:0 var(--margin-page);min-height:72px;display:grid;grid-template-columns:{{ hdrCols }};grid-template-rows:{{ hdrRows }};align-items:center;column-gap:12px">
     <a href="index.html" style="font:400 26px/1 var(--font-display);letter-spacing:-0.02em;text-decoration:none;color:var(--text-primary)">Parthiv<span style="color:var(--accent)">.</span></a>
-    <nav style="display:flex;gap:2px;padding:3px;border:1px solid var(--border-default);border-radius:var(--radius-pill);background:var(--surface-card)">
+    <nav style="display:flex;gap:2px;padding:3px;border:1px solid var(--border-default);border-radius:var(--radius-pill);background:var(--surface-card);grid-column:{{ navCol }};order:{{ navOrder }};justify-self:center;margin-bottom:{{ navMb }}">
       <a href="index.html#work" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;background:var(--surface-sunken);color:var(--text-primary)">Work</a>
       <a href="index.html#about" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--text-muted)">About</a>
       <a href="index.html#contact" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--text-muted)">Contact</a>
     </nav>
 <div style="display:flex;justify-content:flex-end;align-items:center;gap:8px">
       <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.IconButton" icon="{{ themeIcon }}" label="{{ themeLabel }}" variant="ghost" size="sm" on-click="{{ toggleTheme }}" hint-size="32px,32px"></x-import>
+      <sc-if value="{{ showTalk }}" hint-placeholder-val="{{ true }}">
       <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="accent" size="sm" icon-right="arrow-up-right" on-click="{{ goContact }}" hint-size="110px,32px">Let's talk</x-import>
+      </sc-if>
     </div>
   </div>
 </header>
@@ -65,7 +67,7 @@ a{color:var(--text-accent)}a:hover{color:var(--text-primary)}
 
   <figure style="max-width:1040px;margin:48px auto 0;display:flex;flex-direction:column;gap:10px">
     <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px">
-      <img src="assets/asha/banner.png" alt="An ASHA worker holding a phone showing the Who is the patient screen, over a desk with ORS sachets, iron tablets, a stethoscope, the community health register and her ASHA ID card" style="width:100%;aspect-ratio:2576/1438;object-fit:cover;display:block;border-radius:10px">
+      <img src="assets/asha/banner.jpg" alt="An ASHA worker holding a phone showing the Who is the patient screen, over a desk with ORS sachets, iron tablets, a stethoscope, the community health register and her ASHA ID card" style="width:100%;aspect-ratio:2576/1438;object-fit:cover;display:block;border-radius:10px">
     
     </div>
     <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
@@ -91,7 +93,7 @@ a{color:var(--text-accent)}a:hover{color:var(--text-primary)}
     <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Highlights</span>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
       <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:10px">
-        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/asha/mock-home.png" alt="Hand holding a phone showing the app home: New Checkup and 3 cases pending upload" style="width:100%;aspect-ratio:4/3.4;object-fit:cover;object-position:50% 50%;display:block;border-radius:10px"></div>
+        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/asha/mock-home.jpg" alt="Hand holding a phone showing the app home: New Checkup and 3 cases pending upload" style="width:100%;aspect-ratio:4/3.4;object-fit:cover;object-position:50% 50%;display:block;border-radius:10px"></div>
         <figcaption style="display:flex;justify-content:space-between;gap:12px;padding:0 4px"><span style="font:500 14px/1.3 var(--font-sans)">Works with no signal</span><span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">ASHA app</span></figcaption>
       </figure>
       <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:10px">
@@ -99,7 +101,7 @@ a{color:var(--text-accent)}a:hover{color:var(--text-primary)}
         <figcaption style="display:flex;justify-content:space-between;gap:12px;padding:0 4px"><span style="font:500 14px/1.3 var(--font-sans)">A body map instead of a form</span><span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">ASHA app</span></figcaption>
       </figure>
       <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:10px">
-        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/asha/mock-laptop.png" alt="Laptop on a clinic desk showing the doctor's priority queue sorted by risk score" style="width:100%;aspect-ratio:4/3.4;object-fit:cover;object-position:45% 50%;display:block;border-radius:10px"></div>
+        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/asha/mock-laptop.jpg" alt="Laptop on a clinic desk showing the doctor's priority queue sorted by risk score" style="width:100%;aspect-ratio:4/3.4;object-fit:cover;object-position:45% 50%;display:block;border-radius:10px"></div>
         <figcaption style="display:flex;justify-content:space-between;gap:12px;padding:0 4px"><span style="font:500 14px/1.3 var(--font-sans)">Sickest first, not first come</span><span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Doctor portal</span></figcaption>
       </figure>
     </div>
@@ -187,11 +189,11 @@ a{color:var(--text-accent)}a:hover{color:var(--text-primary)}
     <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-direction:column;gap:5px">
       <div style="display:flex;flex-wrap:wrap;gap:5px;align-items:stretch">
         <div style="flex:1.25 1 340px;background:var(--surface-card);border-radius:10px;padding:5px;display:flex;flex-direction:column;gap:5px">
-          <img src="./anewsocial-needs-mutnvyt0-gd08.png" alt="Map of Dehradun with eight pins spread across the city: Kulhan, Hathibarkala, Indra Nagar, central Dehradun, Raipur, Ajabpur Kalan and Banjarawala" style="width:100%;flex:1;min-height:0;aspect-ratio:7896/6306;object-fit:cover;display:block;border-radius:6px">
+          <img src="./anewsocial-needs.jpg" alt="Map of Dehradun with eight pins spread across the city: Kulhan, Hathibarkala, Indra Nagar, central Dehradun, Raipur, Ajabpur Kalan and Banjarawala" style="width:100%;flex:1;min-height:0;aspect-ratio:7896/6306;object-fit:cover;display:block;border-radius:6px">
           <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 10px 8px"><span style="font:400 22px/1.1 var(--font-display)">Informal settlements</span><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Spread across the city</span></div>
         </div>
         <div style="flex:1 1 280px;background:var(--surface-card);border-radius:10px;padding:5px;display:flex;flex-direction:column;gap:5px">
-          <img src="./bnewsocial-needs-mutnxli7-z0uj.png" alt="Closer map of Dehradun with pins clustered around the city centre, Karanpur and Ajabpur Kalan" style="width:100%;flex:1;min-height:0;aspect-ratio:7896/6306;object-fit:cover;object-position:50% 45%;display:block;border-radius:6px">
+          <img src="./bnewsocial-needs.jpg" alt="Closer map of Dehradun with pins clustered around the city centre, Karanpur and Ajabpur Kalan" style="width:100%;flex:1;min-height:0;aspect-ratio:7896/6306;object-fit:cover;object-position:50% 45%;display:block;border-radius:6px">
           <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 10px 8px"><span style="font:400 22px/1.1 var(--font-display)">Tier-3 private clinics</span><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Clustered close by</span></div>
         </div>
       </div>
@@ -553,7 +555,10 @@ class Component extends DCLogic {
   themeVals() {
     const theme = this.getTheme();
     try { document.documentElement.style.background = document.body.style.background = theme === 'dark' ? '#0E0E0E' : '#FFFFFF'; } catch (e) {}
-    return { theme, themeIcon: theme === 'dark' ? 'sun' : 'moon', themeLabel: theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+    if (!this._rz) { this._rz = () => this.forceUpdate(); window.addEventListener('resize', this._rz); }
+    const narrow = (window.innerWidth || 1200) < 640;
+    const lay = { narrow, showTalk: !narrow, hdrCols: narrow ? '1fr auto' : '1fr auto 1fr', hdrRows: narrow ? '64px auto' : 'auto', navCol: narrow ? '1 / -1' : 'auto', navOrder: narrow ? '3' : '0', navMb: narrow ? '12px' : '0' };
+    return { ...lay, theme, themeIcon: theme === 'dark' ? 'sun' : 'moon', themeLabel: theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
       toggleTheme: () => { const t = theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('par-theme', t); } catch (e) {} this.setState({ theme: t }); } };
   }
   renderVals() {
@@ -565,13 +570,13 @@ class Component extends DCLogic {
     const obs = (t, d) => ({ t, d, sign: '·', color: 'var(--text-accent)' });
     const sites = {
       chc: { where: 'Community Health Centre · Raipur, Dehradun', title: 'We watched from the waiting area', caption: 'Government CHC, observed without interviews',
-        photos: [{ src: 'assets/asha/chc-front.png', alt: 'Entrance of the Community Health Centre, Raipur, Dehradun' }, { src: 'assets/asha/field-roadside.png', alt: 'Parthiv on the roadside outside, watching a row of stalls' }],
+        photos: [{ src: 'assets/asha/chc-front.png', alt: 'Entrance of the Community Health Centre, Raipur, Dehradun' }, { src: 'assets/asha/field-roadside.jpg', alt: 'Parthiv on the roadside outside, watching a row of stalls' }],
         notes: [minus('No way to find your doctor', 'Every sign was in Hindi, yet none said where a department was or how far to walk.'), minus('Too few seats', 'With nowhere to sit, patients and family kept moving, which made the corridors feel more chaotic than they were.'), minus('Poor hygiene', 'Dull, stained walls and toilets we could smell from the entrance.')] },
       people: { where: 'Settlements and street vendors · Dehradun', title: 'The people who rely on it', caption: 'Settlements near the city centre, where we held street interviews',
-        photos: [{ src: 'assets/asha/slum-shack.png', alt: 'Tin-walled home in an informal settlement at sunset' }, { src: 'assets/asha/street-stalls.png', alt: 'Roadside stalls and makeshift shelters along a pavement' }],
+        photos: [{ src: 'assets/asha/slum-shack.jpg', alt: 'Tin-walled home in an informal settlement at sunset' }, { src: 'assets/asha/street-stalls.jpg', alt: 'Roadside stalls and makeshift shelters along a pavement' }],
         notes: [obs('Government care was a last resort', 'People spoke about the government hospital as somewhere you end up, not somewhere you choose.'), obs('Travel was the barrier, not fees', 'A round trip into town was a real expense, before counting a lost day of work.'), obs('Waiting it out was the default', 'Several people said they would rather wait for an illness to pass than see anyone.')] },
       private: { where: 'Private hospital and a tier-3 clinic · Dehradun', title: 'The private side worked better, mostly', caption: 'A private hospital and a single-room neighbourhood clinic',
-        photos: [{ src: 'assets/asha/private-waiting.png', alt: 'Private hospital waiting area with rows of metal seats and numbered consulting rooms' }, { src: 'assets/asha/field-clinic-notes.png', alt: 'Parthiv taking notes outside a small neighbourhood clinic at night' }],
+        photos: [{ src: 'assets/asha/private-waiting.jpg', alt: 'Private hospital waiting area with rows of metal seats and numbered consulting rooms' }, { src: 'assets/asha/field-clinic-notes.jpg', alt: 'Parthiv taking notes outside a small neighbourhood clinic at night' }],
         notes: [plus('Signage everywhere, plenty of seats', 'It was hard to get lost, and carers had somewhere to sit out of the way.'), plus('Patient IDs did the walking', 'Moving between doctors happened behind the screen. The patient only had to confirm their details.'), minus('The token system only existed', 'Queue displays hung over every door, switched off. A central pharmacy with no entry point was mobbed from all sides.'), minus('Small things nobody fixed', 'No braille on signs or forms, and TVs for waiting families looping the same two or three ads.')] }
     };
     const cs = sites[site];
