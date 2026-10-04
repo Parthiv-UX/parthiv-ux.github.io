@@ -1,0 +1,13 @@
+/* Accent options. Pick one: <html data-accent="clay">. Default (:root) = link. */
+/* Mono — frame the work */
+[data-accent="mono"]{--acc-l:#0E0E0E;--acc-hover-l:#3A3A3A;--acc-soft-l:#EDEDED;--on-acc-l:#FFFFFF;--text-acc-l:#0E0E0E;--acc-d:#F4F4F4;--acc-hover-d:#D1D1D1;--acc-soft-d:#262626;--on-acc-d:#0E0E0E;--text-acc-d:#F4F4F4;}
+/* Clay — Pārthiva, “of the earth” */
+[data-accent="clay"]{--acc-l:#A44A2A;--acc-hover-l:#8A3C21;--acc-soft-l:#F6E7DF;--on-acc-l:#FFFFFF;--text-acc-l:#8A3C21;--acc-d:#E08A63;--acc-hover-d:#EBA283;--acc-soft-d:#2E1A12;--on-acc-d:#1A0E09;--text-acc-d:#E8A080;}
+/* Par green — on par, the standard */
+[data-accent="par"]{--acc-l:#1F6F4A;--acc-hover-l:#185A3C;--acc-soft-l:#E3F1EA;--on-acc-l:#FFFFFF;--text-acc-l:#1F6F4A;--acc-d:#5BC48F;--acc-hover-d:#7DD3A6;--acc-soft-d:#0F2A1E;--on-acc-d:#06180F;--text-acc-d:#6FD09E;}
+/* Marker — research synthesis */
+[data-accent="marker"]{--acc-l:#CDEB2A;--acc-hover-l:#BEDC1A;--acc-soft-l:#F3FAD0;--on-acc-l:#0E0E0E;--text-acc-l:#4D6000;--acc-d:#D4F53C;--acc-hover-d:#E2FA6E;--acc-soft-d:#232B07;--on-acc-d:#0E0E0E;--text-acc-d:#D4F53C;}
+:root{--acc-l:#2B59FF;--acc-hover-l:#1F45D6;--acc-soft-l:#E8EEFF;--on-acc-l:#FFFFFF;--text-acc-l:#2149E0;--acc-d:#7C98FF;--acc-hover-d:#9DB2FF;--acc-soft-d:#141C3A;--on-acc-d:#0A0F24;--text-acc-d:#8FA7FF;}
+/* Link blue — the designer’s material */
+[data-accent="link"]{--acc-l:#2B59FF;--acc-hover-l:#1F45D6;--acc-soft-l:#E8EEFF;--on-acc-l:#FFFFFF;--text-acc-l:#2149E0;--acc-d:#7C98FF;--acc-hover-d:#9DB2FF;--acc-soft-d:#141C3A;--on-acc-d:#0A0F24;--text-acc-d:#8FA7FF;}
+:root{--mono-light:#0E0E0E;--mono-dark:#F4F4F4;--clay-light:#A44A2A;--clay-dark:#E08A63;--par-light:#1F6F4A;--par-dark:#5BC48F;--marker-light:#CDEB2A;--marker-dark:#D4F53C;--link-light:#2B59FF;--link-dark:#7C98FF;}

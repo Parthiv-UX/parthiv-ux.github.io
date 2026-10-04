@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/accents.css">
+<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/colors.css">
+<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/typography.css">
+<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/effects.css">
+<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/base.css">
+<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/_ds_bundle.js"></script>
+<style>
+html,body{margin:0;background:#0E0E0E}
+input[type=range]{accent-color:var(--accent);width:100%}
+a{color:var(--text-accent)}a:hover{color:var(--text-primary)}
+</style>
+</helmet>
+
+<div data-theme="{{ theme }}" data-accent="{{ accent }}" style="background:var(--bg-page);color:var(--text-primary);font:var(--type-body);min-height:100vh;overflow-x:clip">
+
+<header style="position:sticky;top:0;z-index:40;background:color-mix(in srgb, var(--bg-page) 82%, transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
+  <div style="max-width:var(--max-content);margin:0 auto;padding:0 var(--margin-page);height:72px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px">
+    <a href="index.html" style="font:400 26px/1 var(--font-display);letter-spacing:-0.02em;text-decoration:none;color:var(--text-primary)">Parthiv<span style="color:var(--accent)">.</span></a>
+    <nav style="display:flex;gap:2px;padding:3px;border:1px solid var(--border-default);border-radius:var(--radius-pill);background:var(--surface-card)">
+      <a href="index.html#work" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;background:var(--surface-sunken);color:var(--text-primary)">Work</a>
+      <a href="index.html#about" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--text-muted)">About</a>
+      <a href="index.html#contact" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--text-muted)">Contact</a>
+    </nav>
+<div style="display:flex;justify-content:flex-end;align-items:center;gap:8px">
+      <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.IconButton" icon="{{ themeIcon }}" label="{{ themeLabel }}" variant="ghost" size="sm" on-click="{{ toggleTheme }}" hint-size="32px,32px"></x-import>
+      <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="accent" size="sm" icon-right="arrow-up-right" on-click="{{ goContact }}" hint-size="110px,32px">Let's talk</x-import>
+    </div>
+  </div>
+</header>
+
+<sc-if value="{{ railVisible }}" hint-placeholder-val="{{ false }}">
+  <nav style="position:fixed;left:var(--margin-page);top:120px;z-index:30;display:flex;flex-direction:column;gap:2px;width:170px">
+    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted);margin-bottom:10px">Contents</span>
+    <sc-for list="{{ toc }}" as="t" hint-placeholder-count="11">
+      <a onClick="{{ t.onClick }}" style="display:flex;align-items:center;gap:8px;padding:5px 0;font:500 13px/1.2 var(--font-sans);text-decoration:none;cursor:pointer;color:{{ t.color }};transition:color var(--dur-fast) var(--ease-out)"><span style="width:{{ t.w }};height:1px;background:{{ t.bar }};transition:width var(--dur-base) var(--ease-out)"></span>{{ t.label }}</a>
+    </sc-for>
+  </nav>
+</sc-if>
+
+<main style="padding:0 var(--margin-page)">
+
+<header id="overview" data-nav="overview" style="padding-top:72px;scroll-margin-top:96px">
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px">
+    <a href="index.html#work" style="display:inline-flex;align-items:center;gap:6px;font:500 13px/1 var(--font-sans);color:var(--text-muted);text-decoration:none"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="arrow-left" size="{{ 14 }}" hint-size="14px,14px"></x-import>All work</a>
+    <span style="font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">ASHA Companion · Designing for social needs — 2025</span>
+    <h1 data-reveal="" style="font:400 clamp(36px,4.6vw,56px)/1.04 var(--font-display);letter-spacing:-0.02em;text-wrap:balance;margin:0">If people can't get to a doctor, the system already has someone <em style="color:var(--text-accent)">at their door</em></h1>
+    <p style="font:400 17px/1.6 var(--font-sans);color:var(--text-secondary);max-width:580px;margin:0">A university project that started with field visits around Dehradun and ended with a triage tool for ASHA workers, the community health volunteers India already sends into every village and settlement.</p>
+  </div>
+
+  <figure style="max-width:1040px;margin:48px auto 0;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px">
+      <img src="assets/asha/banner.png" alt="An ASHA worker holding a phone showing the Who is the patient screen, over a desk with ORS sachets, iron tablets, a stethoscope, the community health register and her ASHA ID card" style="width:100%;aspect-ratio:2576/1438;object-fit:cover;display:block;border-radius:10px">
+    
+    </div>
+    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
+      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">0.0</span>The ASHA Companion, starting a household checkup</span>
+      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Mockup</span>
+    </figcaption>
+  </figure>
+
+  <div style="max-width:880px;margin:0 auto;padding-top:56px;display:flex;flex-wrap:wrap;gap:40px">
+    <dl style="flex:1 1 240px;margin:0;display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;flex-direction:column;gap:6px"><dt style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">My role</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Field research with classmates · concept, triage logic and UI my own</dd></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><dt style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Context</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">University module · Designing for social needs</dd></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><dt style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Evidence</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Site visits and street interviews in Dehradun · secondary research · no testing with ASHAs</dd></div>
+    </dl>
+    <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:14px">
+      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Overview</span>
+      <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">The brief was to pick a social need. I picked healthcare, and assumed the story would be about bad government hospitals. My own experience of them had never been good, so I went to test that.</p>
+      <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">What we found on the street was more uncomfortable. For many low-income families, the free option wasn't the cheap one, and the most common treatment was waiting for the illness to pass. That moved the question from “how do we fix the hospital?” to “how does care reach someone who won't go?”</p>
+    </div>
+  </div>
+
+  <div style="max-width:1040px;margin:72px auto 0;display:flex;flex-direction:column;gap:16px">
+    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Highlights</span>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+      <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:10px">
+        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/asha/mock-home.png" alt="Hand holding a phone showing the app home: New Checkup and 3 cases pending upload" style="width:100%;aspect-ratio:4/3.4;object-fit:cover;object-position:50% 50%;display:block;border-radius:10px"></div>
+        <figcaption style="display:flex;justify-content:space-between;gap:12px;padding:0 4px"><span style="font:500 14px/1.3 var(--font-sans)">Works with no signal</span><span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">ASHA app</span></figcaption>
+      </figure>
+      <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:10px">
+        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><div style="width: 100%; aspect-ratio: 4/3.4; border-radius: 10px; display: flex; justify-content: center; overflow: hidden; background-color: #E2E8F0"><img src="assets/asha/app-pain.png" alt="Body map screen" style="height: 334px; margin-top: -4%; display: block; width: 149px"></div></div>
+        <figcaption style="display:flex;justify-content:space-between;gap:12px;padding:0 4px"><span style="font:500 14px/1.3 var(--font-sans)">A body map instead of a form</span><span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">ASHA app</span></figcaption>
+      </figure>
+      <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:10px">
+        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/asha/mock-laptop.png" alt="Laptop on a clinic desk showing the doctor's priority queue sorted by risk score" style="width:100%;aspect-ratio:4/3.4;object-fit:cover;object-position:45% 50%;display:block;border-radius:10px"></div>
+        <figcaption style="display:flex;justify-content:space-between;gap:12px;padding:0 4px"><span style="font:500 14px/1.3 var(--font-sans)">Sickest first, not first come</span><span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Doctor portal</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</header>
+
+<section id="context" data-nav="context" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">01</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Context</span>
+    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">In India, getting sick is one of the fastest ways to <em style="color:var(--text-accent)">become poor</em></h2>
+    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">A low-income patient has two options, and both cost something. Government care costs time and dignity. Private care costs money. Most decisions about health get made somewhere in that tug of war.</p>
+  </div>
+
+  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-direction:column">
+    <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--border-strong);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span>The scale, from secondary research</span><span>What it measures</span></div>
+    <sc-for list="{{ scale }}" as="s" hint-placeholder-count="3">
+      <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:8px 32px;padding:22px 0;border-bottom:1px solid var(--border-default);align-items:baseline">
+        <span style="flex:0 0 200px;font:500 clamp(30px,3.4vw,40px)/1 var(--font-sans);letter-spacing:-0.03em;font-variant-numeric:tabular-nums">{{ s.v }}</span>
+        <span style="flex:1 1 360px;font:400 15px/1.6 var(--font-sans);color:var(--text-secondary)">{{ s.d }}</span>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="field" data-nav="field" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">02</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Fieldwork</span>
+    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">We went to three places, and were turned away from <em style="color:var(--text-accent)">the first</em></h2>
+    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">The plan was to see a government Community Health Centre, talk to the people who rely on it, then compare a private hospital. The CHC didn't give us permission to interview staff, so we observed from the public areas instead.</p>
+  </div>
+
+  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-direction:column;gap:5px">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:10px 12px">
+        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tabs" variant="pill" items="{{ siteItems }}" value="{{ site }}" on-change="{{ onSite }}" hint-size="420px,40px"></x-import>
+        <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">{{ cs.where }}</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px">
+        <div style="flex:1.2 1 360px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px">
+          <sc-for list="{{ cs.photos }}" as="p" hint-placeholder-count="2">
+            <img src="{{ p.src }}" alt="{{ p.alt }}" style="width:100%;height:100%;min-height:220px;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:10px">
+          </sc-for>
+        </div>
+        <div style="flex:1 1 320px;background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:18px">
+          <span style="font:400 26px/1.1 var(--font-display);text-wrap:balance">{{ cs.title }}</span>
+          <sc-for list="{{ cs.notes }}" as="n" hint-placeholder-count="3">
+            <div style="display:flex;gap:12px;padding-top:14px;border-top:1px solid var(--border-subtle)">
+              <span style="flex:none;width:14px;font:500 15px/1.4 var(--font-sans);color:{{ n.color }}">{{ n.sign }}</span>
+              <div style="display:flex;flex-direction:column;gap:4px"><span style="font:500 14px/1.35 var(--font-sans)">{{ n.t }}</span><span style="font:400 13px/1.55 var(--font-sans);color:var(--text-muted)">{{ n.d }}</span></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
+      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">2.{{ siteNum }}</span>{{ cs.caption }}</span>
+      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Field photos · notes</span>
+    </figcaption>
+  </figure>
+
+  <div style="max-width:1040px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+    <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="2">
+      <blockquote data-reveal="" style="margin:0;border-top:1px solid var(--border-strong);padding-top:24px;display:flex;flex-direction:column;gap:14px">
+        <span style="font:400 italic 28px/1.2 var(--font-display);text-wrap:balance">“{{ q.hi }}”</span>
+        <span style="font:400 15px/1.55 var(--font-sans);color:var(--text-secondary)">{{ q.en }}</span>
+        <span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">— {{ q.who }}</span>
+      </blockquote>
+    </sc-for>
+  </div>
+
+  <div style="max-width:720px;margin:0 auto;width:100%;background:var(--accent-soft);border-radius:var(--radius-lg);padding:28px 32px;display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;box-sizing:border-box">
+    <span style="display:inline-flex;align-items:center;gap:8px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="lightbulb" size="{{ 14 }}" hint-size="14px,14px"></x-import>Insight</span>
+    <p style="font:400 26px/1.3 var(--font-display);color:var(--text-primary);text-wrap:balance;margin:0">If ₹300 is too much to visit her own daughter, it's hard to imagine her spending it on <em>a fever</em>.</p>
+  </div>
+</section>
+
+<section id="cost" data-nav="cost" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">03</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The real cost</span>
+    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:620px;margin:0">Free care stops being free once you count <em style="color:var(--text-accent)">the day it takes</em></h2>
+    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">I mapped where the settlements we visited sit against the nearest care. The government centres were a bus ride away. Small private clinics, the single-room kind often run by an unqualified practitioner, were a short walk.</p>
+  </div>
+
+  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-direction:column;gap:5px">
+      <div style="display:flex;flex-wrap:wrap;gap:5px;align-items:stretch">
+        <div style="flex:1.25 1 340px;background:var(--surface-card);border-radius:10px;padding:5px;display:flex;flex-direction:column;gap:5px">
+          <img src="./anewsocial-needs-mutnvyt0-gd08.png" alt="Map of Dehradun with eight pins spread across the city: Kulhan, Hathibarkala, Indra Nagar, central Dehradun, Raipur, Ajabpur Kalan and Banjarawala" style="width:100%;flex:1;min-height:0;aspect-ratio:7896/6306;object-fit:cover;display:block;border-radius:6px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 10px 8px"><span style="font:400 22px/1.1 var(--font-display)">Informal settlements</span><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Spread across the city</span></div>
+        </div>
+        <div style="flex:1 1 280px;background:var(--surface-card);border-radius:10px;padding:5px;display:flex;flex-direction:column;gap:5px">
+          <img src="./bnewsocial-needs-mutnxli7-z0uj.png" alt="Closer map of Dehradun with pins clustered around the city centre, Karanpur and Ajabpur Kalan" style="width:100%;flex:1;min-height:0;aspect-ratio:7896/6306;object-fit:cover;object-position:50% 45%;display:block;border-radius:6px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 10px 8px"><span style="font:400 22px/1.1 var(--font-display)">Tier-3 private clinics</span><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Clustered close by</span></div>
+        </div>
+      </div>
+      <p style="font:400 14px/1.55 var(--font-sans);color:var(--text-secondary);margin:0;padding:12px 14px">Tier 3 covers everything from a 20-bed nursing home to a single-room clinic run by an unregistered practitioner. Near Kulhan and Ajabpur Kalan, the clinics sit within walking distance of the settlements.</p>
+    </div>
+    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
+      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">3.0</span>Settlements sit next to tier-3 private care, Dehradun</span>
+      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Maps · FigJam</span>
+    </figcaption>
+  </figure>
+
+  <figure style="max-width:960px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-wrap:wrap;gap:5px">
+      <div style="flex:1.2 1 320px;background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:20px">
+        <label style="display:flex;flex-direction:column;gap:10px">
+          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Daily wage<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">₹{{ wage }}</span></span>
+          <input type="range" min="100" max="1000" step="25" value="{{ wage }}" onInput="{{ onWage }}" onChange="{{ onWage }}">
+        </label>
+        <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent);padding-top:6px;border-top:1px solid var(--border-subtle)">Government centre</span>
+        <label style="display:flex;flex-direction:column;gap:10px">
+          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Travel, both ways<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">₹{{ pubTravel }}</span></span>
+          <input type="range" min="0" max="600" step="10" value="{{ pubTravel }}" onInput="{{ onPubTravel }}" onChange="{{ onPubTravel }}">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:10px">
+          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Hours away from work<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">{{ pubHours }} h</span></span>
+          <input type="range" min="1" max="8" step="1" value="{{ pubHours }}" onInput="{{ onPubHours }}" onChange="{{ onPubHours }}">
+        </label>
+        <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent);padding-top:6px;border-top:1px solid var(--border-subtle)">Local private clinic</span>
+        <label style="display:flex;flex-direction:column;gap:10px">
+          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Fee, with medicine<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">₹{{ privFee }}</span></span>
+          <input type="range" min="50" max="800" step="10" value="{{ privFee }}" onInput="{{ onPrivFee }}" onChange="{{ onPrivFee }}">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:10px">
+          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Hours away from work<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">{{ privHours }} h</span></span>
+          <input type="range" min="0" max="8" step="1" value="{{ privHours }}" onInput="{{ onPrivHours }}" onChange="{{ onPrivHours }}">
+        </label>
+      </div>
+      <div style="flex:1 1 280px;background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:22px;justify-content:center">
+        <sc-for list="{{ costBars }}" as="b" hint-placeholder-count="2">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">{{ b.label }}</span><span style="font:500 32px/1 var(--font-sans);letter-spacing:-0.03em;font-variant-numeric:tabular-nums">₹{{ b.total }}</span></div>
+            <div style="height:10px;border-radius:var(--radius-pill);background:var(--surface-sunken);overflow:hidden"><div style="height:100%;width:{{ b.w }};background:{{ b.fill }};border-radius:var(--radius-pill);transition:width var(--dur-base) var(--ease-out)"></div></div>
+            <span style="font:400 12px/1.4 var(--font-sans);color:var(--text-muted)">{{ b.split }}</span>
+          </div>
+        </sc-for>
+        <p style="font:400 14px/1.55 var(--font-sans);color:var(--text-secondary);margin:0;padding-top:14px;border-top:1px solid var(--border-subtle)">{{ costVerdict }}</p>
+      </div>
+    </div>
+    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
+      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">3.1</span>What one visit costs a daily-wage worker · example numbers</span>
+      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Interactive model</span>
+    </figcaption>
+  </figure>
+
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:14px">
+    <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Comparing our interview notes with published fee data, the nearby private clinic came out cheaper and faster than the government centre in a surprising number of cases. But the cheapest option of all was the one people kept describing: do nothing, and wait for it to go away. Every reason above points there.</p>
+  </div>
+</section>
+
+<section id="doctors" data-nav="doctors" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">04</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The other side</span>
+    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:620px;margin:0">India trains a lot of doctors. Few of them <em style="color:var(--text-accent)">want these posts</em></h2>
+    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">India has over a lakh MBBS seats a year, one of the highest numbers in the world, and public facilities are still short-staffed. So I looked at why a young doctor might avoid a government posting.</p>
+  </div>
+
+  <div style="max-width:1040px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px">
+    <sc-for list="{{ motives }}" as="m" hint-placeholder-count="4">
+      <div data-reveal="" style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:20px;display:flex;flex-direction:column;gap:12px">
+        <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">{{ m.n }}</span>
+        <span style="font:400 24px/1.1 var(--font-display)">{{ m.t }}</span>
+        <span style="font:400 13px/1.55 var(--font-sans);color:var(--text-secondary)">{{ m.d }}</span>
+      </div>
+    </sc-for>
+  </div>
+
+  <sc-if value="{{ corrections }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:720px;margin:0 auto;width:100%;display:flex;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid var(--border-default);border-bottom:1px solid var(--border-default);flex-wrap:wrap">
+      <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="warning" hint-size="auto,22px">Fact check</x-import>
+      <span style="flex:1 1 400px;font:400 14px/1.55 var(--font-sans);color:var(--text-secondary)">I first used a figure of 1.8 lakh MBBS graduates a year. National Medical Commission seat counts put it closer to 1.1–1.2 lakh. The argument holds either way, but the number was wrong.</span>
+    </div>
+  </sc-if>
+</section>
+
+<section id="reframe" data-nav="reframe" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">05</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The reframe</span>
+    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:620px;margin:0">We didn't need a new system. <em style="color:var(--text-accent)">She's already there.</em></h2>
+    <p style="max-width:580px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">None of the research pointed at one problem until I flipped it. If people can't get to healthcare, healthcare has to get to them, and India already employs someone to do that: the ASHA, an Accredited Social Health Activist, a woman from the community paid per task to visit households.</p>
+  </div>
+
+  <div style="max-width:1040px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+    <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;gap:14px">
+      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">How she's used today</span>
+      <span style="font:400 32px/1.05 var(--font-display)">A surveyor</span>
+      <p style="font:400 15px/1.6 var(--font-sans);color:var(--text-secondary);margin:0">Most of her digital work is data collection for government programmes, spread across several apps (the NCD app, the RCH portal and others). She carries a kit of basic medicines, but nothing tells her when it's safe to use them.</p>
+    </div>
+    <div style="background:var(--surface-card);border:1px solid var(--border-strong);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;gap:14px">
+      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)">What she could be</span>
+      <span style="font:400 32px/1.05 var(--font-display)">A first responder</span>
+      <p style="font:400 15px/1.6 var(--font-sans);color:var(--text-secondary);margin:0">The same visit, but ending in a decision: treat this from the kit, or send it to a doctor with the evidence already attached. The medicine and the trust exist. What's missing is the authority to act on them.</p>
+    </div>
+  </div>
+
+  <div style="max-width:720px;margin:0 auto;width:100%;background:var(--accent-soft);border-radius:var(--radius-lg);padding:28px 32px;display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;box-sizing:border-box">
+    <span style="display:inline-flex;align-items:center;gap:8px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="help-circle" size="{{ 14 }}" hint-size="14px,14px"></x-import>How might we</span>
+    <p style="font:400 26px/1.3 var(--font-display);color:var(--text-primary);text-wrap:balance;margin:0">How might we give an ASHA worker the confidence to treat what's minor, and <em>the evidence to escalate</em> what isn't?</p>
+  </div>
+</section>
+
+<section id="design" data-nav="design" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">06</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The ASHA Companion</span>
+    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:620px;margin:0">A checkup she can finish <em style="color:var(--text-accent)">without typing</em>, or a signal</h2>
+    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">She already juggles enough government apps, so I designed this as an extension to one she has, eSanjeevani, rather than another icon on her home screen. It works offline and in local languages.</p>
+  </div>
+
+  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-wrap:wrap;gap:5px">
+      <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:2px;padding:12px">
+        <sc-for list="{{ flow }}" as="f" hint-placeholder-count="5">
+          <button onClick="{{ f.onClick }}" style="all:unset;cursor:pointer;display:flex;gap:12px;align-items:baseline;padding:10px 12px;border-radius:var(--radius-sm);background:{{ f.bg }};transition:background var(--dur-fast) var(--ease-out)">
+            <span style="font:500 11px/1 var(--font-mono);color:{{ f.numColor }}">{{ f.n }}</span>
+            <span style="font:500 14px/1.3 var(--font-sans);color:{{ f.color }}">{{ f.t }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="flex:2.4 1 420px;background:var(--surface-card);border-radius:10px;display:flex;flex-wrap:wrap;overflow:hidden">
+        <div style="flex:1 1 220px;background:#121212;display:flex;align-items:center;justify-content:center;padding:28px 20px">
+          <img src="{{ cur.src }}" alt="{{ cur.alt }}" style="width:100%;max-width:240px;aspect-ratio:824/1834;object-fit:contain;display:block">
+        </div>
+        <div style="flex:1.2 1 260px;padding:28px 24px;display:flex;flex-direction:column;gap:12px">
+          <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)">{{ cur.principle }}</span>
+          <span style="font:400 28px/1.1 var(--font-display);text-wrap:balance">{{ cur.t }}</span>
+          <span style="font:400 14px/1.65 var(--font-sans);color:var(--text-secondary)">{{ cur.d }}</span>
+          <div style="display:flex;gap:8px;margin-top:auto;padding-top:12px">
+            <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="secondary" size="sm" icon-left="arrow-left" on-click="{{ prev }}" hint-size="80px,32px">Back</x-import>
+            <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="primary" size="sm" icon-right="arrow-right" on-click="{{ next }}" hint-size="80px,32px">Next</x-import>
+          </div>
+        </div>
+      </div>
+    </div>
+    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
+      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">6.{{ stepNum }}</span>One household visit, screen by screen</span>
+      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Click through</span>
+    </figcaption>
+  </figure>
+
+  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-direction:column">
+    <sc-for list="{{ decisions }}" as="r" hint-placeholder-count="3">
+      <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:28px 0;border-top:1px solid var(--border-default)">
+        <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:10px">
+          <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">{{ r.n }}</span>
+          <span style="font:400 26px/1.1 var(--font-display);text-wrap:balance">{{ r.t }}</span>
+        </div>
+        <p style="flex:1.5 1 320px;font:400 15px/1.65 var(--font-sans);color:var(--text-secondary);margin:0">{{ r.d }}</p>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="guardrail" data-nav="guardrail" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">07</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The safety guardrail</span>
+    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:620px;margin:0">The app's most important job is <em style="color:var(--text-accent)">saying no</em></h2>
+    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Letting a community volunteer hand out medicine is only safe if something stops her when it shouldn't. The app follows the government's standing orders for ASHAs and locks the kit the moment a danger sign appears.</p>
+  </div>
+
+  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-wrap:wrap;gap:5px">
+      <div style="flex:1.2 1 340px;background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:22px">
+        <label style="display:flex;flex-direction:column;gap:10px">
+          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Temperature<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">{{ tempLabel }}</span></span>
+          <input type="range" min="97" max="106" step="0.5" value="{{ temp }}" onInput="{{ onTemp }}" onChange="{{ onTemp }}">
+        </label>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Fever for</span>
+          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tabs" variant="pill" items="{{ durItems }}" value="{{ dur }}" on-change="{{ onDur }}" hint-size="300px,40px"></x-import>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Danger signs · tap any</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ flags }}" as="g" hint-placeholder-count="5">
+              <button onClick="{{ g.onClick }}" style="all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:var(--radius-pill);border:1px solid {{ g.border }};background:{{ g.bg }};color:{{ g.color }};font:500 13px/1 var(--font-sans);transition:all var(--dur-fast) var(--ease-out)"><span style="width:6px;height:6px;border-radius:50%;background:{{ g.dot }}"></span>{{ g.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1 1 300px;background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Outcome</span>
+          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="{{ out.tone }}" dot="{{ true }}" hint-size="auto,22px">{{ out.channel }}</x-import>
+        </div>
+        <span style="font:400 32px/1.08 var(--font-display);text-wrap:balance">{{ out.title }}</span>
+        <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:var(--radius-md);background:var(--surface-sunken)">
+          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="{{ out.icon }}" size="{{ 18 }}" color="{{ out.iconColor }}" hint-size="18px,18px"></x-import>
+          <span style="font:500 14px/1.35 var(--font-sans)">{{ out.kit }}</span>
+        </div>
+        <p style="font:400 14px/1.6 var(--font-sans);color:var(--text-secondary);margin:0">{{ out.d }}</p>
+        <span style="font:400 12px/1.5 var(--font-sans);color:var(--text-muted);margin-top:auto;padding-top:14px;border-top:1px solid var(--border-subtle)">Thresholds here are placeholders for the demo. Real ones would come from the standing orders and a clinician, not from me.</span>
+      </div>
+    </div>
+    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
+      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">7.0</span>A fever case through the exclusion logic</span>
+      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Interactive · decision logic</span>
+    </figcaption>
+  </figure>
+</section>
+
+<section id="backend" data-nav="backend" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">08</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The doctor's end</span>
+    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:620px;margin:0">The doctor doesn't have to live in the village to <em style="color:var(--text-accent)">clear its queue</em></h2>
+    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Everything the ASHA records lands in a queue for a doctor, sorted by risk rather than arrival. The heavy lifting, transcribing her voice notes and scoring urgency, happens on the doctor's side, where the devices and the internet are better.</p>
+  </div>
+
+  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/asha/doctor-queue.png" alt="Doctor portal: Dr. Verma online, 12 waiting, priority queue with Ramesh Kumar critical at 104°F and fainted, then a 6-year-old with vomiting at medium" style="width:100%;aspect-ratio:2340/700;object-fit:cover;object-position:0 0;display:block;border-radius:10px"></div>
+    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
+      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">8.0</span>Priority queue: photo, vitals and transcript in one row</span>
+      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Hi-fi screen</span>
+    </figcaption>
+  </figure>
+
+  <div style="max-width:1040px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+    <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;gap:14px">
+      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--success)">Green channel</span>
+      <span style="font:400 28px/1.08 var(--font-display)">Solved at the doorstep</span>
+      <p style="font:400 15px/1.6 var(--font-sans);color:var(--text-secondary);margin:0">Fever, acidity and other minor cases are treated from the kit. The patient keeps the day's wage, and the hospital never sees the case.</p>
+    </div>
+    <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;gap:14px">
+      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--danger)">Red channel</span>
+      <span style="font:400 28px/1.08 var(--font-display)">Arrives with a referral</span>
+      <p style="font:400 15px/1.6 var(--font-sans);color:var(--text-secondary);margin:0">Serious cases reach the hospital with a digital referral ticket, already reviewed by a doctor, so they skip the registration counter instead of starting from zero.</p>
+    </div>
+  </div>
+
+  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--border-strong)"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">A further proposal · surge reviewers</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Speculative</x-import></div>
+    <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Government doctors are busiest between roughly 10 am and 2 pm. Because cases are stored and reviewed later rather than live, a private practitioner in the city could log in during their own quiet hours and clear rural cases for a subsidised per-case fee. It's closer to how ride-hailing adds drivers at peak times than to hiring, and it speaks directly to the “ghost village” problem: the doctor stays in the city, the patient still gets seen.</p>
+  </div>
+</section>
+
+<section id="limits" data-nav="limits" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">09</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Assumptions and limits</span>
+    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">We met the patients. We never met <em style="color:var(--text-accent)">an ASHA</em></h2>
+    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">The research is strongest on why people avoid care and weakest on the person the design is for. Here is what the concept rests on.</p>
+  </div>
+
+  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-direction:column">
+    <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--border-strong);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span>Assumption</span><span>Status</span></div>
+    <sc-for list="{{ assumptions }}" as="a" hint-placeholder-count="6">
+      <div style="display:flex;flex-wrap:wrap;gap:8px 24px;padding:18px 0;border-bottom:1px solid var(--border-default);align-items:baseline">
+        <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:4px">
+          <span style="font:500 15px/1.35 var(--font-sans)">{{ a.t }}</span>
+          <span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">{{ a.d }}</span>
+        </div>
+        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="{{ a.tone }}" hint-size="auto,22px">{{ a.status }}</x-import>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center">
+    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted);margin-right:8px">First questions for an ASHA</span>
+    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">What's in your kit today?</x-import>
+    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">When do you hold back from using it?</x-import>
+    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">Which app do you open most?</x-import>
+    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">How late do incentives arrive?</x-import>
+  </div>
+</section>
+
+<section id="reflection" data-nav="reflection" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">10</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Retrospective</span>
+    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">The best idea came from <em style="color:var(--text-accent)">not building anything new</em></h2>
+  </div>
+  <div style="max-width:880px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px">
+    <sc-for list="{{ retro }}" as="r" hint-placeholder-count="4">
+      <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">{{ r.n }}</span><span style="font:500 15px/1.3 var(--font-sans)">{{ r.t }}</span><span style="font:400 13px/1.55 var(--font-sans);color:var(--text-secondary)">{{ r.d }}</span></div>
+    </sc-for>
+  </div>
+</section>
+
+<section style="max-width:1040px;margin:0 auto;padding-top:128px">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span>Next project</span><span>01 / 03</span></div>
+  <a href="aimxr.html" style="display:flex;flex-wrap:wrap;gap:5px;padding:5px;background:var(--surface-sunken);border-radius:var(--radius-lg);border:1px solid transparent;text-decoration:none;color:var(--text-primary);transition:transform var(--dur-base) var(--ease-out), border-color var(--dur-fast) var(--ease-out)" style-hover="transform:translateY(-3px);border-color:var(--border-default);color:var(--text-primary)">
+    <div style="flex:1 1 320px;min-width:0;background:var(--surface-card);border-radius:10px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+      <span style="font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">AimXR · Usability study · 2026</span>
+      <h3 style="font:400 clamp(26px,2.6vw,32px)/1.08 var(--font-display);letter-spacing:-0.01em;text-wrap:balance;margin:0">Finding where first-time VR players get stuck learning a tactical shooter</h3>
+      <span style="display:inline-flex;align-items:center;gap:6px;font:500 13px/1 var(--font-sans);color:var(--text-accent)">Read case study<x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="arrow-right" size="{{ 14 }}" hint-size="14px,14px"></x-import></span>
+    </div>
+    <div style="flex:1.2 1 320px;min-width:0;min-height:260px;position:relative"><img src="assets/aimxr-cover.png" alt="Participant in a VR headset holding both controllers" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block;border-radius:10px"></div>
+  </a>
+</section>
+
+</main>
+
+<footer data-theme="dark" style="background:var(--band-bg);color:var(--band-fg);margin-top:var(--space-11)">
+  <div style="max-width:var(--max-content);margin:0 auto;padding:128px var(--margin-page) 32px;display:flex;flex-direction:column;gap:112px">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px">
+      <span style="font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">ASHA Companion · University project · 2025</span>
+      <div data-reveal="" style="font:400 clamp(40px,5vw,64px)/1.02 var(--font-display);letter-spacing:-0.02em;text-wrap:balance;max-width:760px">The cheapest clinic is the one that <em style="color:var(--text-accent)">knocks on your door.</em></div>
+      <p style="font:400 15px/1.5 var(--font-sans);color:var(--text-muted);max-width:520px;margin:0">Field research in Dehradun with classmates. Concept and screens are mine. Nothing was tested with ASHA workers or clinicians.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="accent" icon-right="arrow-up-right" on-click="{{ goContact }}" hint-size="120px,40px">Let's talk</x-import>
+        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="secondary" icon-left="arrow-left" on-click="{{ goWork }}" hint-size="120px,40px">All work</x-import>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:1px solid var(--border-default);padding-top:20px;font:400 12px/1 var(--font-mono);color:var(--text-muted)">
+      <span>© 2026 Parthiv</span>
+      <span style="display:flex;gap:20px"><a href="https://www.linkedin.com/in/parthiv-nair-a1ba23273" target="_blank" rel="noopener" style="color:inherit">LinkedIn</a><a href="https://drive.google.com/drive/folders/1yHF96X8kEyGxpA_ee23sn0sXkNUF6tDy?usp=sharing" target="_blank" rel="noopener" style="color:inherit">CV</a></span>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;link&quot;,&quot;marker&quot;,&quot;clay&quot;,&quot;par&quot;,&quot;mono&quot;],&quot;default&quot;:&quot;link&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;corrections&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  state = { active: 'overview', wide: false, railOn: false, site: 'chc', step: 0, wage: 400, pubTravel: 150, pubHours: 8, privFee: 200, privHours: 1, temp: 102, dur: 'lt1', flags: {} };
+
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const motion = (this.props.motion ?? true) && !reduce;
+    const H = () => window.innerHeight || 800;
+    const show = n => { n.style.opacity = '1'; n.style.transform = 'none'; n.dataset.shown = '1'; };
+    document.querySelectorAll('[data-reveal]').forEach(n => {
+      if (!motion) return show(n);
+      n.style.transition = 'opacity 900ms cubic-bezier(.16,1,.3,1), transform 900ms cubic-bezier(.16,1,.3,1)';
+      if (n.getBoundingClientRect().top < H() * 0.92) show(n);
+      else if (!n.dataset.shown) { n.style.opacity = '0'; n.style.transform = 'translateY(20px)'; }
+    });
+    this.check = () => {
+      const h = H();
+      document.querySelectorAll('[data-reveal]').forEach(n => { if (!n.dataset.shown && n.getBoundingClientRect().top < h * 0.92) show(n); });
+      let active = 'overview';
+      document.querySelectorAll('[data-nav]').forEach(s => { if (s.getBoundingClientRect().top < 200) active = s.getAttribute('data-nav'); });
+      const wide = window.innerWidth >= 1180, railOn = window.scrollY > 500;
+      if (active !== this.state.active || wide !== this.state.wide || railOn !== this.state.railOn) this.setState({ active, wide, railOn });
+    };
+    window.addEventListener('scroll', this.check, { passive: true });
+    window.addEventListener('resize', this.check);
+    this.check();
+    this.t1 = setTimeout(this.check, 300);
+    this.t2 = setTimeout(this.check, 1200);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.check);
+    window.removeEventListener('resize', this.check);
+    clearTimeout(this.t1); clearTimeout(this.t2);
+  }
+  jump(id) {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: 'smooth' });
+  }
+
+  getTheme() { if (this.state.theme) return this.state.theme; let t; try { t = localStorage.getItem('par-theme'); } catch (e) {} return t === 'light' ? 'light' : 'dark'; }
+  themeVals() {
+    const theme = this.getTheme();
+    try { document.documentElement.style.background = document.body.style.background = theme === 'dark' ? '#0E0E0E' : '#FFFFFF'; } catch (e) {}
+    return { theme, themeIcon: theme === 'dark' ? 'sun' : 'moon', themeLabel: theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+      toggleTheme: () => { const t = theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('par-theme', t); } catch (e) {} this.setState({ theme: t }); } };
+  }
+  renderVals() {
+    const { active, site, step, wage, pubTravel, pubHours, privFee, privHours, temp, dur, flags } = this.state;
+    const tocList = [['overview', 'Overview'], ['context', 'Context'], ['field', 'Fieldwork'], ['cost', 'The real cost'], ['doctors', 'The other side'], ['reframe', 'The reframe'], ['design', 'The app'], ['guardrail', 'Safety guardrail'], ['backend', "Doctor's end"], ['limits', 'Limits'], ['reflection', 'Retrospective']];
+
+    const plus = (t, d) => ({ t, d, sign: '+', color: 'var(--success)' });
+    const minus = (t, d) => ({ t, d, sign: '−', color: 'var(--danger)' });
+    const obs = (t, d) => ({ t, d, sign: '·', color: 'var(--text-accent)' });
+    const sites = {
+      chc: { where: 'Community Health Centre · Raipur, Dehradun', title: 'We watched from the waiting area', caption: 'Government CHC, observed without interviews',
+        photos: [{ src: 'assets/asha/chc-front.png', alt: 'Entrance of the Community Health Centre, Raipur, Dehradun' }, { src: 'assets/asha/field-roadside.png', alt: 'Parthiv on the roadside outside, watching a row of stalls' }],
+        notes: [minus('No way to find your doctor', 'Every sign was in Hindi, yet none said where a department was or how far to walk.'), minus('Too few seats', 'With nowhere to sit, patients and family kept moving, which made the corridors feel more chaotic than they were.'), minus('Poor hygiene', 'Dull, stained walls and toilets we could smell from the entrance.')] },
+      people: { where: 'Settlements and street vendors · Dehradun', title: 'The people who rely on it', caption: 'Settlements near the city centre, where we held street interviews',
+        photos: [{ src: 'assets/asha/slum-shack.png', alt: 'Tin-walled home in an informal settlement at sunset' }, { src: 'assets/asha/street-stalls.png', alt: 'Roadside stalls and makeshift shelters along a pavement' }],
+        notes: [obs('Government care was a last resort', 'People spoke about the government hospital as somewhere you end up, not somewhere you choose.'), obs('Travel was the barrier, not fees', 'A round trip into town was a real expense, before counting a lost day of work.'), obs('Waiting it out was the default', 'Several people said they would rather wait for an illness to pass than see anyone.')] },
+      private: { where: 'Private hospital and a tier-3 clinic · Dehradun', title: 'The private side worked better, mostly', caption: 'A private hospital and a single-room neighbourhood clinic',
+        photos: [{ src: 'assets/asha/private-waiting.png', alt: 'Private hospital waiting area with rows of metal seats and numbered consulting rooms' }, { src: 'assets/asha/field-clinic-notes.png', alt: 'Parthiv taking notes outside a small neighbourhood clinic at night' }],
+        notes: [plus('Signage everywhere, plenty of seats', 'It was hard to get lost, and carers had somewhere to sit out of the way.'), plus('Patient IDs did the walking', 'Moving between doctors happened behind the screen. The patient only had to confirm their details.'), minus('The token system only existed', 'Queue displays hung over every door, switched off. A central pharmacy with no entry point was mobbed from all sides.'), minus('Small things nobody fixed', 'No braille on signs or forms, and TVs for waiting families looping the same two or three ads.')] }
+    };
+    const cs = sites[site];
+
+    const flowData = [
+      { t: 'Home', principle: 'Offline-first', src: 'assets/asha/app-home.png', alt: 'Home: New Checkup button and 3 cases pending upload', d: 'One button starts a checkup. Below it, the sync card says what she needs to hear in a village with no signal: three cases are waiting to upload, and the data is safe. Records are stored on the phone and sent when the network returns.' },
+      { t: 'Who is the patient?', principle: 'No-type input', src: 'assets/asha/app-patient.png', alt: 'Patient screen with photo, voice name, gender and age pictograms', d: 'A photo and a spoken name identify the patient. Gender and age are three large pictograms each. Nothing here requires reading or typing, which matters for workers with limited literacy or a cracked screen.' },
+      { t: 'Where does it hurt?', principle: 'Visual triage', src: 'assets/asha/app-pain.png', alt: 'Body map with a marker on the knee and three severity faces', d: 'She taps the body, front or back, instead of choosing a medical term. Tapping a stomach is faster than typing “abdominal pain”, and harder to get wrong. Severity is three faces the patient can point to themselves.' },
+      { t: 'Checkup readings', principle: 'Evidence for the doctor', src: 'assets/asha/app-vitals.png', alt: 'Readings: symptom photo, voice details, temperature, O2, BP', d: 'A photo of any visible symptom and a voice note answering “Kab se dard hai?” (how long has it hurt?) give the doctor context a form can\'t. Temperature, oxygen and blood pressure come from the kit she already carries.' },
+      { t: 'Checkup complete', principle: 'Authority + transparency', src: 'assets/asha/app-complete.png', alt: 'Complete: give 1 tablet, go to doctor if fever stays 24 hours, earned ₹20', d: 'The result is an instruction she\'s allowed to follow, a clear point at which to escalate, and the ₹20 she earned for the visit, shown immediately even though the payment arrives later.' }
+    ];
+    const cur = flowData[step];
+    const go = i => this.setState({ step: (i + flowData.length) % flowData.length });
+
+    const lost = h => Math.round(wage * h / 8);
+    const pub = pubTravel + lost(pubHours), priv = privFee + lost(privHours);
+    const max = Math.max(pub, priv, 1);
+    const diff = Math.abs(pub - priv);
+
+    const flagList = [['faint', 'Fainted'], ['breath', 'Fast breathing'], ['fits', 'Convulsions'], ['drink', "Can't drink"], ['blood', 'Blood in vomit or stool']];
+    const anyFlag = flagList.some(([k]) => flags[k]);
+    let out;
+    if (anyFlag || temp >= 104 || dur === 'gt3') {
+      const why = anyFlag ? 'A danger sign was recorded' : temp >= 104 ? 'The temperature is above the safe limit' : 'The fever has lasted too long';
+      out = { channel: 'Red channel', tone: 'danger', title: 'Refer to a doctor', icon: 'lock', iconColor: 'var(--danger)', kit: 'Medicine kit locked', d: why + ', so the app won\'t suggest paracetamol or ORS. The case jumps to the top of the doctor\'s queue with photo, vitals and voice note, and the patient gets a digital referral ticket.' };
+    } else if (temp >= 100) {
+      out = { channel: 'Green channel', tone: 'success', title: 'Give 1 tablet for fever', icon: 'unlock', iconColor: 'var(--success)', kit: 'Authorised from the kit', d: 'No danger signs, so she can act on the standing order. The app adds a warning: if the fever stays for 24 hours, go to a doctor. A doctor still reviews the record when it syncs.' };
+    } else {
+      out = { channel: 'Green channel', tone: 'neutral', title: 'No medicine needed', icon: 'check', iconColor: 'var(--text-muted)', kit: 'Kit not required', d: 'The reading is normal. She records it, advises fluids and rest, and the visit still counts toward her incentive.' };
+    }
+
+    return {
+      ...this.themeVals(),
+      goWork: () => { window.location.href = 'index.html#work'; },
+      goContact: () => { window.location.href = 'index.html#contact'; },
+      accent: this.props.accent ?? 'link',
+      corrections: this.props.corrections ?? false,
+      railVisible: this.state.wide && this.state.railOn,
+      toc: tocList.map(([id, label]) => {
+        const on = active === id;
+        return { label, color: on ? 'var(--text-primary)' : 'var(--text-muted)', w: on ? '14px' : '6px', bar: on ? 'var(--accent)' : 'var(--border-default)', onClick: () => this.jump(id) };
+      }),
+
+      scale: [
+        { v: '~4,300', d: 'Estimated deaths a day in India linked to poor-quality care, from a 2018 Lancet commission (about 1.6 million a year).' },
+        { v: '55M', d: 'People pushed below the poverty line in a single year by out-of-pocket health spending, per a 2018 Public Health Foundation of India study.' },
+        { v: '1 : 1,511', d: 'Allopathic doctors to population, as reported in Parliament. The WHO benchmark is 1 : 1,000.' }
+      ],
+
+      siteItems: [{ id: 'chc', label: 'Government CHC' }, { id: 'people', label: 'The reliant' }, { id: 'private', label: 'Private care' }],
+      site, onSite: id => this.setState({ site: id }), cs,
+      siteNum: { chc: 0, people: 1, private: 2 }[site],
+      quotes: [
+        { hi: 'Humari kya, kisi ki bhi naubat na aaye sarkaari hospital jaane ki', en: 'Forget us, may nobody ever be reduced to going to a government hospital.', who: 'Chai vendor near the CHC, Dehradun' },
+        { hi: 'Beti se milne nahi ja paati kyunki 300 Rs. ka gaadi kharcha padta hai', en: 'I can\'t go to see my daughter, because the ride costs ₹300.', who: 'A woman from Srinagar, Uttarakhand, living in a chawl' }
+      ],
+
+      wage, pubTravel, pubHours, privFee, privHours,
+      onWage: e => this.setState({ wage: +e.target.value }),
+      onPubTravel: e => this.setState({ pubTravel: +e.target.value }),
+      onPubHours: e => this.setState({ pubHours: +e.target.value }),
+      onPrivFee: e => this.setState({ privFee: +e.target.value }),
+      onPrivHours: e => this.setState({ privHours: +e.target.value }),
+      costBars: [
+        { label: 'Government centre', total: pub.toLocaleString('en-IN'), w: (pub / max * 100) + '%', fill: pub >= priv ? 'var(--accent)' : 'var(--gray-600)', split: '₹0 fee · ₹' + pubTravel + ' travel · ₹' + lost(pubHours) + ' lost wages' },
+        { label: 'Local private clinic', total: priv.toLocaleString('en-IN'), w: (priv / max * 100) + '%', fill: priv > pub ? 'var(--accent)' : 'var(--gray-600)', split: '₹' + privFee + ' fee · walking distance · ₹' + lost(privHours) + ' lost wages' }
+      ],
+      costVerdict: pub > priv
+        ? 'With these numbers, the “free” visit costs ₹' + diff + ' more. And neither is as cheap as staying home, which is what people told us they did.'
+        : pub === priv ? 'With these numbers, the two cost the same. Staying home is still cheaper than both.'
+        : 'With these numbers, the government centre wins by ₹' + diff + '. It took a short trip and a short wait to get here, which wasn\'t what we heard.',
+
+      motives: [
+        { n: '01', t: 'The pay gap', d: 'Private salaries have pulled far enough ahead that a government post can feel like a financial penalty, though some states now offer “you quote, we pay” packages.' },
+        { n: '02', t: 'The ghost village', d: 'Postings can come with no decent housing, no good school for their children and no social circle.' },
+        { n: '03', t: 'Nothing to work with', d: 'A remote health centre may lack the equipment a doctor trained on, so much of the job becomes paperwork and referral.' },
+        { n: '04', t: 'Losing their edge', d: 'Three years in a remote post can mean de-skilling. Peers who stayed in city hospitals return to postgraduate exams sharper.' }
+      ],
+
+      flow: flowData.map((f, i) => ({ n: String(i + 1).padStart(2, '0'), t: f.t, onClick: () => go(i), bg: i === step ? 'var(--surface-card)' : 'transparent', color: i === step ? 'var(--text-primary)' : 'var(--text-muted)', numColor: i === step ? 'var(--text-accent)' : 'var(--text-muted)' })),
+      cur, stepNum: step + 1, prev: () => go(step - 1), next: () => go(step + 1),
+
+      decisions: [
+        { n: '01', t: 'An extension, not another app', d: 'ASHAs already work across several government apps. Adding one more would compete for the same phone storage and the same patience. Built into a platform she already has, the triage kit becomes one more option inside a familiar tool.' },
+        { n: '02', t: 'Heavy work happens on the doctor\'s side', d: 'Her phone may be old and her signal may be gone. So the phone only captures photos, audio and numbers. Transcription and risk scoring run on the doctor\'s end, where better devices and internet are a safer assumption.' },
+        { n: '03', t: 'Show the money now', d: 'ASHAs are paid per task, and the payment is reportedly slow and hard to track. Showing ₹20 the moment a checkup is done doesn\'t pay her faster, but it makes the system less opaque, and gives her a reason to log every visit.' }
+      ],
+
+      temp, tempLabel: temp.toFixed(1) + '°F',
+      onTemp: e => this.setState({ temp: +e.target.value }),
+      durItems: [{ id: 'lt1', label: 'Under a day' }, { id: '1to3', label: '1–3 days' }, { id: 'gt3', label: '3+ days' }],
+      dur, onDur: id => this.setState({ dur: id }),
+      flags: flagList.map(([k, label]) => {
+        const on = !!flags[k];
+        return { label, onClick: () => this.setState(s => ({ flags: { ...s.flags, [k]: !s.flags[k] } })), border: on ? 'var(--danger)' : 'var(--border-default)', bg: on ? 'color-mix(in srgb, var(--danger) 14%, transparent)' : 'transparent', color: on ? 'var(--text-primary)' : 'var(--text-secondary)', dot: on ? 'var(--danger)' : 'var(--border-strong)' };
+      }),
+      out,
+
+      assumptions: [
+        { t: 'ASHAs would trust and use a triage tool', d: 'We didn\'t interview a single ASHA worker. Everything about her workflow comes from secondary sources.', status: 'Unverified', tone: 'outline' },
+        { t: 'Patients would trust her over the local quack', d: 'I argued that clinical authority from the app would shift trust. That\'s a hope, not something we observed.', status: 'Unverified', tone: 'outline' },
+        { t: 'Private care is often cheaper and faster', d: 'Based on a small number of interviews and published fees, in one city. It suggests a pattern; it doesn\'t prove one.', status: 'Small sample', tone: 'warning' },
+        { t: 'A doctor can review a case in under 30 seconds', d: 'I presented this as a result. It\'s a design target, and nobody has timed it.', status: 'Target, not result', tone: 'warning' },
+        { t: 'Standing orders let ASHAs give basic medicine', d: 'ASHA drug kits do include items like paracetamol and ORS. Exactly what each state allows still needs checking.', status: 'Broadly true', tone: 'success' },
+        { t: 'Private doctors would take subsidised rural cases', d: 'The surge-reviewer idea assumes the fee is worth their time and that liability can be shared. Neither is tested.', status: 'Speculative', tone: 'outline' }
+      ],
+      retro: [
+        { n: '01', t: 'The reframe did the real work', d: 'Weeks of research didn\'t point at a problem until I stopped asking how to get people to care, and asked who already reaches them. Everything after that was easier.' },
+        { n: '02', t: 'I designed for someone I never met', d: 'We met patients, vendors and families, and not one ASHA. If I did this again, finding two or three would come before the first screen.' },
+        { n: '03', t: '“Gamifying” was the wrong word', d: 'I pitched the earnings tab as gamifying her income. It\'s really just showing her money she\'s already owed, sooner. That\'s a smaller claim and a more honest one.' },
+        { n: '04', t: 'Being turned away was useful', d: 'Not getting permission at the CHC felt like a setback. It pushed us onto the street, where the most important finding was: many people just don\'t go.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
