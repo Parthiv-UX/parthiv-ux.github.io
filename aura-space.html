@@ -1,684 +1,823 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Aura Space: a speculative wayfinding concept that tells airport travellers how long they have before boarding. Case study by Parthiv Nair.">
+<title>Aura Space: case study</title>
 <script src="./support.js"></script>
-<title>Par's Works</title>
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="ds/pdsparsdesignsystem_716ab0/tokens.css">
+<link rel="stylesheet" href="ds/pdsparsdesignsystem_716ab0/components/bundle.css">
+<script src="ds/pdsparsdesignsystem_716ab0/components/bundle.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/fonts.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/accents.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/colors.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/typography.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/spacing.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/effects.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/base.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/styles.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/_ds_bundle.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
 <style>
-html,body{margin:0;background:#0E0E0E}
-input[type=range]{accent-color:var(--accent);width:100%}
-a{color:var(--text-accent)}a:hover{color:var(--text-primary)}
+html,body{margin:0;background:#F1F2F4}
+:root{--font-display:"Plus Jakarta Sans","Inter",ui-sans-serif,system-ui,sans-serif;--font-sans:"Inter",ui-sans-serif,system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;
+--paper:#F1F2F4;--card:#FFFFFF;--sunken:#E3E5E9;--ink:#121417;--ink2:#3B4048;--muted:#5A6069;--line:#D9DCE1;
+--board:#111316;--board2:#1D2026;--board3:#2A2E35;--boardtx:#C9CDD3;--boardmu:#8A919B;
+--flap:#FFB000;--flap-t:#8A5A00;--sign:#FFD400;--cyan:#19E3FF;--cyan-t:#0A6C7D;--red:#E0303F;--red-t:#B01E2F;--night:#0B1B2B;
+--ease:cubic-bezier(.16,1,.3,1);--ease-io:cubic-bezier(.65,0,.35,1)}
+a{color:inherit}
+:focus-visible{outline:2px solid #1F45D6;outline-offset:3px;border-radius:6px}
+.mono{font:500 11px/1.3 var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.tnum{font-variant-numeric:tabular-nums}
+.h2{font:700 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.03em;text-wrap:balance;max-width:680px;margin:0;color:var(--ink)}
+.lede{max-width:580px;font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0;text-wrap:pretty}
+.head{max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+.sec{padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px}
+.w1040{max-width:1040px;margin:0 auto;width:100%}
+.w880{max-width:880px;margin:0 auto;width:100%}
+.cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px;flex-wrap:wrap}
+.cap .l{display:flex;gap:10px;align-items:baseline;font:400 13px/1.45 var(--font-sans);color:var(--ink2)}
+.cap .n{font:500 11px/1 var(--font-mono);color:var(--ink)}
+.cap .k{font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ftitle{margin:0;font:700 clamp(24px,2.6vw,32px)/1.1 var(--font-display);letter-spacing:-0.03em;color:var(--ink);text-wrap:balance}
+.h3{font:600 20px/1.25 var(--font-display);letter-spacing:-0.02em;margin:0;color:var(--ink)}
+.p{font:400 15px/1.6 var(--font-sans);color:var(--ink2);margin:0;text-wrap:pretty}
+.btn{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 13px/1 var(--font-sans);height:40px;padding:0 16px;border-radius:999px;cursor:pointer;transition:background 220ms var(--ease),border-color 220ms var(--ease),color 220ms var(--ease),transform 120ms var(--ease)}
+.btn:hover{border-color:var(--ink)}
+.btn:active{transform:scale(.97)}
+.btn[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pill-link{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 14px;border-radius:999px;font:600 13px/1 var(--font-sans);text-decoration:none;transition:background 220ms var(--ease),transform 120ms var(--ease)}
+.pill-link:active{transform:scale(.97)}
+.navp{padding:8px 14px;border-radius:999px;font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--muted)}
+.navp:hover{color:var(--ink)}
+/* split-flap */
+.flap{display:inline-grid;place-items:center;width:clamp(36px,6.2vw,86px);height:clamp(52px,8.8vw,120px);background:var(--board2);border-radius:8px;color:var(--flap);font:800 clamp(30px,5.8vw,80px)/1 var(--font-display);position:relative;box-shadow:inset 0 -1px 0 #000}
+.flap::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:#07080A}
+.flap.in{animation:flip 520ms var(--ease) both}
+@keyframes flip{from{transform:rotateX(90deg)}to{transform:rotateX(0)}}
+.cell{display:inline-grid;place-items:center;min-width:22px;height:30px;padding:0 6px;background:var(--board2);border-radius:4px;font:700 15px/1 var(--font-mono);color:var(--boardtx);position:relative}
+.cell::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#07080A}
+.st{display:inline-flex;align-items:center;justify-content:center;font:700 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;height:28px;padding:0 10px;border-radius:4px;white-space:nowrap}
+/* boarding pass */
+.pass{background:var(--card);border-radius:22px;display:grid;grid-template-columns:minmax(0,1fr) 250px;position:relative;box-shadow:0 2px 6px rgba(18,20,23,.08),0 30px 60px rgba(18,20,23,.16)}
+.stub{border-left:2px dashed var(--line);padding:26px 24px;display:flex;flex-direction:column;gap:16px;text-align:left;position:relative}
+.stub::before,.stub::after{content:"";position:absolute;left:-13px;width:24px;height:24px;border-radius:50%;background:var(--paper)}
+.stub::before{top:-12px}.stub::after{bottom:-12px}
+.kv{display:flex;flex-direction:column;gap:4px}
+.kv dt{font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.kv dd{margin:0;font:700 20px/1.15 var(--font-display);letter-spacing:-0.02em;color:var(--ink)}
+/* route strips */
+.route{display:grid;align-items:center;gap:0;position:relative}
+.node{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;position:relative;z-index:1;padding:0 4px}
+.dotn{width:16px;height:16px;border-radius:50%;background:var(--card);border:3px solid var(--ink)}
+.chk{width:100%;max-width:64px;height:36px;border-radius:6px;background:var(--flap);display:grid;place-items:center;font:700 10px/1 var(--font-mono);letter-spacing:.06em;color:var(--ink)}
+.ico{width:34px;height:34px;border-radius:8px;background:var(--sign);display:grid;place-items:center;color:var(--ink);font:700 11px/1 var(--font-mono)}
+.ico.off{background:transparent;border:1.5px dashed #A9AEB6;color:#A9AEB6}
+.ico svg{width:20px;height:20px}
+/* rail */
+.rail{background:var(--board);border-radius:14px;padding:14px 14px 12px;box-shadow:0 1px 2px rgba(18,20,23,.2)}
+.toc{display:flex;align-items:center;gap:9px;padding:5px 0;font:500 13px/1.2 var(--font-sans);cursor:pointer;background:none;border:0;text-align:left;width:100%;transition:color 120ms var(--ease)}
+.toc .sq{flex:none;width:8px;height:8px;border-radius:2px;box-sizing:border-box;transition:background 220ms var(--ease)}
+.rflap{display:inline-grid;place-items:center;width:26px;height:34px;background:var(--board2);border-radius:4px;color:var(--flap);font:800 22px/1 var(--font-display);position:relative}
+.rflap::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#07080A}
+/* stepper */
+.step{appearance:none;border:0;background:transparent;text-align:left;cursor:pointer;display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:center;padding:12px 14px;border-radius:12px;color:var(--boardmu);font:600 15px/1.3 var(--font-sans);transition:background 220ms var(--ease),color 220ms var(--ease)}
+.step:hover{color:#fff}
+.step[aria-pressed="true"]{background:var(--board2);color:#fff}
+.gnum{display:grid;place-items:center;width:30px;height:30px;border-radius:6px;font:700 11px/1 var(--font-mono);background:var(--board3);color:var(--boardtx)}
+.step[aria-pressed="true"] .gnum{background:var(--flap);color:var(--ink)}
+.pin{position:absolute;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font:700 12px/1 var(--font-mono);cursor:pointer;transition:transform 220ms var(--ease),background 220ms var(--ease)}
+.pin:hover{transform:translate(-50%,-50%) scale(1.08)}
+.arow{appearance:none;border:0;background:transparent;width:100%;text-align:left;cursor:pointer;display:grid;grid-template-columns:52px minmax(0,1fr) 128px;gap:16px;align-items:center;padding:14px 18px;color:var(--boardtx);font:500 15px/1.45 var(--font-sans);border-top:1px solid var(--board3);transition:background 220ms var(--ease)}
+.arow:hover{background:#171A1F}
+.arow[aria-expanded="true"]{background:var(--board2)}
+.next{transition:transform 220ms var(--ease)}.next:hover{transform:translateY(-3px)}
+@media (min-width:1180px){.w1040{max-width:min(1040px,calc(100vw - 540px))}.w880{max-width:min(880px,calc(100vw - 540px))}}
+@media (prefers-reduced-motion:reduce){.flap.in{animation:none}.toc,.toc .sq,.step,.pin,.arow,.btn,.next{transition:none!important}}
+@media (max-width:1100px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:860px){.g2,.g3,.split{grid-template-columns:minmax(0,1fr)!important}.hide-sm{display:none!important}.hscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}.hscroll>*{min-width:640px}.pass{grid-template-columns:minmax(0,1fr)!important}.stub{border-left:0!important;border-top:2px dashed var(--line)}.stub::before,.stub::after{display:none}.arow{grid-template-columns:40px minmax(0,1fr)!important}.arow .stc{grid-column:2;justify-self:start}.anat{flex-direction:column!important;align-items:center!important}}
+@media (max-width:640px){.g4{grid-template-columns:minmax(0,1fr)!important}.brow{grid-template-columns:minmax(0,1fr) auto!important}.brow .bx{display:none!important}}
+.glass{position:sticky;top:0;z-index:40;background:color-mix(in srgb,#F1F2F4 68%,transparent);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(17,21,27,.07)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:#F1F2F4}}
+@media (prefers-reduced-transparency:reduce),(prefers-contrast:more){.glass{background:#F1F2F4;-webkit-backdrop-filter:none;backdrop-filter:none}}
+.glass nav{background:rgba(255,255,255,.82)!important;border-color:rgba(17,21,27,.09)!important}
+.glass nav a:not([aria-current="page"]){color:#4A4F57!important}
+@media (max-width:640px){.decocard{padding-top:72px!important}.deco{transform:scale(.6);transform-origin:100% 0}.decocard-b{padding-bottom:72px!important}.deco-b{transform:scale(.6);transform-origin:100% 100%}}@media (max-width:860px){.hscroll::before{content:"Scroll sideways to see all of it";display:block;position:sticky;left:0;width:max-content;margin:0 0 12px;font:500 10px/1.3 var(--font-mono,monospace);letter-spacing:.08em;text-transform:uppercase;color:#5E6470}}@media (max-width:640px){.flap{width:26px!important;height:40px!important;font-size:22px!important;border-radius:5px!important}.bandcell{width:19px!important;height:32px!important;font-size:15px!important;min-width:0!important;padding:0!important}}
 </style>
 </helmet>
 
-<div data-theme="{{ theme }}" data-accent="{{ accent }}" style="background:var(--bg-page);color:var(--text-primary);font:var(--type-body);min-height:100vh;overflow-x:clip">
+<div style="background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--font-sans);min-height:100vh;overflow-x:clip">
 
-<header style="position:sticky;top:0;z-index:40;background:color-mix(in srgb, var(--bg-page) 82%, transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
-  <div style="max-width:var(--max-content);margin:0 auto;padding:0 var(--margin-page);min-height:72px;display:grid;grid-template-columns:{{ hdrCols }};grid-template-rows:{{ hdrRows }};align-items:center;column-gap:12px">
-    <a href="index.html" style="font:400 26px/1 var(--font-display);letter-spacing:-0.02em;text-decoration:none;color:var(--text-primary)">Parthiv<span style="color:var(--accent)">.</span></a>
-    <nav style="display:flex;gap:2px;padding:3px;border:1px solid var(--border-default);border-radius:var(--radius-pill);background:var(--surface-card);grid-column:{{ navCol }};order:{{ navOrder }};justify-self:center;margin-bottom:{{ navMb }}">
-      <a href="index.html#work" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;background:var(--surface-sunken);color:var(--text-primary)">Work</a>
-      <a href="index.html#about" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--text-muted)">About</a>
-      <a href="index.html#contact" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--text-muted)">Contact</a>
+<header class="glass">
+  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,80px);min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+    <a href="index.html" style="font:800 24px/1 var(--font-display);letter-spacing:-0.03em;text-decoration:none;color:var(--ink)">Parthiv<span style="color:#2B59FF">.</span></a>
+    <nav aria-label="Main" class="hide-sm" style="display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--card)">
+      <a class="navp" href="index.html#work" aria-current="page" style="background:var(--sunken);color:var(--ink)">Work</a>
+      <a class="navp" href="index.html#about">About</a>
+      <a class="navp" href="index.html#contact">Contact</a>
     </nav>
-<div style="display:flex;justify-content:flex-end;align-items:center;gap:8px">
-      <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.IconButton" icon="{{ themeIcon }}" label="{{ themeLabel }}" variant="ghost" size="sm" on-click="{{ toggleTheme }}" hint-size="32px,32px"></x-import>
-      <sc-if value="{{ showTalk }}" hint-placeholder-val="{{ true }}">
-      <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="accent" size="sm" icon-right="arrow-up-right" on-click="{{ goContact }}" hint-size="110px,32px">Let's talk</x-import>
-      </sc-if>
-    </div>
+    <a class="pill-link" href="mailto:parthivnair10c@gmail.com" style="background:var(--ink);color:#fff">Let’s talk</a>
   </div>
 </header>
 
+<!-- CONTENTS RAIL: a mini departure board. The gate countdown falls as you read. -->
 <sc-if value="{{ railVisible }}" hint-placeholder-val="{{ false }}">
-  <nav style="position:fixed;left:var(--margin-page);top:120px;z-index:30;display:flex;flex-direction:column;gap:2px;width:170px">
-    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted);margin-bottom:10px">Contents</span>
-    <sc-for list="{{ toc }}" as="t" hint-placeholder-count="10">
-      <a onClick="{{ t.onClick }}" style="display:flex;align-items:center;gap:8px;padding:5px 0;font:500 13px/1.2 var(--font-sans);text-decoration:none;cursor:pointer;color:{{ t.color }};transition:color var(--dur-fast) var(--ease-out)"><span style="width:{{ t.w }};height:1px;background:{{ t.bar }};transition:width var(--dur-base) var(--ease-out)"></span>{{ t.label }}</a>
+  <nav aria-label="Contents" class="rail" style="position:fixed;left:clamp(12px,3vw,48px);top:96px;z-index:30;width:174px;display:flex;flex-direction:column;gap:2px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:8px;padding-bottom:12px;margin-bottom:4px;border-bottom:1px solid var(--board3)">
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--boardmu)">Contents</span><span style="font:500 10px/1.2 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--boardtx)">{{ gateLabel }}</span></div>
+      <span aria-hidden="true" style="display:flex;gap:3px"><span class="rflap tnum">{{ d1 }}</span><span class="rflap tnum">{{ d2 }}</span></span>
+    </div>
+    <sc-for list="{{ toc }}" as="t" hint-placeholder-count="18">
+      <sc-if value="{{ t.isHead }}" hint-placeholder-val="{{ false }}"><span style="font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--boardmu);margin:12px 0 4px">{{ t.label }}</span></sc-if>
+      <sc-if value="{{ t.isItem }}" hint-placeholder-val="{{ true }}"><button type="button" class="toc" onClick="{{ t.onClick }}" aria-current="{{ t.cur }}" style="color:{{ t.color }}"><span class="sq" style="background:{{ t.fill }};border:1.5px solid {{ t.edge }}"></span>{{ t.label }}</button></sc-if>
     </sc-for>
   </nav>
 </sc-if>
 
-<main style="padding:0 var(--margin-page)">
-
-<header id="overview" data-nav="overview" style="padding-top:72px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px">
-    <a href="index.html#work" style="display:inline-flex;align-items:center;gap:6px;font:500 13px/1 var(--font-sans);color:var(--text-muted);text-decoration:none"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="arrow-left" size="{{ 14 }}" hint-size="14px,14px"></x-import>All work</a>
-    <span style="font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Aura Space · Speculative concept — 2026</span>
-    <h1 data-reveal="" style="font:400 clamp(36px,4.6vw,56px)/1.04 var(--font-display);letter-spacing:-0.02em;text-wrap:balance;margin:0">What if travellers waited at the gate only because they <em style="color:var(--text-accent)">chose to?</em></h1>
-    <p style="font:400 17px/1.6 var(--font-sans);color:var(--text-secondary);max-width:580px;margin:0">A one-week exploration of how unfamiliar travellers at Changi could get enough confidence about time and distance to stop committing to the gate early, built on screens and signals the airport already has.</p>
+<!-- HERO: the departures hall -->
+<section id="overview" data-nav="overview" aria-label="Aura Space" style="position:relative;background:linear-gradient(180deg,var(--board) 0,var(--board) 64%,var(--paper) 64%,var(--paper) 100%);text-align:center;scroll-margin-top:96px;padding:0 clamp(20px,5vw,80px)">
+  <div style="max-width:960px;margin:0 auto;padding:72px 0 0;display:flex;flex-direction:column;align-items:center;gap:22px;color:#fff">
+    <h1 aria-label="Aura Space" style="margin:0;display:flex;gap:5px;flex-wrap:wrap;justify-content:center;perspective:600px">
+      <sc-for list="{{ heroFlaps }}" as="f" hint-placeholder-count="10"><span class="flap in" aria-hidden="true" style="animation-delay:{{ f.delay }};visibility:{{ f.vis }};width:{{ f.w }}">{{ f.ch }}</span></sc-for>
+    </h1>
+    <p style="margin:0;font:500 clamp(18px,2vw,24px)/1.4 var(--font-display);letter-spacing:-0.01em;max-width:620px;text-wrap:balance">A wayfinding concept that tells transit travellers how long they have, so waiting at the gate becomes a choice.</p>
   </div>
-
-  <figure style="max-width:1040px;margin:48px auto 0;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px">
-      <img src="assets/aura/ar-path.png" alt="Hand holding a phone in Changi's transit mall; the screen shows cyan chevrons leading down the corridor and '150m to water station'" style="width:100%;aspect-ratio:946/559;object-fit:cover;display:block;border-radius:10px">
-    </div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">0.0</span>A browser-based AR route to a water stop, before the gate</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Concept render</span>
-    </figcaption>
-  </figure>
-
-  <div style="max-width:880px;margin:0 auto;padding-top:56px;display:flex;flex-wrap:wrap;gap:40px">
-    <dl style="flex:1 1 240px;margin:0;display:flex;flex-direction:column;gap:18px">
-      <div style="display:flex;flex-direction:column;gap:6px"><dt style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">My role</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Solo · desk research, concept, system rules, UI, presentation</dd></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><dt style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Timeline</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">About one week · March 2026</dd></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><dt style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Evidence</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Secondary research only · no interviews, no field visit</dd></div>
-    </dl>
-    <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:14px">
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Overview</span>
-      <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">A teacher told me about feeling completely lost in an airport abroad and losing track of time. I'd never had that experience, which is exactly why it interested me. Looking into it, I kept landing on Changi, where most security screening happens at the gate rather than at the terminal entrance.</p>
-      <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">If a traveller isn't sure how far the gate is or how long they have, the safe move is to go there early. At Changi, that means walking past the shops and toilets and into a holdroom. Aura Space explores whether a clearer picture of time and distance could change that decision. It's a speculative concept, not a validated solution.</p>
-    </div>
-  </div>
-
-  <div style="max-width:1040px;margin:72px auto 0;display:flex;flex-direction:column;gap:16px">
-    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Highlights</span>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
-      <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:10px">
-        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/aura/kiosk-insitu-gate.png" alt="Stainless airport kiosk showing Gate 45A, about 33 minutes away, with washroom and water stop options" style="width:100%;aspect-ratio:4/3.4;object-fit:cover;display:block;border-radius:10px"></div>
-        <figcaption style="display:flex;justify-content:space-between;gap:12px;padding:0 4px"><span style="font:500 14px/1.3 var(--font-sans)">An old kiosk, a new screen</span><span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Kiosk</span></figcaption>
-      </figure>
-      <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:10px">
-        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/aura/phone-floor.png" alt="Phone lying on terrazzo floor showing a large white arrow and 'Pause route and explore'" style="width:100%;aspect-ratio:4/3.4;object-fit:cover;object-position:50% 40%;display:block;border-radius:10px"></div>
-        <figcaption style="display:flex;justify-content:space-between;gap:12px;padding:0 4px"><span style="font:500 14px/1.3 var(--font-sans)">Glance mode, camera off</span><span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Phone</span></figcaption>
-      </figure>
-      <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:10px">
-        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/aura/ar-warning.png" alt="Phone at Gate F50 showing a yellow 'Security ahead' warning" style="width:100%;aspect-ratio:4/3.4;object-fit:cover;object-position:72% 50%;display:block;border-radius:10px"></div>
-        <figcaption style="display:flex;justify-content:space-between;gap:12px;padding:0 4px"><span style="font:500 14px/1.3 var(--font-sans)">The last-exit warning</span><span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">WebAR</span></figcaption>
-      </figure>
-    </div>
-  </div>
-</header>
-
-<section id="context" data-nav="context" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">01</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Context</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">At Changi, where security happens changes <em style="color:var(--text-accent)">where you can be</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Most airports screen everyone once, near the entrance. In Changi's Terminals 1–3, passengers pass immigration into a large transit mall and are only screened at their own gate. Terminal 4 uses the conventional model.</p>
-  </div>
-
-  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-direction:column;gap:5px">
-      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:10px 12px">
-        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tabs" variant="pill" items="{{ secItems }}" value="{{ secMode }}" on-change="{{ onSec }}" hint-size="320px,40px"></x-import>
-        <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Departure journey · simplified</span>
+  <figure style="max-width:1040px;margin:52px auto 0;display:flex;flex-direction:column;gap:10px">
+    <div class="pass">
+      <div style="padding:8px">
+        <img src="assets/v3/8acb8a00aec7.webp" alt="Concept render: a phone held up in Changi’s transit mall shows cyan AR chevrons leading to a water station, gate F50 opens in 45 minutes" style="display:block;width:100%;aspect-ratio:16/9.6;object-fit:cover;border-radius:15px">
       </div>
-      <div style="background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-wrap:wrap;gap:8px;align-items:stretch">
-        <sc-for list="{{ zones }}" as="z" hint-placeholder-count="5">
-          <sc-if value="{{ z.sec }}" hint-placeholder-val="{{ false }}">
-            <div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:16px 10px;border-radius:var(--radius-md);background:var(--accent);color:var(--on-accent);min-width:44px">
-              <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="scan-line" size="{{ 18 }}" hint-size="18px,18px"></x-import>
-              <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg)">Security</span>
-            </div>
-          </sc-if>
-          <sc-if value="{{ z.zone }}" hint-placeholder-val="{{ true }}">
-            <div style="flex:{{ z.flex }};min-width:150px;border:1px solid var(--border-default);border-radius:var(--radius-md);padding:16px;display:flex;flex-direction:column;gap:12px;opacity:{{ z.op }};transition:opacity var(--dur-base) var(--ease-out)">
-              <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">{{ z.n }}</span>
-              <span style="font:400 22px/1.1 var(--font-display)">{{ z.name }}</span>
-              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:auto">
-                <sc-for list="{{ z.amen }}" as="a" hint-placeholder-count="2">
-                  <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="{{ a.tone }}" hint-size="auto,22px">{{ a.label }}</x-import>
-                </sc-for>
+      <div class="stub">
+        <span style="display:flex;justify-content:space-between;align-items:center"><span class="mono" style="font-size:10px;color:var(--muted)">Boarding pass</span><span style="font:800 15px/1 var(--font-display);letter-spacing:-0.02em">Aura<span style="color:var(--flap)">.</span></span></span>
+        <dl style="margin:0;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="kv"><dt>Gate</dt><dd class="tnum">F50</dd></div>
+          <div class="kv"><dt>Opens in</dt><dd class="tnum">45 min</dd></div>
+          <div class="kv" style="grid-column:1 / span 2"><dt>Seat</dt><dd>Anywhere but the gate</dd></div>
+        </dl>
+        <svg aria-hidden="true" viewBox="0 0 200 40" preserveAspectRatio="none" style="width:100%;height:40px;margin-top:auto"><g fill="#121417"><rect x="0" y="0" width="3" height="40"></rect><rect x="6" y="0" width="1.5" height="40"></rect><rect x="10" y="0" width="4" height="40"></rect><rect x="17" y="0" width="1.5" height="40"></rect><rect x="21" y="0" width="2.5" height="40"></rect><rect x="27" y="0" width="5" height="40"></rect><rect x="35" y="0" width="1.5" height="40"></rect><rect x="39" y="0" width="3" height="40"></rect><rect x="45" y="0" width="1.5" height="40"></rect><rect x="49" y="0" width="4" height="40"></rect><rect x="56" y="0" width="2" height="40"></rect><rect x="61" y="0" width="1.5" height="40"></rect><rect x="65" y="0" width="5" height="40"></rect><rect x="73" y="0" width="2" height="40"></rect><rect x="78" y="0" width="1.5" height="40"></rect><rect x="82" y="0" width="3" height="40"></rect><rect x="88" y="0" width="4" height="40"></rect><rect x="95" y="0" width="1.5" height="40"></rect><rect x="99" y="0" width="2.5" height="40"></rect><rect x="104" y="0" width="5" height="40"></rect><rect x="112" y="0" width="1.5" height="40"></rect><rect x="116" y="0" width="3" height="40"></rect><rect x="122" y="0" width="1.5" height="40"></rect><rect x="126" y="0" width="4" height="40"></rect><rect x="133" y="0" width="2" height="40"></rect><rect x="138" y="0" width="5" height="40"></rect><rect x="146" y="0" width="1.5" height="40"></rect><rect x="150" y="0" width="3" height="40"></rect><rect x="156" y="0" width="1.5" height="40"></rect><rect x="160" y="0" width="4" height="40"></rect><rect x="167" y="0" width="2.5" height="40"></rect><rect x="172" y="0" width="1.5" height="40"></rect><rect x="176" y="0" width="5" height="40"></rect><rect x="184" y="0" width="2" height="40"></rect><rect x="189" y="0" width="3" height="40"></rect><rect x="195" y="0" width="1.5" height="40"></rect><rect x="198" y="0" width="2" height="40"></rect></g></svg>
+      </div>
+    </div>
+    <figcaption class="cap" style="text-align:left"><span class="l">The route in the transit mall, with the gate countdown always at the top.</span><span class="k">Concept render</span></figcaption>
+  </figure>
+</section>
+
+<main style="padding:0 clamp(20px,5vw,80px)">
+
+<div class="w880" style="padding-top:56px;display:flex;flex-wrap:wrap;gap:40px">
+  <dl style="flex:1 1 240px;margin:0;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Role</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Solo: concept, design rules and UI</dd></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Timeline</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">About one week, March 2026</dd></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Evidence</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Desk research only. No interviews, no visit to Changi, no testing.</dd></div>
+  </dl>
+  <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:14px">
+    <span class="mono" style="font-size:10px;color:var(--muted)">Overview</span>
+    <p style="font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0">In most of Changi, security screening happens at each gate, and the holdroom behind it has little to do. Aura Space is a speculative concept that gives transit travellers a live countdown and a route, so they can leave the gate area knowing when to come back.</p>
+    <p style="font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0">The case study reads like a trip through the airport: check-in, security, boarding, then arrivals, where I check which of my assumptions landed.</p>
+  </div>
+</div>
+
+<div class="w880 decocard" style="margin-top:40px;background:var(--board);color:#fff;border-radius:24px;padding:40px;position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;right:28px;top:28px;display:flex;gap:4px"><span class="cell" style="color:var(--flap)">?</span><span class="cell" style="color:var(--flap)">?</span></div>
+  <p style="position:relative;margin:0;font:600 clamp(22px,2.4vw,30px)/1.28 var(--font-display);letter-spacing:-0.02em;max-width:620px;text-wrap:balance">Why would a traveller with hours to spare sit in a room with no toilet, and what would it take to <span style="color:var(--flap)">let them leave it?</span></p>
+</div>
+
+<!-- CHECK-IN BAND: airport sign yellow -->
+<section id="checkin" data-nav="checkin" aria-label="Check-in" style="margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;position:relative;overflow:hidden;background:var(--sign);color:var(--ink);text-align:center;scroll-margin-top:72px">
+  <div style="max-width:760px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 40px;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <span class="mono" style="color:#4A3E00">Check-in: Discover</span>
+    <p style="margin:0;font:800 clamp(44px,6.4vw,84px)/0.98 var(--font-display);letter-spacing:-0.05em">Every sign says where. None says how long.</p>
+    <p class="lede" style="color:#3A3200">How is Changi laid out for someone in transit, and what can’t they see from where they stand?</p>
+  </div>
+  <!-- a hanging wayfinding sign -->
+  <svg aria-hidden="true" viewBox="0 0 1200 190" preserveAspectRatio="xMidYMid meet" style="display:block;width:100%;max-width:1100px;height:auto;margin:0 auto 56px">
+    <line x1="420" y1="0" x2="420" y2="40" stroke="#121417" stroke-width="4"></line><line x1="780" y1="0" x2="780" y2="40" stroke="#121417" stroke-width="4"></line>
+    <rect x="200" y="40" width="800" height="120" rx="10" fill="#121417"></rect>
+    <g fill="none" stroke="#FFD400" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M262 100 h70 M306 74 l26 26 l-26 26"></path></g>
+    <text x="372" y="116" font-family="Plus Jakarta Sans, Inter, sans-serif" font-weight="800" font-size="46" fill="#FFD400" letter-spacing="-1">Gates F50 to F60</text>
+    <rect x="820" y="66" width="150" height="68" rx="8" fill="#FFD400"></rect>
+    <text x="895" y="111" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="30" fill="#121417">? min</text>
+  </svg>
+</section>
+
+<section id="split" data-nav="split" class="sec">
+  <div class="head">
+    <h2 class="h2">At most of Changi, security waits at your gate</h2>
+    <p class="lede">Terminals 1 to 3 screen passengers at each gate. Go through early and the toilets, food and shops stay on the other side.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <h3 class="ftitle" style="margin-bottom:12px">Two airports in one</h3>
+    <div style="background:var(--card);border-radius:24px;padding:clamp(20px,3vw,36px);display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font:600 17px/1.2 var(--font-display)">Terminals 1, 2 and 3</span><span class="mono" style="font-size:10px;color:var(--red-t)">The problem</span></span>
+        <div class="hscroll"><div class="route" style="grid-template-columns:1fr 1.7fr 0.8fr 1.3fr 0.6fr">
+          <span aria-hidden="true" style="position:absolute;left:8%;right:6%;top:8px;height:3px;background:var(--ink)"></span>
+          <div class="node"><span class="dotn"></span><span style="font:600 14px/1.2 var(--font-sans)">Immigration</span></div>
+          <div class="node"><span class="dotn"></span><span style="font:600 14px/1.2 var(--font-sans)">Transit mall</span><span style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center"><span class="ico" title="Toilets">WC</span><span class="ico" title="Food"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h11v5a5.5 5.5 0 0 1-11 0z"></path><path d="M16 9h2a2 2 0 0 1 0 4h-2"></path></svg></span><span class="ico" title="Shops"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></span><span class="ico" title="Water"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"></path></svg></span></span></div>
+          <div class="node"><span class="chk" style="margin-top:-10px">SCREEN</span><span style="font:600 14px/1.2 var(--font-sans)">At the gate</span></div>
+          <div class="node"><span class="dotn"></span><span style="font:600 14px/1.2 var(--font-sans)">Holdroom</span><span style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center"><span class="ico off" title="Most lack toilets">WC</span><span class="ico off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h11v5a5.5 5.5 0 0 1-11 0z"></path><path d="M16 9h2a2 2 0 0 1 0 4h-2"></path></svg></span><span class="ico off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></span><span class="ico" title="Water"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"></path></svg></span></span></div>
+          <div class="node"><span class="dotn" style="background:var(--ink)"></span><span style="font:600 14px/1.2 var(--font-sans)">Plane</span></div>
+        </div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;opacity:.62">
+        <span style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font:600 17px/1.2 var(--font-display)">Terminal 4</span><span class="mono" style="font-size:10px;color:var(--muted)">Out of scope</span></span>
+        <div class="hscroll"><div class="route" style="grid-template-columns:1fr 0.8fr 1.7fr 1.3fr 0.6fr">
+          <span aria-hidden="true" style="position:absolute;left:8%;right:6%;top:8px;height:3px;background:var(--ink)"></span>
+          <div class="node"><span class="dotn"></span><span style="font:600 14px/1.2 var(--font-sans)">Immigration</span></div>
+          <div class="node"><span class="chk" style="margin-top:-10px">SCREEN</span><span style="font:600 14px/1.2 var(--font-sans)">Central</span></div>
+          <div class="node"><span class="dotn"></span><span style="font:600 14px/1.2 var(--font-sans)">Mall</span></div>
+          <div class="node"><span class="dotn"></span><span style="font:600 14px/1.2 var(--font-sans)">Gate</span></div>
+          <div class="node"><span class="dotn" style="background:var(--ink)"></span><span style="font:600 14px/1.2 var(--font-sans)">Plane</span></div>
+        </div></div>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.0</span>Screening locations from Changi’s security page. Holdroom amenities from my desk research: water, and toilets in only some.</span><span class="k">Desk research</span></figcaption>
+  </figure>
+</section>
+
+<section id="gap" data-nav="gap" class="sec">
+  <div class="head">
+    <h2 class="h2">Travellers can read their gate, not their distance</h2>
+    <p class="lede">The screens answer where to go. The question that decides when to leave the mall gets no answer in one place.</p>
+  </div>
+  <figure class="w880" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <h3 class="ftitle" style="margin-bottom:12px">The board a worried traveller reads</h3>
+    <div style="background:var(--board);border-radius:20px;padding:10px 8px 12px;color:var(--boardtx)">
+      <div class="brow" style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) 120px;gap:16px;padding:12px 16px;font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--boardmu)"><span>Question</span><span class="bx">Where it lives</span><span style="text-align:right">Answer</span></div>
+      <sc-for list="{{ board }}" as="b" hint-placeholder-count="5">
+        <div class="brow" style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) 120px;gap:16px;align-items:center;padding:12px 16px;border-top:1px solid var(--board3)">
+          <span style="font:600 15px/1.35 var(--font-sans);color:#fff">{{ b.q }}</span>
+          <span class="bx" style="font:400 13px/1.4 var(--font-sans);color:var(--boardmu)">{{ b.where }}</span>
+          <span style="display:flex;gap:3px;justify-content:flex-end"><sc-for list="{{ b.cells }}" as="c" hint-placeholder-count="3"><span class="cell tnum" style="color:{{ b.col }}">{{ c.ch }}</span></sc-for></span>
+        </div>
+      </sc-for>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.1</span>My inference from desk research, not observed. Some of it is on signs; none of it follows you.</span><span class="k">Information gap</span></figcaption>
+  </figure>
+</section>
+
+<section id="travellers" data-nav="travellers" class="sec">
+  <div class="head">
+    <h2 class="h2">Two travellers who end up in the same room</h2>
+    <p class="lede">I sketched two transit travellers to test the idea against. Neither comes from interviews.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+      <sc-for list="{{ people }}" as="p" hint-placeholder-count="2">
+        <article style="background:var(--card);border-radius:20px;display:grid;grid-template-columns:minmax(0,1fr) 92px;overflow:hidden">
+          <div style="padding:24px;display:flex;flex-direction:column;gap:14px">
+            <span class="mono tnum" style="font-size:10px;color:var(--muted)">{{ p.conn }}</span>
+            <h3 style="margin:0;font:700 24px/1.1 var(--font-display);letter-spacing:-0.03em">{{ p.name }}</h3>
+            <p class="p">{{ p.d }}</p>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:6px">
+              <div style="display:flex;height:26px;border-radius:6px;overflow:hidden;width:{{ p.len }}">
+                <span style="width:{{ p.free }};background:var(--sign);display:flex;align-items:center;padding-left:8px;font:600 11px/1 var(--font-sans);white-space:nowrap;overflow:hidden">Free</span>
+                <span style="width:{{ p.gate }};background:var(--board);color:var(--flap);display:flex;align-items:center;padding-left:8px;font:600 11px/1 var(--font-sans);white-space:nowrap;overflow:hidden">Gate</span>
               </div>
+              <span style="font:400 12px/1.4 var(--font-sans);color:var(--muted)">{{ p.bar }}</span>
+            </div>
+          </div>
+          <div style="border-left:2px dashed var(--line);background:var(--sunken);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px 6px"><span class="mono" style="font-size:9px;color:var(--muted)">Layover</span><span class="tnum" style="font:800 26px/1 var(--font-display);letter-spacing:-0.03em">{{ p.mins }}</span><span class="mono" style="font-size:9px;color:var(--muted)">min</span></div>
+        </article>
+      </sc-for>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.2</span>Bar length = layover, both drawn to one scale. The split between free time and the gate is my assumption.</span><span class="k">Illustrative, assumed</span></figcaption>
+  </figure>
+</section>
+
+<!-- SECURITY BAND: the scanner -->
+<section id="security" data-nav="security" aria-label="Security" style="margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;position:relative;overflow:hidden;background:var(--board);color:#fff;text-align:center;scroll-margin-top:72px">
+  <div style="max-width:780px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 32px;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <span class="mono" style="color:var(--boardmu)">Security: Define</span>
+    <p style="margin:0;font:800 clamp(44px,6.4vw,84px)/0.98 var(--font-display);letter-spacing:-0.05em">Past this line, the airport shrinks to one room.</p>
+    <p class="lede" style="color:var(--boardtx)">What are travellers trading when they go through early, and what should a design never do to them?</p>
+  </div>
+  <!-- a tray on rollers, sliding into the scanner -->
+  <svg aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid meet" style="display:block;width:100%;max-width:1200px;height:auto;margin:0 auto 48px">
+    <g fill="#2A2E35"><circle cx="60" cy="168" r="10"></circle><circle cx="140" cy="168" r="10"></circle><circle cx="220" cy="168" r="10"></circle><circle cx="300" cy="168" r="10"></circle><circle cx="380" cy="168" r="10"></circle><circle cx="460" cy="168" r="10"></circle><circle cx="540" cy="168" r="10"></circle><circle cx="620" cy="168" r="10"></circle><circle cx="700" cy="168" r="10"></circle></g>
+    <rect x="0" y="152" width="1200" height="4" fill="#2A2E35"></rect>
+    <rect x="200" y="96" width="420" height="52" rx="10" fill="none" stroke="#FFB000" stroke-width="4"></rect>
+    <g fill="none" stroke="#FFB000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M248 132h40v-14a20 20 0 0 0-40 0z"></path>
+      <path d="M330 110h40l-3 28h-34z M340 110v-6a10 10 0 0 1 20 0v6"></path>
+      <path d="M420 108h30v14a15 15 0 0 1-30 0z M450 112h6a6 6 0 0 1 0 12h-6"></path>
+      <path d="M520 104s-14 16-14 24a14 14 0 0 0 28 0c0-8-14-24-14-24z"></path>
+    </g>
+    <path d="M700 40 h320 a20 20 0 0 1 20 20 v92 h-360 v-92 a20 20 0 0 1 20 -20z" fill="#1D2026"></path>
+    <g fill="#2A2E35"><rect x="700" y="60" width="16" height="92"></rect><rect x="724" y="60" width="16" height="92"></rect><rect x="748" y="60" width="16" height="92"></rect><rect x="772" y="60" width="16" height="92"></rect><rect x="796" y="60" width="16" height="92"></rect></g>
+    <rect x="860" y="66" width="140" height="34" rx="4" fill="#FFB000"></rect>
+    <text x="930" y="89" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="15" fill="#121417" letter-spacing="2">NO RETURN</text>
+  </svg>
+</section>
+
+<section id="trap" data-nav="trap" class="sec">
+  <div class="head">
+    <h2 class="h2">The gate buys certainty, and the traveller pays with everything else</h2>
+    <p class="lede">I called it the gate trap: when you can’t tell how long you have, going through early feels safe. It is my inference from desk research, not something I watched happen.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <h3 class="ftitle" style="margin-bottom:12px">What fits in the tray</h3>
+    <div class="split" style="display:grid;grid-template-columns:minmax(0,1.25fr) 64px minmax(0,1fr);gap:0;align-items:stretch">
+      <div style="background:var(--card);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px">
+        <span class="mono" style="font-size:10px;color:var(--muted)">Before gate screening: the transit mall</span>
+        <div class="g4" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <sc-for list="{{ mall }}" as="m" hint-placeholder-count="4">
+            <div style="background:var(--sign);border-radius:12px;padding:14px 12px;display:flex;flex-direction:column;gap:6px;min-height:84px"><span style="font:700 13px/1 var(--font-mono)">{{ m.g }}</span><span style="font:600 14px/1.25 var(--font-sans);margin-top:auto">{{ m.t }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+      <div aria-hidden="true" class="hide-sm" style="display:flex;align-items:center;justify-content:center"><span style="width:12px;align-self:stretch;margin:12px 0;border-radius:4px;background:repeating-linear-gradient(180deg,var(--flap) 0 14px,var(--ink) 14px 28px)"></span></div>
+      <div style="background:var(--board);color:#fff;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px">
+        <span class="mono" style="font-size:10px;color:var(--boardmu)">After: the holdroom</span>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+          <sc-for list="{{ hold }}" as="h" hint-placeholder-count="4">
+            <div style="border-radius:12px;padding:14px 12px;display:flex;flex-direction:column;gap:6px;min-height:84px;background:{{ h.bg }};border:1.5px dashed {{ h.edge }};color:{{ h.fg }}"><span style="font:700 13px/1 var(--font-mono)">{{ h.g }}</span><span style="font:600 14px/1.25 var(--font-sans);margin-top:auto;text-decoration:{{ h.dec }}">{{ h.t }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">2.0</span>Leaving the holdroom is reported to mean screening again (A3, unconfirmed). Amenities as in 1.0.</span><span class="k">Desk research</span></figcaption>
+  </figure>
+
+  <div class="w880" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;padding:16px 0">
+    <p style="margin:0;font:700 clamp(26px,3vw,38px)/1.18 var(--font-display);letter-spacing:-0.03em;max-width:760px;text-wrap:balance">How might the gate become a place travellers <span style="color:var(--flap-t)">choose to go,</span> not one they hide in?</p>
+  </div>
+</section>
+
+<section id="rules" data-nav="rules" class="sec">
+  <div class="head">
+    <h2 class="h2">Five conditions of carriage, set before any screen</h2>
+    <p class="lede">A traveller in transit has a pass, a phone and no patience. These rules decided what got built and what got cancelled.</p>
+  </div>
+  <div class="w880" style="display:flex;flex-direction:column;border-top:2px solid var(--ink)">
+    <sc-for list="{{ rulesList }}" as="r" hint-placeholder-count="5">
+      <div class="split" style="display:grid;grid-template-columns:48px minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)">
+        <span class="mono tnum" style="color:var(--muted)">{{ r.id }}</span>
+        <span style="font:600 18px/1.3 var(--font-display);letter-spacing:-0.01em">{{ r.t }}</span>
+        <span style="display:flex;flex-direction:column;gap:6px"><span class="p" style="font-size:14px">{{ r.d }}</span><span style="font:500 10px/1.3 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Serves: {{ r.s }}</span></span>
+      </div>
+    </sc-for>
+  </div>
+  <figure class="w880" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <h3 class="ftitle" style="margin-bottom:12px">Three ways to carry the countdown</h3>
+    <div style="background:var(--board);border-radius:20px;padding:8px">
+      <sc-for list="{{ ideas }}" as="i" hint-placeholder-count="3">
+        <div class="split" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) 128px;gap:16px;align-items:center;padding:16px 16px;border-top:{{ i.bt }}">
+          <span style="font:600 16px/1.3 var(--font-sans);color:{{ i.nameC }};text-decoration:{{ i.dec }}">{{ i.name }}</span>
+          <span style="font:400 14px/1.5 var(--font-sans);color:var(--boardtx)">{{ i.why }}</span>
+          <span class="st" style="background:{{ i.sbg }};color:{{ i.sfg }};justify-self:end">{{ i.status }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">2.1</span>The reasons are my judgement against C1 and C2, not findings from travellers.</span><span class="k">Concept selection</span></figcaption>
+  </figure>
+</section>
+
+<!-- BOARDING BAND: night apron, AR chevrons receding -->
+<section id="boarding" data-nav="boarding" aria-label="Boarding" style="margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;position:relative;overflow:hidden;background:var(--night);color:#fff;text-align:center;scroll-margin-top:72px">
+  <div style="max-width:780px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 8px;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <span class="mono" style="color:#8FD9E8">Boarding: Design</span>
+    <p style="margin:0;font:800 clamp(44px,6.4vw,84px)/0.98 var(--font-display);letter-spacing:-0.05em">Let the phone hold the countdown.</p>
+    <p class="lede" style="color:#C8DCE8">An old kiosk, a browser tab and a few chevrons in the air: no new hardware for Changi, and no app for the traveller.</p>
+  </div>
+  <svg aria-hidden="true" viewBox="0 0 1200 230" preserveAspectRatio="xMidYMax meet" style="display:block;width:100%;max-width:1200px;height:auto;margin:0 auto">
+    <path d="M520 0 L680 0 L1200 230 L0 230 Z" fill="#102638"></path>
+    <path d="M600 0 V230" stroke="#1B3A52" stroke-width="2" stroke-dasharray="8 10"></path>
+    <path d="M575 36 L600 24 L625 36 L625 44 L600 32 L575 44 Z" fill="#19E3FF" opacity=".35"></path>
+    <path d="M555 78 L600 56 L645 78 L645 92 L600 70 L555 92 Z" fill="#19E3FF" opacity=".6"></path>
+    <path d="M520 140 L600 100 L680 140 L680 164 L600 124 L520 164 Z" fill="#19E3FF"></path>
+    <circle cx="600" cy="214" r="8" fill="#FFB000"></circle>
+  </svg>
+</section>
+
+<section id="route" data-nav="route" class="sec">
+  <div class="head">
+    <h2 class="h2">From the kiosk to the gate in four moments</h2>
+    <p class="lede">Each moment answers one question: how long do I have, which way, what’s near, and when must I go back.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="split" style="display:grid;grid-template-columns:300px minmax(0,1fr);gap:8px;background:var(--board);border-radius:24px;padding:8px">
+      <div style="display:flex;flex-direction:column;gap:4px;padding:8px">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+          <button type="button" class="step" aria-pressed="{{ s.sel }}" onClick="{{ s.pick }}"><span class="gnum tnum">{{ s.n }}</span><span>{{ s.name }}</span></button>
+        </sc-for>
+        <div aria-live="polite" style="margin-top:12px;padding:16px 14px;border-top:1px solid var(--board3);display:flex;flex-direction:column;gap:10px">
+          <p style="margin:0;font:500 16px/1.45 var(--font-display);color:#fff">{{ stepSel.what }}</p>
+          <p style="margin:0;font:400 13px/1.55 var(--font-sans);color:var(--boardtx)">{{ stepSel.why }}</p>
+          <span style="font:500 10px/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--boardmu)">Serves: {{ stepSel.serves }}</span>
+        </div>
+      </div>
+      <div style="background:#0A0B0D;border-radius:18px;min-height:460px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative">
+        <sc-if value="{{ stepSel.isImg }}" hint-placeholder-val="{{ true }}">
+          <img src="{{ stepSel.img }}" alt="{{ stepSel.alt }}" style="display:block;width:{{ stepSel.iw }};height:{{ stepSel.ih }};object-fit:{{ stepSel.fit }};object-position:{{ stepSel.pos }};border-radius:{{ stepSel.rad }}">
+        </sc-if>
+        <sc-if value="{{ stepSel.isWarn }}" hint-placeholder-val="{{ false }}">
+          <svg role="img" aria-label="Diagram: the route from the transit mall to gate screening, with the single last-exit warning placed just before screening and the holdroom after it" viewBox="0 0 640 300" style="display:block;width:92%;max-width:640px;height:auto">
+            <line x1="40" y1="150" x2="600" y2="150" stroke="#2A2E35" stroke-width="6" stroke-linecap="round"></line>
+            <line x1="40" y1="150" x2="330" y2="150" stroke="#19E3FF" stroke-width="6" stroke-linecap="round"></line>
+            <circle cx="40" cy="150" r="12" fill="#19E3FF"></circle>
+            <text x="40" y="196" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="15" fill="#C9CDD3">Transit mall</text>
+            <rect x="300" y="58" width="150" height="58" rx="8" fill="#FFD400"></rect>
+            <text x="375" y="84" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13" fill="#121417" letter-spacing="1.5">LAST EXIT</text>
+            <text x="375" y="104" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="12" fill="#121417">warns once, here</text>
+            <line x1="375" y1="116" x2="375" y2="140" stroke="#FFD400" stroke-width="3"></line>
+            <circle cx="375" cy="150" r="10" fill="#FFD400"></circle>
+            <rect x="452" y="124" width="22" height="52" rx="4" fill="#FFB000"></rect>
+            <text x="463" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="15" fill="#C9CDD3">Gate screening</text>
+            <circle cx="600" cy="150" r="12" fill="#2A2E35"></circle>
+            <text x="600" y="196" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="15" fill="#8A919B">Holdroom</text>
+          </svg>
+        </sc-if>
+        <span class="mono" style="position:absolute;right:14px;top:14px;font-size:10px;color:#8A919B;background:rgba(10,11,13,.7);padding:6px 8px;border-radius:4px">{{ stepSel.kind }}</span>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">3.0</span>Kiosk and AR views are concept renders, phone down is my screen, and the last exit has no screen yet, so it is drawn as a flow.</span><span class="k">Interactive, journey</span></figcaption>
+  </figure>
+</section>
+
+<section id="screen" data-nav="screen" class="sec">
+  <div class="head">
+    <h2 class="h2">Phone down, eyes up: one screen that does most of the work</h2>
+    <p class="lede">Held low, the tab shows a single arrow and the countdown. The camera stays off until the traveller raises the phone.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="anat" style="display:flex;gap:clamp(24px,4vw,56px);align-items:center;background:var(--card);border-radius:24px;padding:clamp(20px,3.5vw,44px)">
+      <div style="position:relative;flex:none;width:280px;background:#000;border-radius:40px;padding:8px">
+        <img src="assets/v3/2a0d5de24172.webp" alt="Aura Space phone-down screen: Gate F50 opens in 45 minutes, a large up arrow, walk straight past Duty-Free and we will vibrate before your next turn, 150 metres to water station, and a Pause route and explore button" style="display:block;width:100%;border-radius:32px">
+        <sc-for list="{{ pins }}" as="p" hint-placeholder-count="6">
+          <button type="button" class="pin" onClick="{{ p.pick }}" aria-pressed="{{ p.sel }}" aria-label="{{ p.aria }}" style="left:{{ p.x }};top:{{ p.y }};background:{{ p.bg }};color:{{ p.fg }}">{{ p.id }}</button>
+        </sc-for>
+      </div>
+      <ol style="list-style:none;margin:0;padding:0;flex:1;min-width:0;display:flex;flex-direction:column;border-top:2px solid var(--ink)">
+        <sc-for list="{{ pins }}" as="p" hint-placeholder-count="6">
+          <li><button type="button" onClick="{{ p.pick }}" aria-pressed="{{ p.sel }}" style="appearance:none;border:0;border-bottom:1px solid var(--line);background:{{ p.rowBg }};width:100%;text-align:left;cursor:pointer;display:grid;grid-template-columns:30px minmax(0,1fr);gap:14px;padding:14px 10px;border-radius:0;transition:background 220ms var(--ease)">
+            <span class="mono" style="font-weight:700;color:var(--ink)">{{ p.id }}</span>
+            <span style="display:flex;flex-direction:column;gap:4px"><span style="font:600 15px/1.3 var(--font-sans);color:var(--ink)">{{ p.t }}</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--ink2)">{{ p.d }}</span></span>
+          </button></li>
+        </sc-for>
+      </ol>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">3.1</span>Tap a letter. The screen is my high-fidelity mockup; the tilt that switches to AR is a threshold still to be tuned.</span><span class="k">Interactive, screen anatomy</span></figcaption>
+  </figure>
+</section>
+
+<section id="corridor" data-nav="corridor" class="sec">
+  <div class="head">
+    <h2 class="h2">AR in a crowded corridor needs rules a showroom never would</h2>
+    <p class="lede">Most AR wayfinding demos run in empty halls. Changi’s transit mall has trolleys, families and overhead signs, so I set four placement rules.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <h3 class="ftitle" style="margin-bottom:12px">The corridor, side on</h3>
+    <div style="background:var(--night);border-radius:24px;padding:clamp(16px,3vw,32px)" class="hscroll">
+      <svg role="img" aria-label="Side view of an airport corridor: a crossed-out line on the floor, travellers and a suitcase, cyan waypoints floating at 0.75 metres between the suitcase and the overhead sign, three solid and the rest faint, and a turn marker fixed to a pillar" viewBox="0 0 1000 430" style="display:block;width:100%;height:auto;min-width:600px">
+        <rect x="0" y="380" width="1000" height="3" fill="#3A5873"></rect>
+        <!-- overhead sign -->
+        <line x1="330" y1="0" x2="330" y2="40" stroke="#3A5873" stroke-width="3"></line><line x1="590" y1="0" x2="590" y2="40" stroke="#3A5873" stroke-width="3"></line>
+        <rect x="300" y="40" width="320" height="40" rx="6" fill="#FFD400"></rect>
+        <text x="460" y="67" text-anchor="middle" font-family="Plus Jakarta Sans, Inter, sans-serif" font-weight="800" font-size="20" fill="#121417">Gates F50 to F60</text>
+        <!-- floor line, struck out -->
+        <path d="M30 372 H250" stroke="#19E3FF" stroke-width="4" stroke-dasharray="14 10" opacity=".5"></path>
+        <path d="M120 340 l40 44 M160 340 l-40 44" stroke="#E0303F" stroke-width="5" stroke-linecap="round"></path>
+        <!-- travellers -->
+        <g fill="#2B4A66"><circle cx="190" cy="176" r="18"></circle><rect x="168" y="198" width="44" height="182" rx="18"></rect><circle cx="262" cy="196" r="16"></circle><rect x="242" y="216" width="40" height="164" rx="16"></rect><circle cx="730" cy="170" r="18"></circle><rect x="708" y="192" width="44" height="188" rx="18"></rect></g>
+        <!-- suitcase -->
+        <rect x="292" y="310" width="54" height="70" rx="8" fill="#5A7A96"></rect><rect x="312" y="286" width="14" height="24" rx="3" fill="none" stroke="#5A7A96" stroke-width="4"></rect>
+        <!-- 0.75 m dimension -->
+        <g stroke="#FFB000" stroke-width="2"><line x1="400" y1="380" x2="400" y2="283"></line><line x1="390" y1="283" x2="410" y2="283"></line><line x1="390" y1="380" x2="410" y2="380"></line></g>
+        <text x="412" y="338" font-family="JetBrains Mono, monospace" font-weight="700" font-size="16" fill="#FFB000">0.75 m</text>
+        <!-- waypoints -->
+        <g fill="#19E3FF"><path d="M470 292 l20 -14 l20 14 v8 l-20 -14 l-20 14z"></path><path d="M550 292 l20 -14 l20 14 v8 l-20 -14 l-20 14z"></path><path d="M630 292 l20 -14 l20 14 v8 l-20 -14 l-20 14z"></path></g>
+        <g fill="none" stroke="#19E3FF" stroke-dasharray="3 4" opacity=".55"><path d="M770 292 l20 -14 l20 14 v8 l-20 -14 l-20 14z"></path></g>
+        <!-- pillar with turn -->
+        <rect x="860" y="40" width="60" height="340" fill="#1B3A52"></rect>
+        <path d="M842 250 h26 v-18 l24 28 l-24 28 v-18 h-26z" fill="#19E3FF"></path>
+        <!-- pins -->
+        <g font-family="JetBrains Mono, monospace" font-weight="700" font-size="14" text-anchor="middle">
+          <circle cx="140" cy="318" r="15" fill="#FFB000"></circle><text x="140" y="323" fill="#121417">A</text>
+          <circle cx="440" cy="250" r="15" fill="#FFB000"></circle><text x="440" y="255" fill="#121417">B</text>
+          <circle cx="867" cy="200" r="15" fill="#FFB000"></circle><text x="867" y="205" fill="#121417">C</text>
+          <circle cx="790" cy="250" r="15" fill="#FFB000"></circle><text x="790" y="255" fill="#121417">D</text>
+        </g>
+      </svg>
+    </div>
+    <div class="g4" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 24px;margin-top:14px">
+      <sc-for list="{{ arRules }}" as="r" hint-placeholder-count="4">
+        <div style="border-top:2px solid var(--ink);padding:14px 0 6px;display:flex;flex-direction:column;gap:6px"><span style="display:flex;align-items:center;gap:10px"><span style="width:24px;height:24px;border-radius:50%;background:var(--flap);display:grid;place-items:center;font:700 11px/1 var(--font-mono)">{{ r.id }}</span><span style="font:600 15px/1.3 var(--font-sans)">{{ r.t }}</span></span><span class="p" style="font-size:14px">{{ r.d }}</span></div>
+      </sc-for>
+    </div>
+    <figcaption class="cap" style="margin-top:6px"><span class="l"><span class="n">3.2</span>Rules I set for the concept. Heights are drawn to scale but untested on site.</span><span class="k">Design rules</span></figcaption>
+  </figure>
+</section>
+
+<section id="lastcall" data-nav="lastcall" class="sec">
+  <div class="head">
+    <h2 class="h2">One warning, in the colour the airport already uses</h2>
+    <p class="lede">Gate screening is the one step a traveller can’t easily undo, so it is the one moment the design interrupts.</p>
+  </div>
+  <div class="w1040 split" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:stretch">
+    <div style="background:var(--sign);border-radius:24px;padding:clamp(28px,4vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+      <span style="font:700 11px/1 var(--font-mono);letter-spacing:.1em">LAST EXIT</span>
+      <p style="margin:0;font:800 clamp(30px,3.6vw,46px)/1.02 var(--font-display);letter-spacing:-0.04em;text-wrap:balance">No toilets or food past gate screening.</p>
+      <span style="font:500 13px/1.45 var(--font-sans);color:#3A3200">The warning’s content, as specified. It has no designed screen yet.</span>
+    </div>
+    <div style="display:flex;flex-direction:column;border-top:2px solid var(--ink)">
+      <sc-for list="{{ warn }}" as="w" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:6px;padding:18px 0;border-bottom:1px solid var(--line)"><span style="font:600 17px/1.3 var(--font-display);letter-spacing:-0.01em">{{ w.t }}</span><span class="p" style="font-size:14px">{{ w.d }}</span><span style="font:500 10px/1.3 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Serves: {{ w.s }}</span></div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ARRIVALS BAND: amber -->
+<section id="arrivals" data-nav="arrivals" aria-label="Arrivals" style="margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;position:relative;overflow:hidden;background:var(--flap);color:var(--ink);text-align:center;scroll-margin-top:72px">
+  <div style="max-width:780px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 40px;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <span class="mono" style="color:#4A3000">Arrivals: Reflect</span>
+    <p style="margin:0;font:800 clamp(44px,6.4vw,84px)/0.98 var(--font-display);letter-spacing:-0.05em">Not every assumption landed.</p>
+    <p class="lede" style="color:#3A2600">Since presenting, I have checked what I claimed. The design held up better than the evidence under it.</p>
+  </div>
+  <div aria-hidden="true" style="display:flex;gap:4px;justify-content:center;padding-bottom:64px;flex-wrap:wrap">
+    <sc-for list="{{ bandCells }}" as="c" hint-placeholder-count="14"><span class="cell bandcell" style="background:var(--board);color:{{ c.col }};width:30px;height:42px;font-size:20px">{{ c.ch }}</span></sc-for>
+  </div>
+</section>
+
+<section id="assumptions" data-nav="assumptions" class="sec">
+  <div class="head">
+    <h2 class="h2">I presented guesses with the same confidence as facts</h2>
+    <p class="lede">So the assumptions get their own board. Tap a row to see how I’d check it.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <h3 class="ftitle" style="margin-bottom:12px">The assumption board</h3>
+    <div style="background:var(--board);border-radius:20px;padding:8px 8px 10px">
+      <div class="arow" style="cursor:default;border-top:0;font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--boardmu)"><span>ID</span><span>What I assumed</span><span class="stc" style="text-align:right">Status</span></div>
+      <sc-for list="{{ assume }}" as="a" hint-placeholder-count="5">
+        <div>
+          <button type="button" class="arow" aria-expanded="{{ a.open }}" onClick="{{ a.toggle }}">
+            <span class="mono tnum" style="color:var(--boardmu)">{{ a.id }}</span>
+            <span style="color:#fff">{{ a.t }}</span>
+            <span class="st stc" style="background:{{ a.bg }};color:{{ a.fg }};border:1.5px solid {{ a.edge }};justify-self:end">{{ a.status }}</span>
+          </button>
+          <sc-if value="{{ a.isOpen }}" hint-placeholder-val="{{ false }}">
+            <div class="split" style="display:grid;grid-template-columns:52px minmax(0,1fr) minmax(0,1fr);gap:16px;padding:4px 18px 18px;background:var(--board2)">
+              <span class="hide-sm"></span>
+              <span style="display:flex;flex-direction:column;gap:4px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--boardmu)">What I know now</span><span style="font:400 14px/1.5 var(--font-sans);color:var(--boardtx)">{{ a.now }}</span></span>
+              <span style="display:flex;flex-direction:column;gap:4px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--boardmu)">How I’d check</span><span style="font:400 14px/1.5 var(--font-sans);color:var(--boardtx)">{{ a.check }}</span></span>
             </div>
           </sc-if>
-        </sc-for>
-      </div>
-      <p style="font:400 14px/1.55 var(--font-sans);color:var(--text-secondary);margin:0;padding:12px 14px">{{ secNote }}</p>
+        </div>
+      </sc-for>
     </div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">1.0</span>Same airport, two security models</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Interactive diagram</span>
-    </figcaption>
+    <figcaption class="cap"><span class="l"><span class="n">4.0</span>Status = how each assumption has held up since I presented, checked again in November 2026.</span><span class="k">Interactive, evidence audit</span></figcaption>
   </figure>
-
-  <sc-if value="{{ corrections }}" hint-placeholder-val="{{ false }}">
-    <div style="max-width:720px;margin:0 auto;width:100%;display:flex;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid var(--border-default);border-bottom:1px solid var(--border-default);flex-wrap:wrap">
-      <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="warning" hint-size="auto,22px">Fact check</x-import>
-      <span style="flex:1 1 400px;font:400 14px/1.55 var(--font-sans);color:var(--text-secondary)">I first assumed holdrooms had nothing in them. Airport guides and traveller reports say otherwise: every holdroom has a water dispenser, though most have no toilets and none have shops or food. I also assumed this applied to all of Changi, but Terminal 4 screens centrally.</span>
-    </div>
-  </sc-if>
-</section>
-
-<section id="problem" data-nav="problem" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">02</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The problem</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">When you don't know how long you have, <em style="color:var(--text-accent)">early feels safe</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">I called it the gate trap. It's a hypothesis I built from desk research, not something I watched happen: uncertainty pushes people through gate security sooner than they need to go.</p>
-  </div>
-
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--border-strong);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span>As-is journey · first-time transit passenger</span><span>Inferred, not observed</span></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0">
-      <sc-for list="{{ asis }}" as="s" hint-placeholder-count="6">
-        <div data-reveal="" style="padding:24px 16px 24px 0;border-bottom:1px solid var(--border-default);display:flex;flex-direction:column;gap:10px">
-          <span style="font:500 11px/1 var(--font-mono);color:{{ s.numColor }}">{{ s.n }}</span>
-          <span style="font:400 22px/1.1 var(--font-display);color:{{ s.titleColor }}">{{ s.t }}</span>
-          <span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">{{ s.d }}</span>
-        </div>
-      </sc-for>
-    </div>
-  </div>
-
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:16px">
-    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Two proto-personas</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Assumed · not from interviews</x-import></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
-      <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;gap:16px">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">01</span><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">60-min connection</span></div>
-        <span style="font:400 32px/1.05 var(--font-display)">The anxious sprinter</span>
-        <p style="font:400 15px/1.6 var(--font-sans);color:var(--text-secondary);margin:0">Doesn't know Changi screens at the gate. Unsure of the distance, so goes straight there and stays. Skips the mall entirely, including the toilet.</p>
-      </div>
-      <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;gap:16px">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">02</span><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">3-hour layover</span></div>
-        <span style="font:400 32px/1.05 var(--font-display)">The hesitant shopper</span>
-        <p style="font:400 15px/1.6 var(--font-sans);color:var(--text-secondary);margin:0">Wants to eat and browse duty-free. Starts out relaxed, but without a sense of how far the gate is, worry builds and the wandering ends early.</p>
-      </div>
-    </div>
-  </div>
-
-  <div style="max-width:720px;margin:0 auto;width:100%;background:var(--accent-soft);border-radius:var(--radius-lg);padding:28px 32px;display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;box-sizing:border-box">
-    <span style="display:inline-flex;align-items:center;gap:8px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="help-circle" size="{{ 14 }}" hint-size="14px,14px"></x-import>How might we</span>
-    <p style="font:400 26px/1.3 var(--font-display);color:var(--text-primary);text-wrap:balance;margin:0">How might we give unfamiliar travellers enough certainty about time and distance that the gate becomes <em>a choice</em>, not a refuge?</p>
+  <div class="w880 decocard" style="background:var(--board);color:#fff;border-radius:24px;padding:clamp(28px,4vw,44px);position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;right:24px;top:24px;display:flex;gap:4px"><span class="cell" style="color:var(--flap)">A</span><span class="cell" style="color:var(--flap)">4</span></div>
+    <p style="position:relative;margin:0;font:600 clamp(20px,2.2vw,27px)/1.35 var(--font-display);letter-spacing:-0.02em;max-width:640px;text-wrap:balance">An “assumed” label would have cost nothing. The whole concept rests on A4, and it is the one I never tested: <span style="color:var(--flap)">does the gate trap happen at all?</span></p>
   </div>
 </section>
 
-<section id="existing" data-nav="existing" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">03</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Working with what exists</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">Before adding something new, I asked what <em style="color:var(--text-accent)">Changi already had</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Singapore's immigration already uses QR codes to move people past queues, and travellers seem used to scanning them. That gave me the starting point. Kiosks people already walk past could hand them a route instead of a printed map.</p>
+<section id="next" data-nav="next" class="sec">
+  <div class="head">
+    <h2 class="h2">Next departures, in the order I’d run them</h2>
+    <p class="lede">The first one could cancel the rest, which is why it goes first.</p>
   </div>
-
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:40px;align-items:center">
-    <figure style="flex:1 1 360px;margin:0;display:flex;flex-direction:column;gap:10px">
-      <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/aura/kiosk-insitu-qr.png" alt="Airport kiosk showing a QR code and 'Scan for live route. Opens instantly in browser. No app required.'" style="width:100%;aspect-ratio:946/728;object-fit:cover;display:block;border-radius:10px"></div>
-      <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px"><span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">3.0</span>The hand-off: kiosk to phone</span><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Concept render</span></figcaption>
-    </figure>
-    <div style="flex:1 1 320px;display:flex;flex-direction:column">
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted);padding-bottom:12px;border-bottom:1px solid var(--border-strong)">Reused, not built</span>
-      <sc-for list="{{ reuse }}" as="r" hint-placeholder-count="4">
-        <div style="display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--border-subtle)">
-          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="{{ r.icon }}" size="{{ 18 }}" color="var(--text-muted)" style="margin-top:2px" hint-size="18px,18px"></x-import>
-          <div style="flex:1;display:flex;flex-direction:column;gap:4px">
-            <span style="display:flex;justify-content:space-between;gap:12px;align-items:center;font:500 14px/1.3 var(--font-sans)">{{ r.t }}<x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="{{ r.tone }}" hint-size="auto,22px">{{ r.status }}</x-import></span>
-            <span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">{{ r.d }}</span>
-          </div>
-        </div>
-      </sc-for>
-    </div>
-  </div>
-
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:16px">
-    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Why not the usual answers</span>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px">
-      <sc-for list="{{ rivals }}" as="c" hint-placeholder-count="4">
-        <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px;display:flex;flex-direction:column;gap:10px">
-          <span style="font:400 22px/1.1 var(--font-display)">{{ c.t }}</span>
-          <span style="display:flex;gap:10px;font:400 13px/1.5 var(--font-sans);color:var(--text-secondary)"><span style="flex:none;width:14px;font:500 15px/1.35 var(--font-sans);color:var(--danger)">−</span>{{ c.d }}</span>
-        </div>
-      </sc-for>
-    </div>
-  </div>
-</section>
-
-<section id="concept" data-nav="concept" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">04</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The concept</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">Needs first, then the route, then <em style="color:var(--text-accent)">one honest warning</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Aura Space is a browser-based AR compass. It starts at a kiosk, moves to the traveller's phone with one scan, and tells them plainly what they lose by going through security.</p>
-  </div>
-
-  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-wrap:wrap;gap:5px">
-      <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:2px;padding:12px">
-        <sc-for list="{{ flow }}" as="f" hint-placeholder-count="7">
-          <button onClick="{{ f.onClick }}" style="all:unset;cursor:pointer;display:flex;gap:12px;align-items:baseline;padding:10px 12px;border-radius:var(--radius-sm);background:{{ f.bg }};transition:background var(--dur-fast) var(--ease-out)">
-            <span style="font:500 11px/1 var(--font-mono);color:{{ f.numColor }}">{{ f.n }}</span>
-            <span style="font:500 14px/1.3 var(--font-sans);color:{{ f.color }}">{{ f.t }}</span>
-          </button>
-        </sc-for>
-      </div>
-      <div style="flex:2.4 1 420px;background:var(--surface-card);border-radius:10px;display:flex;flex-direction:column;overflow:hidden">
-        <div style="position:relative;aspect-ratio:1440/1024;background:#121212;display:flex;align-items:center;justify-content:center">
-          <img src="{{ cur.src }}" alt="{{ cur.alt }}" style="max-width:100%;max-height:100%;width:{{ cur.w }};height:100%;object-fit:{{ cur.fit }};display:block">
-          <span style="position:absolute;left:12px;top:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--on-accent);background:var(--accent);padding:6px 8px;border-radius:var(--radius-xs)">{{ cur.where }}</span>
-        </div>
-        <div style="padding:20px 24px;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--border-subtle)">
-          <span style="font:400 24px/1.15 var(--font-display)">{{ cur.t }}</span>
-          <span style="font:400 14px/1.6 var(--font-sans);color:var(--text-secondary)">{{ cur.d }}</span>
-          <div style="display:flex;gap:8px;margin-top:8px">
-            <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="secondary" size="sm" icon-left="arrow-left" on-click="{{ prev }}" hint-size="80px,32px">Back</x-import>
-            <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="primary" size="sm" icon-right="arrow-right" on-click="{{ next }}" hint-size="80px,32px">Next</x-import>
-          </div>
-        </div>
-      </div>
-    </div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">4.{{ stepNum }}</span>To-be journey, kiosk to gate</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Click through</span>
-    </figcaption>
-  </figure>
-</section>
-
-<section id="rules" data-nav="rules" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">05</span><span style="width:24px;height:1px;background:var(--border-default)"></span>System rules</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">AR in a crowded terminal has to <em style="color:var(--text-accent)">stay out of the way</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">An airport corridor is full of people, luggage and overhead signs. Each rule below is a decision about where the AR layer is allowed to sit, and when to turn it off.</p>
-  </div>
-
-  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-direction:column">
-    <sc-for list="{{ rules }}" as="r" hint-placeholder-count="4">
-      <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:28px 0;border-top:1px solid var(--border-default)">
-        <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:10px">
-          <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">{{ r.n }}</span>
-          <span style="font:400 26px/1.1 var(--font-display);text-wrap:balance">{{ r.t }}</span>
-        </div>
-        <p style="flex:1.5 1 320px;font:400 15px/1.65 var(--font-sans);color:var(--text-secondary);margin:0">{{ r.d }}</p>
+  <div class="w880" style="display:flex;flex-direction:column;border-top:2px solid var(--ink)">
+    <sc-for list="{{ nextList }}" as="n" hint-placeholder-count="4">
+      <div class="split" style="display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)">
+        <span class="mono tnum" style="color:var(--ink);font-weight:700">{{ n.slot }}</span>
+        <span style="font:600 17px/1.3 var(--font-display);letter-spacing:-0.01em">{{ n.t }}</span>
+        <span class="p" style="font-size:14px">{{ n.d }}</span>
       </div>
     </sc-for>
-  </div>
-
-  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-wrap:wrap;gap:5px">
-      <div style="flex:1 1 260px;background:var(--surface-card);border-radius:10px;display:flex;align-items:flex-end;justify-content:center;padding:32px 24px 28px;min-height:260px;position:relative">
-        <div style="position:absolute;left:24px;right:24px;bottom:28px;height:1px;background:var(--border-strong)"></div>
-        <div style="width:18px;height:150px;border-radius:5px;border:2px solid var(--text-primary);background:{{ phoneFill }};transform-origin:50% 100%;transform:rotate({{ tilt }}deg);transition:background var(--dur-base) var(--ease-out);margin-bottom:1px;position:relative;z-index:1"></div>
-        <span style="position:absolute;left:16px;top:16px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Phone, side view</span>
-      </div>
-      <div style="flex:1.6 1 340px;background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:20px">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <span style="font:400 44px/1 var(--font-display)">{{ pitch }}°</span>
-          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="{{ stateTone }}" dot="{{ true }}" hint-size="auto,22px">{{ stateLabel }}</x-import>
-        </div>
-        <label style="display:flex;flex-direction:column;gap:10px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Drag to tilt the phone
-          <input type="range" min="0" max="90" step="1" value="{{ pitch }}" onInput="{{ onPitch }}" onChange="{{ onPitch }}">
-        </label>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="position:relative;display:flex;height:8px;border-radius:var(--radius-pill);overflow:hidden">
-            <span style="width:44.44%;background:var(--gray-700)"></span>
-            <span style="width:16.67%;background:repeating-linear-gradient(135deg,var(--gray-700) 0 3px,transparent 3px 6px)"></span>
-            <span style="width:38.89%;background:var(--accent)"></span>
-          </div>
-          <div style="display:flex;font:500 10px/1.3 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">
-            <span style="width:44.44%">0–40° · camera off</span><span style="width:16.67%">Hold</span><span style="width:38.89%;text-align:right">55–90° · lens on</span>
-          </div>
-        </div>
-        <p style="font:400 14px/1.55 var(--font-sans);color:var(--text-secondary);margin:0">{{ stateNote }}</p>
-      </div>
-    </div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">5.0</span>Phone angle decides whether the camera runs</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Interactive · state diagram</span>
-    </figcaption>
-  </figure>
-
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:16px">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--border-strong);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span>UI palette · five colours, each with one job</span><span>Type · Inter</span></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px">
-      <sc-for list="{{ palette }}" as="p" hint-placeholder-count="5">
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div style="height:88px;border-radius:var(--radius-md);background:{{ p.hex }};box-shadow:inset 0 0 0 1px var(--border-default)"></div>
-          <div style="display:flex;justify-content:space-between;gap:8px"><span style="font:500 14px/1.3 var(--font-sans)">{{ p.name }}</span><span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">{{ p.hex }}</span></div>
-          <span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">{{ p.job }}</span>
-        </div>
-      </sc-for>
-    </div>
-  </div>
-</section>
-
-<section id="business" data-nav="business" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">06</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The business case</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">The business case is <em style="color:var(--text-accent)">three guesses multiplied</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">When I presented the project, I estimated Changi could recover about $375,000 a day. That number is just passengers × minutes × spend per minute, and I didn't verify any of the three. Here it is as a model you can change.</p>
-  </div>
-
-  <figure style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-wrap:wrap;gap:5px">
-      <div style="flex:1.3 1 320px;background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:22px">
-        <label style="display:flex;flex-direction:column;gap:10px">
-          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Passengers caught per day<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">{{ paxLabel }}</span></span>
-          <input type="range" min="500" max="20000" step="500" value="{{ pax }}" onInput="{{ onPax }}" onChange="{{ onPax }}">
-        </label>
-        <label style="display:flex;flex-direction:column;gap:10px">
-          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Minutes moved back to the mall<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">{{ mins }} min</span></span>
-          <input type="range" min="0" max="90" step="5" value="{{ mins }}" onInput="{{ onMins }}" onChange="{{ onMins }}">
-        </label>
-        <label style="display:flex;flex-direction:column;gap:10px">
-          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Spend per minute in the mall<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">{{ spendLabel }}</span></span>
-          <input type="range" min="0.05" max="1.5" step="0.05" value="{{ spend }}" onInput="{{ onSpend }}" onChange="{{ onSpend }}">
-        </label>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="ghost" size="sm" icon-left="rotate-ccw" on-click="{{ resetModel }}" hint-size="140px,32px">Original numbers</x-import>
-          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="ghost" size="sm" on-click="{{ cautiousModel }}" hint-size="120px,32px">A cautious guess</x-import>
-        </div>
-      </div>
-      <div style="flex:1 1 240px;background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:10px;justify-content:center">
-        <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Extra mall spend per day</span>
-        <span style="font:500 clamp(40px,5vw,56px)/1 var(--font-sans);letter-spacing:-0.03em;font-variant-numeric:tabular-nums">{{ dailyLabel }}</span>
-        <span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">{{ perPaxLabel }} per passenger · spend, not airport profit</span>
-      </div>
-    </div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">6.0</span>Every input is an unverified assumption</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Interactive model</span>
-    </figcaption>
-  </figure>
-
-  <sc-if value="{{ corrections }}" hint-placeholder-val="{{ false }}">
-    <div style="max-width:720px;margin:0 auto;width:100%;display:flex;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid var(--border-default);border-bottom:1px solid var(--border-default);flex-wrap:wrap">
-      <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="warning" hint-size="auto,22px">Fact check</x-import>
-      <span style="flex:1 1 400px;font:400 14px/1.55 var(--font-sans);color:var(--text-secondary)">I originally attributed the $0.50 per minute to a Changi Airport Group yield model. I can't trace that source, so I no longer rely on it. The 75 minutes assumed every trapped passenger would otherwise spend the whole wait shopping, which is generous.</span>
-    </div>
-  </sc-if>
-</section>
-
-<section id="limits" data-nav="limits" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">07</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Assumptions and limits</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">A week of desk research leaves <em style="color:var(--text-accent)">a lot unproven</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">I didn't speak to a single traveller. Here is what the concept rests on, and how well each part has held up since.</p>
-  </div>
-
-  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-direction:column">
-    <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--border-strong);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span>Assumption</span><span>Status</span></div>
-    <sc-for list="{{ assumptions }}" as="a" hint-placeholder-count="5">
-      <div style="display:flex;flex-wrap:wrap;gap:8px 24px;padding:18px 0;border-bottom:1px solid var(--border-default);align-items:baseline">
-        <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:4px">
-          <span style="font:500 15px/1.35 var(--font-sans)">{{ a.t }}</span>
-          <span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">{{ a.d }}</span>
-        </div>
-        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="{{ a.tone }}" hint-size="auto,22px">{{ a.status }}</x-import>
-      </div>
-    </sc-for>
-  </div>
-
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:16px">
-    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Technical constraints I planned around</span>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
-      <sc-for list="{{ tech }}" as="c" hint-placeholder-count="3">
-        <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;gap:14px">
-          <span style="font:400 24px/1.1 var(--font-display)">{{ c.t }}</span>
-          <span style="display:flex;gap:10px;font:400 14px/1.5 var(--font-sans);color:var(--text-secondary)"><span style="flex:none;width:14px;font:500 15px/1.4 var(--font-sans);color:var(--danger)">−</span>{{ c.risk }}</span>
-          <span style="display:flex;gap:10px;font:400 14px/1.5 var(--font-sans);color:var(--text-secondary)"><span style="flex:none;width:14px;font:500 15px/1.4 var(--font-sans);color:var(--success)">+</span>{{ c.fix }}</span>
-        </div>
-      </sc-for>
-    </div>
-  </div>
-</section>
-
-<section id="validate" data-nav="validate" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">08</span><span style="width:24px;height:1px;background:var(--border-default)"></span>What I'd validate first</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:640px;margin:0">How often does this happen, and <em style="color:var(--text-accent)">what actually causes it?</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">If unfamiliar travellers don't go through gate security early, or do it for reasons a map can't fix, the concept has nothing to stand on. That comes before any interface.</p>
-  </div>
-  <div style="max-width:880px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">
-    <sc-for list="{{ plan }}" as="p" hint-placeholder-count="4">
-      <div style="background:var(--surface-sunken);border-radius:var(--radius-md);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:180px">
-        <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">{{ p.n }}</span>
-        <span style="font:400 22px/1.15 var(--font-display)">{{ p.t }}</span>
-        <span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted);margin-top:auto">{{ p.d }}</span>
-      </div>
-    </sc-for>
-  </div>
-  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center">
-    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted);margin-right:8px">Questions to answer</span>
-    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">What information feels missing?</x-import>
-    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">How do people decide when to go?</x-import>
-    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">Would more information change that?</x-import>
-    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">Which touchpoints do they already trust?</x-import>
-  </div>
-</section>
-
-<section id="reflection" data-nav="reflection" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">09</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Retrospective</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">The system held up better than <em style="color:var(--text-accent)">the evidence</em></h2>
-  </div>
-  <div style="max-width:880px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px">
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">01</span><span style="font:500 15px/1.3 var(--font-sans)">Nothing new to install</span><span style="font:400 13px/1.55 var(--font-sans);color:var(--text-secondary)">The part I'm proudest of is that the concept asks the airport for no new hardware and the traveller for no app. A new screen on an existing kiosk, a QR code and a browser tab do the work.</span></div>
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">02</span><span style="font:500 15px/1.3 var(--font-sans)">I presented guesses as facts</span><span style="font:400 13px/1.55 var(--font-sans);color:var(--text-secondary)">When I presented this, I stated “10K+ passengers daily” and “0 amenities past security” with the same confidence. One was unverified and the other was wrong. A short label saying “assumed” would have cost nothing.</span></div>
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">03</span><span style="font:500 15px/1.3 var(--font-sans)">One week, no alternatives</span><span style="font:400 13px/1.55 var(--font-sans);color:var(--text-secondary)">I went with the first idea, QR codes on kiosks, and didn't compare it against anything. It may well be right, but I can't show that it beat the other options.</span></div>
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">04</span><span style="font:500 15px/1.3 var(--font-sans)">The roadmap can wait</span><span style="font:400 13px/1.55 var(--font-sans);color:var(--text-secondary)">I also sketched rerouting around crowds and sponsored pitstops. Both are possible later steps. Neither matters until the basic behaviour is confirmed.</span></div>
   </div>
 </section>
 
 <section style="max-width:1040px;margin:0 auto;padding-top:128px">
-  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span>Next project</span><span>03 / 03</span></div>
-  <a href="asha.html" style="display:flex;flex-wrap:wrap;gap:5px;padding:5px;background:var(--surface-sunken);border-radius:var(--radius-lg);border:1px solid transparent;text-decoration:none;color:var(--text-primary);transition:transform var(--dur-base) var(--ease-out), border-color var(--dur-fast) var(--ease-out)" style-hover="transform:translateY(-3px);border-color:var(--border-default);color:var(--text-primary)">
-    <div style="flex:1 1 320px;min-width:0;background:var(--surface-card);border-radius:10px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
-      <span style="font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">ASHA Companion · University project · 2025</span>
-      <h3 style="font:400 clamp(26px,2.6vw,32px)/1.08 var(--font-display);letter-spacing:-0.01em;text-wrap:balance;margin:0">A triage app for the health workers who already visit people at home</h3>
-      <span style="display:inline-flex;align-items:center;gap:6px;font:500 13px/1 var(--font-sans);color:var(--text-accent)">Read case study<x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="arrow-right" size="{{ 14 }}" hint-size="14px,14px"></x-import></span>
+  <a class="next" href="index.html#work" style="display:flex;flex-wrap:wrap;gap:6px;padding:6px;background:var(--sunken);border-radius:20px;text-decoration:none;color:var(--ink)">
+    <div style="flex:1 1 320px;min-width:0;background:var(--card);border-radius:14px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+      <span class="mono" style="color:var(--muted)">That’s the last of six</span>
+      <span style="font:700 clamp(26px,2.6vw,32px)/1.1 var(--font-display);letter-spacing:-0.03em;text-wrap:balance">Back to all work</span>
+      <span style="font:600 13px/1 var(--font-sans);color:#2149E0">See every project</span>
     </div>
-    <div style="flex:1.2 1 320px;min-width:0;min-height:260px;position:relative"><img src="assets/asha/cover.jpg" alt="Hand holding a phone showing the patient screen of the ASHA Companion" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% 40%;display:block;border-radius:10px"></div>
+    <div aria-hidden="true" style="flex:1.2 1 320px;min-width:0;min-height:220px;background:var(--board);border-radius:14px;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:24px">
+      <sc-for list="{{ allWork }}" as="w" hint-placeholder-count="6">
+        <span style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:6px 0;border-top:1px solid var(--board3)"><span style="font:600 14px/1.2 var(--font-sans);color:#fff">{{ w.n }}</span><span class="mono" style="font-size:10px;color:{{ w.c }}">{{ w.s }}</span></span>
+      </sc-for>
+    </div>
   </a>
 </section>
 
 </main>
 
-<footer data-theme="dark" style="background:var(--band-bg);color:var(--band-fg);margin-top:var(--space-11)">
-  <div style="max-width:var(--max-content);margin:0 auto;padding:128px var(--margin-page) 32px;display:flex;flex-direction:column;gap:112px">
+<!-- FOOTER: the board clears -->
+<footer style="margin-top:128px;background:var(--board);color:#F1F2F4;position:relative;overflow:hidden">
+  <div style="max-width:1280px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 32px;display:flex;flex-direction:column;gap:104px">
     <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px">
-      <span style="font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Aura Space · Speculative concept · 2026</span>
-      <div data-reveal="" style="font:400 clamp(40px,5vw,64px)/1.02 var(--font-display);letter-spacing:-0.02em;text-wrap:balance;max-width:760px">Sometimes the most useful new system is <em style="color:var(--text-accent)">a new screen on an old kiosk.</em></div>
-      <p style="font:400 15px/1.5 var(--font-sans);color:var(--text-muted);max-width:520px;margin:0">A solo, one-week concept. All renders are mock-ups. Nothing was tested with travellers.</p>
+      <span style="font:500 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--boardmu)">Departed: the board clears</span>
+      <div aria-label="Aura Space, departed" role="img" style="display:flex;gap:3px;flex-wrap:wrap;justify-content:center">
+        <sc-for list="{{ footCells }}" as="c" hint-placeholder-count="8"><span class="cell" style="color:{{ c.col }};width:26px;height:36px;font-size:17px">{{ c.ch }}</span></sc-for>
+      </div>
+      <p style="margin:0;font:700 clamp(36px,5vw,60px)/1.04 var(--font-display);letter-spacing:-0.04em;text-wrap:balance;max-width:780px">Time at the gate should be <span style="color:var(--flap)">a choice,</span> not a precaution.</p>
+      <p style="font:400 13px/1.5 var(--font-sans);color:var(--boardmu);max-width:520px;margin:0">A speculative concept by Parthiv Nair, March 2026. Desk research only; nothing here was tested with travellers.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
-        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="accent" icon-right="arrow-up-right" on-click="{{ goContact }}" hint-size="120px,40px">Let's talk</x-import>
-        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="secondary" icon-left="arrow-left" on-click="{{ goWork }}" hint-size="120px,40px">All work</x-import>
+        <a class="pill-link" href="mailto:parthivnair10c@gmail.com" style="height:40px;padding:0 18px;background:var(--flap);color:var(--ink)">Let’s talk</a>
+        <a class="pill-link" href="index.html#work" style="height:40px;padding:0 18px;border:1px solid var(--board3);color:#F1F2F4">All work</a>
       </div>
     </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:1px solid var(--border-default);padding-top:20px;font:400 12px/1 var(--font-mono);color:var(--text-muted)">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:1px solid var(--board3);padding-top:20px;font:400 12px/1 var(--font-mono);color:var(--boardmu)">
       <span>© 2026 Parthiv</span>
-      <span style="display:flex;gap:20px"><a href="https://www.linkedin.com/in/parthiv-nair-a1ba23273" target="_blank" rel="noopener" style="color:inherit">LinkedIn</a><a href="https://drive.google.com/drive/folders/1yHF96X8kEyGxpA_ee23sn0sXkNUF6tDy?usp=sharing" target="_blank" rel="noopener" style="color:inherit">CV</a></span>
+      <span style="display:flex;gap:20px"><a href="https://www.linkedin.com/in/parthiv-nair-a1ba23273" target="_blank" rel="noopener" style="color:inherit">LinkedIn ↗</a><a href="https://drive.google.com/drive/folders/1yHF96X8kEyGxpA_ee23sn0sXkNUF6tDy?usp=sharing" target="_blank" rel="noopener" style="color:inherit">CV ↗</a></span>
     </div>
   </div>
 </footer>
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;link&quot;,&quot;marker&quot;,&quot;clay&quot;,&quot;par&quot;,&quot;mono&quot;],&quot;default&quot;:&quot;link&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;corrections&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":13600}}'>
 class Component extends DCLogic {
-  state = { active: 'overview', wide: false, railOn: false, secMode: 'gate', step: 0, pitch: 70, camState: 'on', pax: 10000, mins: 75, spend: 0.5 };
+  state = { active: 'overview', wide: false, railOn: false, prog: 0, step: 1, pin: 'A', open: 'A4' };
 
   componentDidMount() {
-    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const motion = (this.props.motion ?? true) && !reduce;
-    const H = () => window.innerHeight || 800;
-    const show = n => { n.style.opacity = '1'; n.style.transform = 'none'; n.dataset.shown = '1'; };
-    document.querySelectorAll('[data-reveal]').forEach(n => {
-      if (!motion) return show(n);
-      n.style.transition = 'opacity 900ms cubic-bezier(.16,1,.3,1), transform 900ms cubic-bezier(.16,1,.3,1)';
-      if (n.getBoundingClientRect().top < H() * 0.92) show(n);
-      else if (!n.dataset.shown) { n.style.opacity = '0'; n.style.transform = 'translateY(20px)'; }
-    });
+    this.reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.check = () => {
-      const h = H();
-      document.querySelectorAll('[data-reveal]').forEach(n => { if (!n.dataset.shown && n.getBoundingClientRect().top < h * 0.92) show(n); });
+      const h = window.innerHeight || 800;
       let active = 'overview';
       document.querySelectorAll('[data-nav]').forEach(s => { if (s.getBoundingClientRect().top < 200) active = s.getAttribute('data-nav'); });
       const wide = window.innerWidth >= 1180, railOn = window.scrollY > 500;
-      if (active !== this.state.active || wide !== this.state.wide || railOn !== this.state.railOn) this.setState({ active, wide, railOn });
+      const max = document.documentElement.scrollHeight - h;
+      const prog = max > 0 ? Math.round(Math.min(1, Math.max(0, window.scrollY / max)) * 200) / 200 : 0;
+      if (active !== this.state.active || wide !== this.state.wide || railOn !== this.state.railOn || prog !== this.state.prog) this.setState({ active, wide, railOn, prog });
     };
     window.addEventListener('scroll', this.check, { passive: true });
     window.addEventListener('resize', this.check);
     this.check();
-    this.t1 = setTimeout(this.check, 300);
-    this.t2 = setTimeout(this.check, 1200);
+    this.t1 = setTimeout(this.check, 400);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.check);
     window.removeEventListener('resize', this.check);
-    clearTimeout(this.t1); clearTimeout(this.t2);
+    clearTimeout(this.t1);
   }
   jump(id) {
     const el = document.getElementById(id);
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: 'smooth' });
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: this.reduce ? 'auto' : 'smooth' });
   }
 
-  getTheme() { if (this.state.theme) return this.state.theme; let t; try { t = localStorage.getItem('par-theme'); } catch (e) {} return t === 'light' ? 'light' : 'dark'; }
-  themeVals() {
-    const theme = this.getTheme();
-    try { document.documentElement.style.background = document.body.style.background = theme === 'dark' ? '#0E0E0E' : '#FFFFFF'; } catch (e) {}
-    if (!this._rz) { this._rz = () => this.forceUpdate(); window.addEventListener('resize', this._rz); }
-    const narrow = (window.innerWidth || 1200) < 640;
-    const lay = { narrow, showTalk: !narrow, hdrCols: narrow ? '1fr auto' : '1fr auto 1fr', hdrRows: narrow ? '64px auto' : 'auto', navCol: narrow ? '1 / -1' : 'auto', navOrder: narrow ? '3' : '0', navMb: narrow ? '12px' : '0' };
-    return { ...lay, theme, themeIcon: theme === 'dark' ? 'sun' : 'moon', themeLabel: theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
-      toggleTheme: () => { const t = theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('par-theme', t); } catch (e) {} this.setState({ theme: t }); } };
-  }
   renderVals() {
-    const { active, secMode, step, pitch, camState, pax, mins, spend } = this.state;
-    const tocList = [['overview', 'Overview'], ['context', 'Context'], ['problem', 'The problem'], ['existing', 'What exists'], ['concept', 'The concept'], ['rules', 'System rules'], ['business', 'Business case'], ['limits', 'Limits'], ['validate', 'Validate first'], ['reflection', 'Retrospective']];
+    const st = this.state;
 
-    const A = (label, tone) => ({ label, tone: tone || 'neutral' });
-    const gate = secMode === 'gate';
-    const z = (n, name, amen, flex, op) => ({ zone: true, sec: false, n, name, amen, flex: flex || '1 1 150px', op: op ?? 1 });
-    const SEC = { zone: false, sec: true };
-    const zones = gate
-      ? [z('Landside', 'Check-in + immigration', [A('Toilets')]), z('Transit mall', 'Shops, food, gardens', [A('Shops', 'accent'), A('Food', 'accent'), A('Toilets'), A('Water')], '2 1 220px'), SEC, z('Gate holdroom', 'Seats and a wait', [A('Water'), A('Most: no toilets', 'danger'), A('No food', 'danger')]), z('Board', 'Aircraft', [], '0 1 120px', 0.55)]
-      : [z('Landside', 'Check-in + immigration', [A('Toilets')]), SEC, z('Airside', 'Shops, food, gates', [A('Shops', 'accent'), A('Food', 'accent'), A('Toilets'), A('Water')], '2.4 1 260px'), z('Gate', 'Open seating', [A('Mall stays reachable', 'success')]), z('Board', 'Aircraft', [], '0 1 120px', 0.55)];
-
-    const flowData = [
-      { t: 'Scan boarding pass', where: 'Kiosk', src: 'assets/aura/kiosk-gate.png', fit: 'contain', alt: 'Kiosk screen: Gate 45A, about 33 minutes away, add stops', d: 'An existing kiosk reads the boarding pass and shows the three things people seem to be missing: which gate, how far in minutes, and that this gate has security at the door.' },
-      { t: 'Add a stop first', where: 'Kiosk', src: 'assets/aura/kiosk-stop.png', fit: 'contain', alt: 'Kiosk screen with drinking water selected as a stop', d: 'Before any shopping, the route offers the basics: a toilet or a water refill. Meeting those needs before the gate is the first promise the system makes, so the later ones are easier to believe.' },
-      { t: 'Hand off to the phone', where: 'Kiosk', src: 'assets/aura/kiosk-qr.png', fit: 'contain', alt: 'Kiosk screen with a QR code: scan for live route', d: 'One QR scan opens the route in the phone\'s browser. There\'s nothing to download over terminal Wi-Fi and no account to create.' },
-      { t: 'Walk with the phone down', where: 'Phone · camera off', src: 'assets/aura/phone-glance.png', fit: 'contain', w: 'auto', alt: 'Phone screen: large arrow, walk straight past Duty-Free, we will vibrate before your next turn', d: 'Held low, the phone shows one arrow and one sentence and vibrates before the next turn. The camera stays off to save battery.' },
-      { t: 'Raise it to see the path', where: 'Phone · lens on', src: 'assets/aura/ar-path.png', fit: 'cover', alt: 'AR view: cyan chevrons along the mall floor toward a pin, 150m to water station', d: 'Lift the phone and sparse chevrons appear at waist height down the corridor, with the distance to the next stop underneath.' },
-      { t: 'Warn before the last exit', where: 'Phone · warning', src: 'assets/aura/ar-warning.png', fit: 'cover', alt: 'AR view at Gate F50 with a yellow Security Ahead panel: no restrooms or food beyond this point, 70 minutes remaining', d: 'Near the gate, one yellow screen spells out what disappears past security and how much time is left. The traveller picks: keep exploring, or go in.' },
-      { t: 'Pause, don\'t abandon', where: 'Phone · paused', src: 'assets/aura/ar-paused.png', fit: 'cover', alt: 'Phone at Gate F50 showing Navigation Paused and Continue to gate', d: 'Exploring pauses the route without ending it. When they\'re ready, one tap brings them back to the gate.' }
+    // ---- rail: a departure board whose gate countdown falls as you read
+    const groups = [
+      ['overview', 'Overview'],
+      ['h', 'Check-in'], ['split', 'Two airports'], ['gap', 'What you can’t see'], ['travellers', 'Two travellers'],
+      ['h', 'Security'], ['trap', 'The gate trap'], ['rules', 'Conditions'],
+      ['h', 'Boarding'], ['route', 'Kiosk to gate'], ['screen', 'Phone down'], ['corridor', 'AR in a crowd'], ['lastcall', 'Last exit'],
+      ['h', 'Arrivals'], ['assumptions', 'Assumption board'], ['next', 'Next departures']
     ];
-    const cur = flowData[step];
-    const go = i => this.setState({ step: (i + flowData.length) % flowData.length });
+    const bandMap = { checkin: 'split', security: 'trap', boarding: 'route', arrivals: 'assumptions' };
+    const act = bandMap[st.active] || st.active;
+    const items = groups.filter(g => g[0] !== 'h').map(g => g[0]);
+    const idx = Math.max(0, items.indexOf(act));
+    const done = st.prog > 0.985;
+    const mins = done ? 0 : Math.round(45 * (1 - idx / (items.length - 1)));
+    const mm = String(mins).padStart(2, '0');
+    const toc = groups.map(([id, label]) => {
+      if (id === 'h') return { isHead: true, isItem: false, label };
+      const i = items.indexOf(id);
+      const on = i === idx && !done, past = i < idx || done;
+      return { isHead: false, isItem: true, label, cur: on ? 'true' : 'false',
+        color: on ? '#FFB000' : past ? '#8A919B' : '#C9CDD3',
+        fill: on ? '#FFB000' : past ? '#5A6069' : 'transparent',
+        edge: on ? '#FFB000' : past ? '#5A6069' : '#5A6069',
+        onClick: () => this.jump(id) };
+    });
 
-    const camOn = camState === 'on';
-    const inHold = pitch >= 40 && pitch < 55;
-    const onPitch = e => {
-      const v = +e.target.value;
-      const st = v < 40 ? 'off' : v >= 55 ? 'on' : this.state.camState;
-      this.setState({ pitch: v, camState: st });
+    // ---- hero flaps
+    const word = 'AURA SPACE';
+    let k = 0;
+    const heroFlaps = word.split('').map(ch => {
+      if (ch === ' ') return { ch: '', delay: '0ms', vis: 'hidden', w: 'clamp(10px,1.6vw,22px)' };
+      const d = (k++) * 40;
+      return { ch, delay: d + 'ms', vis: 'visible', w: 'clamp(36px,6.2vw,86px)' };
+    });
+
+    // ---- 1.1 the board a worried traveller reads
+    const cells = s => s.split('').map(ch => ({ ch }));
+    const board = [
+      { q: 'Which gate?', where: 'Boarding pass, flight screens', a: 'F50', col: '#FFFFFF' },
+      { q: 'When does boarding start?', where: 'Boarding pass', a: '15:20', col: '#FFFFFF' },
+      { q: 'How many minutes’ walk from here?', where: 'Some signs, never from where you stand', a: '??', col: '#FFB000' },
+      { q: 'When does the gate start screening?', where: 'Flight screens, once it opens', a: '??', col: '#FFB000' },
+      { q: 'What can I still do before I go back?', where: 'Nowhere in one place', a: '??', col: '#FFB000' }
+    ].map(b => Object.assign({}, b, { cells: cells(b.a) }));
+
+    // ---- 1.2 two travellers, layover to one scale (180 = 100%)
+    const people = [
+      { name: 'The anxious sprinter', conn: 'Connection, assumed', mins: 60, d: 'Goes straight to the gate and stays. Skips the toilet because the walk back feels risky.', free: '20%', gate: '80%', bar: 'Almost all of the layover spent at the gate' },
+      { name: 'The hesitant shopper', conn: 'Layover, assumed', mins: 180, d: 'Starts out relaxed, but with no sense of distance, worry ends the wandering early.', free: '55%', gate: '45%', bar: 'Wandering cut short by worry, not by the clock' }
+    ].map(p => Object.assign({}, p, { len: (p.mins / 180 * 100).toFixed(1) + '%' }));
+
+    // ---- 2.0 the tray
+    const mall = [['WC', 'Toilets'], ['F&B', 'Food and drink'], ['RET', 'Shops'], ['H2O', 'Water']].map(([g, t]) => ({ g, t }));
+    const hold = [
+      ['H2O', 'Water', 'yes'], ['WC', 'Toilets in only some', 'some'], ['F&B', 'Food and drink', 'no'], ['RET', 'Shops', 'no']
+    ].map(([g, t, has]) => ({ g, t, bg: has === 'yes' ? 'var(--sign)' : 'transparent', edge: has === 'yes' ? 'var(--sign)' : has === 'some' ? '#C9CDD3' : '#5A6069', fg: has === 'yes' ? 'var(--ink)' : has === 'some' ? '#C9CDD3' : '#8A919B', dec: has === 'no' ? 'line-through' : 'none' }));
+
+    // ---- conditions of carriage
+    const rulesList = [
+      ['C1', 'No install, no account', 'The kiosk reads the pass the traveller already holds, then hands off to a browser tab.', 'Postel’s law'],
+      ['C2', 'No new hardware for Changi', 'Reuse the kiosks already in the transit mall.', 'Feasibility'],
+      ['C3', 'Time first, distance second', 'The countdown tops every screen; distances point to amenities too.', 'Staging the focus'],
+      ['C4', 'Eyes up by default', 'One arrow while the phone is low; AR only when it is raised.', 'Hick’s law'],
+      ['C5', 'Interrupt once, at the point of no return', 'One warning before gate screening, never a stream of nudges.', 'Frequency of use']
+    ].map(([id, t, d, s]) => ({ id, t, d, s }));
+
+    const ideas = [
+      ['A dedicated Changi app', 'Breaks C1: a transit traveller won’t download an app for a stop of a few hours.', 'Cancelled', false],
+      ['AR signage installed in the mall', 'Breaks C2: new screens and positioning hardware across three terminals.', 'Cancelled', false],
+      ['Kiosk hand-off to a browser tab', 'Meets both. The route lives in a tab the traveller can close at the gate.', 'Boarding', true]
+    ].map(([name, why, status, ok], i) => ({ name, why, status, bt: i ? '1px solid #2A2E35' : '0',
+      nameC: ok ? '#FFFFFF' : '#8A919B', dec: ok ? 'none' : 'line-through',
+      sbg: ok ? '#FFB000' : 'transparent', sfg: ok ? '#121417' : '#FF6B76' }));
+
+    // ---- 3.0 kiosk to gate
+    const stepData = [
+      { name: 'Scan at a kiosk', what: 'An existing kiosk reads the boarding pass and shows a QR code.', why: 'The kiosk already knows the flight, so the traveller types nothing.', serves: 'C1, C2, Postel’s law', img: 'assets/v3/bf96f7457a78.webp', alt: 'Concept render: a Changi kiosk shows a QR code, scan for live route, opens in browser, no app required', iw: '100%', ih: '100%', fit: 'cover', pos: '60% 50%', rad: '0', kind: 'Concept render' },
+      { name: 'Phone down', what: 'The tab opens on the countdown and one arrow.', why: 'Held low, the phone vibrates before each turn so the traveller can look at the corridor, not the screen.', serves: 'C3, C4', img: 'assets/v3/2a0d5de24172.webp', alt: 'Phone-down screen: gate F50 opens in 45 minutes, one large arrow, 150 metres to water station', iw: 'auto', ih: '420px', fit: 'contain', pos: '50% 50%', rad: '24px', kind: 'Parthiv’s screen' },
+      { name: 'Raise to see the path', what: 'Raising the phone turns on the camera and floats the next waypoints.', why: 'AR only when asked for: it saves battery and keeps the camera off in a crowd.', serves: 'C4, Staging the focus', img: 'assets/v3/8acb8a00aec7.webp', alt: 'Concept render: phone raised in the mall, cyan AR chevrons lead to a water station', iw: '100%', ih: '100%', fit: 'cover', pos: '50% 50%', rad: '0', kind: 'Concept render' },
+      { name: 'Last exit before screening', what: 'Near the gate, one yellow screen says what the holdroom lacks and how long is left.', why: 'The single interruption, placed where the decision can’t be reversed.', serves: 'C5, Frequency of use', warn: true, kind: 'Diagram, no screen yet' }
+    ];
+    const steps = stepData.map((s, i) => ({ n: '0' + (i + 1), name: s.name, sel: i === st.step ? 'true' : 'false', pick: () => this.setState({ step: i }) }));
+    const sd = stepData[st.step];
+    const stepSel = Object.assign({}, sd, { isImg: !sd.warn, isWarn: !!sd.warn });
+
+    // ---- 3.1 anatomy pins
+    const pinData = [
+      ['A', 50, 11, 'The countdown comes first', 'Gate F50 opens in 45 minutes. Every other element answers to this number.'],
+      ['B', 50, 41, 'One arrow, readable at arm’s length', 'No map. The next move only, at a size that reads while walking.'],
+      ['C', 50, 58, 'A vibration before each turn', 'Tells the traveller it is safe to stop looking at the screen.'],
+      ['D', 50, 79, 'Distance to an amenity, not only the gate', '150 m to a water station frames the mall as usable, not as a detour.'],
+      ['E', 50, 86.5, 'Permission to leave the route', 'Pause route and explore keeps the countdown running while the traveller browses.'],
+      ['F', 50, 95, 'A browser tab, not an app', 'Closing it is the whole uninstall.']
+    ];
+    const pins = pinData.map(([id, x, y, t, d]) => {
+      const sel = st.pin === id;
+      return { id, x: x + '%', y: y + '%', t, d, sel: sel ? 'true' : 'false', aria: id + ': ' + t,
+        bg: sel ? '#FFB000' : '#FFFFFF', fg: '#121417', rowBg: sel ? '#FFF4D6' : 'transparent',
+        pick: () => this.setState({ pin: id }) };
+    });
+
+    // ---- 3.2 AR placement rules
+    const arRules = [
+      ['A', 'No lines on the floor', 'People walk through them and the illusion breaks.'],
+      ['B', 'Waypoints at 0.75 m', 'Above suitcases, below the overhead signs.'],
+      ['C', 'Turns on corners', 'Anchored to pillars, not floating in open space.'],
+      ['D', 'Only the next few', 'Where to go next, not the whole route at once.']
+    ].map(([id, t, d]) => ({ id, t, d }));
+
+    const warn = [
+      { t: 'Yellow, because the signs are yellow', d: 'Travellers already read airport yellow as wayfinding. A new colour would need learning.', s: 'Jakob’s law' },
+      { t: 'It names the loss, not a rule', d: 'Toilets and food, in plain words, instead of a generic “security ahead”.', s: 'C5' },
+      { t: 'Minutes stay the biggest thing', d: 'The traveller decides with the number, so the number dominates.', s: 'C3' }
+    ];
+
+    // ---- arrivals band cells
+    // five assumptions, coloured by how they held up (see 4.0)
+    const bandCells = [['A1', '#FFB000'], ['A2', '#FFB000'], ['A3', '#C9CDD3'], ['A4', '#5A6069'], ['A5', '#FF6B76']]
+      .reduce((acc, [id, col], i) => acc.concat(i ? [{ ch: '', col }] : [], id.split('').map(ch => ({ ch, col }))), []);
+
+    // ---- 4.0 assumption board
+    const S = {
+      Corrected: ['#FFB000', '#121417', '#FFB000'],
+      Reported: ['#2A2E35', '#F1F2F4', '#2A2E35'],
+      Untested: ['transparent', '#F1F2F4', '#8A919B'],
+      'No source': ['transparent', '#FF6B76', '#E0303F']
     };
+    const assumeData = [
+      ['A1', 'Holdrooms have no amenities.', 'Corrected', 'They have water; most lack toilets. The original claim overstated it.', 'Walk the holdrooms at a sample of gates in each terminal and log what is inside.'],
+      ['A2', 'Gate screening applies across Changi.', 'Corrected', 'Only Terminals 1 to 3. Changi’s own security page says Terminal 4 screens straight after immigration.', 'Done: checked against Changi’s security page.'],
+      ['A3', 'Leaving a holdroom means screening again.', 'Reported', 'Second-hand reports only. Nothing official found.', 'Ask Changi or ground staff, and watch re-entry at a holdroom.'],
+      ['A4', 'Not knowing the time left pushes people to the gate early.', 'Untested', 'The concept rests on this, and I have no observation of it.', 'Shadow transit passengers and log when they enter gate screening against their boarding time.'],
+      ['A5', '10K passengers × 75 min × $0.50 a minute.', 'No source', 'A cost figure I presented with no source for any of its three terms.', 'Drop it, or source every term before it appears again.']
+    ];
+    const assume = assumeData.map(([id, t, status, now, check]) => {
+      const c = S[status];
+      const isOpen = st.open === id;
+      return { id, t, status, now, check, bg: c[0], fg: c[1], edge: c[2], isOpen, open: isOpen ? 'true' : 'false',
+        toggle: () => this.setState({ open: isOpen ? '' : id }) };
+    });
 
-    const daily = pax * mins * spend;
-    const money = v => v >= 1e6 ? '$' + (v / 1e6).toFixed(2) + 'M' : v >= 1000 ? '$' + Math.round(v / 1000) + 'K' : '$' + Math.round(v);
+    const nextList = [
+      ['First', 'Does the gate trap happen?', 'Watch transit passengers at T1 to T3 gates (A4). If they don’t go in early, the concept stops here.'],
+      ['Then', 'Benchmark iChangi', 'Changi’s app already books slots in the gate screening queue. Aura Space should build on that or be cut.'],
+      ['Then', 'Can indoor positioning hold a route?', 'Waypoints need location accurate to a few metres indoors: a feasibility question for Changi.'],
+      ['Last', 'Phone down vs AR, with bags in hand', 'Do travellers carrying luggage raise the phone at all, or live on the arrow?']
+    ].map(([slot, t, d]) => ({ slot, t, d }));
+
+    const allWork = [
+      ['WattWise', 'Departed', '#8A919B'], ['Cooking Assist', 'Departed', '#8A919B'], ['OLX Redesign', 'Departed', '#8A919B'], ['AimXR', 'Departed', '#8A919B'], ['ASHA Companion', 'Departed', '#8A919B'], ['Aura Space', 'Landed', '#FFB000']
+    ].map(([n, s, c]) => ({ n, s, c }));
+
+    const footCells = 'DEPARTED'.split('').map(ch => ({ ch, col: '#FFB000' }));
 
     return {
-      ...this.themeVals(),
-      goWork: () => { window.location.href = 'index.html#work'; },
-      goContact: () => { window.location.href = 'index.html#contact'; },
-      accent: this.props.accent ?? 'link',
-      corrections: this.props.corrections ?? false,
-      railVisible: this.state.wide && this.state.railOn,
-      toc: tocList.map(([id, label]) => {
-        const on = active === id;
-        return { label, color: on ? 'var(--text-primary)' : 'var(--text-muted)', w: on ? '14px' : '6px', bar: on ? 'var(--accent)' : 'var(--border-default)', onClick: () => this.jump(id) };
-      }),
-
-      secItems: [{ id: 'gate', label: 'At the gate · T1–T3' }, { id: 'central', label: 'Central · T4' }],
-      secMode, onSec: id => this.setState({ secMode: id }),
-      zones,
-      secNote: gate
-        ? 'Go through gate security early and the shops and food stay behind you. So do toilets, at most gates. Coming back out means queuing for screening again.'
-        : 'Security happens once, near the start. After that, shops and toilets stay within reach until boarding, so arriving early costs nothing.',
-
-      asis: [
-        ['01', 'Reads the info board', 'Finds the gate number on a 2D map'],
-        ['02', 'Photographs the map', 'Hopes to remember the route'],
-        ['03', 'Gets disoriented', 'A flat map doesn\'t match a three-storey terminal'],
-        ['04', 'Worry builds', 'Unsure how long the walk or the queue will take'],
-        ['05', 'Heads straight for the gate', 'Skips the mall, and often the toilet'],
-        ['06', 'The gate trap', 'Screened, seated and waiting, with nowhere else to go']
-      ].map(([n, t, d], i) => ({ n, t, d, numColor: i === 5 ? 'var(--text-accent)' : 'var(--text-muted)', titleColor: i === 5 ? 'var(--text-accent)' : 'var(--text-primary)' })),
-
-      reuse: [
-        { icon: 'monitor', t: 'Airport kiosks', d: 'Already in the terminal, and people already walk up to them. Aura Space only adds a new screen.', status: 'Exists', tone: 'success' },
-        { icon: 'qr-code', t: 'QR codes', d: 'Immigration already uses them, so scanning one in the airport isn\'t a new habit.', status: 'Exists', tone: 'success' },
-        { icon: 'globe', t: 'The phone\'s browser', d: 'Browser-based AR (WebXR-style frameworks) means no app to download.', status: 'Exists', tone: 'success' },
-        { icon: 'radio', t: 'Bluetooth beacons', d: 'Would correct drift in indoor position. I assumed Changi has a usable network but didn\'t confirm it.', status: 'Assumed', tone: 'warning' }
-      ],
-      rivals: [
-        { t: 'A native app', d: 'A large download on terminal Wi-Fi, for a place most people visit once.' },
-        { t: 'AR lines on the floor', d: 'People walk through a continuous line, and the illusion breaks.' },
-        { t: 'Big floating arrows', d: 'At eye level, they cover the overhead signs people already rely on.' },
-        { t: 'Static 2D maps', d: 'They can\'t show three storeys. People photograph them and still get lost.' }
-      ],
-
-      flow: flowData.map((f, i) => ({ n: String(i + 1).padStart(2, '0'), t: f.t, onClick: () => go(i), bg: i === step ? 'var(--surface-card)' : 'transparent', color: i === step ? 'var(--text-primary)' : 'var(--text-muted)', numColor: i === step ? 'var(--text-accent)' : 'var(--text-muted)' })),
-      cur: { ...cur, w: cur.w || '100%' }, stepNum: step + 1,
-      prev: () => go(step - 1), next: () => go(step + 1),
-
-      rules: [
-        { n: '01', t: 'No lines on the floor', d: 'A continuous path drawn on the ground glitches the moment someone walks across it. I dropped it and used separate waypoints the crowd can pass between.' },
-        { n: '02', t: 'Waypoints at 0.75m', d: 'Chevrons float at about waist height. That keeps them above suitcases and below the ceiling signs, so the AR never covers the airport\'s own wayfinding.' },
-        { n: '03', t: 'Anchor turns to corners', d: 'At intersections, chevrons sit against real pillars and walls rather than in open space, where people would walk through them.' },
-        { n: '04', t: 'Show only the next few', d: 'Waypoints fade toward the vanishing point. The screen shows where to go next, not the whole route.' }
-      ],
-      pitch, onPitch,
-      tilt: 90 - pitch,
-      phoneFill: camOn ? 'var(--accent)' : 'transparent',
-      stateLabel: inHold ? (camOn ? 'Hold · lens stays on' : 'Hold · camera stays off') : (camOn ? 'Lens on · AR view' : 'Camera off · glance mode'),
-      stateTone: camOn ? 'accent' : 'neutral',
-      stateNote: inHold
-        ? 'Between 40° and 55° nothing changes. The phone keeps whatever state it was last in, so walking with a slightly tilted hand doesn\'t make the camera flicker on and off.'
-        : camOn
-          ? 'Raised past 55°, the camera turns on and chevrons appear. The traveller is looking for the route, so the AR view shows it.'
-          : 'Below 40° the phone is held low or pocketed. The camera stops, and the screen falls back to an arrow and a vibration before each turn.',
-
-      palette: [
-        { name: 'Dark gray', hex: '#121212', job: 'Background. Near-black, so OLED screens don\'t smear when scrolling.' },
-        { name: 'Gunmetal', hex: '#1A1A1A', job: 'Solid cards. No glass effects over a busy camera feed.' },
-        { name: 'Stark white', hex: '#FFFFFF', job: 'Type and buttons, for maximum contrast in bright terminals.' },
-        { name: 'Electric cyan', hex: '#0DF0D0', job: 'AR chevrons only. Stands out against Changi\'s warm golds.' },
-        { name: 'Acid yellow', hex: '#E5F22C', job: 'The security warning only. Reads as caution without alarm red.' }
-      ],
-
-      pax, mins, spend,
-      paxLabel: pax.toLocaleString('en-US'),
-      spendLabel: '$' + spend.toFixed(2),
-      onPax: e => this.setState({ pax: +e.target.value }),
-      onMins: e => this.setState({ mins: +e.target.value }),
-      onSpend: e => this.setState({ spend: +e.target.value }),
-      resetModel: () => this.setState({ pax: 10000, mins: 75, spend: 0.5 }),
-      cautiousModel: () => this.setState({ pax: 2000, mins: 20, spend: 0.25 }),
-      dailyLabel: money(daily),
-      perPaxLabel: '$' + (mins * spend).toFixed(2),
-
-      assumptions: [
-        { t: 'Holdrooms have no amenities', d: 'They have water dispensers. Most lack toilets, and none have shops or food.', status: 'Partly wrong', tone: 'danger' },
-        { t: 'This applies across Changi', d: 'Only Terminals 1–3 screen at the gate. Terminal 4 uses central security.', status: 'Partly wrong', tone: 'danger' },
-        { t: 'Leaving the holdroom isn\'t practical', d: 'Traveller reports describe having to be screened again. I haven\'t confirmed the airport\'s policy.', status: 'Reported', tone: 'warning' },
-        { t: 'Uncertainty makes people go in early', d: 'This is the core hypothesis, and nothing in the project tests it.', status: 'Unverified', tone: 'outline' },
-        { t: '10K passengers, 75 minutes, $0.50/min', d: 'These are the inputs to the business case. I have no source for any of them.', status: 'Unverified', tone: 'outline' }
-      ],
-      tech: [
-        { t: 'Backgrounded browsers', risk: 'Phones throttle a browser tab\'s camera once it\'s pocketed, and long sessions can drop.', fix: 'A saved-route URL reopens the session from the last known position.' },
-        { t: 'Positional drift', risk: 'Visual tracking builds up error along long, featureless corridors.', fix: 'Recalibrate from a nearby beacon when tracking confidence drops (assumes beacons exist).' },
-        { t: 'Battery and heat', risk: 'Continuous AR rendering drains older phones on a long walk.', fix: 'Short camera bursts at each waypoint, and a true-black screen between them.' }
-      ],
-      plan: [
-        { n: '01', t: 'Talk to first-time transit travellers', d: 'How they decide when to head for the gate, and what they feel they don\'t know.' },
-        { n: '02', t: 'Watch a gate-security terminal', d: 'Check how early people actually go through, and whether they leave again.' },
-        { n: '03', t: 'Map the moments of doubt', d: 'Find where in the journey uncertainty peaks, and whether time or direction causes it.' },
-        { n: '04', t: 'Test the hand-off on paper', d: 'Kiosk → QR → phone, before building any AR.' }
-      ]
+      railVisible: st.wide && st.railOn,
+      toc, d1: mm[0], d2: mm[1], gateLabel: mins === 0 ? 'Now boarding' : 'Gate opens in',
+      heroFlaps, board, people, mall, hold, rulesList, ideas,
+      steps, stepSel, pins, arRules, warn, bandCells, assume, nextList, allWork, footCells
     };
   }
 }

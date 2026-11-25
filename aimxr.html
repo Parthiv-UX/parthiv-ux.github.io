@@ -1,818 +1,649 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AimXR: a two-round usability study of how first-time VR players learn to aim and reload. Case study by Parthiv Nair.">
+<title>AimXR: case study</title>
 <script src="./support.js"></script>
-<title>Par's Works</title>
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="ds/pdsparsdesignsystem_716ab0/tokens.css">
+<link rel="stylesheet" href="ds/pdsparsdesignsystem_716ab0/components/bundle.css">
+<script src="ds/pdsparsdesignsystem_716ab0/components/bundle.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/fonts.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/accents.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/colors.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/typography.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/spacing.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/effects.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/base.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/styles.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/_ds_bundle.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
-html,body{margin:0;background:#0E0E0E}
-input[type=range]{accent-color:var(--accent)}
+html,body{margin:0;background:#EDEFF1}
+:root{--font-display:"Plus Jakarta Sans","Inter",ui-sans-serif,system-ui,sans-serif;--font-sans:"Inter",ui-sans-serif,system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;
+--paper:#EDEFF1;--card:#FFFFFF;--sunken:#DFE3E7;--ink:#11151B;--ink2:#3D444E;--muted:#59616B;--line:#D3D8DE;
+--hud:#0B0F14;--hud2:#141A22;--hudline:#29313C;--hudtext:#E8EDF2;--hudmuted:#93A0AE;
+--hp:#3DDC84;--hp-t:#13703D;--ammo:#FFB020;--ammo-t:#8A5300;--dmg:#FF4655;--dmg-t:#BE1D2D;--shield:#2DD4E6;--shield-t:#0A6774;
+--ease:cubic-bezier(.16,1,.3,1);--ease-io:cubic-bezier(.65,0,.35,1)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--shield-t);outline-offset:3px;border-radius:6px}
+.mono{font:500 11px/1.3 var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.tnum{font-variant-numeric:tabular-nums}
+.kick{display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--card);padding:8px 12px 8px 12px;border-radius:8px}
+.kick .dot{width:8px;height:8px;border-radius:2px;transform:rotate(45deg)}
+.h2{font:700 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.03em;text-wrap:balance;max-width:680px;margin:0;color:var(--ink)}
+.lede{max-width:580px;font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0;text-wrap:pretty}
+.head{max-width:740px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+.sec{padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px}
+.w1040{max-width:1040px;margin:0 auto;width:100%}
+.w880{max-width:880px;margin:0 auto;width:100%}
+.card{background:var(--card);border-radius:16px;padding:24px}
+.stat{border-top:2px solid var(--ink);padding-top:18px}.quote{border-top:1px solid var(--line);padding-top:14px}.issue{border-top:2px solid var(--dmg);padding-top:14px}
+.h3{font:600 20px/1.25 var(--font-display);letter-spacing:-0.02em;margin:0;color:var(--ink)}
+.p{font:400 15px/1.6 var(--font-sans);color:var(--ink2);margin:0;text-wrap:pretty}
+.cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px;flex-wrap:wrap}
+.cap .l{display:flex;gap:10px;align-items:baseline;font:400 13px/1.45 var(--font-sans);color:var(--ink2)}
+.cap .n{font:500 11px/1 var(--font-mono);color:var(--ink)}
+.cap .k{font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tag{display:inline-flex;align-items:center;gap:6px;font:600 12px/1 var(--font-sans);padding:7px 12px;border-radius:6px}
+.chip{display:inline-flex;align-items:center;height:24px;padding:0 9px;border-radius:5px;font:500 11px/1 var(--font-mono);letter-spacing:.03em;white-space:nowrap}
+.frame{background:var(--sunken);border-radius:16px;padding:6px}
+.frame img{display:block;width:100%;border-radius:10px}
+.hudbox{position:relative}
+.hudbox::before,.hudbox::after{content:"";position:absolute;width:18px;height:18px;border:0 solid var(--shield);pointer-events:none;z-index:3}
+.hudbox::before{top:-6px;left:-6px;border-width:2px 0 0 2px}
+.hudbox::after{bottom:-6px;right:-6px;border-width:0 2px 2px 0}
+.btn{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 13px/1 var(--font-sans);min-height:40px;padding:0 16px;border-radius:8px;cursor:pointer;transition:background 220ms var(--ease),border-color 220ms var(--ease),color 220ms var(--ease),transform 120ms var(--ease)}
+.btn:hover{border-color:var(--ink)}
+.btn:active{transform:scale(.97)}
+.btn[aria-pressed="true"]{background:var(--hud);color:#fff;border-color:var(--hud)}
+.pill-link{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 14px;border-radius:999px;font:600 13px/1 var(--font-sans);text-decoration:none;transition:background 220ms var(--ease),transform 120ms var(--ease)}
+.pill-link:active{transform:scale(.97)}
+.navp{padding:8px 14px;border-radius:999px;font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--muted)}
+.navp:hover{color:var(--ink)}
+.next{transition:transform 220ms var(--ease)}.next:hover{transform:translateY(-3px)}
+.pip{width:28px;height:6px;border-radius:2px;background:var(--hudline)}
+.bar{height:100%;border-radius:2px;transition:width 900ms var(--ease)}
+.drain{animation:drain 1800ms var(--ease) 500ms both}
+@keyframes drain{from{width:100%}to{width:62%}}
+.rec{width:7px;height:7px;border-radius:50%;background:var(--dmg);display:inline-block}
+input[type=range]{accent-color:var(--shield-t)}
+@media (prefers-reduced-motion:reduce){.drain{animation:none;width:62%}.bar{transition:none}}
+@media (max-width:1100px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:860px){.split,.g5{grid-template-columns:minmax(0,1fr)!important}.hide-sm{display:none!important}.sec{padding-top:96px}}
+@media (max-width:640px){.g2,.g3,.g4{grid-template-columns:minmax(0,1fr)!important}.sec{padding-top:80px;gap:36px}.band{padding:80px 20px 72px!important}.hero-hud{aspect-ratio:4/3!important}.hud-xs{display:none!important}.deco{display:none!important}.card{padding:20px}.sbcard{padding:20px!important}.sbgrid{grid-template-columns:28px minmax(0,1fr) 92px!important;gap:10px!important}.sbgrid .tnum{font-size:12px!important}.objective{padding:28px 24px!important}.patch-txt{padding:16px 12px!important}.patch-head{padding:16px 12px 8px!important;gap:14px!important}}
+@media (min-width:1180px){.w1040{max-width:min(1040px,calc(100vw - 540px))}.w880{max-width:min(880px,calc(100vw - 540px))}}
+.rail{background:var(--hud);color:var(--hudtext);border-radius:10px;padding:14px 14px 12px;box-shadow:0 0 0 1px var(--hudline),0 8px 24px rgba(11,15,20,.18)}
+.rail::before,.rail::after{content:"";position:absolute;width:14px;height:14px;border:0 solid var(--shield);pointer-events:none}
+.rail::before{top:-5px;left:-5px;border-width:2px 0 0 2px}
+.rail::after{bottom:-5px;right:-5px;border-width:0 2px 2px 0}
+.obj{display:flex;align-items:center;gap:10px;padding:5px 2px;font:500 13px/1.2 var(--font-sans);cursor:pointer;background:none;border:0;text-align:left;border-radius:4px;transition:color 120ms var(--ease)}
+.obj:hover{color:#fff!important}
+.obj .dia{flex:none;width:8px;height:8px;border-radius:1px;transform:rotate(45deg);transition:background 220ms var(--ease),box-shadow 220ms var(--ease)}
+@media (prefers-reduced-motion:reduce){.obj,.obj .dia,.rseg{transition:none!important}}
+.glass{position:sticky;top:0;z-index:40;background:color-mix(in srgb,#EDEFF1 68%,transparent);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(17,21,27,.07)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:#EDEFF1}}
+@media (prefers-reduced-transparency:reduce),(prefers-contrast:more){.glass{background:#EDEFF1;-webkit-backdrop-filter:none;backdrop-filter:none}}
+.glass nav{background:rgba(255,255,255,.82)!important;border-color:rgba(17,21,27,.09)!important}
+.glass nav a:not([aria-current="page"]){color:#4A4F57!important}
 </style>
 </helmet>
+<div style="background:var(--paper);color:var(--ink);font-family:var(--font-sans);min-height:100vh">
 
-<div data-theme="{{ theme }}" data-accent="{{ accent }}" style="background:var(--bg-page);color:var(--text-primary);font:var(--type-body);min-height:100vh;overflow-x:clip">
-
-<!-- NAV -->
-<header style="position:sticky;top:0;z-index:40;background:color-mix(in srgb, var(--bg-page) 82%, transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
-  <div style="max-width:var(--max-content);margin:0 auto;padding:0 var(--margin-page);min-height:72px;display:grid;grid-template-columns:{{ hdrCols }};grid-template-rows:{{ hdrRows }};align-items:center;column-gap:12px">
-    <a href="index.html" style="font:400 26px/1 var(--font-display);letter-spacing:-0.02em;text-decoration:none;color:var(--text-primary)">Parthiv<span style="color:var(--accent)">.</span></a>
-    <nav style="display:flex;gap:2px;padding:3px;border:1px solid var(--border-default);border-radius:var(--radius-pill);background:var(--surface-card);grid-column:{{ navCol }};order:{{ navOrder }};justify-self:center;margin-bottom:{{ navMb }}">
-      <a href="index.html#work" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;background:var(--surface-sunken);color:var(--text-primary)">Work</a>
-      <a href="index.html#about" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--text-muted)">About</a>
-      <a href="index.html#contact" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--text-muted)">Contact</a>
+<header class="glass">
+  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,80px);min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+    <a href="index.html" style="font:800 24px/1 var(--font-display);letter-spacing:-0.03em;text-decoration:none;color:var(--ink)">Parthiv<span style="color:#2B59FF">.</span></a>
+    <nav aria-label="Main" class="hide-sm" style="display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--card)">
+      <a class="navp" href="index.html#work" style="background:var(--sunken);color:var(--ink)">Work</a>
+      <a class="navp" href="index.html#about">About</a>
+      <a class="navp" href="index.html#contact">Contact</a>
     </nav>
-<div style="display:flex;justify-content:flex-end;align-items:center;gap:8px">
-      <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.IconButton" icon="{{ themeIcon }}" label="{{ themeLabel }}" variant="ghost" size="sm" on-click="{{ toggleTheme }}" hint-size="32px,32px"></x-import>
-      <sc-if value="{{ showTalk }}" hint-placeholder-val="{{ true }}">
-      <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="accent" size="sm" icon-right="arrow-up-right" on-click="{{ goContact }}" hint-size="110px,32px">Let's talk</x-import>
-      </sc-if>
-    </div>
+    <a class="pill-link" href="mailto:parthivnair10c@gmail.com" style="background:var(--ink);color:#fff">Let’s talk</a>
   </div>
 </header>
 
-<!-- CONTENTS RAIL -->
+<!-- CONTENTS RAIL: the objective tracker -->
 <sc-if value="{{ railVisible }}" hint-placeholder-val="{{ false }}">
-  <nav style="position:fixed;left:var(--margin-page);top:120px;z-index:30;display:flex;flex-direction:column;gap:2px;width:170px">
-    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted);margin-bottom:10px">Contents</span>
-    <sc-for list="{{ toc }}" as="t" hint-placeholder-count="12">
-      <a onClick="{{ t.onClick }}" style="display:flex;align-items:center;gap:8px;padding:5px 0;font:500 13px/1.2 var(--font-sans);text-decoration:none;cursor:pointer;color:{{ t.color }};transition:color var(--dur-fast) var(--ease-out)"><span style="width:{{ t.w }};height:1px;background:{{ t.bar }};transition:width var(--dur-base) var(--ease-out)"></span>{{ t.label }}</a>
+  <nav aria-label="Contents" class="rail" style="position:fixed;left:clamp(12px,3vw,48px);top:96px;z-index:30;width:176px;display:flex;flex-direction:column;gap:2px">
+    <span style="display:flex;justify-content:space-between;align-items:baseline;font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--hudmuted);margin-bottom:8px"><span>Match</span><span style="color:{{ railColor }}">{{ railRound }}</span></span>
+    <div aria-hidden="true" style="display:flex;gap:3px;height:6px;margin-bottom:6px">
+      <sc-for list="{{ railSegs }}" as="g" hint-placeholder-count="3"><span style="flex:{{ g.flex }};background:var(--hudline);border-radius:2px;overflow:hidden"><span class="rseg" style="display:block;height:100%;width:{{ g.fill }};background:{{ g.c }};transition:width 420ms var(--ease)"></span></span></sc-for>
+    </div>
+    <sc-for list="{{ railToc }}" as="t" hint-placeholder-count="12">
+      <sc-if value="{{ t.isHead }}" hint-placeholder-val="{{ false }}"><span style="font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:{{ t.color }};margin:12px 0 4px">{{ t.label }}</span></sc-if>
+      <sc-if value="{{ t.isItem }}" hint-placeholder-val="{{ true }}"><button type="button" class="obj" onClick="{{ t.onClick }}" aria-current="{{ t.cur }}" style="color:{{ t.color }}"><span class="dia" style="background:{{ t.fill }};box-shadow:inset 0 0 0 1.5px {{ t.edge }}"></span>{{ t.label }}</button></sc-if>
     </sc-for>
   </nav>
 </sc-if>
 
-<main style="padding:0 var(--margin-page)">
-
-<!-- HERO / OVERVIEW -->
-<header id="overview" data-nav="overview" style="padding-top:72px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px">
-    <a href="index.html#work" style="display:inline-flex;align-items:center;gap:6px;font:500 13px/1 var(--font-sans);color:var(--text-muted);text-decoration:none"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="arrow-left" size="{{ 14 }}" hint-size="14px,14px"></x-import>All work</a>
-    <span style="font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">AimXR · Usability engineering — 2026</span>
-    <h1 data-reveal="" style="font:400 clamp(36px,4.6vw,56px)/1.04 var(--font-display);letter-spacing:-0.02em;text-wrap:balance;margin:0">When your body enters <em style="color:var(--text-accent)">the interface</em></h1>
-    <p style="font:400 17px/1.6 var(--font-sans);color:var(--text-secondary);max-width:560px;margin:0">A usability study of how eight people new to virtual reality learned — and physically struggled with — the rules of a tactical VR shooter.</p>
+<!-- HERO · MAIN MENU -->
+<section id="overview" data-nav="overview" aria-label="AimXR" style="background:var(--hud);color:var(--hudtext);text-align:center;position:relative;overflow:hidden">
+  <div style="max-width:880px;margin:0 auto;padding:88px clamp(20px,5vw,80px) 0;display:flex;flex-direction:column;align-items:center;gap:18px">
+    <h1 style="margin:0;font:800 clamp(72px,12vw,168px)/0.92 var(--font-display);letter-spacing:-0.055em">AimXR</h1>
+    <p style="margin:0;font:500 clamp(18px,2vw,24px)/1.4 var(--font-display);letter-spacing:-0.01em;max-width:560px;color:#D5DCE4">When your body becomes the controller, every unclear rule shows up in the body.</p>
   </div>
-
-  <figure style="max-width:1040px;margin:48px auto 0;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-wrap:wrap;gap:5px">
-      <div style="flex:1 1 300px;position:relative;aspect-ratio:4/5;max-height:640px">
-        <img src="assets/body-b.jpg" alt="Participant standing in a room wearing a Quest headset, holding both controllers" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block;border-radius:10px">
-        <span style="position:absolute;left:12px;top:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-primary);background:color-mix(in srgb, var(--bg-page) 80%, transparent);padding:6px 8px;border-radius:var(--radius-xs)">Body cam · real world</span>
+  <figure style="max-width:1040px;margin:56px auto 0;padding:0 clamp(20px,5vw,80px);">
+    <div class="hudbox hero-hud" style="position:relative;border-radius:14px 14px 0 0;overflow:hidden;aspect-ratio:1076/406;background:#000">
+      <img src="assets/v3/4defd4a74a99.webp" alt="A study participant in a Quest headset, composited into the game’s street scene" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block">
+      <div aria-hidden="true" style="position:absolute;left:16px;top:16px;display:flex;flex-direction:column;gap:6px;align-items:flex-start">
+        <span style="font:500 10px/1 var(--font-mono);letter-spacing:.08em;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6)">COMFORT</span>
+        <div style="width:clamp(120px,18vw,200px);height:8px;border-radius:2px;background:rgba(0,0,0,.55);padding:2px;box-sizing:border-box"><div class="bar drain" style="background:var(--hp)"></div></div>
       </div>
-      <div style="flex:1 1 300px;position:relative;aspect-ratio:4/5;max-height:640px">
-        <img src="assets/pov-b.jpg" alt="Headset view: a rifle with a PULL prompt, a magazine and grenades on a tiled floor" style="width:100%;height:100%;object-fit:cover;object-position:30% 50%;display:block;border-radius:10px">
-        <span style="position:absolute;left:12px;top:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--on-accent);background:var(--accent);padding:6px 8px;border-radius:var(--radius-xs)">Headset POV · virtual world</span>
+      <div aria-hidden="true" class="hud-xs" style="position:absolute;right:16px;top:16px;display:flex;gap:6px;align-items:center;font:500 10px/1 var(--font-mono);letter-spacing:.08em;color:#fff;background:rgba(0,0,0,.55);padding:7px 9px;border-radius:5px"><span class="rec"></span>REC: BODY + HEADSET</div>
+      <svg aria-hidden="true" class="hud-xs" viewBox="0 0 40 40" style="position:absolute;left:50%;top:50%;width:36px;height:36px;transform:translate(-50%,-50%)"><circle cx="20" cy="20" r="9" fill="none" stroke="#fff" stroke-width="1.5" opacity=".85"></circle><line x1="20" y1="2" x2="20" y2="10" stroke="#fff" stroke-width="1.5"></line><line x1="20" y1="30" x2="20" y2="38" stroke="#fff" stroke-width="1.5"></line><line x1="2" y1="20" x2="10" y2="20" stroke="#fff" stroke-width="1.5"></line><line x1="30" y1="20" x2="38" y2="20" stroke="#fff" stroke-width="1.5"></line></svg>
+      <div aria-hidden="true" style="position:absolute;right:16px;bottom:16px;text-align:right;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7)">
+        <div style="font:800 clamp(24px,3.2vw,34px)/1 var(--font-display);letter-spacing:-0.02em" class="tnum">08 <span style="font:500 12px/1 var(--font-mono);letter-spacing:.08em;color:#D5DCE4">PLAYERS</span></div>
+        <div style="font:500 10px/1 var(--font-mono);letter-spacing:.08em;margin-top:6px">2 ROUNDS, NOVICES ONLY</div>
       </div>
     </div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">0.0</span>The same moment, seen from both sides</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Stitched footage</span>
-    </figcaption>
-  </figure>
-
-  <div style="max-width:880px;margin:0 auto;padding-top:56px;display:flex;flex-wrap:wrap;gap:40px">
-    <dl style="flex:1 1 240px;margin:0;display:flex;flex-direction:column;gap:18px">
-      <div style="display:flex;flex-direction:column;gap:6px"><dt style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">My role</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Ran about half the sessions · stitched body + headset footage · wrote the final report · joint analysis and proposals</dd></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><dt style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Team</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Parthiv Nair · Dipesh Ganchhakki</dd></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><dt style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Study</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">8 VR novices · Meta Quest 1 · repeated-measures, ~20 min each</dd></div>
-    </dl>
-    <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:14px">
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Overview</span>
-      <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">AimXR turns button presses into physical actions: grabbing gear from your body, reloading by hand, pulling pins, judging throws. People new to VR arrive with expectations from the real world and from ordinary games. Sometimes those match the game's rules. Often they don't.</p>
-      <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">We watched eight novices play, recorded both their bodies and their headset view, and measured how capable and how sick they felt across two rounds. This is an academic study. The four changes at the end are proposals, not shipped work.</p>
-    </div>
-  </div>
-</header>
-
-<!-- 01 EXPERIENCE -->
-<section id="experience" data-nav="experience" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">01</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Before testing</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">AimXR doesn't ask you to press reload. It asks you to <em style="color:var(--text-accent)">reload</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">After a week exploring apps on the headset, we chose AimXR because it asked the most of a new player — spatial awareness, physical coordination and unfamiliar rules, all under simulated combat pressure.</p>
-  </div>
-
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--border-strong);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span>Core task · survive one combat encounter</span><span>Four steps, four physical rules</span></div>
-
-    <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;padding:32px 0;border-bottom:1px solid var(--border-default)">
-      <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent);width:40px">01</span>
-      <div style="flex:1 1 280px;display:flex;flex-direction:column;gap:10px"><span style="font:400 clamp(32px,3.4vw,44px)/1 var(--font-display)">Navigate</span><span style="font:400 15px/1.6 var(--font-sans);color:var(--text-secondary);max-width:420px">Thumbsticks move and turn you through the map. Your real body stays exactly where it is.</span></div>
-      <div style="flex:0 1 300px;background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/trajectory.jpg" alt="Headset view of a corridor" style="width:100%;aspect-ratio:16/10;object-fit:cover;object-position:0% 40%;display:block;border-radius:10px"></div>
-    </div>
-    <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;padding:32px 0;border-bottom:1px solid var(--border-default)">
-      <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent);width:40px">02</span>
-      <div style="flex:1 1 280px;display:flex;flex-direction:column;gap:10px"><span style="font:400 clamp(32px,3.4vw,44px)/1 var(--font-display)">Equip</span><span style="font:400 15px/1.6 var(--font-sans);color:var(--text-secondary);max-width:420px">Reach down to your chest or belt and physically grab the weapon you want.</span></div>
-      <div style="flex:0 1 300px;background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/gaze.jpg" alt="Headset view looking down at items on the belt" style="width:100%;aspect-ratio:16/10;object-fit:cover;object-position:10% 85%;display:block;border-radius:10px"></div>
-    </div>
-    <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;padding:32px 0;border-bottom:1px solid var(--border-default)">
-      <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent);width:40px">03</span>
-      <div style="flex:1 1 280px;display:flex;flex-direction:column;gap:14px"><span style="font:400 clamp(32px,3.4vw,44px)/1 var(--font-display)">Reload</span>
-        <div style="display:flex;flex-wrap:wrap;gap:6px">
-          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">1 · Eject mag (B)</x-import>
-          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">2 · Reach to belt</x-import>
-          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">3 · Snap into gun</x-import>
-          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">4 · Rack the slide</x-import>
-        </div>
-      </div>
-      <div style="flex:0 1 300px;background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/pov-a.jpg" alt="Headset view of a rifle and a magazine" style="width:100%;aspect-ratio:16/10;object-fit:cover;object-position:60% 55%;display:block;border-radius:10px"></div>
-    </div>
-    <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;padding:32px 0;border-bottom:1px solid var(--border-default)">
-      <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent);width:40px">04</span>
-      <div style="flex:1 1 280px;display:flex;flex-direction:column;gap:10px"><span style="font:400 clamp(32px,3.4vw,44px)/1 var(--font-display)">Deploy a throwable</span><span style="font:400 15px/1.6 var(--font-sans);color:var(--text-secondary);max-width:420px">Grab it. Work out how <em>this particular item</em> is activated. Judge the arc. Throw — and let go at the right moment.</span></div>
-      <div style="flex:0 1 300px;background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/pov-b.jpg" alt="Grenades and a magazine on the floor" style="width:100%;aspect-ratio:16/10;object-fit:cover;object-position:60% 90%;display:block;border-radius:10px"></div>
-    </div>
-  </div>
-</section>
-
-<!-- 02 NOVICES -->
-<section id="novices" data-nav="novices" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">02</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Who we tested</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">Experts learn around bad interfaces. Novices <em style="color:var(--text-accent)">collide</em> with them</h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Experienced VR players have muscle memory and workarounds, so they stop noticing awkward controls. New players don't have that cover — every unclear rule shows up immediately, which is exactly what we wanted to see.</p>
-  </div>
-  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:40px;align-items:center">
-    <figure style="flex:1 1 300px;margin:0;display:flex;flex-direction:column;gap:10px">
-      <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px">
-        <div style="position:relative;aspect-ratio:845/870">
-          <img src="assets/body-a.jpg" alt="Participant wearing a Quest headset with arms raised" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:10px;filter:grayscale(1) brightness(0.9)">
-          <div style="position:absolute;left:41%;top:24%;width:10px;height:10px;border:1.5px solid var(--accent);border-radius:50%"></div>
-          <span style="position:absolute;left:calc(41% + 18px);top:calc(24% - 4px);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--on-accent);background:var(--accent);padding:4px 6px;border-radius:var(--radius-xs)">Room fully hidden</span>
-          <div style="position:absolute;left:58%;top:47%;width:10px;height:10px;border:1.5px solid var(--accent);border-radius:50%"></div>
-          <span style="position:absolute;left:calc(58% - 136px);top:calc(47% + 18px);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--on-accent);background:var(--accent);padding:4px 6px;border-radius:var(--radius-xs)">Hands = controllers</span>
-        </div>
-      </div>
-      <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-        <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">2.0</span>Context of use</span>
-        <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Body cam</span>
-      </figcaption>
-    </figure>
-    <div style="flex:1 1 320px;background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;gap:20px">
-      <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Primary persona</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="user-round" size="{{ 18 }}" color="var(--accent)" hint-size="18px,18px"></x-import></div>
-      <span style="font:400 32px/1.05 var(--font-display)">The VR novice</span>
-      <div style="display:flex;flex-direction:column">
-        <div style="display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--border-subtle);font:400 14px/1.5 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1.5 var(--font-mono);color:var(--text-accent)">A</span>No established VR muscle memory</div>
-        <div style="display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--border-subtle);font:400 14px/1.5 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1.5 var(--font-mono);color:var(--text-accent)">B</span>Relies on what's visible to know what to do next</div>
-        <div style="display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--border-subtle);font:400 14px/1.5 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1.5 var(--font-mono);color:var(--text-accent)">C</span>Learning the physical rules and the game's rules at once</div>
-        <div style="display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--border-subtle);font:400 14px/1.5 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1.5 var(--font-mono);color:var(--text-accent)">D</span>Wants the realism — and is the most likely to feel sick from it</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 03 EXPERIMENT -->
-<section id="experiment" data-nav="experiment" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">03</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The experiment</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">To understand the experience, we had to watch <em style="color:var(--text-accent)">two realities</em> at once</h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Eight novices, one at a time, in an empty room. Two rounds of play, measured after each — so we could see whether the experience got better with practice, or worse with time.</p>
-  </div>
-
-  <div style="max-width:1040px;margin:0 auto;width:100%">
-    <div style="display:flex;flex-wrap:wrap;gap:10px">
-      <div data-reveal="" style="flex:1 1 170px;border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px;display:flex;flex-direction:column;gap:18px;min-height:180px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">T0 · Setup</span><span style="font:400 24px/1.1 var(--font-display)">Isolated room</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted);margin-top:auto">Consent, headset fitted</span></div>
-      <div data-reveal="" style="flex:1.3 1 200px;background:var(--surface-sunken);border-radius:var(--radius-md);padding:18px;display:flex;flex-direction:column;gap:18px;min-height:180px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)">Session A</span><span style="font:400 24px/1.1 var(--font-display)">Tutorial + first combat round</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted);margin-top:auto">The baseline</span></div>
-      <div data-reveal="" style="flex:1 1 170px;border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px;display:flex;flex-direction:column;gap:18px;min-height:180px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Form · round 1</span><span style="font:400 24px/1.1 var(--font-display)">GEQ + VRSQ</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted);margin-top:auto">How did that feel?</span></div>
-      <div data-reveal="" style="flex:1.3 1 200px;background:var(--surface-sunken);border-radius:var(--radius-md);padding:18px;display:flex;flex-direction:column;gap:18px;min-height:180px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)">Session B</span><span style="font:400 24px/1.1 var(--font-display)">Throwables + weapon swaps</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted);margin-top:auto">More strain, more rules</span></div>
-      <div data-reveal="" style="flex:1 1 170px;border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px;display:flex;flex-direction:column;gap:18px;min-height:180px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Form · round 2</span><span style="font:400 24px/1.1 var(--font-display)">GEQ + VRSQ + open questions</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted);margin-top:auto">Plus their own words</span></div>
-    </div>
-    <p style="max-width:640px;margin:20px auto 0;text-align:center;font:400 14px/1.6 var(--font-sans);color:var(--text-muted)">The next participant only entered once the previous one had finished every form, so nobody's answers were shaped by someone else's.</p>
-    <sc-if value="{{ researchLayer }}" hint-placeholder-val="{{ true }}">
-      <div style="max-width:880px;margin:40px auto 0;display:flex;flex-wrap:wrap;gap:24px 40px">
-        <div style="flex:1 1 280px;display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--border-subtle)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="gamepad-2" size="{{ 18 }}" color="var(--text-muted)" hint-size="18px,18px"></x-import><div style="display:flex;flex-direction:column;gap:4px"><span style="font:500 14px/1.3 var(--font-sans)">GEQ — Game Experience Questionnaire</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">Statements like "I felt skilful", rated 0–4. We focused on how capable, absorbed and in-the-zone players felt.</span></div></div>
-        <div style="flex:1 1 280px;display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--border-subtle)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="eye" size="{{ 18 }}" color="var(--text-muted)" hint-size="18px,18px"></x-import><div style="display:flex;flex-direction:column;gap:4px"><span style="font:500 14px/1.3 var(--font-sans)">VRSQ — VR Sickness Questionnaire</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">Nine symptoms, grouped into eye strain (oculomotor) and dizziness or nausea (disorientation). Shown as 0–100%.</span></div></div>
-      </div>
-    </sc-if>
-  </div>
-
-  <div style="max-width:880px;margin:48px auto 0;width:100%;display:flex;flex-wrap:wrap;gap:40px">
-    <h3 style="flex:1 1 260px;font:600 17px/1.35 var(--font-sans);letter-spacing:-0.01em;margin:0;text-wrap:balance">Questionnaires say how it felt afterwards. Footage shows the moment it happened.</h3>
-    <div style="flex:1.5 1 320px;display:flex;flex-direction:column;gap:14px">
-      <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">We recorded each session twice: the headset's own view, and a camera on the player's body. I stitched the two into one synced timeline, so we could see what the player physically did and what the game showed them in the same second.</p>
-    </div>
-  </div>
-  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-wrap:wrap;gap:5px">
-      <div style="flex:1 1 300px;position:relative"><img src="assets/body-a.jpg" alt="Body camera: participant aiming with both controllers" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:10px"><span style="position:absolute;left:12px;bottom:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;background:color-mix(in srgb, var(--bg-page) 80%, transparent);padding:6px 8px;border-radius:var(--radius-xs)">Body cam · what the player did</span></div>
-      <div style="flex:1 1 300px;position:relative;background:#000;border-radius:10px"><img src="assets/pov-a.jpg" alt="Headset view: rifle, magazine, ammo counter showing empty" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:10px"><span style="position:absolute;left:12px;bottom:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;background:var(--accent);color:var(--on-accent);padding:6px 8px;border-radius:var(--radius-xs)">Headset POV · what the game showed</span></div>
-    </div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">3.0</span>One frame of the stitched footage</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Video still</span>
-    </figcaption>
   </figure>
 </section>
 
-<!-- 04 FIRST CRACK -->
-<section id="crack" data-nav="crack" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">04</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The first crack</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">The instruction was visible. Players still <em style="color:var(--text-accent)">didn't see it</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">In the footage, players kept trying to fire an empty gun while the game was telling them, on screen, how to finish the reload. Scroll through two moments.</p>
-  </div>
-  <div ref="{{ stickyRef }}" style="position:relative;height:340vh">
-    <div style="position:sticky;top:72px;height:calc(100vh - 72px);display:flex;flex-direction:column;gap:16px;padding:16px 0 24px;max-width:1040px;margin:0 auto">
-      <div style="flex:1 1 auto;min-height:0;position:relative;background:var(--surface-sunken);border-radius:var(--radius-lg)">
-        <div style="position:absolute;inset:5px;display:flex;gap:5px;opacity:{{ pairAOpacity }};transition:opacity var(--dur-slow) var(--ease-out)">
-          <div style="flex:1 1 50%;overflow:hidden;border-radius:10px;opacity:{{ bodyDim }};transition:opacity var(--dur-slow) var(--ease-out)"><img src="assets/body-a.jpg" alt="Body cam frame A" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block"></div>
-          <div style="flex:1 1 50%;overflow:hidden;border-radius:10px;background:#000;opacity:{{ povDim }};transition:opacity var(--dur-slow) var(--ease-out)"><img src="assets/pov-a.jpg" alt="Headset frame A: ammo counter empty" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-        </div>
-        <div style="position:absolute;inset:5px;display:flex;gap:5px;opacity:{{ pairBOpacity }};transition:opacity var(--dur-slow) var(--ease-out)">
-          <div style="flex:1 1 50%;overflow:hidden;border-radius:10px;opacity:{{ bodyDim }};transition:opacity var(--dur-slow) var(--ease-out)"><img src="assets/body-b.jpg" alt="Body cam frame B" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block"></div>
-          <div style="flex:1 1 50%;overflow:hidden;border-radius:10px;background:#000;opacity:{{ povDim }};transition:opacity var(--dur-slow) var(--ease-out)"><img src="assets/pov-b.jpg" alt="Headset frame B: PULL prompt on the rifle" style="width:100%;height:100%;object-fit:cover;object-position:25% 40%;display:block"></div>
-        </div>
-        <div style="position:absolute;left:17px;right:17px;top:17px;display:flex;justify-content:space-between;pointer-events:none;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase">
-          <span style="background:{{ bodyTagBg }};color:{{ bodyTagFg }};padding:6px 8px;border-radius:var(--radius-xs);transition:all var(--dur-base) var(--ease-out)">Body cam</span>
-          <span style="background:{{ povTagBg }};color:{{ povTagFg }};padding:6px 8px;border-radius:var(--radius-xs);transition:all var(--dur-base) var(--ease-out)">Headset POV</span>
-        </div>
-        <div style="position:absolute;left:{{ markerLeft }};top:{{ markerTop }};width:56px;height:56px;margin:-28px 0 0 -28px;border:1.5px solid var(--accent);border-radius:50%;transition:all var(--dur-slow) var(--ease-out);pointer-events:none"></div>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:12px 40px;align-items:flex-end;justify-content:space-between;min-height:110px;padding:0 4px">
-        <div style="flex:1 1 400px;max-width:720px;display:flex;flex-direction:column;gap:8px">
-          <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)">{{ obsTag }}</span>
-          <span style="font:400 clamp(24px,2.4vw,32px)/1.1 var(--font-display)">{{ obsHead }}</span>
-          <span style="font:400 14px/1.55 var(--font-sans);color:var(--text-muted)">{{ obsBody }}</span>
-        </div>
-        <div style="display:flex;gap:6px">
-          <sc-for list="{{ ticks }}" as="t" hint-placeholder-count="4"><span style="width:24px;height:2px;border-radius:2px;background:{{ t.bg }};transition:background var(--dur-base)"></span></sc-for>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div style="max-width:1040px;margin:-24px auto 0;width:100%;display:flex;justify-content:space-between;gap:12px;padding:0 4px;flex-wrap:wrap">
-    <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">4.0</span>Two frames from the stitched footage — notes describe only what's visible</span>
-    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Scroll sequence</span>
-  </div>
+<main style="padding:0 clamp(20px,5vw,80px)">
 
-  <div style="max-width:720px;margin:24px auto 0;width:100%;background:var(--accent-soft);border-radius:var(--radius-lg);padding:28px 32px;display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center">
-    <span style="display:inline-flex;align-items:center;gap:8px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="lightbulb" size="{{ 14 }}" hint-size="14px,14px"></x-import>Key insight</span>
-    <p style="font:400 26px/1.3 var(--font-display);color:var(--text-primary);text-wrap:balance;margin:0">Visible isn't the same as <em>noticed</em>. In a headset, a small label near the gun competes with enemies, orientation, controller actions, body position and the state of your weapon — all at once.</p>
+<div class="w880" style="padding-top:48px;display:flex;flex-wrap:wrap;gap:40px">
+  <dl style="flex:1 1 240px;margin:0;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">My role</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Ran about half the sessions, synced the footage, wrote the report</dd></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Team</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">With Dipesh Ganchhaki. Analysis and proposals together.</dd></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Study</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">8 VR novices on a Meta Quest 1, two rounds of about 20 min each</dd></div>
+  </dl>
+  <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:14px">
+    <span class="mono" style="font-size:10px;color:var(--muted)">Overview</span>
+    <p style="font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0">AimXR is a VR shooter where nothing is a button press. You grab gear off your body, reload by hand and judge your own throws. We watched people new to VR play it, twice, to find where the body and the game stopped agreeing.</p>
+    <p style="font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0">The page plays like a match: two rounds of research, then a patch.</p>
   </div>
-  <p style="max-width:560px;margin:0 auto;text-align:center;font:500 10px/1.7 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Observed in footage — not a measured finding. It set up the question for everything after.</p>
-</section>
+</div>
 
-<!-- 05 THE BODY -->
-<section id="body" data-nav="body" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">05</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The body responds</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">And the friction wasn't only <em style="color:var(--text-accent)">in the head</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">I expected motion sickness to take at least ten minutes to appear. Some players reported nausea and a sense of falling much earlier. In VR, the game can show you moving while your real body stands still — your eyes say one thing, your inner ear says another.</p>
-  </div>
-  <div style="max-width:680px;margin:24px auto 0;text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center">
-    <p data-reveal="" style="font:italic 400 clamp(28px,3vw,40px)/1.2 var(--font-display);text-wrap:balance;margin:0">“when i was trying to move i felt like as if i am falling down.”</p>
-    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">P7 · post-task questionnaire, verbatim</span>
-  </div>
-  <div style="max-width:880px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px">
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:12px"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">P6</span><span style="font:400 20px/1.25 var(--font-display)">“while playing the game i felt dizzy — specifically when i was turning”</span></div>
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:12px"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">P3</span><span style="font:400 20px/1.25 var(--font-display)">“the second level of the game was a bit hectic and it made me nauseous”</span></div>
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:12px"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">P5</span><span style="font:400 20px/1.25 var(--font-display)">“the overall experience was really nice but the eye strain was a bit too much”</span></div>
-  </div>
-  <sc-if value="{{ researchLayer }}" hint-placeholder-val="{{ true }}">
-    <p style="max-width:560px;margin:-24px auto 0;text-align:center;font:400 13px/1.55 var(--font-sans);color:var(--text-muted)"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-secondary)">Vestibular mismatch</span> — conflict between what you see and what your balance system feels. Quotes reproduced as written.</p>
-  </sc-if>
-</section>
+<div class="w880 objective" style="margin-top:40px;background:var(--hud);color:#fff;border-radius:20px;padding:36px 40px;position:relative;overflow:hidden">
+  <svg aria-hidden="true" class="deco" viewBox="0 0 120 120" style="position:absolute;right:-30px;top:-30px;width:180px;height:180px;opacity:.9"><circle cx="60" cy="60" r="34" fill="none" stroke="var(--ammo)" stroke-width="3"></circle><line x1="60" y1="0" x2="60" y2="36" stroke="var(--ammo)" stroke-width="3"></line><line x1="60" y1="84" x2="60" y2="120" stroke="var(--ammo)" stroke-width="3"></line><line x1="0" y1="60" x2="36" y2="60" stroke="var(--ammo)" stroke-width="3"></line><line x1="84" y1="60" x2="120" y2="60" stroke="var(--ammo)" stroke-width="3"></line></svg>
+  <p style="position:relative;margin:0;font:600 clamp(22px,2.4vw,30px)/1.25 var(--font-display);letter-spacing:-0.02em;max-width:620px;text-wrap:balance">When people new to VR use their whole body as the controller, where does the game <span style="color:var(--ammo)">lose them?</span></p>
+</div>
 
-<!-- 06 DATA -->
-<section id="data" data-nav="data" ref="{{ dataRef }}" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">06</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The data</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">It didn't just feel difficult. For some players, it <em style="color:var(--text-accent)">got worse</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Measuring twice showed something one session would have missed: practice helped some people, while others felt less capable and more unwell as time went on.</p>
-  </div>
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px">
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:20px 22px;display:flex;flex-direction:column;gap:18px">
-      <span style="font:400 14px/1.5 var(--font-sans);color:var(--text-secondary)">After the first round, one player was already in severe visual discomfort</span>
-      <span style="font:600 clamp(40px,4.4vw,56px)/1 var(--font-sans);letter-spacing:-0.03em;color:var(--text-accent)">{{ countA }}%</span>
-      <span style="font:400 12px/1.5 var(--font-sans);color:var(--text-muted)">Peak eye strain (VRSQ oculomotor), P8 after Session A — over 3× the 25% severe line. P5 matched it after Session B.</span>
-    </div>
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:20px 22px;display:flex;flex-direction:column;gap:18px">
-      <span style="font:400 14px/1.5 var(--font-sans);color:var(--text-secondary)">Players who said, unprompted, that items were cluttered or they grabbed the wrong one</span>
-      <span style="font:600 clamp(40px,4.4vw,56px)/1 var(--font-sans);letter-spacing:-0.03em">{{ countB }}<span style="color:var(--text-muted)"> of 8</span></span>
-      <span style="font:400 12px/1.5 var(--font-sans);color:var(--text-muted)">P2 · P6 · P8 — open responses</span>
-    </div>
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:20px 22px;display:flex;flex-direction:column;gap:18px">
-      <span style="font:400 14px/1.5 var(--font-sans);color:var(--text-secondary)">P3 felt noticeably less capable in the second round than in the first</span>
-      <span style="font:600 clamp(40px,4.4vw,56px)/1 var(--font-sans);letter-spacing:-0.03em;color:var(--danger)">{{ countC }}</span>
-      <span style="font:400 12px/1.5 var(--font-sans);color:var(--text-muted)">GEQ competence, 2.2 → 1.0 on a 0–4 scale. Tied with P8 (3.0 → 1.8).</span>
-    </div>
-  </div>
-
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px">
-    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
-      <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:24px">
-        <span style="font:400 24px/1.1 var(--font-display)">Eye strain, round 1 → round 2</span>
-        <p style="margin:8px 0 0;font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">Each line is one person. Past 25%, the report's scale treats discomfort as severe.</p>
-        <div style="display:grid;grid-template-columns:28px minmax(0,1fr) 104px;gap:12px;margin-top:24px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">
-          <span></span><div style="position:relative;height:12px"><span style="position:absolute;left:0">0</span><span style="position:absolute;left:25%;transform:translateX(-50%);color:var(--danger)">25%</span><span style="position:absolute;right:0">100</span></div><span style="text-align:right">R1 → R2</span>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:4px;margin-top:8px">
-          <sc-for list="{{ ocul }}" as="r" hint-placeholder-count="8">
-            <div style="display:grid;grid-template-columns:28px minmax(0,1fr) 104px;gap:12px;align-items:center">
-              <span style="font:500 11px/1 var(--font-mono);color:{{ r.idColor }}">{{ r.id }}</span>
-              <div style="position:relative;height:24px;border-radius:2px;background:linear-gradient(90deg,transparent 0 25%,var(--danger-soft) 25% 100%)">
-                <div style="position:absolute;left:25%;top:0;bottom:0;width:1px;background:var(--danger);opacity:0.5"></div>
-                <div style="position:absolute;left:{{ r.left }};width:{{ r.width }};top:11px;height:2px;background:{{ r.lineColor }}"></div>
-                <div style="position:absolute;left:{{ r.aPos }};top:7px;width:10px;height:10px;margin-left:-5px;border-radius:50%;border:1.5px solid var(--text-muted);background:var(--surface-card)"></div>
-                <div style="position:absolute;left:{{ r.bPos }};top:7px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:{{ r.dotColor }}"></div>
-              </div>
-              <span style="font:400 11px/1 var(--font-mono);color:var(--text-secondary);text-align:right">{{ r.label }}</span>
-            </div>
-          </sc-for>
-        </div>
-      </div>
-      <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-        <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">6.0</span>○ after A · ● after B · red = worse</span>
-        <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">VRSQ</span>
-      </figcaption>
-    </figure>
-    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
-      <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:24px">
-        <span style="font:400 24px/1.1 var(--font-display)">How capable players felt</span>
-        <p style="margin:8px 0 0;font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">Practice helped some a lot. Others dropped below the scale's 2.0 "moderate" baseline.</p>
-        <div style="display:grid;grid-template-columns:28px minmax(0,1fr) 104px;gap:12px;margin-top:24px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">
-          <span></span><div style="position:relative;height:12px"><span style="position:absolute;left:0">0</span><span style="position:absolute;left:50%;transform:translateX(-50%)">2.0</span><span style="position:absolute;right:0">4</span></div><span style="text-align:right">R1 → R2</span>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:4px;margin-top:8px">
-          <sc-for list="{{ comp }}" as="r" hint-placeholder-count="8">
-            <div style="display:grid;grid-template-columns:28px minmax(0,1fr) 104px;gap:12px;align-items:center">
-              <span style="font:500 11px/1 var(--font-mono);color:{{ r.idColor }}">{{ r.id }}</span>
-              <div style="position:relative;height:24px;border-radius:2px;background:linear-gradient(90deg,var(--danger-soft) 0 50%,transparent 50% 100%)">
-                <div style="position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border-default)"></div>
-                <div style="position:absolute;left:{{ r.left }};width:{{ r.width }};top:11px;height:2px;background:{{ r.lineColor }}"></div>
-                <div style="position:absolute;left:{{ r.aPos }};top:7px;width:10px;height:10px;margin-left:-5px;border-radius:50%;border:1.5px solid var(--text-muted);background:var(--surface-card)"></div>
-                <div style="position:absolute;left:{{ r.bPos }};top:7px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:{{ r.dotColor }}"></div>
-              </div>
-              <span style="font:400 11px/1 var(--font-mono);color:var(--text-secondary);text-align:right">{{ r.label }}</span>
-            </div>
-          </sc-for>
-        </div>
-      </div>
-      <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-        <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">6.1</span>○ after A · ● after B · red = less capable</span>
-        <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">GEQ</span>
-      </figcaption>
-    </figure>
-  </div>
-  <sc-if value="{{ researchLayer }}" hint-placeholder-val="{{ true }}">
-    <p style="max-width:720px;margin:-16px auto 0;text-align:center;font:400 12px/1.6 var(--font-sans);color:var(--text-muted)">Computed from raw responses. Oculomotor = discomfort + fatigue + eyestrain + focus, out of 12. Competence = mean of 5 items. 5 of 8 were above 25% eye strain after Session B. P5 rose 1.6 → 3.4 in competence but reported severe eye strain.</p>
-  </sc-if>
-  <div style="max-width:720px;margin:0 auto;width:100%;display:flex;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid var(--border-default);border-bottom:1px solid var(--border-default)">
-    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="accent" hint-size="56px,22px">n = 8</x-import>
-    <span style="font:400 14px/1.55 var(--font-sans);color:var(--text-secondary)">Directional usability evidence, not population-level statistics. These numbers show where to look — not how big the effect is for everyone.</span>
+<!-- ROUND 1 BAND -->
+<section id="round1" data-nav="round1" aria-label="Round 1" style="scroll-margin-top:72px;margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;background:var(--hud);color:var(--hudtext);text-align:center">
+  <div class="band" style="max-width:760px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 104px;display:flex;flex-direction:column;align-items:center;gap:18px">
+    <div aria-hidden="true" style="display:flex;gap:6px"><span class="pip" style="background:var(--hp)"></span><span class="pip"></span><span class="pip"></span></div>
+    <span class="mono" style="color:var(--hudmuted)">Round 1: Watch</span>
+    <p style="margin:0;font:800 clamp(44px,6.4vw,84px)/0.98 var(--font-display);letter-spacing:-0.05em">One camera on the body, one in the headset.</p>
+    <p class="lede" style="color:#C7D0DA">What did eight novices actually do with their hands, feet and eyes?</p>
   </div>
 </section>
 
-<!-- 07 FAILURE MODES -->
-<section id="failures" data-nav="failures" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">07</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Four failure modes</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">Four places where the body and the game <em style="color:var(--text-accent)">stopped agreeing</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">An early expert review flagged four risks. We only kept a pattern once it showed up in both the questionnaires and the footage. Each moves from what we saw, to the evidence, to what we think it means.</p>
+<!-- 1-1 LOADOUT -->
+<section id="loadout" data-nav="loadout" class="sec">
+  <div class="head">
+    <h2 class="h2">AimXR doesn’t ask you to press reload. It asks you to reload.</h2>
+    <p class="lede">After a week of trying headset apps, we picked the one that asked most of a new player’s body: four physical rules, learned under fire.</p>
   </div>
-
-  <article style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:24px 40px;padding-top:24px;border-top:1px solid var(--border-strong)">
-    <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:12px">
-      <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">01</span>
-      <h3 style="font:400 28px/1.1 var(--font-display);margin:0;text-wrap:balance">The body couldn't find the right object</h3>
-      <sc-if value="{{ researchLayer }}" hint-placeholder-val="{{ true }}"><div><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Fitts's law · target selection</x-import></div></sc-if>
-    </div>
-    <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:18px">
-      <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Observation</span><p style="font:400 15px/1.65 var(--font-sans);color:var(--text-secondary);margin:0">Items on the belt sit close together. Under pressure, players reached for one and came back with another — or with nothing.</p></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Evidence · 3 of 8</span><p style="font:400 20px/1.3 var(--font-display);margin:0">“all things were cluttered in front of the player thats why i was unable to pick desire items” <span style="font:500 10px/1 var(--font-mono);color:var(--text-muted)">P8</span></p><p style="font:400 18px/1.3 var(--font-display);color:var(--text-secondary);margin:0">“a bit too close to each other” <span style="font:500 10px/1 var(--font-mono);color:var(--text-muted)">P6</span></p></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)">Interpretation</span><p style="font:400 15px/1.65 var(--font-sans);color:var(--text-primary);margin:0">You reach for your belt without looking. Small targets packed tightly together are easy to miss when you can only feel for them.</p></div>
-    </div>
-  </article>
-
-  <article style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:24px 40px;padding-top:24px;border-top:1px solid var(--border-strong)">
-    <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:12px">
-      <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">02</span>
-      <h3 style="font:400 28px/1.1 var(--font-display);margin:0;text-wrap:balance">Three throwables, three different rules</h3>
-      <sc-if value="{{ researchLayer }}" hint-placeholder-val="{{ true }}"><div><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Mental-model consistency</x-import></div></sc-if>
-    </div>
-    <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:18px">
-      <p style="font:400 15px/1.65 var(--font-sans);color:var(--text-secondary);margin:0">A grenade, a Molotov and a flashbang belong to the same category. Each expected the player to use it differently — so novices had to relearn the game every time they switched.</p>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <div style="background:var(--surface-sunken);border-radius:var(--radius-md);padding:12px 14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style="font:400 20px/1 var(--font-display);width:100px">Grenade</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Grab · 1 hand</x-import><span style="color:var(--text-muted)">→</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Pull pin with teeth</x-import><span style="color:var(--text-muted)">→</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Throw</x-import></div>
-        <div style="background:var(--surface-sunken);border-radius:var(--radius-md);padding:12px 14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style="font:400 20px/1 var(--font-display);width:100px">Molotov</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Grab bottle</x-import><span style="color:var(--text-muted)">→</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="danger" hint-size="auto,22px">Grab lighter · 2nd hand</x-import><span style="color:var(--text-muted)">→</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="danger" hint-size="auto,22px">Light it</x-import><span style="color:var(--text-muted)">→</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Throw</x-import></div>
-        <div style="background:var(--surface-sunken);border-radius:var(--radius-md);padding:12px 14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style="font:400 20px/1 var(--font-display);width:100px">Flashbang</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Grab · 1 hand</x-import><span style="color:var(--text-muted)">→</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="danger" hint-size="auto,22px">? No clear cue</x-import><span style="color:var(--text-muted)">→</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Throw</x-import></div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Evidence · P1, P8</span><p style="font:400 20px/1.3 var(--font-display);margin:0">“i was unable to lit up the molotov because i dont know how to light it” <span style="font:500 10px/1 var(--font-mono);color:var(--text-muted)">P8 — abandoned the task</span></p></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)">Interpretation</span><p style="font:400 15px/1.65 var(--font-sans);color:var(--text-primary);margin:0">Once you've learned one throwable, you expect the next to work the same. When it doesn't, the rule you just learned works against you.</p></div>
-    </div>
-  </article>
-
-  <article style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:24px 40px;padding-top:24px;border-top:1px solid var(--border-strong)">
-    <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:12px">
-      <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">03</span>
-      <h3 style="font:400 28px/1.1 var(--font-display);margin:0;text-wrap:balance">The player couldn't feel the physics</h3>
-      <sc-if value="{{ researchLayer }}" hint-placeholder-val="{{ true }}"><div><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Missing kinesthetic feedback</x-import></div></sc-if>
-    </div>
-    <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:18px">
-      <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Evidence · P7, P1, P2, P8</span><p style="font:400 24px/1.25 var(--font-display);margin:0">“When i tried throwing a grenade i aimed it to the enemy position but it didn't reach them.” <span style="font:500 10px/1 var(--font-mono);color:var(--text-muted)">P7</span></p><p style="font:400 17px/1.4 var(--font-display);color:var(--text-secondary);margin:0">“I had difficulty aiming for the throw” — P1 · “it is difficult to throw the item” — P2 · “it dose not went to desired position” — P8</p></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Observation</span><p style="font:400 15px/1.65 var(--font-sans);color:var(--text-secondary);margin:0">A real grenade has weight. A controller doesn't change when you're holding one, so players had to guess how hard to throw and when to let go.</p></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)">Interpretation</span><p style="font:400 15px/1.65 var(--font-sans);color:var(--text-primary);margin:0">The aim felt right to the body. The game's physics disagreed — and gave no clue why.</p></div>
-    </div>
-  </article>
-
-  <article style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:24px 40px;padding-top:24px;border-top:1px solid var(--border-strong)">
-    <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:12px">
-      <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">04</span>
-      <h3 style="font:400 28px/1.1 var(--font-display);margin:0;text-wrap:balance">Movement looked right. The body disagreed</h3>
-      <sc-if value="{{ researchLayer }}" hint-placeholder-val="{{ true }}"><div><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Vestibular mismatch</x-import></div></sc-if>
-    </div>
-    <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:18px">
-      <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Observation</span><p style="font:400 15px/1.65 var(--font-sans);color:var(--text-secondary);margin:0">Turning and sideways movement made some players dizzy. Some coped by freezing in place — giving up movement to avoid feeling sick.</p></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Evidence · P4, P6, P7</span><p style="font:400 15px/1.65 var(--font-sans);color:var(--text-secondary);margin:0">P4 and P6 named turning as what made them nauseous. P7 described falling while moving. Disorientation sat above the severe line for 5 of 8 after Session B.</p></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)">Interpretation</span><p style="font:400 15px/1.65 var(--font-sans);color:var(--text-primary);margin:0">AimXR darkens the edges of your view to reduce sickness — but only when you move forward. Turning and strafing got no protection.</p></div>
-    </div>
-  </article>
-</section>
-
-<!-- 08 PROPOSALS -->
-<section id="proposals" data-nav="proposals" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">08</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Proposals</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">If the interaction is physical, the feedback has to <em style="color:var(--text-accent)">respect the body</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Each proposal tries to close the same gap: between what the player's body expects and what the game actually does.</p>
-    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="warning" dot="{{ true }}" hint-size="auto,22px">Proposed · not implemented in the live game</x-import>
-  </div>
-
-  <!-- P1 -->
-  <div style="max-width:1040px;margin:48px auto 0;width:100%;display:flex;flex-direction:column;gap:32px">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--border-strong);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span><span style="color:var(--text-accent)">8.1</span> · Dynamic spatial buffering</span><span>Responds to failure mode 01</span></div>
-    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
-      <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img data-reveal="" src="assets/inventory.jpg" alt="Headset view looking down at the belt, with +20% spacing annotations" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:10px"></div>
-      <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px"><span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">8.1a</span>Current belt layout, annotated with the proposed +20% spacing</span><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Annotated still</span></figcaption>
-    </figure>
-    <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:40px;align-items:center">
-      <div style="flex:1.2 1 320px;display:flex;flex-direction:column;gap:14px">
-        <h3 style="font:600 17px/1.35 var(--font-sans);letter-spacing:-0.01em;margin:0">Give the hand more room</h3>
-        <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Spread the belt slots 20% further apart, so a reach that's slightly off still lands on the right item.</p>
-        <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">The headset also knows where you're looking. If you're looking at a target while reaching blindly for your belt, the game could slightly enlarge the grab zone of your main weapon — forgiving small misses.</p>
-        <div><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="warning" hint-size="auto,22px">Gaze assist · requires prototype validation</x-import></div>
-      </div>
-      <figure style="flex:1 1 280px;margin:0;display:flex;flex-direction:column;gap:10px">
-        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/gaze.jpg" alt="Headset view with item grab zones outlined" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:10px"></div>
-        <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px"><span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">8.1b</span>How gaze could change grab-zone size and priority</span><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Concept</span></figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <!-- P2 -->
-  <div style="max-width:1040px;margin:64px auto 0;width:100%;display:flex;flex-direction:column;gap:32px">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--border-strong);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span><span style="color:var(--text-accent)">8.2</span> · One interaction language</span><span>Responds to failure mode 02</span></div>
-    <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:40px">
-      <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:12px"><h3 style="font:600 17px/1.35 var(--font-sans);letter-spacing:-0.01em;margin:0">Same kind of object, same action</h3><p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Every throwable becomes one-handed and is activated the same way. Learn it once, use it everywhere.</p></div>
-      <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:6px">
-        <div style="display:grid;grid-template-columns:96px repeat(3,minmax(0,1fr));gap:6px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted);padding:0 0 6px"><span></span><span>1 · Grab</span><span>2 · Activate</span><span>3 · Throw</span></div>
-        <div style="display:grid;grid-template-columns:96px repeat(3,minmax(0,1fr));gap:6px;align-items:stretch"><span style="font:400 20px/1 var(--font-display);align-self:center">Grenade</span><span style="background:var(--surface-sunken);border-radius:var(--radius-sm);padding:12px;font:400 13px/1.3 var(--font-sans);color:var(--text-secondary)">One hand</span><span style="background:var(--surface-sunken);border-radius:var(--radius-sm);padding:12px;font:400 13px/1.3 var(--font-sans);color:var(--text-secondary)">To mouth, pull pin</span><span style="background:var(--surface-sunken);border-radius:var(--radius-sm);padding:12px;font:400 13px/1.3 var(--font-sans);color:var(--text-secondary)">Release</span></div>
-        <div style="display:grid;grid-template-columns:96px repeat(3,minmax(0,1fr));gap:6px;align-items:stretch"><span style="font:400 20px/1 var(--font-display);align-self:center">Molotov</span><span style="background:var(--surface-sunken);border-radius:var(--radius-sm);padding:12px;font:400 13px/1.3 var(--font-sans);color:var(--text-secondary)">One hand</span><span style="background:var(--accent-soft);border-radius:var(--radius-sm);padding:12px;font:500 13px/1.3 var(--font-sans);color:var(--text-accent)">Pre-lit on grab</span><span style="background:var(--surface-sunken);border-radius:var(--radius-sm);padding:12px;font:400 13px/1.3 var(--font-sans);color:var(--text-secondary)">Release</span></div>
-        <div style="display:grid;grid-template-columns:96px repeat(3,minmax(0,1fr));gap:6px;align-items:stretch"><span style="font:400 20px/1 var(--font-display);align-self:center">Flashbang</span><span style="background:var(--surface-sunken);border-radius:var(--radius-sm);padding:12px;font:400 13px/1.3 var(--font-sans);color:var(--text-secondary)">One hand</span><span style="background:var(--accent-soft);border-radius:var(--radius-sm);padding:12px;font:500 13px/1.3 var(--font-sans);color:var(--text-accent)">To mouth, pull pin</span><span style="background:var(--surface-sunken);border-radius:var(--radius-sm);padding:12px;font:400 13px/1.3 var(--font-sans);color:var(--text-secondary)">Release</span></div>
-        <span style="font:400 12px/1.5 var(--font-sans);color:var(--text-muted);margin-top:4px">Highlighted = changed from today's game</span>
-      </div>
-    </div>
-    <div style="max-width:880px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px">
-      <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:10px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">A participant got there first</span><span style="font:italic 400 24px/1.2 var(--font-display)">“moltov will lit up automatically”</span><span style="font:400 12px/1.5 var(--font-sans);color:var(--text-muted)">P8, asked what one interaction they'd fix</span></div>
-      <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:10px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Same logic, applied to reloading</span><span style="font:400 14px/1.55 var(--font-sans);color:var(--text-secondary)"><span style="color:var(--text-primary);font-weight:500">Larger snap zones</span> where the magazine clicks in, on every weapon — and a short <span style="color:var(--text-primary);font-weight:500">controller vibration</span> confirming it's in, so the body can feel it without looking.</span></div>
-    </div>
-  </div>
-
-  <!-- P3 -->
-  <div style="max-width:1040px;margin:64px auto 0;width:100%;display:flex;flex-direction:column;gap:32px">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--border-strong);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span><span style="color:var(--text-accent)">8.3</span> · Post-throw trajectory</span><span>Responds to failure mode 03</span></div>
-    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
-      <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img data-reveal="" src="assets/trajectory.jpg" alt="Headset view of a corridor with a dashed arc showing a throwable's path after release" style="width:100%;aspect-ratio:16/10;object-fit:cover;object-position:50% 40%;display:block;border-radius:10px"></div>
-      <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px"><span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">8.3</span>A dashed arc traces the throwable's path after release</span><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Concept</span></figcaption>
-    </figure>
-    <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:40px">
-      <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:12px"><h3 style="font:600 17px/1.35 var(--font-sans);letter-spacing:-0.01em;margin:0">Don't predict the throw. Show what it actually did</h3></div>
-      <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:14px"><p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">The moment a throwable leaves your hand, a dashed line traces its path. You see where it went — short, long, off to the side — and adjust the next throw. P7 asked for a visible projectile path; we weighed showing it before versus after.</p></div>
-    </div>
-    <div style="max-width:880px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
-      <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:20px;display:flex;flex-direction:column;gap:14px">
-        <span style="font:400 22px/1.1 var(--font-display)">Aim line before the throw</span>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <span style="display:flex;gap:10px;font:400 14px/1.45 var(--font-sans);color:var(--text-secondary)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="plus" size="{{ 14 }}" color="var(--success)" style="margin-top:3px" hint-size="14px,14px"></x-import>Easiest to aim; what P7 asked for</span>
-          <span style="display:flex;gap:10px;font:400 14px/1.45 var(--font-sans);color:var(--text-secondary)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="minus" size="{{ 14 }}" color="var(--danger)" style="margin-top:3px" hint-size="14px,14px"></x-import>Does the aiming for the player — the skill disappears</span>
-        </div>
-      </div>
-      <div style="border:1px solid var(--border-strong);border-radius:var(--radius-md);padding:20px;display:flex;flex-direction:column;gap:14px">
-        <span style="font:400 22px/1.1 var(--font-display)">Arc after the throw</span>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <span style="display:flex;gap:10px;font:400 14px/1.45 var(--font-sans);color:var(--text-secondary)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="plus" size="{{ 14 }}" color="var(--success)" style="margin-top:3px" hint-size="14px,14px"></x-import>Keeps the skill with the player</span>
-          <span style="display:flex;gap:10px;font:400 14px/1.45 var(--font-sans);color:var(--text-secondary)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="plus" size="{{ 14 }}" color="var(--success)" style="margin-top:3px" hint-size="14px,14px"></x-import>Gives the feedback the controller can't</span>
-          <span style="display:flex;gap:10px;font:400 14px/1.45 var(--font-sans);color:var(--text-secondary)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="minus" size="{{ 14 }}" color="var(--danger)" style="margin-top:3px" hint-size="14px,14px"></x-import>The first throw is still a guess</span>
-        </div>
-        <div><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="accent" dot="{{ true }}" hint-size="auto,22px">Proposed</x-import></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- P4 -->
-  <div style="max-width:1040px;margin:64px auto 0;width:100%;display:flex;flex-direction:column;gap:32px">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--border-strong);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span><span style="color:var(--text-accent)">8.4</span> · Omni-directional vignette</span><span>Responds to failure mode 04</span></div>
-    <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:40px">
-      <div style="flex:1 1 260px"><h3 style="font:600 17px/1.35 var(--font-sans);letter-spacing:-0.01em;margin:0">A vignette that follows every movement</h3></div>
-      <p style="flex:1.5 1 340px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Darkening the edges of your view reduces motion sickness. AimXR only does it when you move forward. We propose triggering it for any artificial movement — turning, strafing, falling — and making it stronger the faster the camera moves. Try it.</p>
-    </div>
-    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
-      <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-direction:column;gap:5px">
-        <div style="display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;padding:10px 12px">
-          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tabs" variant="pill" items="{{ modeItems }}" value="{{ mode }}" on-change="{{ onMode }}" hint-size="290px,40px"></x-import>
-          <label style="display:flex;align-items:center;gap:12px;flex:1 1 240px;max-width:420px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">
-            <span>Camera speed</span>
-            <input type="range" min="0" max="100" value="{{ speed }}" onChange="{{ onSpeed }}" style="flex:1">
-            <span style="color:var(--text-primary);width:28px;text-align:right">{{ speed }}</span>
-          </label>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:5px">
-          <div style="flex:1 1 300px;position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:10px;background:#000">
-            <img src="assets/pov-b.jpg" alt="Game frame for vignette illustration" style="width:100%;height:100%;object-fit:cover;object-position:40% 40%;display:block;transform:translateX({{ shiftA }});transition:transform var(--dur-base) var(--ease-out)">
-            <div style="position:absolute;inset:0;background:radial-gradient(ellipse 52% 56% at 50% 50%,transparent 55%,#000 100%);opacity:{{ vigCurrent }};transition:opacity var(--dur-base)"></div>
-            <div style="position:absolute;left:12px;right:12px;top:12px;display:flex;justify-content:space-between;gap:8px">
-              <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="neutral" solid="{{ true }}" hint-size="auto,22px">Current AimXR</x-import>
-              <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="{{ curTone }}" hint-size="auto,22px">{{ curLabel }}</x-import>
-            </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:12px">
+    <div class="g4" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px">
+      <sc-for list="{{ loadout }}" as="s" hint-placeholder-count="4">
+        <div style="background:var(--card);border-radius:16px;padding:6px;display:flex;flex-direction:column">
+          <div style="position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:#000">
+            <img src="{{ s.img }}" alt="{{ s.alt }}" style="width:100%;height:100%;object-fit:cover;object-position:{{ s.pos }};display:block">
+            <span class="chip tnum" style="position:absolute;left:8px;top:8px;background:rgba(11,15,20,.82);color:#fff">SLOT&#160;{{ s.n }}</span>
           </div>
-          <div style="flex:1 1 300px;position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:10px;background:#000">
-            <img src="assets/pov-b.jpg" alt="Game frame for vignette illustration" style="width:100%;height:100%;object-fit:cover;object-position:40% 40%;display:block;transform:translateX({{ shiftA }});transition:transform var(--dur-base) var(--ease-out)">
-            <div style="position:absolute;inset:0;background:radial-gradient(ellipse 52% 56% at 50% 50%,transparent 55%,#000 100%);opacity:{{ vigProposed }};transition:opacity var(--dur-base)"></div>
-            <div style="position:absolute;left:12px;right:12px;top:12px;display:flex;justify-content:space-between;gap:8px">
-              <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="accent" solid="{{ true }}" hint-size="auto,22px">Proposed</x-import>
-              <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="accent" hint-size="auto,22px">{{ propLabel }}</x-import>
-            </div>
+          <div style="padding:14px 12px 12px;display:flex;flex-direction:column;gap:6px">
+            <span class="h3" style="font-size:18px">{{ s.name }}</span>
+            <span style="font:400 14px/1.5 var(--font-sans);color:var(--ink2)">{{ s.d }}</span>
           </div>
         </div>
+      </sc-for>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.0</span>The core task: survive one combat encounter. Frames from the headset.</span><span class="k">Task analysis</span></figcaption>
+  </figure>
+</section>
+
+<!-- 1-2 PLAYER SELECT -->
+<section id="setup" data-nav="setup" class="sec">
+  <div class="head">
+    <h2 class="h2">Experts learn around bad controls. Novices collide with them.</h2>
+    <p class="lede">So we only recruited people with no VR habits, and played two rounds each to see whether practice helped.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:12px">
+    <div class="card" style="padding:20px">
+      <ol class="g5" style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px">
+        <sc-for list="{{ match }}" as="m" hint-placeholder-count="5">
+          <li style="display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:10px;background:{{ m.bg }};color:{{ m.fg }}">
+            <span class="mono" style="font-size:10px;opacity:.8">{{ m.t }}</span>
+            <span style="font:600 15px/1.3 var(--font-display)">{{ m.name }}</span>
+            <span style="font:400 13px/1.45 var(--font-sans);opacity:.85">{{ m.d }}</span>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.1</span>Every player finished both forms before the next walked in. GEQ: felt capable (0–4). VRSQ: eye strain and dizziness (%).</span><span class="k">Repeated measures</span></figcaption>
+  </figure>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:12px">
+    <div class="frame hudbox g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px">
+      <div style="position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden"><img src="assets/v3/1ba04a89de02.jpg" alt="Body camera: a participant aiming with both controllers in an empty room" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block;border-radius:0"><span class="chip" style="position:absolute;left:10px;top:10px;background:rgba(11,15,20,.82);color:#fff">Body cam: what they did</span></div>
+      <div style="position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden"><img src="assets/v3/e9cec3b5df08.jpg" alt="Headset view: a rifle, a magazine, and the ammo counter reading empty" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0"><span class="chip" style="position:absolute;left:10px;top:10px;background:rgba(11,15,20,.82);color:#fff">Headset: what the game asked</span></div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.2</span>I synced a body camera to each headset recording, so one timeline shows both sides of the same second.</span><span class="k">Method: synced footage</span></figcaption>
+  </figure>
+</section>
+
+<!-- 1-3 KILLCAM -->
+<section id="killcam" data-nav="killcam" class="sec">
+  <div class="head">
+    <h2 class="h2">The instruction was on screen. Players still didn’t see it.</h2>
+    <p class="lede">Players kept firing an empty gun while a PULL prompt sat right beside it. It was the first of six patterns we coded in the footage.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start"><h3 class="h3" style="font-size:24px">Six ways a round went wrong, replayed</h3></div>
+      <div role="group" aria-label="Choose a pattern" style="display:flex;gap:6px;flex-wrap:wrap">
+        <sc-for list="{{ codes }}" as="c" hint-placeholder-count="6"><button type="button" class="btn" aria-pressed="{{ c.on }}" onClick="{{ c.pick }}">{{ c.label }}</button></sc-for>
       </div>
-      <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px;flex-wrap:wrap"><span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">8.4</span>Illustrative simulation on a game frame — not an in-game render</span><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Interactive</span></figcaption>
-    </figure>
+    </div>
+    <div class="hudbox" style="background:#000;border-radius:16px;overflow:hidden;aspect-ratio:16/9">
+      <sc-for list="{{ codes }}" as="c" hint-placeholder-count="1">
+        <sc-if value="{{ c.on }}" hint-placeholder-val="{{ true }}">
+          <video src="{{ c.src }}" poster="{{ c.poster }}" controls="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" autoPlay="{{ codeAuto }}" preload="none" aria-label="{{ c.alt }}" style="width:100%;height:100%;display:block;object-fit:contain;background:#000"></video>
+        </sc-if>
+      </sc-for>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.3</span>{{ codeDesc }}</span><span class="k">Observed in footage, not counted</span></figcaption>
+  </figure>
+  <div class="w880" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px 0">
+    <p style="margin:0;font:700 clamp(26px,3vw,38px)/1.18 var(--font-display);letter-spacing:-0.03em;max-width:720px;text-wrap:balance">Visible isn’t the same as noticed. A small label competes with enemies, your hands and <span style="color:var(--dmg-t)">your balance, all at once.</span></p>
   </div>
 </section>
 
-<!-- 09 TRACEABILITY -->
-<section id="trace" data-nav="trace" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">09</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Traceability</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">Every proposal starts with something a player <em style="color:var(--text-accent)">said or did</em></h2>
+<!-- ROUND 2 BAND -->
+<section id="round2" data-nav="round2" aria-label="Round 2" style="scroll-margin-top:72px;margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;background:var(--hud);color:var(--hudtext);text-align:center">
+  <div class="band" style="max-width:760px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 104px;display:flex;flex-direction:column;align-items:center;gap:18px">
+    <div aria-hidden="true" style="display:flex;gap:6px"><span class="pip" style="background:var(--hp)"></span><span class="pip" style="background:var(--ammo)"></span><span class="pip"></span></div>
+    <span class="mono" style="color:var(--hudmuted)">Round 2: Measure</span>
+    <p style="margin:0;font:800 clamp(44px,6.4vw,84px)/0.98 var(--font-display);letter-spacing:-0.05em">Practice should have helped.</p>
+    <p class="lede" style="color:#C7D0DA">Same players, harder tasks, the same two questionnaires. For some, round two was worse.</p>
   </div>
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px">
-    <sc-for list="{{ trace }}" as="c" hint-placeholder-count="4">
-      <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px;display:flex;flex-direction:column">
-        <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">{{ c.n }}</span>
-        <div style="display:flex;flex-direction:column;gap:6px;margin-top:18px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Observed · {{ c.who }}</span><span style="font:400 19px/1.25 var(--font-display)">{{ c.obs }}</span></div>
-        <span style="padding:10px 0;color:var(--text-muted);font:400 13px/1 var(--font-sans)">↓</span>
-        <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Interpreted</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-secondary)">{{ c.interp }}</span></div>
-        <span style="padding:10px 0;color:var(--text-muted);font:400 13px/1 var(--font-sans)">↓</span>
-        <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Principle</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-secondary)">{{ c.principle }}</span></div>
-        <span style="padding:10px 0;color:var(--text-accent);font:400 13px/1 var(--font-sans)">↓</span>
-        <div style="margin-top:auto;background:var(--surface-sunken);border-radius:var(--radius-sm);padding:12px;display:flex;flex-direction:column;gap:6px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)">Proposed</span><span style="font:400 20px/1.1 var(--font-display)">{{ c.prop }}</span></div>
+</section>
+
+<!-- 2-1 SCOREBOARD -->
+<section id="scoreboard" data-nav="scoreboard" class="sec">
+  <div class="head">
+    <h2 class="h2">It didn’t just feel hard. For some players it got worse.</h2>
+  </div>
+  <div class="w1040 g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px">
+    <div class="stat" style="display:flex;flex-direction:column;gap:10px"><span class="tnum" style="font:800 48px/1 var(--font-display);letter-spacing:-0.04em;color:var(--dmg-t)">83%</span><span class="p">peak eye strain, P8 after round 1. Over 3× the 25% “severe” line.</span></div>
+    <div class="stat" style="display:flex;flex-direction:column;gap:10px"><span class="tnum" style="font:800 48px/1 var(--font-display);letter-spacing:-0.04em;color:var(--ammo-t)">5 of 8</span><span class="p">were past severe eye strain after round 2.</span></div>
+    <div class="stat" style="display:flex;flex-direction:column;gap:10px"><span class="tnum" style="font:800 48px/1 var(--font-display);letter-spacing:-0.04em;color:var(--ink)">2.2 → 1.0</span><span class="p">P3’s felt competence across rounds, on a 0–4 scale.</span></div>
+  </div>
+  <figure class="w1040" ref="{{ scoreRef }}" style="margin:0 auto;display:flex;flex-direction:column;gap:12px">
+    <div class="card sbcard" style="padding:28px;display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start"><h3 class="h3" style="font-size:24px">{{ sbHead }}</h3></div>
+        <div role="group" aria-label="Scoreboard view" style="display:flex;gap:6px">
+          <button type="button" class="btn" aria-pressed="{{ sbHp }}" onClick="{{ showHp }}">Eye strain</button>
+          <button type="button" class="btn" aria-pressed="{{ sbXp }}" onClick="{{ showXp }}">Felt capable</button>
+        </div>
       </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="sbgrid" style="display:grid;grid-template-columns:44px minmax(0,1fr) 110px;gap:14px;align-items:center">
+          <span></span>
+          <div style="position:relative;height:14px"><span class="mono" style="position:absolute;left:{{ sbLine }};transform:translateX(-50%);font-size:10px;color:var(--muted);white-space:nowrap">{{ sbLineLabel }}</span></div>
+          <span class="mono" style="font-size:10px;color:var(--muted);text-align:right">R1 → R2</span>
+        </div>
+        <sc-for list="{{ sbRows }}" as="r" hint-placeholder-count="8">
+          <div class="sbgrid" style="display:grid;grid-template-columns:44px minmax(0,1fr) 110px;gap:14px;align-items:center">
+            <span class="mono tnum" style="color:{{ r.idColor }}">{{ r.id }}</span>
+            <div style="position:relative;display:flex;flex-direction:column;gap:3px">
+              <div style="height:6px;background:var(--sunken);border-radius:2px;overflow:hidden"><div class="bar" style="width:{{ r.w1 }};background:#9AA4AF"></div></div>
+              <div style="height:12px;background:var(--sunken);border-radius:2px;overflow:hidden"><div class="bar" style="width:{{ r.w2 }};background:{{ r.c2 }}"></div></div>
+              <div aria-hidden="true" style="position:absolute;top:-4px;bottom:-4px;left:{{ sbLine }};border-left:1.5px dashed var(--ink)"></div>
+            </div>
+            <span class="tnum" style="font:500 13px/1 var(--font-mono);text-align:right;color:{{ r.lblColor }}">{{ r.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;font:400 13px/1.4 var(--font-sans);color:var(--ink2)">
+        <span style="display:inline-flex;gap:8px;align-items:center"><span style="width:18px;height:6px;border-radius:2px;background:#9AA4AF"></span>Round 1</span>
+        <span style="display:inline-flex;gap:8px;align-items:center"><span style="width:18px;height:10px;border-radius:2px;background:{{ sbGood }}"></span>Round 2</span>
+        <span style="display:inline-flex;gap:8px;align-items:center"><span style="width:18px;height:10px;border-radius:2px;background:var(--dmg)"></span>Round 2, worse than round 1</span>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">2.0</span>{{ sbCap }}</span><span class="k">Interactive, n = 8, directional</span></figcaption>
+  </figure>
+  <div class="w880 split" style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <p style="margin:0;font:500 clamp(24px,2.6vw,32px)/1.25 var(--font-display);letter-spacing:-0.02em;text-wrap:balance">“when i was trying to move i felt like as if i am falling down.”</p>
+      <span class="mono" style="color:var(--muted)">P7, post-round form, verbatim</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="quote" style="display:flex;gap:12px"><span class="chip" style="background:var(--sunken);color:var(--ink)">P6</span><span class="p" style="font-size:14px">“i felt dizzy — specifically when i was turning”</span></div>
+      <div class="quote" style="display:flex;gap:12px"><span class="chip" style="background:var(--sunken);color:var(--ink)">P3</span><span class="p" style="font-size:14px">“the second level of the game was a bit hectic and it made me nauseous”</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2-2 BOSS FIGHTS -->
+<section id="bosses" data-nav="bosses" class="sec">
+  <div class="head">
+    <h2 class="h2">Four places where the body and the game stopped agreeing</h2>
+    <p class="lede">We kept a pattern only when it showed up in both the forms and the footage.</p>
+  </div>
+  <div class="w1040 g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+    <sc-for list="{{ bosses }}" as="b" hint-placeholder-count="4">
+      <article class="card" style="padding:28px;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <span class="chip tnum" style="background:var(--hud);color:#fff">BOSS&#160;{{ b.n }}</span>
+          <span class="mono" style="font-size:10px;color:var(--muted)">{{ b.who }}</span>
+        </div>
+        <h3 class="h3" style="font-size:22px">{{ b.name }}</h3>
+        <p class="p">{{ b.obs }}</p>
+        <sc-if value="{{ b.rules }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ throwables }}" as="t" hint-placeholder-count="3">
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font:600 13px/1 var(--font-sans)">{{ t.name }}</span><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><sc-for list="{{ t.steps }}" as="s" hint-placeholder-count="3"><span class="chip" style="background:{{ s.bg }};color:{{ s.fg }}">{{ s.t }}</span></sc-for></div></div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <div style="margin-top:auto;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px">
+          <span style="font:500 15px/1.45 var(--font-display);color:var(--ink)">“{{ b.quote }}”</span>
+          <span class="mono" style="font-size:10px;color:var(--muted)">{{ b.src }}</span>
+        </div>
+      </article>
     </sc-for>
   </div>
 </section>
 
-<!-- 10 LIMITS -->
-<section id="limits" data-nav="limits" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">10</span><span style="width:24px;height:1px;background:var(--border-default)"></span>What this study can't claim</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">Eight people can expose a problem. They can't <em style="color:var(--text-accent)">prove the solution</em></h2>
-  </div>
-  <div style="max-width:880px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 32px">
-    <div style="display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--border-subtle)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="users" size="{{ 18 }}" color="var(--text-muted)" style="margin-top:2px" hint-size="18px,18px"></x-import><div style="display:flex;flex-direction:column;gap:4px"><span style="font:500 14px/1.3 var(--font-sans)">Eight participants</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">Enough to show direction, not statistical proof.</span></div></div>
-    <div style="display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--border-subtle)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="glasses" size="{{ 18 }}" color="var(--text-muted)" style="margin-top:2px" hint-size="18px,18px"></x-import><div style="display:flex;flex-direction:column;gap:4px"><span style="font:500 14px/1.3 var(--font-sans)">One game, one headset</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">AimXR on Meta Quest 1. Results may not carry over to other hardware.</span></div></div>
-    <div style="display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--border-subtle)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="circle-dashed" size="{{ 18 }}" color="var(--text-muted)" style="margin-top:2px" hint-size="18px,18px"></x-import><div style="display:flex;flex-direction:column;gap:4px"><span style="font:500 14px/1.3 var(--font-sans)">Nothing was built</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">None of the four proposals were implemented in the live game.</span></div></div>
-    <div style="display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--border-subtle)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="flask-conical" size="{{ 18 }}" color="var(--text-muted)" style="margin-top:2px" hint-size="18px,18px"></x-import><div style="display:flex;flex-direction:column;gap:4px"><span style="font:500 14px/1.3 var(--font-sans)">Untested ideas</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">Gaze-assisted grab zones and the post-throw arc need prototyping, then a comparison test against the current game.</span></div></div>
+<!-- PATCH BAND -->
+<section id="patchband" data-nav="patchband" aria-label="Patch" style="scroll-margin-top:72px;margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;background:var(--hud);color:var(--hudtext);text-align:center">
+  <div class="band" style="max-width:960px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 104px;display:flex;flex-direction:column;align-items:center;gap:18px">
+    <div aria-hidden="true" style="display:flex;gap:6px"><span class="pip" style="background:var(--hp)"></span><span class="pip" style="background:var(--ammo)"></span><span class="pip" style="background:var(--shield)"></span></div>
+    <span class="mono" style="color:var(--hudmuted)">Patch 1.1: Design</span>
+    <p style="margin:0;font:800 clamp(40px,5.6vw,76px)/1 var(--font-display);letter-spacing:-0.05em;text-wrap:balance">If the input is physical, the feedback has to be too.</p>
+    <span class="chip" style="background:var(--hud2);border:1px solid var(--hudline);color:var(--ammo)">Proposed, not shipped in the live game</span>
   </div>
 </section>
 
-<!-- 11 NEXT -->
-<section id="next" data-nav="next" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">11</span><span style="width:24px;height:1px;background:var(--border-default)"></span>What I'd test next</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">Same protocol. Two versions. <em style="color:var(--text-accent)">New players</em></h2>
+<!-- P PATCH NOTES -->
+<section id="patch" data-nav="patch" class="sec">
+  <div class="head">
+    <h2 class="h2">Four fixes, each traced to something a player said or did</h2>
   </div>
-  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:10px;align-items:stretch">
-    <div style="flex:1 1 200px;background:var(--surface-sunken);border-radius:var(--radius-md);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:200px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Group A</span><span style="font:400 28px/1.05 var(--font-display)">Current AimXR</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted);margin-top:auto">Today's belt, throwables and vignette</span></div>
-    <div style="flex:1.3 1 260px;border:1px solid var(--border-default);border-radius:var(--radius-md);padding:20px;display:flex;flex-direction:column">
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Measure both</span>
-      <div style="display:flex;flex-direction:column;margin-top:12px">
-        <span style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--border-subtle);font:500 13px/1.3 var(--font-sans)">GEQ competence<span style="font-weight:400;color:var(--text-muted)">felt capable</span></span>
-        <span style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--border-subtle);font:500 13px/1.3 var(--font-sans)">VRSQ oculomotor<span style="font-weight:400;color:var(--text-muted)">eye strain</span></span>
-        <span style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--border-subtle);font:500 13px/1.3 var(--font-sans)">Task completion<span style="font-weight:400;color:var(--text-muted)">finished?</span></span>
-        <span style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--border-subtle);font:500 13px/1.3 var(--font-sans)">Interaction errors<span style="font-weight:400;color:var(--text-muted)">wrong grabs</span></span>
-        <span style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;font:500 13px/1.3 var(--font-sans)">Time to recover<span style="font-weight:400;color:var(--text-muted)">after a mistake</span></span>
+  <div class="w1040" style="display:flex;flex-direction:column;gap:12px">
+
+    <article class="card split" style="padding:8px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:8px">
+      <div class="patch-txt" style="padding:24px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip" style="background:var(--shield);color:var(--hud)">FIX 01</span><span class="chip" style="background:var(--sunken);color:var(--ink)">Fixes boss 01</span></div>
+        <h3 class="h3" style="font-size:24px">Give the hand more room</h3>
+        <p class="p">Belt slots move 20% further apart. While you reach without looking, your main weapon’s grab zone grows slightly to forgive a near miss.</p>
+        <span class="mono" style="font-size:10px;color:var(--muted);margin-top:auto">Raised by 3 of 8, including P8. Gaze assist needs a prototype.</span>
       </div>
-    </div>
-    <div style="flex:1 1 200px;border:1px solid var(--border-strong);border-radius:var(--radius-md);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:200px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)">Group B</span><span style="font:400 28px/1.05 var(--font-display)">Proposed interaction</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted);margin-top:auto">A prototype of the four proposals</span></div>
-  </div>
-  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center">
-    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted);margin-right:8px">And I'd run it better</span>
-    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">More participants</x-import>
-    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">Charging planned around sessions</x-import>
-    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">More camera angles</x-import>
+      <div style="position:relative;border-radius:10px;overflow:hidden;min-height:300px;background:#000"><img src="assets/v3/cd482c7f8f9e.jpg" alt="Headset view looking down at the belt, annotated with the proposed 20% wider spacing" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"><span class="chip" style="position:absolute;left:10px;top:10px;background:rgba(11,15,20,.82);color:#fff">Annotated still</span></div>
+    </article>
+
+    <article class="card split" style="padding:8px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:8px">
+      <div class="patch-txt" style="padding:24px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip" style="background:var(--shield);color:var(--hud)">FIX 02</span><span class="chip" style="background:var(--sunken);color:var(--ink)">Fixes boss 02</span></div>
+        <h3 class="h3" style="font-size:24px">Same kind of object, same action</h3>
+        <p class="p">Every throwable becomes one-handed and arms the same way, so a player learns it once. The Molotov comes pre-lit, which was P8’s own suggestion.</p>
+        <span class="mono" style="font-size:10px;color:var(--muted);margin-top:auto">Raised by P8 and P1. “moltov will lit up automatically” (P8)</span>
+      </div>
+      <div style="background:var(--sunken);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:8px;justify-content:center">
+        <span class="mono" style="font-size:10px;color:var(--muted)">Every throwable: grab with one hand, arm, release</span>
+        <sc-for list="{{ unified }}" as="u" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:88px minmax(0,1fr);gap:8px;align-items:center">
+            <span style="font:600 13px/1.2 var(--font-sans)">{{ u.name }}</span>
+            <span style="background:{{ u.bg }};color:{{ u.fg }};border-radius:6px;padding:10px 12px;font:500 14px/1.2 var(--font-sans)">{{ u.arm }}</span>
+          </div>
+        </sc-for>
+        <span style="font:400 12px/1.4 var(--font-sans);color:var(--ink2);margin-top:6px">Cyan = changed from today’s game. Reloads get the same treatment: bigger snap zones and a short vibration when the magazine clicks in.</span>
+      </div>
+    </article>
+
+    <article class="card split" style="padding:8px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:8px">
+      <div class="patch-txt" style="padding:24px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip" style="background:var(--shield);color:var(--hud)">FIX 03</span><span class="chip" style="background:var(--sunken);color:var(--ink)">Fixes boss 03</span></div>
+        <h3 class="h3" style="font-size:24px">Don’t predict the throw. Show what it did.</h3>
+        <p class="p">A dashed arc traces the throw right after release. P7 asked for an aim line before the throw, but that would do the aiming for them. After the throw, the skill stays theirs.</p>
+        <span class="mono" style="font-size:10px;color:var(--muted);margin-top:auto">Raised by P7, P1, P2 and P8. Trade-off: the first throw is still a guess.</span>
+      </div>
+      <div style="position:relative;border-radius:10px;overflow:hidden;min-height:300px;background:#000">
+        <img src="assets/v3/b0b392b79922.jpg" alt="Headset view of a corridor, annotated with a red dashed arc showing a throw’s path and where it landed" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;display:block">
+        <span class="chip" style="position:absolute;left:10px;top:10px;background:rgba(11,15,20,.82);color:#fff">Annotated concept</span>
+      </div>
+    </article>
+
+    <article class="card" style="padding:8px;display:flex;flex-direction:column;gap:8px">
+      <div class="split patch-head" style="padding:24px 24px 12px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:24px;align-items:end">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip" style="background:var(--shield);color:var(--hud)">FIX 04</span><span class="chip" style="background:var(--sunken);color:var(--ink)">Fixes boss 04</span></div>
+          <h3 class="h3" style="font-size:24px">A vignette that follows every movement</h3>
+        </div>
+        <p class="p">Today the screen edges darken only when you move forward. The fix darkens them for turning and strafing too, more as the camera speeds up. Drag the slider to compare.</p>
+      </div>
+      <div style="background:var(--sunken);border-radius:10px;padding:6px;display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;padding:8px 10px">
+          <div role="group" aria-label="Movement type" style="display:flex;gap:6px">
+            <sc-for list="{{ modes }}" as="m" hint-placeholder-count="3"><button type="button" class="btn" aria-pressed="{{ m.on }}" onClick="{{ m.pick }}">{{ m.label }}</button></sc-for>
+          </div>
+          <label style="display:flex;align-items:center;gap:12px;flex:1 1 240px;max-width:420px" class="mono">
+            <span style="font-size:10px;color:var(--muted)">Camera speed</span>
+            <input type="range" min="0" max="100" value="{{ speed }}" onChange="{{ onSpeed }}" style="flex:1">
+            <span class="tnum" style="color:var(--ink);width:28px;text-align:right">{{ speed }}</span>
+          </label>
+        </div>
+        <div class="g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px">
+          <div style="position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:8px;background:#000">
+            <img src="assets/v3/1ca6728cb159.jpg" alt="Game frame showing the current vignette" style="width:100%;height:100%;object-fit:cover;object-position:40% 40%;display:block;transform:translateX({{ shift }}) scale(1.1);transition:transform 220ms var(--ease)">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse 52% 56% at 50% 50%,transparent 55%,#000 100%);opacity:{{ vigCurrent }};transition:opacity 220ms var(--ease)"></div>
+            <div style="position:absolute;left:10px;right:10px;top:10px;display:flex;justify-content:space-between;gap:8px"><span class="chip" style="background:rgba(11,15,20,.82);color:#fff">Current AimXR</span><span class="chip" style="background:{{ curBg }};color:#fff">{{ curLabel }}</span></div>
+          </div>
+          <div style="position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:8px;background:#000">
+            <img src="assets/v3/1ca6728cb159.jpg" alt="Game frame showing the proposed vignette" style="width:100%;height:100%;object-fit:cover;object-position:40% 40%;display:block;transform:translateX({{ shift }}) scale(1.1);transition:transform 220ms var(--ease)">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse 52% 56% at 50% 50%,transparent 55%,#000 100%);opacity:{{ vigProposed }};transition:opacity 220ms var(--ease)"></div>
+            <div style="position:absolute;left:10px;right:10px;top:10px;display:flex;justify-content:space-between;gap:8px"><span class="chip" style="background:var(--shield);color:var(--hud)">Proposed</span><span class="chip tnum" style="background:rgba(11,15,20,.82);color:#fff">{{ propLabel }}</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="cap" style="padding:4px 10px 8px"><span class="l"><span class="n">3.0</span>Illustrative simulation on a game frame, not an in-game render. Reported by P4, P6, P7.</span><span class="k">Interactive</span></div>
+    </article>
   </div>
 </section>
 
-<!-- 12 REFLECTION -->
-<section id="reflection" data-nav="reflection" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">12</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Retrospective</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">The most useful data wasn't always <em style="color:var(--text-accent)">inside the headset</em></h2>
+<!-- K KNOWN ISSUES -->
+<section id="limits" data-nav="limits" class="sec">
+  <div class="head">
+    <h2 class="h2">Eight people can expose a problem. They can’t prove the fix.</h2>
   </div>
-  <div style="max-width:880px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px">
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">01</span><span style="font:500 15px/1.3 var(--font-sans)">The body footage made moments readable</span><span style="font:400 13px/1.55 var(--font-sans);color:var(--text-secondary)">A headset recording can't show a hand hovering over the wrong part of the belt, a reach that misses, or someone standing very still to stop the room spinning. Side by side, those moments became something we could point at — and ask about.</span></div>
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">02</span><span style="font:500 15px/1.3 var(--font-sans)">Measuring twice changed the story</span><span style="font:400 13px/1.55 var(--font-sans);color:var(--text-secondary)">A single session would have shown a game that was hard to learn. Two showed that for some players it got harder — and more uncomfortable — over time.</span></div>
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">03</span><span style="font:500 15px/1.3 var(--font-sans)">VR research is slow</span><span style="font:400 13px/1.55 var(--font-sans);color:var(--text-secondary)">Sessions ran far longer than planned, and the headset's battery meant pausing to recharge between participants, which stretched testing out further still.</span></div>
-    <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">04</span><span style="font:500 15px/1.3 var(--font-sans)">Participants proposed fixes too</span><span style="font:400 13px/1.55 var(--font-sans);color:var(--text-secondary)">P8 suggested an auto-lit Molotov; P7 asked to see the grenade's path. Two of our four proposals started in the open responses.</span></div>
+  <div class="w880 g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 40px">
+    <div class="issue" style="display:flex;flex-direction:column;gap:6px"><span style="font:600 16px/1.3 var(--font-display)">Eight participants</span><span class="p" style="font-size:14px">Enough to show direction, not statistical proof.</span></div>
+    <div class="issue" style="display:flex;flex-direction:column;gap:6px"><span style="font:600 16px/1.3 var(--font-display)">One game, one headset</span><span class="p" style="font-size:14px">AimXR on a Quest 1. Results may not carry to other hardware.</span></div>
+    <div class="issue" style="display:flex;flex-direction:column;gap:6px"><span style="font:600 16px/1.3 var(--font-display)">Nothing was built</span><span class="p" style="font-size:14px">The four fixes are proposals. None were tested in the game.</span></div>
+    <div class="issue" style="display:flex;flex-direction:column;gap:6px"><span style="font:600 16px/1.3 var(--font-display)">Slow, battery-bound sessions</span><span class="p" style="font-size:14px">Sessions ran long and the headset needed charging between players.</span></div>
+  </div>
+  <div class="w880" style="background:var(--hud);color:var(--hudtext);border-radius:20px;padding:28px 32px;display:flex;flex-direction:column;gap:16px">
+    <span class="mono" style="color:var(--shield)">Next match: what I’d test</span>
+    <p style="margin:0;font:600 clamp(20px,2.2vw,26px)/1.3 var(--font-display);letter-spacing:-0.02em;max-width:640px">Same protocol, new novices, two groups: today’s AimXR against a prototype of the four fixes.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <span class="chip" style="background:var(--hud2);border:1px solid var(--hudline);color:var(--hudtext)">Felt capable</span>
+      <span class="chip" style="background:var(--hud2);border:1px solid var(--hudline);color:var(--hudtext)">Eye strain</span>
+      <span class="chip" style="background:var(--hud2);border:1px solid var(--hudline);color:var(--hudtext)">Task completion</span>
+      <span class="chip" style="background:var(--hud2);border:1px solid var(--hudline);color:var(--hudtext)">Wrong grabs</span>
+      <span class="chip" style="background:var(--hud2);border:1px solid var(--hudline);color:var(--hudtext)">Time to recover</span>
+    </div>
   </div>
 </section>
 
 <section style="max-width:1040px;margin:0 auto;padding-top:128px">
-  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span>Next project</span><span>02 / 03</span></div>
-  <a href="aura-space.html" style="display:flex;flex-wrap:wrap;gap:5px;padding:5px;background:var(--surface-sunken);border-radius:var(--radius-lg);border:1px solid transparent;text-decoration:none;color:var(--text-primary);transition:transform var(--dur-base) var(--ease-out), border-color var(--dur-fast) var(--ease-out)" style-hover="transform:translateY(-3px);border-color:var(--border-default);color:var(--text-primary)">
-    <div style="flex:1 1 320px;min-width:0;background:var(--surface-card);border-radius:10px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
-      <span style="font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Aura Space · Speculative concept · 2026</span>
-      <h3 style="font:400 clamp(26px,2.6vw,32px)/1.08 var(--font-display);letter-spacing:-0.01em;text-wrap:balance;margin:0">Helping airport travellers trust they have time to leave the gate</h3>
-      <span style="display:inline-flex;align-items:center;gap:6px;font:500 13px/1 var(--font-sans);color:var(--text-accent)">Read case study<x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="arrow-right" size="{{ 14 }}" hint-size="14px,14px"></x-import></span>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;font:500 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)"><span>Next project</span></div>
+  <a class="next" href="asha.html" style="display:flex;flex-wrap:wrap;gap:6px;padding:6px;background:var(--sunken);border-radius:20px;text-decoration:none;color:var(--ink)">
+    <div style="flex:1 1 320px;min-width:0;background:var(--card);border-radius:14px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+      <span class="mono" style="color:var(--muted)">ASHA Companion, designing for social needs, 2025</span>
+      <span style="font:700 clamp(26px,2.6vw,32px)/1.1 var(--font-display);letter-spacing:-0.03em;text-wrap:balance">A triage tool for the health workers who already visit people at home</span>
+      <span style="font:600 13px/1 var(--font-sans);color:#2149E0">Read case study</span>
     </div>
-    <div style="flex:1.2 1 320px;min-width:0;min-height:260px;position:relative"><img src="assets/aura/ar-path.png" alt="Phone in Changi's transit mall showing an AR route to a water station" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block;border-radius:10px"></div>
+    <div style="flex:1.2 1 320px;min-width:0;min-height:260px;position:relative;background:#C2185B;border-radius:14px;overflow:hidden"><img src="assets/v3/8025e2b4c73f.jpg" alt="A foil blister strip printed ASHA Companion and Seen at the door: three pockets hold the Who is the patient, Where does it hurt and Checkup complete screens, and the fourth is popped, on saree pink" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block"></div>
   </a>
 </section>
 
 </main>
 
-<!-- FOOTER BAND -->
-<footer data-theme="dark" style="background:var(--band-bg);color:var(--band-fg);margin-top:var(--space-11)">
-  <div style="max-width:var(--max-content);margin:0 auto;padding:128px var(--margin-page) 32px;display:flex;flex-direction:column;gap:112px">
+<!-- POST-GAME -->
+<footer style="margin-top:128px;background:var(--hud);color:var(--hudtext)">
+  <div style="max-width:1280px;margin:0 auto;padding:128px clamp(20px,5vw,80px) 32px;display:flex;flex-direction:column;gap:112px">
     <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px">
-      <span style="font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">AimXR · Usability engineering · 2026</span>
-      <div data-reveal="" style="font:400 clamp(40px,5vw,64px)/1.02 var(--font-display);letter-spacing:-0.02em;text-wrap:balance;max-width:760px">Interfaces don't stop at the screen when <em style="color:var(--text-accent)">the body becomes the controller.</em></div>
-      <p style="font:400 15px/1.5 var(--font-sans);color:var(--text-muted);max-width:520px;margin:0">With Dipesh Ganchhakki. My part: testing, behavioural analysis, research synthesis, the report and design recommendations.</p>
+      <span class="mono" style="color:var(--hudmuted)">GG, good game</span>
+      <p style="margin:0;font:700 clamp(36px,5vw,60px)/1.04 var(--font-display);letter-spacing:-0.04em;text-wrap:balance;max-width:780px">Interfaces don’t stop at the screen when <span style="color:var(--hp)">the body is the controller.</span></p>
+      <p style="font:400 16px/1.55 var(--font-sans);color:#C7D0DA;max-width:560px;margin:0">The most useful evidence wasn’t inside the headset. The body camera turned a missed reach or a frozen stance into something we could point at.</p>
+      <p style="font:400 13px/1.5 var(--font-sans);color:var(--hudmuted);max-width:560px;margin:0">With Dipesh Ganchhaki. My part: half the sessions, the synced footage and the report. Analysis and proposals together. Usability engineering, UPES Dehradun.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
-        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="accent" icon-right="arrow-up-right" on-click="{{ goContact }}" hint-size="120px,40px">Let's talk</x-import>
-        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="secondary" icon-left="arrow-left" on-click="{{ goWork }}" hint-size="120px,40px">All work</x-import>
+        <a class="pill-link" href="mailto:parthivnair10c@gmail.com" style="height:40px;padding:0 18px;background:var(--hp);color:var(--hud)">Let’s talk</a>
+        <a class="pill-link" href="index.html#work" style="height:40px;padding:0 18px;border:1px solid var(--hudline);color:var(--hudtext)">All work</a>
       </div>
     </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:1px solid var(--border-default);padding-top:20px;font:400 12px/1 var(--font-mono);color:var(--text-muted)">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:1px solid var(--hudline);padding-top:20px;font:400 12px/1 var(--font-mono);color:var(--hudmuted)">
       <span>© 2026 Parthiv</span>
-      <span style="display:flex;gap:20px"><a href="https://www.linkedin.com/in/parthiv-nair-a1ba23273" target="_blank" rel="noopener" style="color:inherit">LinkedIn</a><a href="https://drive.google.com/drive/folders/1yHF96X8kEyGxpA_ee23sn0sXkNUF6tDy?usp=sharing" target="_blank" rel="noopener" style="color:inherit">CV</a></span>
+      <span style="display:flex;gap:20px"><a href="https://www.linkedin.com/in/parthiv-nair-a1ba23273" target="_blank" rel="noopener" style="color:inherit">LinkedIn ↗</a><a href="https://drive.google.com/drive/folders/1yHF96X8kEyGxpA_ee23sn0sXkNUF6tDy?usp=sharing" target="_blank" rel="noopener" style="color:inherit">CV ↗</a></span>
     </div>
   </div>
 </footer>
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;link&quot;,&quot;marker&quot;,&quot;clay&quot;,&quot;par&quot;,&quot;mono&quot;],&quot;default&quot;:&quot;link&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;researchLayer&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":9800}}'>
 class Component extends DCLogic {
-  state = { step: 0, active: 'overview', mode: 'turn', speed: 65, countP: 1, wide: false, railOn: false };
-  stickyRef = React.createRef();
-  dataRef = React.createRef();
-
+  state = { code: 'label', codeAuto: false, sb: 'hp', seen: false, mode: 'turn', speed: 65, active: 'overview', wide: false, railOn: false };
+  scoreRef = React.createRef();
   componentDidMount() {
-    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const motion = (this.props.motion ?? true) && !reduce;
-    const H = () => window.innerHeight || 800;
-    const show = n => { n.style.opacity = '1'; n.style.transform = 'none'; n.dataset.shown = '1'; };
-    document.querySelectorAll('[data-reveal]').forEach(n => {
-      if (!motion) return show(n);
-      n.style.transition = 'opacity 900ms cubic-bezier(.16,1,.3,1), transform 900ms cubic-bezier(.16,1,.3,1)';
-      if (n.getBoundingClientRect().top < H() * 0.92) show(n);
-      else if (!n.dataset.shown) { n.style.opacity = '0'; n.style.transform = 'translateY(20px)'; }
-    });
+    this.reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (this.reduce) this.setState({ seen: true });
     this.check = () => {
-      const h = H();
-      const el = this.stickyRef.current;
-      if (el) {
-        const r = el.getBoundingClientRect();
-        const p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - h)));
-        const step = Math.min(3, Math.floor(p * 4));
-        if (step !== this.state.step) this.setState({ step });
-      }
-      document.querySelectorAll('[data-reveal]').forEach(n => { if (!n.dataset.shown && n.getBoundingClientRect().top < h * 0.92) show(n); });
+      const st = this.state, el = this.scoreRef.current;
+      let seen = st.seen;
+      if (el && !seen && el.getBoundingClientRect().top < (window.innerHeight || 800) * 0.8) seen = true;
       let active = 'overview';
-      document.querySelectorAll('[data-nav]').forEach(s => { if (s.getBoundingClientRect().top < 200) active = s.getAttribute('data-nav'); });
+      document.querySelectorAll('[data-nav]').forEach(n => { if (n.getBoundingClientRect().top < 200) active = n.getAttribute('data-nav'); });
       const wide = window.innerWidth >= 1180, railOn = window.scrollY > 500;
-      if (active !== this.state.active || wide !== this.state.wide || railOn !== this.state.railOn) this.setState({ active, wide, railOn });
-      const d = this.dataRef.current || document.getElementById('data');
-      if (motion && d && !this.counted) {
-        const r = d.getBoundingClientRect();
-        if (r.top > h) { if (!this.armed) { this.armed = true; this.setState({ countP: 0 }); } }
-        else if (this.armed && r.top < h * 0.75) {
-          this.counted = true;
-          const t0 = performance.now();
-          const tick = t => { const k = Math.min(1, (t - t0) / 1400); this.setState({ countP: 1 - Math.pow(1 - k, 3) }); if (k < 1) requestAnimationFrame(tick); };
-          requestAnimationFrame(tick);
-          setTimeout(() => this.setState({ countP: 1 }), 1800);
-        }
-      }
+      if (seen !== st.seen || active !== st.active || wide !== st.wide || railOn !== st.railOn) this.setState({ seen, active, wide, railOn });
     };
     window.addEventListener('scroll', this.check, { passive: true });
     window.addEventListener('resize', this.check);
     this.check();
-    this.t1 = setTimeout(this.check, 300);
-    this.t2 = setTimeout(this.check, 1200);
+    this.t1 = setTimeout(this.check, 400);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.check);
     window.removeEventListener('resize', this.check);
-    clearTimeout(this.t1); clearTimeout(this.t2);
+    clearTimeout(this.t1);
   }
-
-  rows(data, max, worseIfUp, hi) {
-    return data.map(([id, a, b]) => {
-      const pa = a / max * 100, pb = b / max * 100;
-      const worse = worseIfUp ? b > a : b < a, same = a === b;
-      const fmt = v => max === 100 ? (v % 1 ? v.toFixed(2) : v) + '%' : v.toFixed(1);
-      return {
-        id, aPos: pa + '%', bPos: pb + '%', left: Math.min(pa, pb) + '%', width: Math.abs(pb - pa) + '%',
-        lineColor: same ? 'transparent' : worse ? 'var(--danger)' : 'var(--gray-600)',
-        dotColor: worse ? 'var(--danger)' : hi.includes(id) ? 'var(--accent)' : 'var(--text-primary)',
-        idColor: hi.includes(id) ? 'var(--text-accent)' : 'var(--text-muted)',
-        label: fmt(a) + ' → ' + fmt(b)
-      };
-    });
-  }
-
   jump(id) {
     const el = document.getElementById(id);
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: 'smooth' });
-  }
-
-  getTheme() { if (this.state.theme) return this.state.theme; let t; try { t = localStorage.getItem('par-theme'); } catch (e) {} return t === 'light' ? 'light' : 'dark'; }
-  themeVals() {
-    const theme = this.getTheme();
-    try { document.documentElement.style.background = document.body.style.background = theme === 'dark' ? '#0E0E0E' : '#FFFFFF'; } catch (e) {}
-    if (!this._rz) { this._rz = () => this.forceUpdate(); window.addEventListener('resize', this._rz); }
-    const narrow = (window.innerWidth || 1200) < 640;
-    const lay = { narrow, showTalk: !narrow, hdrCols: narrow ? '1fr auto' : '1fr auto 1fr', hdrRows: narrow ? '64px auto' : 'auto', navCol: narrow ? '1 / -1' : 'auto', navOrder: narrow ? '3' : '0', navMb: narrow ? '12px' : '0' };
-    return { ...lay, theme, themeIcon: theme === 'dark' ? 'sun' : 'moon', themeLabel: theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
-      toggleTheme: () => { const t = theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('par-theme', t); } catch (e) {} this.setState({ theme: t }); } };
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: this.reduce ? 'auto' : 'smooth' });
   }
   renderVals() {
-    const { step, mode, speed, countP, active } = this.state;
-    const steps = [
-      { pair: 'A', side: 'pov', tag: 'Frame A · headset POV', head: 'The ammo counter reads empty', body: 'A fresh magazine is in view, within reach.', mx: 68, my: '58%' },
-      { pair: 'A', side: 'body', tag: 'Frame A · body cam', head: 'The player is still in an aiming stance', body: 'Arms up, both controllers held out front. The reload hasn\'t started.', mx: 30, my: '30%' },
-      { pair: 'B', side: 'pov', tag: 'Frame B · headset POV', head: 'The game names the next step: PULL', body: 'A label points to the part of the gun that finishes the reload.', mx: 72, my: '34%' },
-      { pair: 'B', side: 'body', tag: 'Frame B · body cam', head: 'The prompt is on screen. The body is elsewhere', body: 'Controllers held low at the waist. In this frame, the pull hasn\'t happened.', mx: 26, my: '45%' }
+    const st = this.state;
+
+    // contents rail: objective tracker
+    const acts = [
+      { band: 'round1', name: 'Round 1: Watch', short: 'R1', c: 'var(--hp)', items: [['loadout', 'Loadout'], ['setup', 'Experts vs novices'], ['killcam', 'Kill cam']] },
+      { band: 'round2', name: 'Round 2: Measure', short: 'R2', c: 'var(--ammo)', items: [['scoreboard', 'Scoreboard'], ['bosses', 'Bosses']] },
+      { band: 'patchband', name: 'Patch 1.1: Design', short: 'Patch 1.1', c: 'var(--shield)', items: [['patch', 'Patch notes'], ['limits', 'Known issues']] }
     ];
-    const s = steps[step];
-    const k = speed / 100;
-    const curOn = mode === 'forward';
-    const tocList = [['overview', 'Overview'], ['experience', 'The experience'], ['novices', 'Why novices'], ['experiment', 'The experiment'], ['crack', 'The first crack'], ['body', 'The body'], ['data', 'The data'], ['failures', 'Failure modes'], ['proposals', 'Proposals'], ['trace', 'Traceability'], ['limits', 'Limits'], ['next', 'Next test'], ['reflection', 'Retrospective']];
-    const trace = [
-      { n: '01', who: 'P8 · 3 of 8', obs: '“unable to pick desire items”', interp: 'Belt items too close together to grab without looking.', principle: 'Give targets more room and more forgiveness.', prop: 'Dynamic spatial buffering' },
-      { n: '02', who: 'P8 · P1', obs: '“i dont know how to light it”', interp: 'One category of object, three activation rules.', principle: 'Same kind of object, same action.', prop: 'One interaction language' },
-      { n: '03', who: 'P7', obs: '“aimed it to the enemy position but it didn\'t reach them”', interp: 'No felt weight, so throw strength is guesswork.', principle: 'Show the result so the body can recalibrate.', prop: 'Post-throw trajectory' },
-      { n: '04', who: 'P6 · P4 · P7', obs: '“dizzy — specifically when i was turning”', interp: 'Comfort vignette only covers forward movement.', principle: 'Protect the body during every artificial movement.', prop: 'Omni-directional vignette' }
+    const order = ['overview'];
+    acts.forEach(a => { order.push(a.band); a.items.forEach(i => order.push(i[0])); });
+    const cur = Math.max(0, order.indexOf(st.active));
+    const curAct = acts.reduce((f, a, i) => (order.indexOf(a.band) <= cur ? i : f), -1);
+    const railToc = [{ isHead: false, isItem: true, label: 'Overview', cur: cur === 0 ? 'true' : 'false', color: cur === 0 ? '#fff' : 'var(--hudmuted)', fill: cur === 0 ? 'var(--hudtext)' : 'var(--hudmuted)', edge: cur === 0 ? 'var(--hudtext)' : 'var(--hudmuted)', onClick: () => this.jump('overview') }];
+    acts.forEach((a, ai) => {
+      railToc.push({ isHead: true, isItem: false, label: a.name, color: ai === curAct ? a.c : 'var(--hudmuted)' });
+      a.items.forEach(([id, label]) => {
+        const k = order.indexOf(id), here = k === cur || (st.active === a.band && k === order.indexOf(a.band) + 1), done = k < cur && !here;
+        railToc.push({ isHead: false, isItem: true, label, cur: here ? 'true' : 'false',
+          color: here ? '#fff' : done ? 'var(--hudtext)' : 'var(--hudmuted)',
+          fill: here || done ? a.c : 'transparent', edge: here || done ? a.c : 'var(--hudline)', onClick: () => this.jump(id) });
+      });
+    });
+    const railSegs = acts.map((a, ai) => {
+      const start = order.indexOf(a.band), end = order.indexOf(a.items[a.items.length - 1][0]);
+      const f = cur < start ? 0 : cur >= end ? 1 : (cur - start + 1) / (end - start + 1);
+      return { flex: String(a.items.length), c: a.c, fill: (f * 100).toFixed(0) + '%' };
+    });
+    const railRound = curAct < 0 ? 'Lobby' : acts[curAct].short;
+    const railColor = curAct < 0 ? 'var(--hudmuted)' : acts[curAct].c;
+    const loadout = [
+      { n: 1, name: 'Move', d: 'Thumbsticks move you through the map. Your body stays where it is.', img: 'assets/v3/4d0116e4f178.jpg', alt: 'Body camera: a participant standing still in an empty room, holding both controllers', pos: '50% 30%' },
+      { n: 2, name: 'Equip', d: 'Reach to your chest or belt and physically grab the weapon.', img: 'assets/v3/b091778bac73.jpg', alt: 'Headset view looking down at items on the belt', pos: '50% 50%' },
+      { n: 3, name: 'Reload', d: 'Eject, reach for the belt, snap it in and rack the slide, with no button.', img: 'assets/v3/e9cec3b5df08.jpg', alt: 'Headset view of a rifle and a magazine', pos: '50% 50%' },
+      { n: 4, name: 'Throw', d: 'Grab it, work out how it arms, judge the arc, let go on time.', img: 'assets/v3/1ca6728cb159.jpg', alt: 'Grenades and a magazine on a tiled floor beside a rifle', pos: '70% 80%' }
     ];
+    const match = [
+      { t: 'T0', name: 'Setup', d: 'Empty room, consent, headset fitted', bg: 'var(--sunken)', fg: 'var(--ink)' },
+      { t: 'Round 1', name: 'Tutorial + first fight', d: 'The baseline', bg: 'var(--hud)', fg: '#fff' },
+      { t: 'Form', name: 'GEQ + VRSQ', d: 'How did that feel?', bg: 'var(--sunken)', fg: 'var(--ink)' },
+      { t: 'Round 2', name: 'Throwables + weapon swaps', d: 'More rules, more strain', bg: 'var(--hud)', fg: '#fff' },
+      { t: 'Form', name: 'GEQ + VRSQ + open questions', d: 'Plus their own words', bg: 'var(--sunken)', fg: 'var(--ink)' }
+    ];
+    const codeList = [
+      { id: 'label', label: 'Label blindness', desc: 'The PULL prompt to finish reloading was in view. Players kept trying to fire.', src: 'assets/v3/d976b473c20e.mp4', poster: 'assets/v3/b375a01cff13.jpg' },
+      { id: 'near', label: 'Near miss', desc: 'A reach to the belt came back with the wrong item, or nothing.', src: 'assets/v3/914ce02c3547.mp4', poster: 'assets/v3/1feaa6020485.jpg' },
+      { id: 'accident', label: 'Accidental drop', desc: 'A held item slipped out of the hand mid-action.', src: 'assets/v3/376d4c3fcce5.mp4', poster: 'assets/v3/c48562c3a439.jpg' },
+      { id: 'release', label: 'Bad release', desc: 'Throws were let go too early or too late, and fell short.', src: 'assets/v3/9abbe3a57194.mp4', poster: 'assets/v3/8cb8fafed383.jpg' },
+      { id: 'inconsistent', label: 'Rule clash', desc: 'Similar objects asked for different actions, so a learned rule misfired.', src: 'assets/v3/8ee3ba051dfe.mp4', poster: 'assets/v3/172d9a28a363.jpg' },
+      { id: 'jitter', label: 'UI jitter', desc: 'Menus drifted and shook while players tried to point at an option.', src: 'assets/v3/00a3af0fbde4.mp4', poster: 'assets/v3/52edc1e004e0.jpg' }
+    ];
+    const codes = codeList.map(c => ({ ...c, on: c.id === st.code, alt: 'Synced footage, ' + c.label + ': body camera and headset view side by side', pick: () => this.setState({ code: c.id, codeAuto: true }) }));
+    const codeDesc = (codeList.find(c => c.id === st.code) || codeList[0]).desc;
+
+    // Scoreboard
+    const ocul = [['P1', 8.33, 8.33], ['P2', 8.33, 8.33], ['P3', 16.67, 41.67], ['P4', 33.33, 66.67], ['P5', 75, 83.33], ['P6', 33.33, 33.33], ['P7', 16.67, 16.67], ['P8', 83.33, 66.67]];
+    const comp = [['P1', 3.2, 3.4], ['P2', 3.6, 3.4], ['P3', 2.2, 1.0], ['P4', 2.6, 3.0], ['P5', 1.6, 3.4], ['P6', 2.2, 1.4], ['P7', 3.2, 3.2], ['P8', 3.0, 1.8]];
+    const hp = st.sb === 'hp';
+    const good = hp ? 'var(--hp)' : 'var(--shield)';
+    const seen = st.seen;
+    const sbRows = (hp ? ocul : comp).map(([id, a, b]) => {
+      const v1 = hp ? 100 - a : a / 4 * 100, v2 = hp ? 100 - b : b / 4 * 100;
+      const worse = v2 < v1 - 0.01;
+      const fmt = v => hp ? Math.round(v) + '' : (v / 25).toFixed(1);
+      return {
+        id, w1: (seen ? v1 : 0) + '%', w2: (seen ? v2 : 0) + '%',
+        c2: worse ? 'var(--dmg)' : good,
+        idColor: worse ? 'var(--dmg-t)' : 'var(--muted)',
+        lblColor: worse ? 'var(--dmg-t)' : 'var(--ink)',
+        label: fmt(v1) + ' → ' + fmt(v2) + (hp ? ' HP' : '')
+      };
+    });
+
+    const bosses = [
+      { n: '01', name: 'The hand couldn’t find the item', obs: 'Under pressure, players reached for one belt item and came back with another, or nothing.', quote: 'a bit too close to each other', src: 'P6, one of 3 who said this unprompted', who: 'P2, P6, P8', rules: false },
+      { n: '02', name: 'Three throwables, three rules', obs: 'Same category, three ways to arm it. Novices relearned the game with every switch.', quote: 'i dont know how to light it', src: 'P8, who abandoned the task', who: 'P1, P8', rules: true },
+      { n: '03', name: 'The throw had no weight', obs: 'A controller doesn’t get heavier holding a grenade, so throw strength was a guess with no clue why it missed.', quote: 'i aimed it to the enemy position but it didn’t reach them', src: 'P7, similar from P1, P2, P8', who: 'P1, P2, P7, P8', rules: false },
+      { n: '04', name: 'Turning made people sick', obs: 'The comfort vignette only covers forward movement. Turning and strafing get no protection, so some players froze in place.', quote: 'i felt dizzy — specifically when i was turning', src: 'P6, similar from P4, P7', who: 'P4, P6, P7', rules: false }
+    ];
+    const ok = { bg: 'var(--sunken)', fg: 'var(--ink)' }, bad = { bg: '#FFE1E4', fg: 'var(--dmg-t)' };
+    const throwables = [
+      { name: 'Grenade', steps: [{ t: 'Grab with 1 hand', ...ok }, { t: 'Pull pin', ...ok }, { t: 'Throw', ...ok }] },
+      { name: 'Molotov', steps: [{ t: 'Grab bottle', ...ok }, { t: 'Lighter in 2nd hand', ...bad }, { t: 'Light it', ...bad }, { t: 'Throw', ...ok }] },
+      { name: 'Flashbang', steps: [{ t: 'Grab with 1 hand', ...ok }, { t: '? no clear cue', ...bad }, { t: 'Throw', ...ok }] }
+    ];
+    const chg = { bg: '#CFF5FA', fg: 'var(--shield-t)' }, same = { bg: 'var(--card)', fg: 'var(--ink)' };
+    const unified = [
+      { name: 'Grenade', arm: 'To mouth, pull pin', ...same },
+      { name: 'Molotov', arm: 'Pre-lit on grab', ...chg },
+      { name: 'Flashbang', arm: 'To mouth, pull pin', ...chg }
+    ];
+
+    const k = st.speed / 100, curOn = st.mode === 'forward';
+    const modes = [['forward', 'Forward'], ['strafe', 'Strafe'], ['turn', 'Turn']].map(([id, label]) => ({ label, on: st.mode === id, pick: () => this.setState({ mode: id }) }));
+
     return {
-      ...this.themeVals(),
-      goWork: () => { window.location.href = 'index.html#work'; },
-      goContact: () => { window.location.href = 'index.html#contact'; },
-      accent: this.props.accent ?? 'link',
-      researchLayer: this.props.researchLayer ?? true,
-      railVisible: this.state.wide && this.state.railOn,
-      toc: tocList.map(([id, label]) => {
-        const on = active === id;
-        return { label, color: on ? 'var(--text-primary)' : 'var(--text-muted)', w: on ? '14px' : '6px', bar: on ? 'var(--accent)' : 'var(--border-default)', onClick: () => this.jump(id) };
-      }),
-      stickyRef: this.stickyRef, dataRef: this.dataRef,
-      pairAOpacity: s.pair === 'A' ? 1 : 0, pairBOpacity: s.pair === 'B' ? 1 : 0,
-      bodyDim: s.side === 'body' ? 1 : 0.35, povDim: s.side === 'pov' ? 1 : 0.35,
-      bodyTagBg: s.side === 'body' ? 'var(--accent)' : 'var(--surface-raised)', bodyTagFg: s.side === 'body' ? 'var(--on-accent)' : 'var(--text-muted)',
-      povTagBg: s.side === 'pov' ? 'var(--accent)' : 'var(--surface-raised)', povTagFg: s.side === 'pov' ? 'var(--on-accent)' : 'var(--text-muted)',
-      markerLeft: s.side === 'pov' ? `calc(50% + ${s.mx / 2}%)` : `${s.mx / 2}%`, markerTop: s.my,
-      obsTag: s.tag, obsHead: s.head, obsBody: s.body,
-      ticks: steps.map((_, i) => ({ bg: i <= step ? 'var(--accent)' : 'var(--border-default)' })),
-      countA: (83.33 * countP).toFixed(2), countB: Math.round(3 * countP), countC: (countP ? '−' : '') + (1.2 * countP).toFixed(1),
-      ocul: this.rows([['P1', 8.33, 8.33], ['P2', 8.33, 8.33], ['P3', 16.67, 41.67], ['P4', 33.33, 66.67], ['P5', 75, 83.33], ['P6', 33.33, 33.33], ['P7', 16.67, 16.67], ['P8', 83.33, 66.67]], 100, true, ['P3', 'P8']),
-      comp: this.rows([['P1', 3.2, 3.4], ['P2', 3.6, 3.4], ['P3', 2.2, 1.0], ['P4', 2.6, 3.0], ['P5', 1.6, 3.4], ['P6', 2.2, 1.4], ['P7', 3.2, 3.2], ['P8', 3.0, 1.8]], 4, false, ['P3', 'P8']),
-      modeItems: [{ id: 'forward', label: 'Forward' }, { id: 'strafe', label: 'Strafe' }, { id: 'turn', label: 'Snap / turn' }],
-      mode, onMode: id => this.setState({ mode: id }),
-      speed, onSpeed: e => this.setState({ speed: +e.target.value }),
-      shiftA: mode === 'strafe' ? `${-k * 3}%` : '0%',
+      railVisible: st.wide && st.railOn, railToc, railSegs, railRound, railColor,
+      loadout, match, codes, codeDesc, codeAuto: st.codeAuto,
+      scoreRef: this.scoreRef, sbRows,
+      sbHp: hp, sbXp: !hp,
+      showHp: () => this.setState({ sb: 'hp' }), showXp: () => this.setState({ sb: 'xp' }),
+      sbName: hp ? 'Health Bars' : 'XP Bars',
+      sbHead: hp ? 'Comfort drained, and for three players it got worse' : 'Practice levelled some players up and others down',
+      sbTagBg: hp ? 'var(--hp)' : 'var(--shield)', sbTagFg: 'var(--hud)', sbGood: good,
+      sbLine: hp ? '75%' : '50%', sbLineLabel: hp ? '75 HP' : '2.0',
+      sbCap: hp ? 'Health = 100 − VRSQ eye-strain score. Below 75 = severe (25%+). Rounded.' : 'XP = GEQ competence, 0–4. Dashed line = the scale’s 2.0 moderate mark.',
+      bosses, throwables, unified,
+      modes, speed: st.speed, onSpeed: e => this.setState({ speed: +e.target.value }),
+      shift: st.mode === 'forward' ? '0%' : st.mode === 'strafe' ? (-k * 3) + '%' : (-k * 5) + '%',
       vigCurrent: curOn ? (k * 0.95).toFixed(2) : 0,
       vigProposed: Math.pow(k, 1.6).toFixed(2),
       curLabel: curOn ? 'Vignette on' : 'No vignette',
-      curTone: curOn ? 'neutral' : 'danger',
-      propLabel: `Vignette ${Math.round(Math.pow(k, 1.6) * 100)}%`,
-      trace
+      curBg: curOn ? 'rgba(11,15,20,.82)' : 'var(--dmg-t)',
+      propLabel: 'Vignette ' + Math.round(Math.pow(k, 1.6) * 100) + '%'
     };
   }
 }

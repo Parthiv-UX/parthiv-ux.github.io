@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="WattWise: a neighbourhood service that helps Indian homeowners decide whether rooftop solar suits their home. Case study by Parthiv Nair.">
+<title>WattWise: case study</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/pdsparsdesignsystem_716ab0/tokens.css">
+<link rel="stylesheet" href="ds/pdsparsdesignsystem_716ab0/components/bundle.css">
+<script src="ds/pdsparsdesignsystem_716ab0/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#F4F5F8}
+:root{--font-display:"Plus Jakarta Sans","Inter",ui-sans-serif,system-ui,sans-serif;--font-sans:"Inter",ui-sans-serif,system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;
+--paper:#F4F5F8;--card:#FFFFFF;--sunken:#E7E9EF;--ink:#1E1B24;--ink2:#47434F;--muted:#67636F;--line:#E2DDD1;
+--sun:#FFC531;--ember:#FF6A2B;--ember-t:#B93D0A;--dusk:#2C3A73;--verified:#19C2B4;--verified-t:#0B7268;--lav:#8B3DFF;--lav-t:#5B21B6;
+--t-sun:#FFE9A8;--t-ember:#FFDCCB;--t-lav:#E7DCFF;--t-mint:#CDF1EA;--t-pink:#FFDDEB;--t-sky:#DCE9FF;
+--ease:cubic-bezier(.16,1,.3,1);--ease-io:cubic-bezier(.65,0,.35,1)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--dusk);outline-offset:3px;border-radius:6px}
+.mono{font:500 11px/1.3 var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.tnum{font-variant-numeric:tabular-nums}
+.kick{display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--card);padding:8px 12px 8px 10px;border-radius:999px}
+.kick .dot{width:8px;height:8px;border-radius:50%}
+.kick .t{color:var(--ink)}
+.h2{font:700 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.03em;text-wrap:balance;max-width:640px;margin:0;color:var(--ink)}
+.lede{max-width:580px;font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0;text-wrap:pretty}
+.head{max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+.sec{padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px}
+.w1040{max-width:1040px;margin:0 auto;width:100%}
+.w880{max-width:880px;margin:0 auto;width:100%}
+.frame{background:var(--sunken);border-radius:20px;padding:6px}
+.frame>img{display:block;width:100%;border-radius:14px}
+.cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px;flex-wrap:wrap}
+.cap .l{display:flex;gap:10px;align-items:baseline;font:400 13px/1.45 var(--font-sans);color:var(--ink2)}
+.cap .n{font:500 11px/1 var(--font-mono);color:var(--ink)}
+.cap .k{font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card{background:var(--card);border-radius:20px;padding:24px}
+.h3{font:600 20px/1.25 var(--font-display);letter-spacing:-0.02em;margin:0;color:var(--ink)}
+.p{font:400 15px/1.6 var(--font-sans);color:var(--ink2);margin:0}
+.chip{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:24px;padding:0 8px;border-radius:999px;font:500 11px/1 var(--font-mono);letter-spacing:.04em}
+.chip-n{border:1.5px solid var(--ember);color:var(--ember-t);background:#fff}
+.chip-a{background:var(--lav);color:#fff}
+.tag{display:inline-flex;align-items:center;gap:6px;font:600 12px/1 var(--font-sans);padding:7px 12px;border-radius:999px}
+.btn{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 13px/1 var(--font-sans);height:40px;padding:0 16px;border-radius:999px;cursor:pointer;transition:background 220ms var(--ease),border-color 220ms var(--ease),color 220ms var(--ease),transform 120ms var(--ease)}
+.btn:hover{border-color:var(--ink)}
+.btn:active{transform:scale(.97)}
+.btn[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pill-link{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 14px;border-radius:999px;font:600 13px/1 var(--font-sans);text-decoration:none;transition:background 220ms var(--ease),transform 120ms var(--ease)}
+.pill-link:active{transform:scale(.97)}
+.navp{padding:8px 14px;border-radius:999px;font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--muted)}
+.navp:hover{color:var(--ink)}
+.toc{display:flex;align-items:center;gap:8px;padding:5px 0;font:500 13px/1.2 var(--font-sans);text-decoration:none;cursor:pointer;background:none;border:0;text-align:left;transition:color 120ms var(--ease)}
+.toc .bar{height:1px;transition:width 220ms var(--ease)}
+.sunbtn{position:absolute;border:0;padding:0;border-radius:50%;cursor:pointer;transform:translate(-50%,-50%);transition:box-shadow 220ms var(--ease),transform 220ms var(--ease)}
+.sunbtn:hover{transform:translate(-50%,-50%) scale(1.08)}
+.house{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1 1 0;min-width:0;transition:opacity 300ms var(--ease)}
+.roof{width:100%;height:22px;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.flip{perspective:1400px}
+.flip-in{position:relative;width:100%;aspect-ratio:596/840;transform-style:preserve-3d;transition:transform 700ms var(--ease-io)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;overflow:hidden;box-shadow:0 2px 6px rgba(30,27,36,.08),0 24px 48px rgba(30,27,36,.14)}
+.flip-face img{width:100%;height:100%;object-fit:cover;display:block}
+.mtab{appearance:none;border:0;background:transparent;text-align:left;cursor:pointer;padding:14px 16px;border-radius:14px;color:var(--muted);font:600 15px/1.3 var(--font-sans);transition:background 220ms var(--ease),color 220ms var(--ease)}
+.mtab:hover{color:var(--ink)}
+.mtab[aria-selected="true"]{background:var(--card);color:var(--ink)}
+.next{transition:transform 220ms var(--ease)}.next:hover{transform:translateY(-3px)}
+.rise{animation:rise 1400ms var(--ease) 200ms both}
+@keyframes rise{from{transform:translate(-50%,40%)}to{transform:translate(-50%,0)}}
+.ray{transition:background 220ms var(--ease)}.ray:hover{background:rgba(255,255,255,.04)}
+@media (min-width:1180px){.w1040{max-width:min(1040px,calc(100vw - 540px))}.w880{max-width:min(880px,calc(100vw - 540px))}}
+.rail{background:color-mix(in srgb,#F4F5F8 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;padding:14px 14px 12px;box-shadow:0 1px 2px rgba(30,27,36,.05)}
+@media (prefers-reduced-motion:reduce){.rise{animation:none}.flip-in,.house,.toc .bar{transition:none!important}}
+@media (max-width:860px){.g2,.g3,.g4,.g5,.g7,.split{grid-template-columns:minmax(0,1fr)!important}.hide-sm{display:none!important}.hscroll{overflow-x:auto}.hscroll>*{min-width:640px}}
+.glass{position:sticky;top:0;z-index:40;background:color-mix(in srgb,#F4F5F8 68%,transparent);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(17,21,27,.07)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:#F4F5F8}}
+@media (prefers-reduced-transparency:reduce),(prefers-contrast:more){.glass{background:#F4F5F8;-webkit-backdrop-filter:none;backdrop-filter:none}}
+.glass nav{background:rgba(255,255,255,.82)!important;border-color:rgba(17,21,27,.09)!important}
+.glass nav a:not([aria-current="page"]){color:#4A4F57!important}
+@media (max-width:640px){.decocard{padding-top:72px!important}.deco{transform:scale(.6);transform-origin:100% 0}.decocard-b{padding-bottom:72px!important}.deco-b{transform:scale(.6);transform-origin:100% 100%}}@media (max-width:860px){.hscroll::before{content:"Scroll sideways to see all of it";display:block;position:sticky;left:0;width:max-content;margin:0 0 12px;font:500 10px/1.3 var(--font-mono,monospace);letter-spacing:.08em;text-transform:uppercase;color:#5E6470}}@media (max-width:860px){.hscroll>.g7{min-width:0}.hscroll:has(>.g7)::before{display:none}.flowline{display:none}}@media (max-width:640px){.moon{top:28px!important;right:8%!important;width:48px!important;height:48px!important}}
+</style>
+</helmet>
+
+<div style="background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--font-sans);min-height:100vh;overflow-x:clip">
+
+<header class="glass">
+  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,80px);min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+    <a href="index.html" style="font:800 24px/1 var(--font-display);letter-spacing:-0.03em;text-decoration:none;color:var(--ink)">Parthiv<span style="color:#2B59FF">.</span></a>
+    <nav aria-label="Main" class="hide-sm" style="display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--card)">
+      <a class="navp" href="index.html#work" style="background:var(--sunken);color:var(--ink)">Work</a>
+      <a class="navp" href="index.html#about">About</a>
+      <a class="navp" href="index.html#contact">Contact</a>
+    </nav>
+    <a class="pill-link" href="mailto:parthivnair10c@gmail.com" style="background:var(--ink);color:#fff">Let’s talk</a>
+  </div>
+</header>
+
+<!-- CONTENTS RAIL: the sun clock -->
+<sc-if value="{{ railVisible }}" hint-placeholder-val="{{ false }}">
+  <nav aria-label="Contents" class="rail" style="position:fixed;left:clamp(12px,3vw,48px);top:96px;z-index:30;width:170px;display:flex;flex-direction:column;gap:2px">
+    <div aria-hidden="true" style="position:relative;height:52px;margin-bottom:10px">
+      <svg viewBox="0 0 170 52" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:52px;overflow:visible"><path d="M10 48 Q85 -14 160 48" fill="none" stroke="#D8D2C4" stroke-width="1.5" stroke-dasharray="2 4" vector-effect="non-scaling-stroke"></path><line x1="0" y1="48" x2="170" y2="48" stroke="#D8D2C4" stroke-width="1" vector-effect="non-scaling-stroke"></line></svg>
+      <span style="position:absolute;left:{{ sunX }};top:{{ sunY }};width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:{{ sunColor }};box-shadow:0 0 0 5px {{ sunGlow }};transition:left 600ms var(--ease-io),top 600ms var(--ease-io),background 400ms var(--ease)"></span>
+    </div>
+    <span style="display:flex;justify-content:space-between;font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px"><span>Contents</span><span class="tnum" style="color:var(--ink)">{{ clock }}</span></span>
+    <sc-for list="{{ toc }}" as="t" hint-placeholder-count="16">
+      <sc-if value="{{ t.isHead }}" hint-placeholder-val="{{ false }}"><span style="font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 0 4px">{{ t.label }}</span></sc-if>
+      <sc-if value="{{ t.isItem }}" hint-placeholder-val="{{ true }}"><button type="button" class="toc" onClick="{{ t.onClick }}" style="color:{{ t.color }}"><span class="bar" style="width:{{ t.w }};background:{{ t.bar }}"></span>{{ t.label }}</button></sc-if>
+    </sc-for>
+  </nav>
+</sc-if>
+
+<!-- HERO · DAWN -->
+<section id="overview" data-nav="overview" aria-label="WattWise" style="position:relative;overflow:hidden;background:linear-gradient(180deg,#3B4AA3 0%,#6C79D3 42%,#E7A2BE 78%,#F7C59A 100%);color:#fff;text-align:center;scroll-margin-top:96px">
+  <div style="max-width:880px;margin:0 auto;padding:88px clamp(20px,5vw,80px) 0;position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:18px">
+    <h1 style="margin:0;font:800 clamp(72px,12vw,168px)/0.92 var(--font-display);letter-spacing:-0.055em">WattWise</h1>
+    <p style="margin:0;font:500 clamp(18px,2vw,24px)/1.4 var(--font-display);letter-spacing:-0.01em;max-width:520px">Bridging the gap between wanting solar and adopting it.</p>
+  </div>
+  <div aria-hidden="true" style="position:relative;height:clamp(200px,22vw,290px);margin-top:24px">
+    <div class="rise" style="position:absolute;left:50%;top:48px;width:clamp(300px,36vw,500px);aspect-ratio:1;transform:translateX(-50%)">
+      <div style="position:absolute;inset:-14%;border-radius:50%;background:rgba(255,197,49,.18)"></div>
+      <div style="position:absolute;inset:-6%;border-radius:50%;background:rgba(255,197,49,.28)"></div>
+      <div style="position:absolute;inset:0;border-radius:50%;background:var(--sun)"></div>
+      <span style="position:absolute;left:36%;top:19%;width:9%;height:3.2%;border-radius:999px;background:#2A2733"></span>
+      <span style="position:absolute;right:36%;top:19%;width:9%;height:3.2%;border-radius:999px;background:#2A2733"></span>
+    </div>
+  </div>
+</section>
+
+<main style="padding:0 clamp(20px,5vw,80px)">
+
+<div class="w880" style="padding-top:48px;display:flex;flex-wrap:wrap;gap:40px">
+  <dl style="flex:1 1 240px;margin:0;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Role</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Designer: research, synthesis, service and brand design</dd></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Mentor</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Aditya Shahakar, UPES Dehradun</dd></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Timeline and methods</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Oct – Nov 2026: desk research, benchmark, 13 interviews, thematic coding</dd></div>
+  </dl>
+  <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:14px">
+    <span class="mono" style="font-size:10px;color:var(--muted)">Overview</span>
+    <p style="font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0">Subsidies, loans and installers are easier to reach than ever, yet most interested homeowners in India never take the first step. WattWise looks at why, and proposes a neighbourhood service that helps them decide for their own home: a Solar Clinic van, a take-home Solar Card and a web companion.</p>
+    <p style="font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0">The case study follows one day of sunlight: research at dawn, definition at noon, design at dusk.</p>
+  </div>
+</div>
+
+<div class="w880 decocard" style="margin-top:40px;background:var(--ink);color:#fff;border-radius:24px;padding:36px 40px;position:relative;overflow:hidden">
+  <div class="deco" aria-hidden="true" style="position:absolute;right:-60px;top:-60px;width:180px;height:180px;border-radius:50%;background:var(--sun)"></div>
+  <span class="tag" style="background:#FF5BA8;color:#fff;position:relative">Area of enquiry</span>
+  <p style="position:relative;margin:18px 0 0;font:600 clamp(22px,2.4vw,30px)/1.25 var(--font-display);letter-spacing:-0.02em;max-width:600px">What stops interested homeowners from moving toward rooftop solar, and what can we learn from people who <span style="color:var(--sun)">already made the journey?</span></p>
+</div>
+
+<!-- ============ DISCOVER ============ -->
+<section id="research" data-nav="research" class="sec">
+  <div class="head">
+    <h2 class="h2">Interest in rooftop solar is high, but few homeowners act on it.</h2>
+    <p class="lede">CEEW surveyed 17,094 Indian households on how they decide about rooftop solar. The money and the scheme exist. The first step doesn’t.</p>
+  </div>
+  <div class="w1040 g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+    <div style="background:var(--t-sun);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px"><span class="tnum" style="font:700 64px/1 var(--font-display);letter-spacing:-0.04em">71%</span><span class="p" style="color:var(--ink)">of interested households hadn’t started adopting</span></div>
+    <div style="background:var(--t-ember);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px"><span class="tnum" style="font:700 64px/1 var(--font-display);letter-spacing:-0.04em">68%</span><span class="p" style="color:var(--ink)">of aware, interested households didn’t know how to begin</span></div>
+    <div style="background:var(--t-lav);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px"><span class="tnum" style="font:700 64px/1 var(--font-display);letter-spacing:-0.04em">73%</span><span class="p" style="color:var(--ink)">of cost-concerned households didn’t know financing existed</span></div>
+  </div>
+  <div class="w1040" style="margin-top:-32px"><div class="cap"><span class="l"><span class="n">1.0</span>CEEW, 2026. Each figure is a different subgroup; they can’t be combined.</span><span class="k">Secondary research</span></div></div>
+
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="card" style="padding:28px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:24px">
+        <h3 class="h3">PM Surya Ghar: up to <span class="tnum">₹78,000</span>, through seven hands</h3>
+        <span class="mono" style="font-size:10px;color:var(--muted)">Homeowner, utility, vendor, govt + bank</span>
+      </div>
+      <div class="hscroll"><ol class="g7" style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px">
+        <sc-for list="{{ scheme }}" as="s" hint-placeholder-count="7">
+          <li style="background:{{ s.bg }};border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px;min-height:96px"><span class="tnum" style="font:500 11px/1 var(--font-mono);color:var(--muted)">{{ s.n }}</span><span style="font:600 14px/1.25 var(--font-sans)">{{ s.t }}</span><span style="font:400 12px/1.3 var(--font-sans);color:var(--ink2);margin-top:auto">{{ s.who }}</span></li>
+        </sc-for>
+      </ol></div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.1</span>Each step hands the homeowner to a different party.</span><span class="k">Official route</span></figcaption>
+  </figure>
+</section>
+
+<section id="benchmark" data-nav="benchmark" class="sec">
+  <div class="head">
+    <h2 class="h2">The opportunity isn’t another solar calculator</h2>
+    <p class="lede">Existing tools already estimate savings, explain subsidies and connect people to installers. None of them answers the last column.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="card hscroll" style="padding:8px">
+      <div style="min-width:640px">
+        <div style="display:grid;grid-template-columns:1.6fr repeat(4,minmax(0,0.8fr)) 1.1fr;align-items:stretch">
+          <span class="mono" style="padding:14px 16px;font-size:10px;color:var(--muted)">Tool</span><span class="mono" style="padding:14px 8px;font-size:10px;color:var(--muted)">Savings</span><span class="mono" style="padding:14px 8px;font-size:10px;color:var(--muted)">Subsidy info</span><span class="mono" style="padding:14px 8px;font-size:10px;color:var(--muted)">Application</span><span class="mono" style="padding:14px 8px;font-size:10px;color:var(--muted)">Quote compare</span><span class="mono" style="padding:14px 16px;font-size:10px;color:var(--ink);background:var(--t-sun);border-radius:12px 12px 0 0">Fits my household?</span>
+        </div>
+        <sc-for list="{{ bench }}" as="b" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:1.6fr repeat(4,minmax(0,0.8fr)) 1.1fr;align-items:stretch;border-top:1px solid var(--line)">
+            <span style="padding:14px 16px;display:flex;flex-direction:column;gap:4px"><span style="font:600 14px/1.3 var(--font-sans)">{{ b.name }}</span><span class="mono" style="font-size:10px;color:var(--muted)">{{ b.kind }}</span></span>
+            <span style="padding:14px 8px;align-self:center;font:600 16px/1 var(--font-sans);color:{{ b.c1 }}">{{ b.v1 }}</span><span style="padding:14px 8px;align-self:center;font:600 16px/1 var(--font-sans);color:{{ b.c2 }}">{{ b.v2 }}</span><span style="padding:14px 8px;align-self:center;font:600 16px/1 var(--font-sans);color:{{ b.c3 }}">{{ b.v3 }}</span><span style="padding:14px 8px;align-self:center;font:600 16px/1 var(--font-sans);color:{{ b.c4 }}">{{ b.v4 }}</span>
+            <span style="padding:14px 16px;background:var(--t-sun);display:flex;align-items:center;font:700 20px/1 var(--font-display);border-radius:{{ b.rad }}">?</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">2.0</span>✓ offered in what we reviewed,  – not its focus,  ? our hypothesis to test</span><span class="k">Competitive analysis</span></figcaption>
+  </figure>
+  <p class="w880" style="margin:-16px auto 0;text-align:center;font:400 14px/1.6 var(--font-sans);color:var(--muted)">Solar outreach vans already exist (Surya Rath, Solar Rath). WattWise borrows their reach, and changes how each conversation ends.</p>
+</section>
+
+<section id="interviews" data-nav="interviews" class="sec">
+  <div class="head">
+    <h2 class="h2">13 homeowners on two sides of the same journey</h2>
+    <p class="lede">Semi-structured interviews in and around Dehradun: seven who were interested but hadn’t installed, and six who recently had.</p>
+  </div>
+  <div class="w1040 g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+    <div class="card" style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:baseline;gap:14px"><span class="tnum" style="font:700 56px/1 var(--font-display);letter-spacing:-0.04em;color:var(--ember-t)">7</span><span style="font:600 16px/1.3 var(--font-sans)">Interested, not installed<br><span class="mono" style="font-size:10px;color:var(--muted)">N1 – N7</span></span></div>
+      <p class="p">They believe in solar but can’t picture what it means for their own money, roof and family.</p>
+      <div style="background:var(--paper);border-radius:12px;padding:14px 16px;font:500 15px/1.45 var(--font-display);color:var(--ink)">“Has two quotes, 3 kW and 5 kW, and can’t judge quality or warranty, so fears picking the cheaper one.” <span class="mono" style="font-size:10px;color:var(--muted)">N3, paraphrased</span></div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:baseline;gap:14px"><span class="tnum" style="font:700 56px/1 var(--font-display);letter-spacing:-0.04em;color:var(--lav-t)">6</span><span style="font:600 16px/1.3 var(--font-sans)">Recent adopters<br><span class="mono" style="font-size:10px;color:var(--muted)">A1 – A6</span></span></div>
+      <p class="p">Most got through with an installer or bank’s help. The effort went into scope, timing and follow-ups.</p>
+      <div style="background:var(--paper);border-radius:12px;padding:14px 16px;font:500 15px/1.45 var(--font-display);color:var(--ink)">“Following up and coordinating people took more effort than installation. Never sure who handled the next step.” <span class="mono" style="font-size:10px;color:var(--muted)">A4, paraphrased</span></div>
+    </div>
+  </div>
+
+  <figure class="w1040" style="margin:16px auto 0;display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:8px">
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start"><span class="tag" style="background:var(--sun);color:var(--ink)">The Sun Path</span><h3 style="margin:0;font:700 clamp(24px,2.6vw,32px)/1.1 var(--font-display);letter-spacing:-0.03em">Where each household stalls or snags</h3></div>
+      <span style="display:flex;gap:16px;font:400 12px/1 var(--font-sans);color:var(--ink2)"><span style="display:inline-flex;gap:6px;align-items:center"><span style="width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ember)"></span>Interested: stalled</span><span style="display:inline-flex;gap:6px;align-items:center"><span style="width:10px;height:10px;border-radius:50%;background:var(--lav)"></span>Adopter: main friction</span></span>
+    </div>
+    <div style="background:linear-gradient(180deg,#FFF4D6 0%,#FFFFFF 100%);border-radius:24px;padding:24px 24px 20px">
+      <div style="position:relative;height:220px">
+        <svg aria-hidden="true" viewBox="0 0 700 220" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%"><path d="M0 205 C 180 10, 520 10, 700 205" fill="none" stroke="#F4B62A" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg>
+        <sc-for list="{{ stages }}" as="s" hint-placeholder-count="7">
+          <button type="button" class="sunbtn" onClick="{{ s.pick }}" aria-pressed="{{ s.sel }}" aria-label="{{ s.aria }}" style="left:{{ s.x }};top:{{ s.y }};width:{{ s.size }};height:{{ s.size }};background:{{ s.fill }};box-shadow:{{ s.ring }}"></button>
+        </sc-for>
+      </div>
+      <div class="g7" style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;border-top:1px solid #EADFC0;padding-top:12px">
+        <sc-for list="{{ stages }}" as="s" hint-placeholder-count="7">
+          <button type="button" onClick="{{ s.pick }}" style="appearance:none;border:0;background:{{ s.labelBg }};border-radius:10px;padding:8px 4px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center"><span class="tnum" style="font:500 10px/1 var(--font-mono);color:var(--muted)">{{ s.n }}</span><span style="font:600 13px/1.2 var(--font-sans);color:var(--ink)">{{ s.name }}</span></button>
+        </sc-for>
+      </div>
+      <div aria-live="polite" style="margin-top:16px;background:var(--card);border-radius:16px;padding:18px 20px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center" class="split">
+        <div><span class="mono" style="font-size:10px;color:var(--muted)">{{ stageSel.n }} {{ stageSel.name }}: {{ stageSel.countLabel }}</span><p style="margin:6px 0 0;font:500 17px/1.4 var(--font-display);color:var(--ink)">{{ stageSel.what }}</p></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end">
+          <sc-for list="{{ stageSel.who }}" as="w" hint-placeholder-count="3"><span class="chip {{ w.cls }}">{{ w.id }}</span></sc-for>
+        </div>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">3.0</span>Sun size = households stuck at that stage. Tap a sun. A simplified journey, not the official procedure.</span><span class="k">Interactive, from interviews</span></figcaption>
+  </figure>
+
+  <figure class="w1040" style="margin:24px auto 0;display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:8px">
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start"><span class="tag" style="background:var(--verified);color:#062B27">Same Sun, Different Roofs</span><h3 style="margin:0;font:700 clamp(24px,2.6vw,32px)/1.1 var(--font-display);letter-spacing:-0.03em">A bigger bill doesn’t decide who installs</h3></div>
+      <div role="group" aria-label="Highlight households" style="display:flex;gap:6px">
+        <button type="button" class="btn" aria-pressed="{{ hfAll }}" onClick="{{ showAll }}">All</button>
+        <button type="button" class="btn" aria-pressed="{{ hfIn }}" onClick="{{ showIn }}">Installed</button>
+        <button type="button" class="btn" aria-pressed="{{ hfOut }}" onClick="{{ showOut }}">Not yet</button>
+      </div>
+    </div>
+    <div class="card hscroll" style="padding:28px 24px 20px;background:#F9FAFB">
+      <div style="display:flex;align-items:flex-end;gap:8px;height:330px;padding-top:28px">
+        <sc-for list="{{ houses }}" as="h" hint-placeholder-count="13">
+          <div class="house" style="opacity:{{ h.op }}" title="{{ h.title }}">
+            <span class="tnum" style="font:600 12px/1 var(--font-sans);color:var(--ink)">{{ h.bill }}</span>
+            <div class="roof" style="background:{{ h.roof }}"></div>
+            <div style="width:84%;height:{{ h.h }};margin-top:-6px;background:{{ h.body }};border:{{ h.border }};border-top:0;box-sizing:border-box;display:flex;justify-content:center;padding-top:10px">
+              <sc-if value="{{ h.panel }}" hint-placeholder-val="{{ false }}"><span style="width:56%;height:10px;background:#1E2A55;border-radius:2px"></span></sc-if>
+            </div>
+            <span style="font:500 11px/1 var(--font-mono);color:{{ h.idColor }}">{{ h.id }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">3.1</span>House height = peak monthly bill (upper end, approx.). 9 of 13 peak between ₹4k and ₹7k; the two smallest bills both stalled.</span><span class="k">From interviews</span></figcaption>
+  </figure>
+</section>
+
+<section id="themes" data-nav="themes" class="sec">
+  <div class="head">
+    <h2 class="h2">From 13 stories to seven themes</h2>
+    <p class="lede">I coded every interview, then grouped the codes into themes. Two themes cut across both groups: knowing the roadmap, and knowing who stands behind it.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div style="background:#1E1B24;color:#fff;border-radius:28px;overflow:hidden;display:grid;grid-template-columns:200px minmax(0,1fr);position:relative" class="split">
+      <div aria-hidden="true" class="hide-sm" style="position:relative"><div style="position:absolute;left:-180px;top:50%;width:340px;height:340px;margin-top:-170px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 26px rgba(255,197,49,.18)"></div></div>
+      <div style="padding:28px 28px 24px 8px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap"><span class="tag" style="background:#fff;color:var(--ink)">Seven Rays</span><span style="font:400 12px/1.3 var(--font-sans);color:#B9B4C7">One bead per household. Filled = main issue, outlined = raised</span></div>
+        <sc-for list="{{ rays }}" as="r" hint-placeholder-count="7">
+          <div class="ray" style="display:grid;grid-template-columns:32px minmax(150px,200px) minmax(0,1fr) 28px;gap:12px;align-items:center;padding:11px 8px;border-top:1px solid #34303F;border-radius:6px">
+            <span class="tnum" style="font:500 10px/1 var(--font-mono);color:#8D879B">{{ r.t }}</span>
+            <span style="font:500 14px/1.3 var(--font-sans)">{{ r.name }}</span>
+            <span style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;position:relative">
+              <span aria-hidden="true" style="position:absolute;left:0;right:0;top:50%;height:1px;background:{{ r.color }};opacity:.4"></span>
+              <sc-for list="{{ r.beads }}" as="b" hint-placeholder-count="4"><span class="chip" style="position:relative;height:22px;min-width:30px;font-size:10px;background:{{ b.bg }};color:{{ b.fg }};border:1.5px solid {{ r.color }}">{{ b.id }}</span></sc-for>
+            </span>
+            <span class="tnum" style="font:700 18px/1 var(--font-display);text-align:right">{{ r.count }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">4.0</span>27 person-theme links across 13 people. One coder’s judgement; counts show patterns, not prevalence.</span><span class="k">Thematic analysis</span></figcaption>
+  </figure>
+
+  <div class="w880" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px 0">
+    <span class="tag" style="background:var(--ember);color:#fff">Central insight</span>
+    <p style="margin:0;font:700 clamp(26px,3vw,38px)/1.18 var(--font-display);letter-spacing:-0.03em;max-width:720px;text-wrap:balance">Homeowners don’t need more solar information. They need to know what it means <span style="color:var(--ember-t)">for their own decision.</span></p>
+    <p class="lede" style="font-size:15px">Adopters were tipped over by a person or a moment: a neighbour’s visible install, a loan that fit the monthly budget.</p>
+  </div>
+</section>
+
+<!-- NOON BAND -->
+<section id="define" data-nav="define" aria-label="Define" style="margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;position:relative;overflow:hidden;background:linear-gradient(180deg,#5FB6F2 0%,#A9DBFB 60%,#E4F4FE 100%);text-align:center;scroll-margin-top:72px">
+  <div aria-hidden="true" style="position:absolute;left:50%;top:-180px;width:300px;height:300px;margin-left:-150px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 36px rgba(255,197,49,.3)"><span style="position:absolute;left:34%;bottom:22%;width:12%;height:5%;border-radius:999px;background:#2A2733"></span><span style="position:absolute;right:34%;bottom:22%;width:12%;height:5%;border-radius:999px;background:#2A2733"></span></div>
+  <div style="max-width:760px;margin:0 auto;padding:184px clamp(20px,5vw,80px) 96px;position:relative;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <span class="mono" style="color:var(--muted)">Noon: Define</span>
+    <p style="margin:0;font:800 clamp(44px,6.4vw,84px)/0.98 var(--font-display);letter-spacing:-0.05em;color:var(--ink)">One roof, many decisions.</p>
+    <p class="lede" style="color:#1F3550">Where, why and for whom should WattWise step in?</p>
+  </div>
+</section>
+
+<section id="personas" data-nav="personas" class="sec">
+  <div class="head">
+    <h2 class="h2">Two homeowners, two perspectives</h2>
+    <p class="lede">One persona for the seven who hadn’t installed, one for the six who had. Both are syntheses, not individual participants.</p>
+  </div>
+  <div class="w1040 g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+    <article class="card" style="padding:8px;display:flex;flex-direction:column">
+      <div style="position:relative"><img src="assets/v3/466b2e61f798.jpg" alt="Illustration of a thoughtful middle-aged man on his terrace, hand on chin, a rising sun behind him" style="width:100%;aspect-ratio:16/11;object-fit:cover;object-position:50% 20%;display:block;border-radius:14px"><span class="tag" style="position:absolute;left:12px;top:12px;background:var(--ink);color:#fff;font-size:11px">Primary: interested non-adopter</span></div>
+      <div style="padding:20px 18px 18px;display:flex;flex-direction:column;gap:14px">
+        <h3 style="margin:0;font:700 24px/1.1 var(--font-display);letter-spacing:-0.03em">The Cautious Evaluator</h3>
+        <p style="margin:0;font:500 18px/1.4 var(--font-display);color:var(--ink)">“I want solar, but I need to know whether it’s the right decision for my home.”</p>
+        <div style="background:var(--t-sun);border-radius:12px;padding:14px 16px;font:400 14px/1.55 var(--font-sans)"><b style="font-weight:600">Success looks like:</b> explaining the costs, risks and next step to their family, even if the decision is to wait.</div>
+        <span class="mono" style="font-size:10px;color:var(--muted)">Evidence: N1–N7</span>
+      </div>
+    </article>
+    <article class="card" style="padding:8px;display:flex;flex-direction:column">
+      <div style="position:relative"><img src="assets/v3/0b0b3c0a07d4.jpg" alt="Illustration of a smiling man checking his phone, with solar panels on the roof behind him" style="width:100%;aspect-ratio:16/11;object-fit:cover;object-position:50% 20%;display:block;border-radius:14px"><span class="tag" style="position:absolute;left:12px;top:12px;background:var(--ink);color:#fff;font-size:11px">Supporting: recent adopter</span></div>
+      <div style="padding:20px 18px 18px;display:flex;flex-direction:column;gap:14px">
+        <h3 style="margin:0;font:700 24px/1.1 var(--font-display);letter-spacing:-0.03em">The Assisted Adopter</h3>
+        <p style="margin:0;font:500 18px/1.4 var(--font-display);color:var(--ink)">“The system works, but I wish I’d known exactly what to expect along the way.”</p>
+        <div style="background:var(--t-lav);border-radius:12px;padding:14px 16px;font:400 14px/1.55 var(--font-sans)"><b style="font-weight:600">Success looks like:</b> a predictable installation, understandable bills, and knowing whom to call when it slips.</div>
+        <span class="mono" style="font-size:10px;color:var(--muted)">Evidence: A1–A6</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="journey" data-nav="journey" class="sec">
+  <div class="head">
+    <h2 class="h2">The moments that need help come just before money changes hands</h2>
+  </div>
+  <div class="w1040 g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+    <div style="background:var(--t-sun);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:10px"><span class="mono" style="font-size:10px;color:#6B4E00">Non-adopter journey</span><span style="font:700 28px/1.1 var(--font-display);letter-spacing:-0.03em">Stuck before committing</span><p class="p" style="color:var(--ink)"><b class="tnum">6 of 7</b> stalled in the early stages, over suitability, affordability, trust or household agreement.</p></div>
+    <div style="background:var(--t-lav);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:10px"><span class="mono" style="font-size:10px;color:var(--lav-t)">Adopter journey</span><span style="font:700 28px/1.1 var(--font-display);letter-spacing:-0.03em">Snagged after signing</span><p class="p" style="color:var(--ink)"><b class="tnum">5 of 6</b> hit friction at installation or later: scope, subsidy timing, crew, schedule or billing.</p></div>
+  </div>
+  <div class="w880 g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+    <div style="display:flex;flex-direction:column;gap:8px;padding-top:16px;border-top:2px solid var(--ink)"><span class="tnum" style="font:700 15px/1 var(--font-display);color:var(--ember-t)">01</span><span class="h3" style="font-size:18px">Before asking for a quote</span><span class="p" style="font-size:14px">Is this even worth looking into for my roof?</span></div>
+    <div style="display:flex;flex-direction:column;gap:8px;padding-top:16px;border-top:2px solid var(--ink)"><span class="tnum" style="font:700 15px/1 var(--font-display);color:var(--ember-t)">02</span><span class="h3" style="font-size:18px">Before committing money</span><span class="p" style="font-size:14px">What will it really cost, and when does the subsidy arrive?</span></div>
+    <div style="display:flex;flex-direction:column;gap:8px;padding-top:16px;border-top:2px solid var(--ink)"><span class="tnum" style="font:700 15px/1 var(--font-display);color:var(--ember-t)">03</span><span class="h3" style="font-size:18px">Before installation</span><span class="p" style="font-size:14px">What’s included, and who do I call when it slips?</span></div>
+  </div>
+</section>
+
+<section id="ecosystem" data-nav="ecosystem" class="sec">
+  <div class="head">
+    <h2 class="h2">One homeowner depends on many others</h2>
+    <p class="lede">No single organisation runs the experience. Position shows how closely each party deals with the homeowner, not how much power it holds.</p>
+  </div>
+  <div class="w1040 split" style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr);gap:24px;align-items:center">
+    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+      <div class="card" style="padding:16px">
+        <div style="position:relative;width:100%;aspect-ratio:1">
+          <div aria-hidden="true" style="position:absolute;inset:2%;border-radius:50%;background:#FFF0C2;border:1px dashed #E8C766"></div>
+          <div aria-hidden="true" style="position:absolute;inset:16%;border-radius:50%;background:#FFF0C7"></div>
+          <div aria-hidden="true" style="position:absolute;inset:30%;border-radius:50%;background:#FFE29A"></div>
+          <div style="position:absolute;inset:40%;border-radius:50%;background:var(--sun);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 0 8px rgba(255,197,49,.3)"><span style="font:700 clamp(13px,1.4vw,17px)/1.1 var(--font-display)">Homeowner</span><span style="font:400 10px/1.3 var(--font-sans);color:var(--ink2)">makes the decision</span></div>
+          <sc-for list="{{ eco }}" as="e" hint-placeholder-count="11">
+            <span style="position:absolute;left:{{ e.x }};top:{{ e.y }};transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:6px;background:#fff;border-radius:999px;padding:6px 10px;font:500 12px/1.1 var(--font-sans);white-space:nowrap;box-shadow:0 1px 2px rgba(30,27,36,.08),0 4px 12px rgba(30,27,36,.06)"><span style="width:7px;height:7px;border-radius:50%;background:{{ e.c }}"></span>{{ e.name }}</span>
+          </sc-for>
+        </div>
+      </div>
+      <figcaption class="cap"><span class="l"><span class="n">5.0</span>Primary, secondary and tertiary rings around the homeowner</span><span class="k">Stakeholder map</span></figcaption>
+    </figure>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="background:var(--ink);color:#fff;border-radius:24px;padding:32px">
+        <span class="tag" style="background:var(--verified);color:#062B27">System-level tension</span>
+        <p style="margin:18px 0 0;font:600 clamp(20px,2vw,26px)/1.3 var(--font-display);letter-spacing:-0.02em">The homeowner makes the final decision, but the information needed to make it is <span style="color:var(--sun)">spread across other stakeholders.</span></p>
+      </div>
+      <div class="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+        <div style="background:var(--t-sun);border-radius:16px;padding:16px;font:600 14px/1.35 var(--font-sans)">No single accountable guide</div>
+        <div style="background:var(--t-ember);border-radius:16px;padding:16px;font:600 14px/1.35 var(--font-sans)">Information arrives too late</div>
+        <div style="background:var(--t-lav);border-radius:16px;padding:16px;font:600 14px/1.35 var(--font-sans)">Personal relevance is hard to establish</div>
+      </div>
+      <p style="margin:0;font:400 13px/1.5 var(--font-sans);color:var(--muted)">Three systemic weaknesses, from a preliminary service blueprint.</p>
+    </div>
+  </div>
+</section>
+
+<section id="focus" data-nav="focus" class="sec">
+  <div class="head">
+    <h2 class="h2">The most mentioned problem isn’t always the right one to design for</h2>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="card hscroll" style="padding:8px">
+      <div style="min-width:640px">
+        <div style="display:grid;grid-template-columns:1.4fr 0.9fr 1.3fr 1.3fr"><span class="mono" style="padding:14px 16px;font-size:10px;color:var(--muted)">Problem territory</span><span class="mono" style="padding:14px 8px;font-size:10px;color:var(--muted)">Participants</span><span class="mono" style="padding:14px 8px;font-size:10px;color:var(--muted)">Possible UX role</span><span class="mono" style="padding:14px 16px;font-size:10px;color:var(--muted)">Main constraint</span></div>
+        <sc-for list="{{ prio }}" as="r" hint-placeholder-count="7">
+          <div style="display:grid;grid-template-columns:1.4fr 0.9fr 1.3fr 1.3fr;align-items:center;border-top:1px solid var(--line);opacity:{{ r.op }}">
+            <span style="padding:14px 16px;font:600 14px/1.35 var(--font-sans)">{{ r.name }}</span>
+            <span style="padding:14px 8px;display:flex;align-items:center;gap:3px"><sc-for list="{{ r.dots }}" as="d" hint-placeholder-count="5"><span style="width:8px;height:8px;border-radius:50%;background:var(--ember)"></span></sc-for><span class="tnum" style="margin-left:8px;font:600 14px/1 var(--font-sans)">{{ r.n }}</span></span>
+            <span style="padding:14px 8px;font:400 14px/1.4 var(--font-sans);color:var(--ink2)">{{ r.ux }}</span>
+            <span style="padding:14px 16px;font:400 14px/1.4 var(--font-sans);color:var(--ink2)">{{ r.con }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">6.0</span>Mention counts, not impact scores. Post-installation billing was deferred: a later stage, dependent on DISCOM systems.</span><span class="k">Prioritisation</span></figcaption>
+  </figure>
+
+  <div class="w1040" style="background:linear-gradient(135deg,#FFC531 0%,#FF9A3C 55%,#FF6A2B 100%);border-radius:28px;padding:clamp(28px,4vw,48px);position:relative;overflow:hidden">
+    <span class="tag" style="background:var(--ink);color:#fff">Primary problem territory</span>
+    <p style="margin:18px 0 0;font:800 clamp(32px,4.4vw,56px)/1.02 var(--font-display);letter-spacing:-0.045em;color:var(--ink);max-width:720px">Decision confidence before solar adoption</p>
+    <div class="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px">
+      <div style="background:rgba(255,255,255,.78);border-radius:16px;padding:18px"><span class="mono" style="font-size:10px;color:var(--ink2)">Why here, 1</span><p style="margin:8px 0 0;font:500 14px/1.5 var(--font-sans)">6 of 7 interested households stalled before committing. Later support would never reach them.</p></div>
+      <div style="background:rgba(255,255,255,.78);border-radius:16px;padding:18px"><span class="mono" style="font-size:10px;color:var(--ink2)">Why here, 2</span><p style="margin:8px 0 0;font:500 14px/1.5 var(--font-sans)">The two widest themes, roadmap and installer trust, first bite while comparing quotes.</p></div>
+      <div style="background:rgba(255,255,255,.78);border-radius:16px;padding:18px"><span class="mono" style="font-size:10px;color:var(--ink2)">Why here, 3</span><p style="margin:8px 0 0;font:500 14px/1.5 var(--font-sans)">Adopters’ late surprises, like A3’s subsidy timing, become early warnings for everyone else.</p></div>
+    </div>
+  </div>
+
+  <div class="w1040" style="background:var(--ink);color:#fff;border-radius:28px;padding:clamp(28px,4vw,48px);text-align:center;position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;left:50%;top:-150px;width:240px;height:240px;margin-left:-120px;border-radius:50%;background:var(--ember)"></div>
+    <span class="tag" style="position:relative;background:#fff;color:var(--ink);margin-top:60px">How might we</span>
+    <p style="position:relative;margin:18px auto 0;font:700 clamp(24px,3vw,36px)/1.2 var(--font-display);letter-spacing:-0.03em;max-width:760px;text-wrap:balance">help solar-interested homeowners evaluate rooftop solar for their own circumstances and make an <span style="color:var(--sun)">informed, confident decision</span> before committing?</p>
+    <div class="g5" style="position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:36px;text-align:left">
+      <sc-for list="{{ principles }}" as="p" hint-placeholder-count="5">
+        <div style="background:#2B2734;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:{{ p.c }};display:grid;place-items:center;font:700 10px/1 var(--font-mono);color:var(--ink)">{{ p.n }}</span><span style="font:600 14px/1.3 var(--font-sans)">{{ p.t }}</span><span style="font:400 12px/1.45 var(--font-sans);color:#B9B4C7">{{ p.d }}</span></div>
+      </sc-for>
+    </div>
+    <p style="position:relative;margin:16px 0 0;font:400 12px/1.5 var(--font-sans);color:#B9B4C7">Five design principles. The fifth matters most: a good outcome can be deciding not to install.</p>
+  </div>
+</section>
+
+<!-- DUSK BAND -->
+<section id="design" data-nav="design" aria-label="Design" style="margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;position:relative;overflow:hidden;background:linear-gradient(180deg,#2C3A73 0%,#6A3FA0 45%,#E2708A 78%,#F7A86A 100%);color:#fff;text-align:center;scroll-margin-top:72px">
+  <div style="max-width:820px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 0;position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <span class="mono" style="color:#E9E3FF">Dusk: Design</span>
+    <p style="margin:0;font:800 clamp(40px,6vw,80px)/1 var(--font-display);letter-spacing:-0.05em">Bringing solar confidence to your neighbourhood.</p>
+    <p class="lede" style="color:#F3EEFF">What if homeowners could ask their solar questions in person, close to home?</p>
+  </div>
+  <div aria-hidden="true" style="position:relative;height:180px"><div style="position:absolute;left:50%;bottom:-260px;width:420px;height:420px;margin-left:-210px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 30px rgba(255,197,49,.22)"></div></div>
+</section>
+
+<section id="bigger" data-nav="bigger" class="sec">
+  <div class="head">
+    <h2 class="h2">A rooftop revolution, one neighbourhood at a time</h2>
+    <p class="lede">The schemes and subsidies are in place. What’s missing on the ground is confidence. WattWise invites every household into the transition, at its own pace and with its own questions.</p>
+  </div>
+  <div class="w1040 split" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:stretch">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="decocard-b" style="background:var(--ink);color:#fff;border-radius:24px;padding:32px;position:relative;overflow:hidden">
+        <div class="deco-b" aria-hidden="true" style="position:absolute;right:-70px;bottom:-70px;width:200px;height:200px;border-radius:50%;background:var(--sun)"></div>
+        <span class="mono" style="position:relative;font-size:10px;color:#B9B4C7">The national goal</span>
+        <p class="tnum" style="position:relative;margin:14px 0 0;font:800 clamp(56px,6vw,84px)/0.95 var(--font-display);letter-spacing:-0.05em">1 crore</p>
+        <p style="position:relative;margin:12px 0 0;font:400 15px/1.55 var(--font-sans);color:#DDD9E8;max-width:300px">homes with rooftop solar: the target of PM Surya Ghar: Muft Bijli Yojana (2024).</p>
+      </div>
+      <div style="background:var(--t-sun);border-radius:24px;padding:32px;flex:1;display:flex;flex-direction:column;gap:12px">
+        <span class="mono" style="font-size:10px;color:#6B4E00">The campaign</span>
+        <p style="margin:0;font:800 clamp(32px,3.6vw,48px)/1 var(--font-display);letter-spacing:-0.045em">Har Chhat, Ek Nayi Soch.</p>
+        <p style="margin:0;font:600 18px/1.3 var(--font-sans);color:var(--ember-t)" lang="hi">हर छत, एक नई सोच।</p>
+        <p class="p" style="color:var(--ink)">Every roof, a new way of thinking. Going solar becomes something a neighbourhood does together, and WattWise is how one household joins in.</p>
+      </div>
+    </div>
+    <figure style="margin:0;background:linear-gradient(160deg,#2C3A73 0%,#4A3F8F 100%);border-radius:24px;padding:32px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:center">
+      <img src="assets/v3/5d5e2d183142.webp" alt="Campaign poster: Har Chhat, Ek Nayi Soch, with a rising sun over rooftops" style="width:100%;display:block;border-radius:10px;box-shadow:0 18px 40px rgba(0,0,0,.35);transform:rotate(-2deg)">
+      <img src="assets/v3/85a0d09c2d9d.jpg" alt="Campaign poster: Solar lagwana hai? Sawaal bahut hain? with question chips about cost, subsidy, roof and installer" style="width:100%;display:block;border-radius:10px;box-shadow:0 18px 40px rgba(0,0,0,.35);transform:rotate(2deg) translateY(16px)">
+    </figure>
+  </div>
+  <div class="w1040 g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)">
+    <div style="padding:20px 24px 0 0;display:flex;flex-direction:column;gap:8px"><span style="display:flex;align-items:center;gap:10px"><span style="width:14px;height:14px;border-radius:50%;background:var(--sun)"></span><span class="mono" style="font-size:10px;color:var(--ink)">Ghar, household</span></span><span class="p">One family understands solar and decides for itself.</span></div>
+    <div style="padding:20px 24px 0;display:flex;flex-direction:column;gap:8px;border-left:1px solid var(--line)"><span style="display:flex;align-items:center;gap:10px"><span style="width:22px;height:22px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 5px rgba(255,197,49,.3)"></span><span class="mono" style="font-size:10px;color:var(--ink)">Mohalla, neighbourhood</span></span><span class="p">Neighbours see a working rooftop, ask questions, and follow.</span></div>
+    <div style="padding:20px 0 0 24px;display:flex;flex-direction:column;gap:8px;border-left:1px solid var(--line)"><span style="display:flex;align-items:center;gap:10px"><span style="width:30px;height:30px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 6px rgba(255,197,49,.3),0 0 0 12px rgba(255,197,49,.14)"></span><span class="mono" style="font-size:10px;color:var(--ink)">Desh, country</span></span><span class="p">Rooftop by rooftop, the decisions add up to a national transition.</span></div>
+  </div>
+</section>
+
+<section id="concepts" data-nav="concepts" class="sec">
+  <div class="head">
+    <h2 class="h2">Four directions before one service</h2>
+    <p class="lede">A SCAMPER session produced 14 ideas, grouped by how they would deliver help, then scored against the Define principles.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="g4" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px">
+      <sc-for list="{{ concepts }}" as="c" hint-placeholder-count="4">
+        <div style="background:{{ c.bg }};border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:12px;outline:{{ c.outline }};outline-offset:-2px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span class="tnum" style="font:500 11px/1 var(--font-mono);color:var(--ink2)">{{ c.n }}</span><sc-if value="{{ c.sel }}" hint-placeholder-val="{{ false }}"><span class="tag" style="background:var(--ink);color:#fff;font-size:11px;padding:5px 10px">Selected</span></sc-if></div>
+          <span style="font:600 18px/1.2 var(--font-display);letter-spacing:-0.02em">{{ c.name }}</span>
+          <span style="font:400 13px/1.5 var(--font-sans);color:var(--ink2)">{{ c.d }}</span>
+          <div style="margin-top:auto;display:flex;flex-direction:column;gap:6px"><div style="height:8px;border-radius:999px;background:rgba(30,27,36,.1);overflow:hidden"><div style="height:100%;width:{{ c.w }};background:var(--ink);border-radius:999px"></div></div><span class="tnum" style="font:600 13px/1 var(--font-sans)">{{ c.score }} / 15</span></div>
+          <span style="font:400 12px/1.45 var(--font-sans);color:var(--ink2);border-top:1px solid rgba(30,27,36,.12);padding-top:10px">{{ c.kept }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">7.0</span>My qualitative scoring during ideation (1–3 per criterion), not a user-tested result.</span><span class="k">Concept selection</span></figcaption>
+  </figure>
+  <div class="w880" style="background:var(--ink);color:#fff;border-radius:24px;padding:32px 36px;position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;right:-50px;top:-50px;width:140px;height:140px;border-radius:50%;background:var(--lav)"></div>
+    <span class="tag" style="position:relative;background:var(--sun);color:var(--ink)">The reasoning, in one chain</span>
+    <p style="position:relative;margin:16px 0 0;font:600 clamp(19px,1.9vw,23px)/1.4 var(--font-display);letter-spacing:-0.015em;max-width:680px">A digital guide alone wasn’t enough: interviewees moved forward when a person helped. So the help became human and local. To keep it affordable, a personalised report became <span style="color:var(--sun)">one universal card</span>, and a web companion carries the conversation home.</p>
+  </div>
+</section>
+
+<section id="clinic" data-nav="clinic" class="sec">
+  <div class="head">
+    <h2 class="h2">A moving space for questions, not a sales showroom</h2>
+    <p class="lede">A van that parks where people already are. A live demo on one side, an adviser desk on the other, and no commitment asked for.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="frame" style="position:relative"><img src="assets/v3/f83526b61ef9.jpg" alt="Concept render: the WattWise Solar Clinic van parked with its side open, four demo zones, folding chairs and a banner reading Solar lagwana hai? Pehle samajh lo." style="aspect-ratio:16/9;object-fit:cover"><span class="tag" style="position:absolute;left:20px;top:20px;background:var(--ink);color:#fff;font-size:11px">Concept render</span></div>
+    <figcaption class="cap"><span class="l"><span class="n">8.0</span>“Solar samjho. Faisla khud lo.” Understand solar. Make your own decision.</span><span class="k">Service concept</span></figcaption>
+  </figure>
+  <div class="w1040 g4" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px">
+    <div style="background:var(--t-sun);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px"><span style="width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font:600 11px/1 var(--font-mono)">01</span><span class="h3" style="font-size:17px">See how solar works</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--ink2)">Panel, inverter and bulb show sunlight becoming electricity.</span></div>
+    <div style="background:var(--t-ember);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px"><span style="width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font:600 11px/1 var(--font-mono)">02</span><span class="h3" style="font-size:17px">Understand your roof</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--ink2)">A model house shows how space and shade change what’s possible.</span></div>
+    <div style="background:var(--t-lav);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px"><span style="width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font:600 11px/1 var(--font-mono)">03</span><span class="h3" style="font-size:17px">Ask about your home</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--ink2)">An adviser talks through bills, budget, subsidy and installers.</span></div>
+    <div style="background:var(--t-mint);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px"><span style="width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font:600 11px/1 var(--font-mono)">04</span><span class="h3" style="font-size:17px">Take the next step</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--ink2)">The adviser ticks a topic on a Solar Card and hands it over.</span></div>
+  </div>
+  <div class="w880 g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+    <div style="border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:10px"><span class="mono" style="font-size:10px;color:var(--muted)">Existing solar vans</span><span style="font:600 22px/1.2 var(--font-display);letter-spacing:-0.02em;color:var(--ink2)">“Here’s the scheme.”</span><span class="p" style="font-size:14px">Information about subsidies and how to join.</span></div>
+    <div style="background:var(--t-sun);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:10px"><span class="mono" style="font-size:10px;color:#6B4E00">WattWise</span><span style="font:600 22px/1.2 var(--font-display);letter-spacing:-0.02em">“Is solar right for my home?”</span><span class="p" style="font-size:14px;color:var(--ink)">Starts from the household’s question. Ends with a marked next step. Waiting is a valid outcome.</span></div>
+  </div>
+  <p class="w880" style="margin:-16px auto 0;text-align:center;font:400 13px/1.6 var(--font-sans);color:var(--muted)">Operator transparency: who runs the van, and any commercial referrals, is disclosed on the van itself.</p>
+</section>
+
+<section id="touchpoints" data-nav="touchpoints" class="sec">
+  <div class="head">
+    <h2 class="h2">One service, with four touchpoints that hand you on</h2>
+    <p class="lede">Three physical, one digital. Each one passes the homeowner to the next, so nothing depends on remembering where to look.</p>
+  </div>
+  <div class="w1040 g4" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px">
+    <sc-for list="{{ touch }}" as="t" hint-placeholder-count="4">
+      <article class="card" style="padding:6px;display:flex;flex-direction:column">
+        <div style="background:{{ t.tint }};border-radius:14px;aspect-ratio:4/5;overflow:hidden;display:flex;align-items:{{ t.align }};justify-content:center"><img src="{{ t.img }}" alt="{{ t.alt }}" style="width:{{ t.iw }};height:{{ t.ih }};object-fit:{{ t.fit }};object-position:{{ t.pos }};display:block"></div>
+        <div style="padding:16px 12px 12px;display:flex;flex-direction:column;gap:8px;flex:1">
+          <span class="mono" style="font-size:10px;color:var(--muted)">{{ t.kind }}</span>
+          <span class="h3" style="font-size:18px">{{ t.name }}</span>
+          <span style="font:400 13px/1.5 var(--font-sans);color:var(--ink2)">{{ t.d }}</span>
+          <span style="margin-top:auto;padding-top:10px;border-top:1px solid var(--line);font:500 12px/1.4 var(--font-sans);color:var(--ink)">→ {{ t.next }}</span>
+        </div>
+      </article>
+    </sc-for>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="card hscroll" style="padding:28px 24px">
+      <ol class="g7" style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;position:relative">
+        <sc-for list="{{ flow }}" as="f" hint-placeholder-count="6">
+          <li style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;position:relative;padding:0 6px">
+            <span class="flowline" aria-hidden="true" style="position:absolute;top:18px;left:{{ f.lineL }};right:{{ f.lineR }};height:2px;background:repeating-linear-gradient(90deg,#D8D2C4 0 6px,transparent 6px 10px)"></span>
+            <span class="tnum" style="position:relative;width:36px;height:36px;border-radius:50%;background:{{ f.c }};border:2px solid var(--ink);display:grid;place-items:center;font:600 12px/1 var(--font-mono)">{{ f.n }}</span>
+            <span class="mono" style="font-size:10px;color:var(--ink)">{{ f.t }}</span>
+            <span style="font:400 12px/1.4 var(--font-sans);color:var(--ink2)">{{ f.d }}</span>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">9.0</span>Yellow = physical, teal = digital, white = the homeowner’s own decision</span><span class="k">How the touchpoints connect</span></figcaption>
+  </figure>
+</section>
+
+<section id="card" data-nav="card" class="sec">
+  <div class="head">
+    <h2 class="h2">A reminder that stays after the van leaves</h2>
+    <p class="lede">A personalised report would cost too much per visitor. One pre-printed A6 card does the job: a reminder on the front, a checklist the adviser marks in seconds on the back.</p>
+  </div>
+  <div class="w1040 split" style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:40px;align-items:center">
+    <figure style="margin:0;display:flex;flex-direction:column;gap:14px;align-items:center">
+      <div style="width:100%;background:linear-gradient(160deg,#E7DCFF 0%,#FFE9A8 100%);border-radius:24px;padding:40px 18%">
+        <button type="button" class="flip" onClick="{{ flipCard }}" aria-label="{{ flipLabel }}" style="appearance:none;border:0;background:none;padding:0;width:100%;cursor:pointer;display:block">
+          <div class="flip-in" style="transform:{{ flipT }}">
+            <div class="flip-face"><img src="assets/v3/510762d45f20.webp" alt="Solar Card front: WattWise sun over rooftops, Solar samjho. Faisla khud lo."></div>
+            <div class="flip-face" style="transform:rotateY(180deg)"><img src="assets/v3/73fa75dc8e67.webp" alt="Solar Card back: a checklist with Costs and subsidy ticked, and a handwritten next step: Ask installer for an itemized quotation"></div>
+          </div>
+        </button>
+      </div>
+      <button type="button" class="btn" onClick="{{ flipCard }}">{{ flipBtn }}</button>
+    </figure>
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+        <li style="display:grid;grid-template-columns:36px minmax(0,1fr);gap:14px;padding:16px 0;border-top:1px solid var(--line)"><span style="width:28px;height:28px;border-radius:50%;background:var(--t-sun);display:grid;place-items:center;font:600 11px/1 var(--font-mono)">1</span><div><span class="h3" style="font-size:16px">Consultation</span><p class="p" style="font-size:14px;margin-top:4px">The homeowner talks through their concerns.</p></div></li>
+        <li style="display:grid;grid-template-columns:36px minmax(0,1fr);gap:14px;padding:16px 0;border-top:1px solid var(--line)"><span style="width:28px;height:28px;border-radius:50%;background:var(--t-ember);display:grid;place-items:center;font:600 11px/1 var(--font-mono)">2</span><div><span class="h3" style="font-size:16px">Mark the card</span><p class="p" style="font-size:14px;margin-top:4px">The adviser ticks one or two topics and writes a next action.</p></div></li>
+        <li style="display:grid;grid-template-columns:36px minmax(0,1fr);gap:14px;padding:16px 0;border-top:1px solid var(--line)"><span style="width:28px;height:28px;border-radius:50%;background:var(--t-pink);display:grid;place-items:center;font:600 11px/1 var(--font-mono)">3</span><div><span class="h3" style="font-size:16px">Take it home</span><p class="p" style="font-size:14px;margin-top:4px">Something physical to share with the family.</p></div></li>
+        <li style="display:grid;grid-template-columns:36px minmax(0,1fr);gap:14px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><span style="width:28px;height:28px;border-radius:50%;background:var(--t-mint);display:grid;place-items:center;font:600 11px/1 var(--font-mono)">4</span><div><span class="h3" style="font-size:16px">Continue digitally</span><p class="p" style="font-size:14px;margin-top:4px">One universal QR opens the web companion; they pick the ticked topic.</p></div></li>
+      </ol>
+      <div class="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+        <div style="background:var(--t-sun);border-radius:14px;padding:14px"><span style="font:600 14px/1.2 var(--font-sans)">Low effort</span><p style="margin:4px 0 0;font:400 12px/1.45 var(--font-sans);color:var(--ink2)">A tick takes seconds. No typing or printing.</p></div>
+        <div style="background:var(--t-pink);border-radius:14px;padding:14px"><span style="font:600 14px/1.2 var(--font-sans)">Low cost</span><p style="margin:4px 0 0;font:400 12px/1.45 var(--font-sans);color:var(--ink2)">One design, printed in bulk.</p></div>
+        <div style="background:var(--t-mint);border-radius:14px;padding:14px"><span style="font:600 14px/1.2 var(--font-sans)">Continuity</span><p style="margin:4px 0 0;font:400 12px/1.45 var(--font-sans);color:var(--ink2)">Links the van to guidance at home.</p></div>
+      </div>
+      <p style="margin:0;font:400 13px/1.55 var(--font-sans);color:var(--muted)">The card doesn’t certify eligibility, guarantee savings or replace a professional assessment.</p>
+    </div>
+  </div>
+</section>
+
+<section id="web" data-nav="web" class="sec">
+  <div class="head">
+    <h2 class="h2">Everything you need, without the overload</h2>
+    <p class="lede">A mobile-first website, not a solar marketplace. It opens from a poster or card QR, needs no download or sign-up, and stores nothing about the visit.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div style="background:linear-gradient(180deg,#CDF1EA 0%,#E6F7F3 100%);border-radius:28px;padding:48px 24px 0;overflow:hidden">
+      <div class="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:end;max-width:820px;margin:0 auto">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:14px"><span class="mono" style="font-size:10px;color:var(--verified-t)">Home</span><img src="assets/v3/ec9c641de93d.webp" alt="Phone: WattWise home with Find a Solar Clinic and Explore solar questions" style="width:100%;max-width:220px;display:block;margin-bottom:-24px"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:14px;transform:translateY(-24px)"><span class="mono" style="font-size:10px;color:var(--verified-t)">Find a clinic</span><img src="assets/v3/59f14475603d.webp" alt="Phone: upcoming clinic visits with date, place, walk-in tags, directions and share" style="width:100%;max-width:220px;display:block;margin-bottom:-24px"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:14px"><span class="mono" style="font-size:10px;color:var(--verified-t)">Continue from card</span><img src="assets/v3/3f2a93f558ce.webp" alt="Phone: Let’s continue where you left off, with the five card topics to pick from" style="width:100%;max-width:220px;display:block;margin-bottom:-24px"></div>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">10.0</span>Concept screens with example data. English / Hindi toggle on every screen.</span><span class="k">Mobile web</span></figcaption>
+  </figure>
+  <div class="w880" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
+    <span class="tag" style="background:var(--card);color:var(--ink)">Plain language</span><span class="tag" style="background:var(--card);color:var(--ink)">Hindi + English</span><span class="tag" style="background:var(--card);color:var(--ink)">Low data use</span><span class="tag" style="background:var(--t-mint);color:var(--verified-t)">✓ Verified links to official sources</span>
+  </div>
+</section>
+
+<section id="edges" data-nav="edges" class="sec">
+  <div class="head">
+    <h2 class="h2">Three moments, including when things don’t go to plan</h2>
+  </div>
+  <div class="w1040" style="display:flex;flex-direction:column;gap:16px">
+    <div role="tablist" aria-label="Service moments" style="display:flex;gap:4px;background:var(--sunken);border-radius:999px;padding:4px;align-self:center;flex-wrap:wrap;justify-content:center">
+      <sc-for list="{{ moments }}" as="m" hint-placeholder-count="3">
+        <button type="button" role="tab" class="mtab" aria-selected="{{ m.sel }}" onClick="{{ m.pick }}" style="border-radius:999px;padding:10px 18px;font-size:14px"><span class="tnum" style="font:500 10px/1 var(--font-mono);letter-spacing:.08em;color:var(--muted);margin-right:8px">{{ m.n }}</span>{{ m.name }}</button>
+      </sc-for>
+    </div>
+    <div role="tabpanel" class="g5" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.2fr);gap:10px">
+      <sc-for list="{{ momentSel.steps }}" as="s" hint-placeholder-count="4">
+        <div class="card" style="padding:18px;display:flex;flex-direction:column;gap:10px">
+          <span style="width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;font:600 11px/1 var(--font-mono)">{{ s.n }}</span>
+          <span style="font:600 15px/1.25 var(--font-sans)">{{ s.t }}</span>
+          <span style="font:400 13px/1.5 var(--font-sans);color:var(--ink2)">{{ s.d }}</span>
+        </div>
+      </sc-for>
+      <div style="background:var(--t-ember);border:1.5px dashed var(--ember);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:8px">
+        <span class="mono" style="font-size:10px;color:var(--ember-t)">When it doesn’t go to plan</span>
+        <span style="font:600 15px/1.25 var(--font-sans)">{{ momentSel.failT }}</span>
+        <span style="font:400 13px/1.5 var(--font-sans);color:var(--ink)">{{ momentSel.failD }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="identity" data-nav="identity" class="sec">
+  <div class="head">
+    <h2 class="h2">Warm enough to approach. Clear enough to trust.</h2>
+    <p class="lede">The posters, van, card and web share one sun mark and a Hinglish voice, so a resident who sees one recognises the rest. The posters were the one piece I could test in the street.</p>
+  </div>
+  <div class="w1040 g4" style="display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:12px">
+    <div style="background:var(--sun);border-radius:24px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:24px">
+      <div><div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:50%;border:4px solid var(--ink)"></span><span style="font:800 32px/1 var(--font-display);letter-spacing:-0.04em">WattWise</span></div><p style="margin:12px 0 0;font:500 16px/1.4 var(--font-display)">Solar samjho. Faisla khud lo.</p></div>
+      <div class="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px">
+        <sc-for list="{{ palette }}" as="p" hint-placeholder-count="6"><div style="display:flex;flex-direction:column;gap:6px"><span style="height:40px;border-radius:10px;background:{{ p.hex }};box-shadow:inset 0 0 0 1px rgba(30,27,36,.15)"></span><span style="font:500 10px/1.2 var(--font-mono);color:var(--ink)">{{ p.name }}<br>{{ p.hex }}</span></div></sc-for>
+      </div>
+    </div>
+    <figure style="margin:0" class="frame"><img src="assets/v3/c19857d5954d.jpg" alt="A man stops to read the navy campaign poster on a pillar" style="height:100%;aspect-ratio:3/4;object-fit:cover;object-position:35% 50%"></figure>
+    <figure style="margin:0" class="frame"><img src="assets/v3/6649e89552b3.jpg" alt="A person scans the QR code on the Har Chhat, Ek Nayi Soch poster on a wall" style="height:100%;aspect-ratio:3/4;object-fit:cover"></figure>
+  </div>
+  <div class="w1040" style="margin-top:-32px"><div class="cap"><span class="l"><span class="n">11.0</span>The campaign posters, printed and put up on walls and pillars.</span><span class="k">On the street</span></div></div>
+  <div class="w1040 split" style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:16px;align-items:stretch">
+    <div class="card" style="padding:32px;display:flex;flex-direction:column;gap:14px">
+      <span class="tag" style="background:var(--verified);color:#062B27;align-self:flex-start">Tested on the street</span>
+      <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap"><span class="tnum" style="font:800 clamp(56px,6vw,80px)/1 var(--font-display);letter-spacing:-0.05em">5/7</span><span style="font:600 17px/1.35 var(--font-sans);max-width:260px">preferred the two campaign posters over the plain variants</span></div>
+      <p class="p">Seven people saw the printed posters in place. People stopped to read the questions, and scanned the QR.</p>
+      <p style="margin:auto 0 0;font:400 13px/1.5 var(--font-sans);color:var(--muted)">Informal preference test with 7 people, so the result is only indicative.</p>
+    </div>
+    <div style="background:var(--sunken);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:12px">
+      <span class="mono" style="font-size:10px;color:var(--muted)">Earlier variants</span>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;flex:1">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:8px"><img src="assets/v3/db051eef6daf.webp" alt="Earlier plain yellow poster on a wall" style="width:100%;display:block;border-radius:12px;filter:saturate(.7)"><figcaption style="font:500 12px/1.3 var(--font-sans);color:var(--ink2)">Plain yellow</figcaption></figure>
+        <figure style="margin:0;display:flex;flex-direction:column;gap:8px"><img src="assets/v3/209d4504f753.webp" alt="Earlier plain white poster on a wall" style="width:100%;display:block;border-radius:12px;filter:saturate(.7)"><figcaption style="font:500 12px/1.3 var(--font-sans);color:var(--ink2)">Plain white</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tobe" data-nav="tobe" class="sec">
+  <div class="head">
+    <h2 class="h2">Every hand-off now leaves something in hand</h2>
+    <p class="lede">In Define, confidence dipped at every hand-off. Compare the journey before and after.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="card" style="padding:24px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px">
+        <span class="mono" style="font-size:10px;color:var(--muted)">{{ jTitle }}</span>
+        <div role="group" aria-label="Journey" style="display:flex;gap:6px"><button type="button" class="btn" aria-pressed="{{ jAsis }}" onClick="{{ showAsis }}">As-is</button><button type="button" class="btn" aria-pressed="{{ jTobe }}" onClick="{{ showTobe }}">With WattWise</button></div>
+      </div>
+      <div style="position:relative;height:200px">
+        <svg aria-hidden="true" viewBox="0 0 700 200" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+          <line x1="0" y1="100" x2="700" y2="100" stroke="#E3E5EB" stroke-width="1" vector-effect="non-scaling-stroke"></line>
+          <path d="{{ jPathA }}" fill="none" stroke="var(--ember)" stroke-width="2.5" stroke-dasharray="3 7" stroke-linecap="round" vector-effect="non-scaling-stroke" style="opacity:{{ jOpA }};transition:opacity 400ms var(--ease)"></path>
+          <path d="{{ jPathB }}" fill="none" stroke="var(--verified)" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke" style="opacity:{{ jOpB }};transition:opacity 400ms var(--ease)"></path>
+        </svg>
+        <sc-for list="{{ jPts }}" as="p" hint-placeholder-count="7"><span style="position:absolute;left:{{ p.x }};top:{{ p.y }};width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#fff;border:2.5px solid {{ jColor }};transition:top 520ms var(--ease-io),border-color 300ms"></span></sc-for>
+        <span style="position:absolute;left:0;top:0;font:500 10px/1 var(--font-mono);letter-spacing:.08em;color:var(--muted)">MORE CONFIDENT</span><span style="position:absolute;left:0;bottom:0;font:500 10px/1 var(--font-mono);letter-spacing:.08em;color:var(--muted)">LESS CONFIDENT</span>
+      </div>
+      <div class="g7" style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-top:16px;border-top:1px solid var(--line);padding-top:12px">
+        <sc-for list="{{ jLabels }}" as="l" hint-placeholder-count="7"><div style="text-align:center;display:flex;flex-direction:column;gap:4px"><span class="tnum" style="font:500 10px/1 var(--font-mono);color:var(--muted)">{{ l.n }}</span><span style="font:600 13px/1.2 var(--font-sans)">{{ l.t }}</span><span style="font:400 11px/1.3 var(--font-sans);color:var(--ink2)">{{ l.d }}</span></div></sc-for>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">12.0</span>Illustrative confidence curves: inferred from interviews (as-is) and design intent (to-be). Neither is measured.</span><span class="k">Interactive</span></figcaption>
+  </figure>
+</section>
+
+<section id="limits" data-nav="limits" class="sec">
+  <div class="head">
+    <h2 class="h2">What WattWise aims to change, and what it can’t claim yet</h2>
+  </div>
+  <div class="w1040 g4" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px">
+    <div style="background:var(--t-sun);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px"><span class="mono" style="font-size:10px;color:#6B4E00">Functional</span><span style="font:600 15px/1.35 var(--font-sans)">Clearer costs, requirements and next steps</span></div>
+    <div style="background:var(--t-pink);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px"><span class="mono" style="font-size:10px;color:#8A1C4F">Emotional</span><span style="font:600 15px/1.35 var(--font-sans)">Confidence through transparent, trusted help</span></div>
+    <div style="background:var(--t-sky);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px"><span class="mono" style="font-size:10px;color:#1E3A8A">Social</span><span style="font:600 15px/1.35 var(--font-sans)">Easier household conversations</span></div>
+    <div style="background:var(--t-mint);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px"><span class="mono" style="font-size:10px;color:var(--verified-t)">Environmental</span><span style="font:600 15px/1.35 var(--font-sans)">Adoption where it’s appropriate and feasible</span></div>
+  </div>
+  <p class="w880" style="margin:-24px auto 0;text-align:center;font:400 13px/1.6 var(--font-sans);color:var(--muted)">Intended outcomes, not achieved results. The concept doesn’t establish more installations, savings or emissions cuts.</p>
+  <div class="w880 g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px">
+    <div style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-top:1px solid var(--line)"><span style="font:500 14px/1.3 var(--font-sans)">A small, home-owning sample</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--muted)">Renters, apartment dwellers and abandoned installs aren’t represented.</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-top:1px solid var(--line)"><span style="font:500 14px/1.3 var(--font-sans)">Imperfect interview data</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--muted)">Some questions were skipped; three are interviewer summaries; bills were ranges.</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-top:1px solid var(--line)"><span style="font:500 14px/1.3 var(--font-sans)">No service blueprint validation</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--muted)">The backstage needs research with installers, banks and DISCOM staff.</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-top:1px solid var(--line)"><span style="font:500 14px/1.3 var(--font-sans)">Only the posters were tested with people</span><span style="font:400 13px/1.5 var(--font-sans);color:var(--muted)">An informal test with 7. The clinic, card and web companion are untested concepts.</span></div>
+  </div>
+  <div class="w880" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center">
+    <span class="mono" style="font-size:10px;color:var(--muted);margin-right:6px">Non-negotiable service standards</span>
+    <span class="tag" style="background:var(--card)">Clear information</span><span class="tag" style="background:var(--card)">Qualified guidance</span><span class="tag" style="background:var(--card)">Transparent limitations</span><span class="tag" style="background:var(--card)">Voluntary participation</span>
+  </div>
+</section>
+
+<section style="max-width:1040px;margin:0 auto;padding-top:128px">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;font:500 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)"><span>Next project</span></div>
+  <a class="next" href="cooking-assist.html" style="display:flex;flex-wrap:wrap;gap:6px;padding:6px;background:var(--sunken);border-radius:20px;text-decoration:none;color:var(--ink)">
+    <div style="flex:1 1 320px;min-width:0;background:var(--card);border-radius:14px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+      <span class="mono" style="color:var(--muted)">Cooking Assist, inclusive design, 2026</span>
+      <span style="font:700 clamp(26px,2.6vw,32px)/1.1 var(--font-display);letter-spacing:-0.03em;text-wrap:balance">Turns the recipe video you already chose into steps that wait for you</span>
+      <span style="font:600 13px/1 var(--font-sans);color:#2149E0">Read case study</span>
+    </div>
+    <div style="flex:1.2 1 320px;min-width:0;min-height:260px;position:relative;background:#245C45;border-radius:14px;overflow:hidden"><img src="assets/v3/c087adc41a59.jpg" alt="A cook stirring at a hostel stove with the prototype propped on the counter, a speech bubble asking Hey Cook, how much tomatoes, and the step screen answering 4 medium, on dhania green" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block"></div>
+  </a>
+</section>
+
+</main>
+
+<!-- NIGHT BAND -->
+<footer style="margin-top:128px;background:linear-gradient(180deg,#1C1F4A 0%,#12132E 100%);color:#F2F0FF;position:relative;overflow:hidden">
+  <div class="moon" aria-hidden="true" style="position:absolute;right:12%;top:72px;width:72px;height:72px;border-radius:50%;box-shadow:-14px 10px 0 0 #E9E6FF"></div>
+  <div style="max-width:1280px;margin:0 auto;padding:128px clamp(20px,5vw,80px) 32px;display:flex;flex-direction:column;gap:112px;position:relative">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px">
+      <span style="font:500 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:#A9A6D0">Night: design for tomorrow</span>
+      <p style="margin:0;font:700 clamp(36px,5vw,60px)/1.04 var(--font-display);letter-spacing:-0.04em;text-wrap:balance;max-width:760px">Solar shouldn’t be a decision you have to <span style="color:var(--sun)">figure out alone.</span></p>
+      <p style="font:400 16px/1.55 var(--font-sans);color:#E2DFF5;max-width:560px;margin:0">Each household that decides with confidence becomes the neighbour others ask next. <span lang="hi-Latn">Har chhat, ek nayi soch.</span></p>
+      <p style="font:400 13px/1.5 var(--font-sans);color:#A9A6D0;max-width:520px;margin:0">Designed by Parthiv Nair, mentored by Aditya Shahakar. UX Minor Project, UPES Dehradun.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <a class="pill-link" href="mailto:parthivnair10c@gmail.com" style="height:40px;padding:0 18px;background:var(--sun);color:var(--ink)">Let’s talk</a>
+        <a class="pill-link" href="index.html#work" style="height:40px;padding:0 18px;border:1px solid #3D3F74;color:#F2F0FF">All work</a>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:1px solid #2E3064;padding-top:20px;font:400 12px/1 var(--font-mono);color:#A9A6D0">
+      <span>© 2026 Parthiv</span>
+      <span style="display:flex;gap:20px"><a href="https://www.linkedin.com/in/parthiv-nair-a1ba23273" target="_blank" rel="noopener" style="color:inherit">LinkedIn ↗</a><a href="https://drive.google.com/drive/folders/1yHF96X8kEyGxpA_ee23sn0sXkNUF6tDy?usp=sharing" target="_blank" rel="noopener" style="color:inherit">CV ↗</a></span>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":23600}}'>
+class Component extends DCLogic {
+  state = { active: 'overview', wide: false, railOn: false, prog: 0, stage: 5, hf: 'all', journey: 'tobe', flipped: false, moment: 1 };
+
+  componentDidMount() {
+    this.reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.check = () => {
+      const h = window.innerHeight || 800;
+      let active = 'overview';
+      document.querySelectorAll('[data-nav]').forEach(s => { if (s.getBoundingClientRect().top < 200) active = s.getAttribute('data-nav'); });
+      const wide = window.innerWidth >= 1180, railOn = window.scrollY > 500;
+      const max = document.documentElement.scrollHeight - h;
+      const prog = max > 0 ? Math.round(Math.min(1, Math.max(0, window.scrollY / max)) * 200) / 200 : 0;
+      if (active !== this.state.active || wide !== this.state.wide || railOn !== this.state.railOn || prog !== this.state.prog) this.setState({ active, wide, railOn, prog });
+    };
+    window.addEventListener('scroll', this.check, { passive: true });
+    window.addEventListener('resize', this.check);
+    this.check();
+    this.t1 = setTimeout(this.check, 400);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.check);
+    window.removeEventListener('resize', this.check);
+    clearTimeout(this.t1);
+  }
+  jump(id) {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: this.reduce ? 'auto' : 'smooth' });
+  }
+
+  renderVals() {
+    const st = this.state;
+
+    // rail: sun clock
+    const times = { overview: 330, research: 360, benchmark: 480, interviews: 540, themes: 600, define: 720, personas: 750, journey: 810, ecosystem: 900, focus: 1020, design: 1140, bigger: 1140, concepts: 1155, clinic: 1185, touchpoints: 1200, card: 1230, web: 1260, edges: 1275, identity: 1335, tobe: 1365, limits: 1410 };
+    const mins = st.prog > 0.985 ? 1439 : (times[st.active] || 330);
+    const p = (mins - 330) / (1439 - 330);
+    const clock = String(Math.floor(mins / 60)).padStart(2, '0') + ':' + String(mins % 60).padStart(2, '0');
+    const sx = 10 + p * 150, sy = 48 - 124 * p * (1 - p);
+    const sunColor = p < 0.3 ? '#FFC531' : p < 0.55 ? '#FF9A1F' : p < 0.9 ? '#8B3DFF' : '#2C3A73';
+    const sunGlow = p < 0.3 ? 'rgba(255,197,49,.25)' : p < 0.55 ? 'rgba(255,154,31,.22)' : p < 0.9 ? 'rgba(139,61,255,.18)' : 'rgba(44,58,115,.18)';
+    const groups = [
+      ['h', 'Overview'], ['overview', 'Overview'],
+      ['h', 'Dawn: Discover'], ['research', 'Desk research'], ['benchmark', 'Benchmark'], ['interviews', 'Interviews'], ['themes', 'Themes'],
+      ['h', 'Noon: Define'], ['personas', 'Personas'], ['journey', 'As-is journey'], ['ecosystem', 'Ecosystem'], ['focus', 'Focus'],
+      ['h', 'Dusk: Design'], ['bigger', 'Bigger picture'], ['concepts', 'Concepts'], ['clinic', 'Solar Clinic'], ['touchpoints', 'Touchpoints'], ['card', 'Solar Card'], ['web', 'Web companion'], ['edges', 'Edge cases'], ['identity', 'Identity'], ['tobe', 'To-be journey'], ['limits', 'Impact & limits']
+    ].filter((g, i) => i > 1);
+    const activeMap = { define: 'personas', design: 'bigger' };
+    const act = activeMap[st.active] || st.active;
+    const toc = groups.map(([id, label]) => {
+      if (id === 'h') return { isHead: true, isItem: false, label };
+      const on = act === id;
+      return { isHead: false, isItem: true, label, color: on ? 'var(--ink)' : 'var(--muted)', w: on ? '14px' : '6px', bar: on ? sunColor : 'var(--line)', onClick: () => this.jump(id) };
+    });
+    toc.unshift({ isHead: false, isItem: true, label: 'Overview', color: act === 'overview' ? 'var(--ink)' : 'var(--muted)', w: act === 'overview' ? '14px' : '6px', bar: act === 'overview' ? sunColor : 'var(--line)', onClick: () => this.jump('overview') });
+
+    // scheme
+    const scheme = [['Registration', 'Homeowner'], ['Application', 'Homeowner'], ['DISCOM approval', 'Utility'], ['Installation', 'Vendor'], ['Net metering', 'Utility'], ['Commissioning', 'Utility + vendor'], ['Subsidy release', 'Govt + bank']]
+      .map(([t, who], i) => ({ n: '0' + (i + 1), t, who, bg: who === 'Homeowner' ? 'var(--t-sun)' : who.indexOf('Utility') === 0 ? 'var(--t-sky)' : who === 'Vendor' ? 'var(--t-ember)' : 'var(--t-mint)' }));
+
+    // benchmark
+    const Y = ['✓', 'var(--verified-t)'], N = ['–', 'var(--muted)'];
+    const bench = [
+      ['SolarSquare', 'Indian installer platform', Y, Y, N, N],
+      ['PM Surya Ghar portal', 'Government portal', N, Y, Y, N],
+      ['EnergySage', 'International benchmark', N, N, N, Y],
+      ['Local installers', 'Offline service', N, N, Y, Y]
+    ].map(([name, kind, a, b, c, d], i) => ({ name, kind, v1: a[0], c1: a[1], v2: b[0], c2: b[1], v3: c[0], c3: c[1], v4: d[0], c4: d[1], rad: i === 3 ? '0 0 12px 12px' : '0' }));
+
+    // sun path
+    const stageData = [
+      ['Spark', ['N7'], 'Competing household priorities push solar down the list.'],
+      ['Explore', ['N5', 'N6'], 'An unclear sequence: portal first, or installer first? And is it worth it?'],
+      ['Get a quote', [], 'Nobody stalled here. The friction sits either side of it.'],
+      ['Compare & verify', ['N1', 'N2', 'N3'], 'Conflicting offers, unclear inclusions, uncertain payback.'],
+      ['Commit & pay', ['A3'], 'Loan terms and subsidy timing: the subsidy didn’t cut the upfront outlay.'],
+      ['Install & approve', ['N4', 'A1', 'A4', 'A5', 'A6'], 'Document mismatches, scheduling and crew, and never knowing who owns the next step.'],
+      ['Live with solar', ['A2'], 'The new bill and net metering still take effort to read.']
+    ];
+    const stages = stageData.map(([name, who, what], i) => {
+      const t = (i + 0.5) / 7;
+      const y = 92 - Math.sin(Math.PI * t) * 78;
+      const c = who.length;
+      const sel = i === st.stage;
+      const size = c === 0 ? 12 : 22 + c * 11;
+      return { n: '0' + (i + 1), name, what, x: (t * 100).toFixed(2) + '%', y: y.toFixed(1) + '%', size: size + 'px',
+        fill: c === 0 ? '#E3D8B8' : (who.filter(w => w[0] === 'A').length * 2 > c ? '#FF6A2B' : '#FFC531'),
+        ring: sel ? '0 0 0 6px #fff, 0 0 0 8px #1E1B24' : (c ? '0 0 0 8px rgba(255,197,49,.22)' : 'none'),
+        sel: sel ? 'true' : 'false', labelBg: sel ? '#fff' : 'transparent',
+        aria: name + ': ' + (c ? c + ' household' + (c > 1 ? 's' : '') : 'no households'),
+        pick: () => this.setState({ stage: i }),
+        who: who.map(id => ({ id, cls: id[0] === 'A' ? 'chip-a' : 'chip-n' })),
+        countLabel: c === 0 ? 'no households' : c + (c > 1 ? ' households' : ' household') };
+    });
+    const stageSel = stages[st.stage];
+
+    // houses
+    const hs = [['N6', 1.8], ['N7', 2], ['A2', 4], ['A3', 4.5], ['N1', 5], ['N4', 5], ['N5', 5], ['N3', 6], ['A1', 6], ['A4', 6], ['A5', 7], ['N2', 9], ['A6', 13]];
+    const houses = hs.map(([id, b]) => {
+      const inst = id[0] === 'A';
+      const show = st.hf === 'all' || (st.hf === 'in' ? inst : !inst);
+      return { id, bill: '₹' + b + 'k', h: Math.round(b / 13 * 190 + 18) + 'px', panel: inst,
+        body: inst ? '#8B3DFF' : '#fff', border: inst ? '0' : '2px solid #FF6A2B', roof: inst ? '#5B21B6' : '#FF6A2B',
+        idColor: inst ? 'var(--lav-t)' : 'var(--ember-t)', op: show ? 1 : 0.18,
+        title: id + (inst ? ' installed ' : ' not yet installed ') + 'peak bill about ₹' + b + 'k a month' };
+    });
+
+    // seven rays
+    const rayData = [
+      ['T3', 'Roadmap and paperwork', '#FF6A2B', [['N4', 1], ['N5', 1], ['A4', 1], ['N1', 0], ['A1', 0], ['A3', 0]]],
+      ['T5', 'Who stands behind it', '#8B3DFF', [['N3', 1], ['A6', 1], ['N4', 0], ['A4', 0], ['A5', 0]]],
+      ['T2', 'The money picture', '#FFC531', [['N1', 1], ['N6', 1], ['N7', 1], ['A3', 1]]],
+      ['T1', 'Proof that doesn’t fit', '#FF5BA8', [['N1', 0], ['N3', 0], ['N6', 0]]],
+      ['T4', 'Roof reality', '#19C2B4', [['N2', 1], ['N4', 1], ['A5', 1]]],
+      ['T6', 'Household consensus', '#3B9BFF', [['N1', 1], ['N2', 1], ['N7', 1]]],
+      ['T7', 'Life after the bill', '#8BD448', [['A2', 1], ['N6', 0], ['A1', 0]]]
+    ];
+    const rays = rayData.map(([t, name, color, bs]) => ({ t, name, color, count: bs.length,
+      beads: bs.map(([id, f]) => ({ id, bg: f ? color : 'transparent', fg: f ? '#1E1B24' : '#fff' })) }));
+
+    // ecosystem
+    const eco = [
+      ['Family / co-owners', 72, 30, '#FF6A2B'], ['Existing adopters', 50, 18.5, '#FF6A2B'], ['Solar installers', 30, 68, '#FF6A2B'],
+      ['Banks / lenders', 24, 22, '#FFC531'], ['PM Surya Ghar portal', 13, 46, '#FFC531'], ['UPCL (DISCOM)', 50, 84, '#FFC531'], ['Financing services', 84, 60, '#FFC531'],
+      ['MNRE', 10, 18, '#8B3DFF'], ['UREDA', 12, 80, '#8B3DFF'], ['UERC regulator', 82, 88, '#8B3DFF'], ['Policy ecosystem', 86, 10, '#8B3DFF']
+    ].map(([name, x, y, c]) => ({ name, x: x + '%', y: y + '%', c }));
+
+    // prioritisation
+    const prio = [
+      ['Roadmap and responsibility', 6, 'Guidance, hand-off clarity, expectations', 'Depends on external processes'],
+      ['Installer trust and accountability', 5, 'Transparent comparison, decision support', 'Reliable verification is hard'],
+      ['Financial uncertainty', 4, 'Explain commitments and trade-offs', 'UX can’t fix affordability'],
+      ['Roof suitability', 3, 'Early feasibility guidance', 'Needs technical verification'],
+      ['Household agreement', 3, 'Shared decision support', 'Priorities differ at home'],
+      ['Personal relevance of proof', 3, 'Contextual examples', 'Comparable data may be limited'],
+      ['Post-installation billing', 3, 'Explain bills and settlement', 'Different user stage, deferred']
+    ].map(([name, n, ux, con], i) => ({ name, n, ux, con, op: i === 6 ? 0.5 : 1, dots: Array.from({ length: n }, () => ({})) }));
+
+    const principles = [
+      ['Personal relevance', 'Use the household’s own bill and roof, not generic savings claims.', '#FFC531'],
+      ['Explain uncertainty', 'Show what’s known, estimated, or needs a professional.', '#FF6A2B'],
+      ['Trust through transparency', 'Explain assumptions, inclusions and responsibilities.', '#B58CFF'],
+      ['Actionable progression', 'Make the next step clear without overwhelming.', '#19C2B4'],
+      ['Respect informed refusal', 'Deciding to wait is a good outcome too.', '#FF5BA8']
+    ].map(([t, d, c], i) => ({ n: '0' + (i + 1), t, d, c }));
+
+    const concepts = [
+      ['Digital decision guide', 'A website that walks through costs, roof and next steps alone.', 11, 'Kept: the web companion.', 'var(--t-sky)'],
+      ['Peer-led community', 'Local adopters answer their neighbours’ questions.', 9, 'Kept: local adopter stories (could have).', 'var(--t-pink)'],
+      ['Independent consultation', 'A vendor-neutral helpline or desk at a DISCOM office.', 11, 'Kept: trained, vendor-neutral advisers.', 'var(--t-lav)'],
+      ['Mobile decision clinic', 'Advisers and live demos come to the neighbourhood on a van.', 13, 'Became the core of WattWise.', 'var(--t-sun)']
+    ].map(([name, d, score, kept, bg], i) => ({ n: '0' + (i + 1), name, d, score, kept, bg, w: (score / 15 * 100).toFixed(1) + '%', sel: i === 3, outline: i === 3 ? '2px solid #1E1B24' : 'none' }));
+
+    const touch = [
+      { kind: 'Physical', name: 'Solar Clinic van', d: 'Live demos and trained advisers. No sign-up, no sales pitch.', next: 'the Solar Card', img: 'assets/v3/f83526b61ef9.jpg', alt: 'The Solar Clinic van', tint: 'var(--t-sun)', iw: '100%', ih: '100%', fit: 'cover', pos: '22% 50%', align: 'center' },
+      { kind: 'Physical', name: 'Neighbourhood posters', d: 'Hindi and English posters with visit date, time and place.', next: 'the web companion or the van', img: 'assets/v3/e70d4c314b6e.jpg', alt: 'Yellow WattWise poster on a wall', tint: 'var(--t-ember)', iw: '100%', ih: '100%', fit: 'cover', pos: '50% 40%', align: 'center' },
+      { kind: 'Digital', name: 'Web companion', d: 'Clinic visits, plain-language answers and official links.', next: 'an adviser, or official portals', img: 'assets/v3/ec9c641de93d.webp', alt: 'Phone showing the WattWise web companion home', tint: 'var(--t-mint)', iw: '62%', ih: 'auto', fit: 'contain', pos: '50% 0', align: 'flex-end' },
+      { kind: 'Physical to digital', name: 'Solar Card', d: 'A6 card with the adviser’s ticked topic and next step.', next: 'the web companion, ticked topic', img: 'assets/v3/a3e5af96c3c4.jpg', alt: 'A hand holding the WattWise Solar Card outdoors', tint: 'var(--t-lav)', iw: '100%', ih: '100%', fit: 'cover', pos: '50% 50%', align: 'center' }
+    ];
+    const flowData = [['Discover', 'Notice a poster', '#FFC531'], ['Visit', 'Watch a live demo', '#FFC531'], ['Ask', 'Talk to an adviser', '#FFC531'], ['Take away', 'Get a marked card', '#FFC531'], ['Continue', 'Scan, pick the topic', '#19C2B4'], ['Decide', 'Proceed, dig in, or wait', '#FFFFFF']];
+    const flow = flowData.map(([t, d, c], i) => ({ n: '0' + (i + 1), t, d, c, lineL: i === 0 ? '50%' : '0', lineR: i === flowData.length - 1 ? '50%' : '0' }));
+
+    const momentData = [
+      { name: 'Finding a clinic', steps: [['Notices a poster', '“Solar lagwana hai?” on a lamp post near home.'], ['Scans the QR', 'Find a Solar Clinic opens in the browser. No app.'], ['Checks the visit', 'Landmark, access tags, directions, WhatsApp share.'], ['Arrives', 'An open counter marked “Ask us”. No documents.']], failT: 'The visit is moved', failD: 'Rain or a withdrawn permission cancels a stop. The poster QR opens the live list, so the old visit shows its new date instead of vanishing.' },
+      { name: 'Consultation', steps: [['Raises a concern', '“Will panels fit? There’s a water tank on my roof.”'], ['Sees it explained', 'The model house shows how shade and space change system size.'], ['Hears what’s known', 'General guidance, separated from what needs a site survey.'], ['Receives the card', '“Roof suitability” ticked. Next: ask for a site survey first.']], failT: 'The adviser can’t verify the roof', failD: 'Advisers never guess suitability. They write “site survey” as the next action and point to registered vendors. Waiting stays a valid outcome.' },
+      { name: 'Continuing at home', steps: [['Scans the card', 'One universal QR: “Let’s continue where you left off.”'], ['Picks the topic', 'Taps “Roof suitability”, matching the tick.'], ['Reads the guidance', 'What a site survey checks, and what to ask.'], ['Takes a next step', 'Opens a verified official link, or finds the next clinic.']], failT: 'The card is lost or the tick forgotten', failD: 'Every topic stays open from the home screen, so no path depends on the card. On a weak connection, text loads first.' }
+    ];
+    const moments = momentData.map((m, i) => ({ n: '0' + (i + 1), name: m.name, sel: i === st.moment ? 'true' : 'false', pick: () => this.setState({ moment: i }) }));
+    const ms = momentData[st.moment];
+    const momentSel = { steps: ms.steps.map(([t, d], i) => ({ n: i + 1, t, d })), failT: ms.failT, failD: ms.failD };
+
+    const palette = [['Sun', '#FFC531'], ['Ink', '#1E1B24'], ['Dusk', '#2C3A73'], ['Ember', '#FF6A2B'], ['Verified', '#19C2B4'], ['Paper', '#F4F5F8']].map(([name, hex]) => ({ name, hex }));
+
+    // journeys
+    const asis = { title: 'As-is, inferred from interviews', labels: [['Spark', 'Hears about solar'], ['Explore', 'Scheme, first steps'], ['Assess', 'Roof and household'], ['Compare', 'Quotes and trust'], ['Commit', 'Funds, loans'], ['Install', 'Documents, crew'], ['Live with', 'Bills, savings']], v: [0.6, 0.38, 0.5, 0.3, 0.52, 0.2, 0.5] };
+    const tobe = { title: 'With WattWise, design intent', labels: [['Discover', 'A local poster'], ['Explore', 'Visit details'], ['Experience', 'Live demo'], ['Consult', 'Adviser'], ['Take away', 'Marked card'], ['Continue', 'Web guidance'], ['Decide', 'Informed choice']], v: [0.35, 0.45, 0.56, 0.66, 0.74, 0.82, 0.9] };
+    const path = (v) => v.map((y, i) => (i ? 'L' : 'M') + (((i + 0.5) / 7) * 700).toFixed(1) + ' ' + (190 - y * 180).toFixed(1)).join(' ');
+    const J = st.journey === 'tobe' ? tobe : asis;
+
+    return {
+      railVisible: st.wide && st.railOn,
+      toc, clock, sunX: (sx / 170 * 100).toFixed(2) + '%', sunY: sy.toFixed(1) + 'px', sunColor, sunGlow,
+      scheme, bench, stages, stageSel, houses,
+      hfAll: st.hf === 'all' ? 'true' : 'false', hfIn: st.hf === 'in' ? 'true' : 'false', hfOut: st.hf === 'out' ? 'true' : 'false',
+      showAll: () => this.setState({ hf: 'all' }), showIn: () => this.setState({ hf: 'in' }), showOut: () => this.setState({ hf: 'out' }),
+      rays, eco, prio, principles, concepts, touch, flow, moments, momentSel, palette,
+      flipCard: () => this.setState({ flipped: !st.flipped }),
+      flipT: st.flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+      flipBtn: st.flipped ? '↺ Show the front' : '↻ Flip to the back',
+      flipLabel: st.flipped ? 'Solar Card, back. Activate to show the front' : 'Solar Card, front. Activate to see the back',
+      jTitle: J.title, jAsis: st.journey === 'asis' ? 'true' : 'false', jTobe: st.journey === 'tobe' ? 'true' : 'false',
+      showAsis: () => this.setState({ journey: 'asis' }), showTobe: () => this.setState({ journey: 'tobe' }),
+      jPathA: path(asis.v), jPathB: path(tobe.v),
+      jOpA: st.journey === 'asis' ? 1 : 0.12, jOpB: st.journey === 'tobe' ? 1 : 0.12,
+      jColor: st.journey === 'tobe' ? 'var(--verified)' : 'var(--ember)',
+      jPts: J.v.map((y, i) => ({ x: (((i + 0.5) / 7) * 100).toFixed(2) + '%', y: ((190 - y * 180) / 200 * 100).toFixed(1) + '%' })),
+      jLabels: J.labels.map(([t, d], i) => ({ n: '0' + (i + 1), t, d }))
+    };
+  }
+}
+</script>
+</body>
+</html>

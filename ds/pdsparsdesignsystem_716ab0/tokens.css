@@ -1,0 +1,143 @@
+/* PDS — Par's Design System — generated from tokens.json */
+:root, [data-theme="light"] {
+  --gray-0:#FFFFFF;
+  --gray-50:#FAFAFA;
+  --gray-100:#F4F4F4;
+  --gray-150:#EDEDED;
+  --gray-200:#E4E4E4;
+  --gray-300:#D1D1D1;
+  --gray-400:#A3A3A3;
+  --gray-500:#737373;
+  --gray-550:#8A8A8A;
+  --gray-600:#525252;
+  --gray-700:#3A3A3A;
+  --gray-800:#262626;
+  --gray-850:#1C1C1C;
+  --gray-900:#151515;
+  --gray-950:#0E0E0E;
+  --gray-1000:#080808;
+  --bg-page:var(--gray-0);
+  --band-bg:var(--gray-950);
+  --band-fg:var(--gray-50);
+  --surface-card:var(--gray-0);
+  --surface-raised:var(--gray-0);
+  --surface-sunken:var(--gray-100);
+  --surface-inverse:var(--gray-950);
+  --text-primary:var(--gray-950);
+  --text-secondary:var(--gray-600);
+  --text-muted:var(--gray-500);
+  --text-inverse:var(--gray-50);
+  --text-inverse-muted:var(--gray-400);
+  --border-strong:var(--gray-950);
+  --border-default:var(--gray-200);
+  --border-subtle:var(--gray-150);
+  --fill-strong:var(--gray-950);
+  --on-fill-strong:var(--gray-0);
+  --accent:#2B59FF;
+  --accent-hover:#1F45D6;
+  --accent-soft:#E8EEFF;
+  --on-accent:#FFFFFF;
+  --text-accent:#2149E0;
+  --highlight:var(--accent-soft);
+  --focus-ring:var(--accent);
+  --focus-halo:var(--accent-soft);
+  --success:#15803D;
+  --success-soft:#E7F6EC;
+  --warning:#B45309;
+  --warning-soft:#FEF3E2;
+  --danger:#C62828;
+  --danger-soft:#FDECEC;
+  --info:#2563EB;
+  --info-soft:#EAF0FE;
+  --on-status:#FFFFFF;
+  --shadow-hard-color:var(--gray-950);
+  --scrim:rgba(8,8,8,0.48);
+  --chart-base:var(--gray-300);
+  --chart-muted:var(--gray-400);
+  --shadow-hard-sm:2px 2px 0 #0E0E0E;
+  --shadow-hard:4px 4px 0 #0E0E0E;
+  --shadow-soft:0 1px 2px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08);
+  --shadow-overlay:0 2px 6px rgba(0,0,0,0.10), 0 24px 64px rgba(0,0,0,0.24);
+}
+[data-theme="dark"] {
+  --bg-page:var(--gray-950);
+  --band-bg:var(--gray-900);
+  --band-fg:var(--gray-50);
+  --surface-card:var(--gray-900);
+  --surface-raised:var(--gray-850);
+  --surface-sunken:var(--gray-850);
+  --surface-inverse:var(--gray-50);
+  --text-primary:var(--gray-100);
+  --text-secondary:var(--gray-400);
+  --text-muted:var(--gray-550);
+  --text-inverse:var(--gray-950);
+  --text-inverse-muted:var(--gray-600);
+  --border-strong:var(--gray-100);
+  --border-default:var(--gray-800);
+  --border-subtle:var(--gray-850);
+  --fill-strong:var(--gray-50);
+  --on-fill-strong:var(--gray-950);
+  --accent:#7C98FF;
+  --accent-hover:#9DB2FF;
+  --accent-soft:#141C3A;
+  --on-accent:#0A0F24;
+  --text-accent:#8FA7FF;
+  --highlight:var(--accent-soft);
+  --focus-ring:var(--accent);
+  --focus-halo:var(--accent-soft);
+  --success:#4ADE80;
+  --success-soft:#0F2A1A;
+  --warning:#FBBF24;
+  --warning-soft:#2B1E08;
+  --danger:#F87171;
+  --danger-soft:#2E1212;
+  --info:#7AA2FF;
+  --info-soft:#121B33;
+  --on-status:var(--gray-950);
+  --shadow-hard-color:var(--gray-300);
+  --scrim:rgba(0,0,0,0.64);
+  --chart-base:var(--gray-700);
+  --chart-muted:var(--gray-550);
+  --shadow-hard-sm:2px 2px 0 #D1D1D1;
+  --shadow-hard:4px 4px 0 #D1D1D1;
+  --shadow-soft:0 1px 2px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08);
+  --shadow-overlay:0 2px 6px rgba(0,0,0,0.10), 0 24px 64px rgba(0,0,0,0.24);
+}
+:root {
+  --space-0:0;
+  --space-1:2px;
+  --space-2:4px;
+  --space-3:8px;
+  --space-4:12px;
+  --space-5:16px;
+  --space-6:24px;
+  --space-7:32px;
+  --space-8:48px;
+  --space-9:64px;
+  --space-10:96px;
+  --space-11:128px;
+  --space-12:192px;
+  --radius-0:0;
+  --radius-xs:2px;
+  --radius-sm:4px;
+  --radius-md:8px;
+  --radius-lg:14px;
+  --radius-pill:999px;
+  --font-display:"Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans:"Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+.display-xl { font-family:var(--font-display); font-size:128px; line-height:0.92; font-weight:400; letter-spacing:-0.02em; }
+.display-l { font-family:var(--font-display); font-size:96px; line-height:0.92; font-weight:400; letter-spacing:-0.02em; }
+.display-m { font-family:var(--font-display); font-size:72px; line-height:0.92; font-weight:400; letter-spacing:-0.02em; }
+.h1 { font-family:var(--font-display); font-size:56px; line-height:1.05; font-weight:400; letter-spacing:-0.01em; }
+.h2 { font-family:var(--font-display); font-size:40px; line-height:1.05; font-weight:400; letter-spacing:-0.01em; }
+.h3 { font-family:var(--font-display); font-size:32px; line-height:1.05; font-weight:400; letter-spacing:-0.01em; }
+.h4 { font-family:var(--font-sans); font-size:24px; line-height:1.3; font-weight:600; }
+.body-l { font-family:var(--font-sans); font-size:20px; line-height:1.55; font-weight:400; }
+.body { font-family:var(--font-sans); font-size:16px; line-height:1.55; font-weight:400; }
+.body-s { font-family:var(--font-sans); font-size:14px; line-height:1.55; font-weight:400; }
+.caption { font-family:var(--font-sans); font-size:12px; line-height:1.55; font-weight:400; }
+.label { font-family:var(--font-mono); font-size:11px; line-height:1; font-weight:500; letter-spacing:0.08em; }
+@font-face { font-family:'Instrument Serif'; src:url('fonts/InstrumentSerif-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Instrument Serif'; src:url('fonts/InstrumentSerif-Italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }

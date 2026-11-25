@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Cooking Assist: a hands-free app that turns a recipe video into steps you move through by voice. Case study by Parthiv Nair.">
+<title>Cooking Assist: case study</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/pdsparsdesignsystem_716ab0/tokens.css">
+<link rel="stylesheet" href="ds/pdsparsdesignsystem_716ab0/components/bundle.css">
+<script src="ds/pdsparsdesignsystem_716ab0/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#F4F6F3}
+:root{--font-display:"Plus Jakarta Sans","Inter",ui-sans-serif,system-ui,sans-serif;--font-sans:"Inter",ui-sans-serif,system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;
+--paper:#F4F6F3;--card:#FFFFFF;--sunken:#E4E9E5;--ink:#1B1F1C;--ink2:#3E4540;--muted:#5C645E;--line:#DCE2DD;
+--haldi:#F2B12B;--haldi-t:#FCEBBF;--haldi-d:#7A5300;
+--mirch:#B83A24;--mirch-t:#FADCD4;--mirch-d:#9A2E1B;
+--dhania:#245C45;--dhania-t:#DDE9E1;--dhania-m:#7DB394;
+--steel:#3D4A52;--steel-l:#C3CBC7;--steel-t:#E8ECEA;
+--curry:#C8551F;--iron:#161917;
+--ease:cubic-bezier(.16,1,.3,1);--ease-io:cubic-bezier(.65,0,.35,1)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--dhania);outline-offset:3px;border-radius:6px}
+.mono{font:500 11px/1.3 var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.tnum{font-variant-numeric:tabular-nums}
+.h2{font:700 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.03em;text-wrap:balance;max-width:680px;margin:0;color:var(--ink)}
+.lede{max-width:580px;font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0;text-wrap:pretty}
+.head{max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+.sec{padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px}
+.w1040{max-width:1040px;margin:0 auto;width:100%}
+.w880{max-width:880px;margin:0 auto;width:100%}
+.cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px;flex-wrap:wrap}
+.cap .l{display:flex;gap:10px;align-items:baseline;font:400 13px/1.45 var(--font-sans);color:var(--ink2)}
+.cap .n{font:500 11px/1 var(--font-mono);color:var(--ink)}
+.cap .k{font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.h3{font:600 20px/1.25 var(--font-display);letter-spacing:-0.02em;margin:0;color:var(--ink)}
+.p{font:400 15px/1.6 var(--font-sans);color:var(--ink2);margin:0;text-wrap:pretty}
+.phone{background:#111412;border-radius:30px;padding:7px;box-shadow:0 2px 6px rgba(22,25,23,.10),0 24px 48px rgba(22,25,23,.16)}
+.phone img{display:block;width:100%;border-radius:24px;aspect-ratio:576/1245;object-fit:cover;background:#fff}
+.photo{display:block;width:100%;height:100%;object-fit:cover;border-radius:14px}
+.btn{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 13px/1 var(--font-sans);height:40px;padding:0 16px;border-radius:999px;cursor:pointer;transition:background 220ms var(--ease),border-color 220ms var(--ease),color 220ms var(--ease),transform 120ms var(--ease)}
+.btn:hover{border-color:var(--ink)}
+.btn:active{transform:scale(.97)}
+.btn[aria-pressed="true"],.btn[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pill-link{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 14px;border-radius:999px;font:600 13px/1 var(--font-sans);text-decoration:none;transition:background 220ms var(--ease),transform 120ms var(--ease)}
+.pill-link:active{transform:scale(.97)}
+.navp{padding:8px 14px;border-radius:999px;font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--muted)}
+.navp:hover{color:var(--ink)}
+.toc{display:flex;align-items:center;gap:8px;padding:5px 0;font:500 13px/1.2 var(--font-sans);cursor:pointer;background:none;border:0;text-align:left;transition:color 120ms var(--ease)}
+.toc .bar{height:3px;border-radius:2px;transition:width 220ms var(--ease),background 220ms var(--ease)}
+.rail{background:color-mix(in srgb,#F4F6F3 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;padding:14px 14px 12px;box-shadow:0 1px 2px rgba(22,25,23,.06)}
+.pin{position:absolute;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;border:0;cursor:pointer;font:600 12px/1 var(--font-mono);display:grid;place-items:center;transition:transform 220ms var(--ease),background 220ms var(--ease),box-shadow 220ms var(--ease)}
+.pin:hover{transform:translate(-50%,-50%) scale(1.08)}
+.pin:active{transform:translate(-50%,-50%) scale(.94)}
+.anno{appearance:none;border:0;text-align:left;cursor:pointer;display:grid;grid-template-columns:30px minmax(0,1fr);gap:14px;padding:14px 16px;border-radius:14px;background:transparent;transition:background 220ms var(--ease)}
+.anno:hover{background:rgba(255,255,255,.6)}
+.anno[aria-pressed="true"]{background:var(--card)}
+.next{transition:transform 220ms var(--ease)}.next:hover{transform:translateY(-3px)}
+.strike{text-decoration:line-through;text-decoration-color:var(--mirch);text-decoration-thickness:2px}
+@media (min-width:1180px){.w1040{max-width:min(1040px,calc(100vw - 540px))}.w880{max-width:min(880px,calc(100vw - 540px))}}
+@media (prefers-reduced-motion:reduce){.pin,.anno,.toc .bar,.next,.btn{transition:none!important}}
+@media (max-width:1100px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:860px){.g2,.g3,.split{grid-template-columns:minmax(0,1fr)!important}.hide-sm{display:none!important}.hscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}.hscroll>*{min-width:760px}.crow{grid-template-columns:minmax(0,1fr)!important;gap:6px!important}.bento{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:none!important}.bento>*{grid-column:auto!important;grid-row:auto!important;aspect-ratio:4/3}}
+@media (max-width:640px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))!important}.bento{grid-template-columns:minmax(0,1fr)!important}.clk{grid-template-columns:minmax(0,1fr)!important}.irow{grid-template-columns:64px minmax(0,1fr)!important;row-gap:6px!important}.irow .mono{grid-column:2}.spoons{transform:scale(.68);transform-origin:50% 100%;padding-bottom:28px!important}.tl{overflow-x:auto;-webkit-overflow-scrolling:touch}.tl>div{min-width:520px}.kat{width:34px!important;height:34px!important}}
+.glass{position:sticky;top:0;z-index:40;background:color-mix(in srgb,#F4F6F3 68%,transparent);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(17,21,27,.07)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:#F4F6F3}}
+@media (prefers-reduced-transparency:reduce),(prefers-contrast:more){.glass{background:#F4F6F3;-webkit-backdrop-filter:none;backdrop-filter:none}}
+.glass nav{background:rgba(255,255,255,.82)!important;border-color:rgba(17,21,27,.09)!important}
+.glass nav a:not([aria-current="page"]){color:#4A4F57!important}
+@media (max-width:640px){.decocard{padding-top:72px!important}.deco{transform:scale(.6);transform-origin:100% 0}.decocard-b{padding-bottom:72px!important}.deco-b{transform:scale(.6);transform-origin:100% 100%}}@media (max-width:860px){.hscroll::before{content:"Scroll sideways to see all of it";display:block;position:sticky;left:0;width:max-content;margin:0 0 12px;font:500 10px/1.3 var(--font-mono,monospace);letter-spacing:.08em;text-transform:uppercase;color:#5E6470}}
+@media (max-width:860px){.tl.hscroll>*{min-width:460px}}
+</style>
+</helmet>
+
+<div style="background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--font-sans);min-height:100vh;overflow-x:clip">
+
+<header class="glass">
+  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,80px);min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+    <a href="index.html" style="font:800 24px/1 var(--font-display);letter-spacing:-0.03em;text-decoration:none;color:var(--ink)">Parthiv<span style="color:#2B59FF">.</span></a>
+    <nav aria-label="Main" class="hide-sm" style="display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--card)">
+      <a class="navp" href="index.html#work" aria-current="page" style="background:var(--sunken);color:var(--ink)">Work</a>
+      <a class="navp" href="index.html#about">About</a>
+      <a class="navp" href="index.html#contact">Contact</a>
+    </nav>
+    <a class="pill-link" href="mailto:parthivnair10c@gmail.com" style="background:var(--ink);color:#fff">Let’s talk</a>
+  </div>
+</header>
+
+<!-- CONTENTS RAIL: the step tracker, borrowed from the app -->
+<sc-if value="{{ railVisible }}" hint-placeholder-val="{{ false }}">
+  <nav aria-label="Contents" class="rail" style="position:fixed;left:clamp(12px,3vw,48px);top:96px;z-index:30;width:172px;display:flex;flex-direction:column;gap:2px">
+    <span style="display:flex;justify-content:space-between;font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px"><span>Contents</span><span class="tnum" style="color:var(--ink)">{{ stepLabel }}</span></span>
+    <div aria-hidden="true" style="display:flex;gap:3px;margin-bottom:6px">
+      <sc-for list="{{ dashes }}" as="d" hint-placeholder-count="14"><span style="flex:1;height:4px;border-radius:2px;background:{{ d.c }};transition:background 220ms var(--ease)"></span></sc-for>
+    </div>
+    <sc-for list="{{ toc }}" as="t" hint-placeholder-count="18">
+      <sc-if value="{{ t.isHead }}" hint-placeholder-val="{{ false }}"><span style="font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 0 4px">{{ t.label }}</span></sc-if>
+      <sc-if value="{{ t.isItem }}" hint-placeholder-val="{{ true }}"><button type="button" class="toc" onClick="{{ t.onClick }}" style="color:{{ t.color }}"><span class="bar" style="width:{{ t.w }};background:{{ t.bar }}"></span>{{ t.label }}</button></sc-if>
+    </sc-for>
+  </nav>
+</sc-if>
+
+<!-- HERO: haldi -->
+<section id="overview" data-nav="overview" aria-label="Cooking Assist" style="position:relative;background:linear-gradient(180deg,var(--haldi) 0,var(--haldi) 68%,var(--paper) 68%,var(--paper) 100%);text-align:center;scroll-margin-top:96px;padding:0 clamp(20px,5vw,80px)">
+  <div style="max-width:880px;margin:0 auto;padding:80px 0 0;display:flex;flex-direction:column;align-items:center;gap:18px">
+    <h1 style="margin:0;font:800 clamp(64px,11vw,160px)/0.92 var(--font-display);letter-spacing:-0.055em;color:var(--ink)">Cooking Assist</h1>
+    <p style="margin:0;font:500 clamp(18px,2vw,24px)/1.4 var(--font-display);letter-spacing:-0.01em;max-width:560px;color:var(--ink);text-wrap:balance">Turns the recipe video you already chose into steps that wait for your hands.</p>
+  </div>
+  <figure style="position:relative;max-width:1040px;margin:56px auto 0;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--card);border-radius:26px;padding:8px;box-shadow:0 2px 6px rgba(22,25,23,.08),0 30px 60px rgba(22,25,23,.14)">
+      <img src="assets/v3/f13090a0d89f.jpg" alt="A participant cooks at a hostel stove while the Cooking Assist prototype plays on a phone propped against the spice shelf" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 45%;border-radius:19px">
+    </div>
+    <!-- the one playful touch: a curry fingerprint on the card -->
+    <svg aria-hidden="true" viewBox="0 0 80 100" style="position:absolute;right:clamp(-14px,-1vw,-6px);top:-34px;width:clamp(64px,8vw,96px);transform:rotate(-18deg);overflow:visible">
+      <g fill="none" stroke="#C8551F" stroke-linecap="round" stroke-width="3" opacity=".9">
+        <ellipse cx="40" cy="50" rx="5" ry="7"></ellipse>
+        <ellipse cx="40" cy="50" rx="11" ry="15" stroke-dasharray="40 6 18 5"></ellipse>
+        <ellipse cx="40" cy="50" rx="17" ry="23" stroke-dasharray="58 7 30 6 22 5"></ellipse>
+        <ellipse cx="40" cy="50" rx="23" ry="31" stroke-dasharray="70 8 40 9 36 6"></ellipse>
+        <ellipse cx="40" cy="50" rx="29" ry="39" stroke-dasharray="90 10 50 12 40 8"></ellipse>
+        <ellipse cx="40" cy="50" rx="35" ry="46" stroke-dasharray="60 20 70 16 50 30"></ellipse>
+      </g>
+    </svg>
+    <figcaption class="cap" style="text-align:left"><span class="l">Test kitchen, October 2026. The phone stays on the shelf; the hands stay on the pan.</span><span class="k">Usability test</span></figcaption>
+  </figure>
+</section>
+
+<main style="padding:0 clamp(20px,5vw,80px)">
+
+<div class="w880" style="padding-top:56px;display:flex;flex-wrap:wrap;gap:40px">
+  <dl style="flex:1 1 240px;margin:0;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Role</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Solo: research, interaction design and a working prototype</dd></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Course</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Inclusive Design, B.Des Semester 7, 2026</dd></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Methods</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">3 interviews, a survey of 20, literature, cooking tests with 6</dd></div>
+  </dl>
+  <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:14px">
+    <span class="mono" style="font-size:10px;color:var(--muted)">Overview</span>
+    <p style="font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0">Many people learn to cook from YouTube, then fight the video with turmeric on their fingers. Cooking Assist keeps the video they picked and breaks it into steps that move only when they do.</p>
+    <p style="font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0">This case study is written like the recipe it produced: prep, cook, then a taste test.</p>
+  </div>
+</div>
+
+<div class="w880 decocard" style="margin-top:40px;background:var(--iron);color:#fff;border-radius:24px;padding:40px;position:relative;overflow:hidden">
+  <div class="deco" aria-hidden="true" style="position:absolute;right:-56px;top:-56px;width:176px;height:176px;border-radius:50%;background:var(--steel-l)"><div style="position:absolute;inset:14px;border-radius:50%;background:#E4E8E5"></div><div style="position:absolute;inset:26px;border-radius:50%;background:var(--haldi)"></div></div>
+  <p style="position:relative;margin:0;font:600 clamp(22px,2.4vw,30px)/1.28 var(--font-display);letter-spacing:-0.02em;max-width:600px;text-wrap:balance">How might someone follow a recipe video when their hands are busy, wet or <span style="color:var(--haldi)">covered in masala?</span></p>
+</div>
+
+<!-- PREP BAND: mirch -->
+<section id="prep" data-nav="prep" aria-label="Prep" style="margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;position:relative;overflow:hidden;background:var(--mirch);color:#fff;text-align:center;scroll-margin-top:72px">
+  <div style="max-width:760px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 40px;position:relative;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <span class="mono" style="color:#FFD9CF">Prep: Discover</span>
+    <p style="margin:0;font:800 clamp(44px,6.4vw,84px)/0.98 var(--font-display);letter-spacing:-0.05em">Measure before you cook.</p>
+    <p class="lede" style="color:#FFE7E1">What do people do with a recipe video while they cook, and where does it break?</p>
+  </div>
+  <div aria-hidden="true" class="spoons" style="display:flex;justify-content:center;align-items:flex-end;gap:clamp(20px,5vw,64px);padding:24px 20px 56px">
+    <sc-for list="{{ spoons }}" as="s" hint-placeholder-count="3">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+        <div style="display:flex;align-items:center">
+          <div style="width:{{ s.d }};height:{{ s.d }};border-radius:50%;background:#F3F5F4;display:grid;place-items:center"><div style="width:72%;height:72%;border-radius:50%;background:{{ s.c }}"></div></div>
+          <div style="width:{{ s.h }};height:12px;border-radius:0 6px 6px 0;background:#F3F5F4;margin-left:-4px"></div>
+        </div>
+        <span class="mono" style="font-size:10px;color:#FFD9CF">{{ s.t }}</span>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="ingredients" data-nav="ingredients" class="sec">
+  <div class="head">
+    <h2 class="h2">I started from how people already cook with videos</h2>
+    <p class="lede">Before any screens, I gathered four kinds of evidence. Two of them are mine; the other two are someone else’s work, labelled as such.</p>
+  </div>
+  <figure class="w880" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--card);border-radius:24px;padding:clamp(24px,4vw,40px);position:relative;overflow:hidden">
+      <div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;height:10px;background:var(--mirch)"></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:2px solid var(--ink)">
+        <h3 style="margin:0;font:700 clamp(24px,2.6vw,32px)/1.1 var(--font-display);letter-spacing:-0.03em">Ingredients</h3>
+      </div>
+      <sc-for list="{{ ingr }}" as="g" hint-placeholder-count="4">
+        <div class="irow" style="display:grid;grid-template-columns:minmax(72px,120px) minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)">
+          <span class="tnum" style="font:700 clamp(28px,3vw,40px)/1 var(--font-display);letter-spacing:-0.04em;color:{{ g.c }}">{{ g.q }}</span>
+          <span style="font:500 16px/1.4 var(--font-sans)">{{ g.t }}</span>
+          <span class="mono" style="font-size:10px;color:var(--muted)">{{ g.k }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.0</span>Set out like a recipe’s ingredient list, quantity first, as the app does it.</span><span class="k">Research inputs</span></figcaption>
+  </figure>
+</section>
+
+<section id="survey" data-nav="survey" class="sec">
+  <div class="head">
+    <h2 class="h2">Most cooks stop, rewind and touch the phone with messy hands</h2>
+    <p class="lede">Fifteen of twenty wipe, wash or hunt for a clean finger just to touch the screen.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--card);border-radius:24px;padding:clamp(24px,3vw,40px) clamp(16px,3vw,40px)">
+      <div class="g4" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,28px);align-items:end">
+        <sc-for list="{{ jugs }}" as="j" hint-placeholder-count="4">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+            <svg role="img" aria-label="{{ j.aria }}" viewBox="0 0 140 180" style="width:100%;max-width:170px;overflow:visible">
+              <path d="M24 24 L112 24 L102 168 L34 168 Z" fill="#F4F6F3"></path>
+              <polygon points="{{ j.pts }}" fill="{{ j.fill }}"></polygon>
+              <line x1="{{ j.sx1 }}" y1="{{ j.sy }}" x2="{{ j.sx2 }}" y2="{{ j.sy }}" stroke="#fff" stroke-width="2" opacity=".7"></line>
+              <g stroke="#1B1F1C" stroke-width="1.5"><line x1="90.5" y1="132" x2="102.5" y2="132"></line><line x1="93" y1="96" x2="105" y2="96"></line><line x1="95.5" y1="60" x2="107.5" y2="60"></line><line x1="98" y1="24" x2="110" y2="24"></line></g>
+              <g font-family="JetBrains Mono, monospace" font-size="9" fill="#3E4540" text-anchor="end"><text x="86.5" y="135">5</text><text x="89" y="99">10</text><text x="91.5" y="63">15</text></g>
+              <path d="M24 24 L112 24 L102 168 L34 168 Z" fill="none" stroke="#1B1F1C" stroke-width="3" stroke-linejoin="round"></path>
+              <path d="M24 24 L10 16 L22 36" fill="none" stroke="#1B1F1C" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></path>
+              <path d="M111 44 C 138 44, 138 110, 105 118" fill="none" stroke="#1B1F1C" stroke-width="7" stroke-linecap="round"></path>
+            </svg>
+            <span class="tnum" style="font:700 clamp(28px,3vw,40px)/1 var(--font-display);letter-spacing:-0.04em">{{ j.n }}<span style="font-size:.5em;color:var(--muted)">/20</span></span>
+            <span style="font:{{ j.weight }} 14px/1.4 var(--font-sans);color:var(--ink);max-width:200px;text-wrap:balance">{{ j.t }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.1</span>Each jug holds 20 respondents, marked every 5. Multi-select, so jugs overlap. Direction, not proof.</span><span class="k">My survey, n = 20</span></figcaption>
+  </figure>
+  <blockquote class="w880" style="margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px">
+    <p style="margin:0;font:500 clamp(22px,2.4vw,30px)/1.3 var(--font-display);letter-spacing:-0.02em;max-width:26ch;text-wrap:balance">“Miss one and you have to use dirty hands to rewind.”</p>
+    <span class="mono" style="font-size:10px;color:var(--muted)">Survey response</span>
+  </blockquote>
+</section>
+
+<section id="clocks" data-nav="clocks" class="sec">
+  <div class="head">
+    <h2 class="h2">The video runs on the creator’s clock, not the cook’s</h2>
+    <p class="lede">The 14-minute chicken curry I tested with takes about 35 minutes at the stove. The waiting steps are the ones the video cuts shortest.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--card);border-radius:24px;padding:clamp(24px,3vw,36px)">
+      <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:20px;font:400 12px/1 var(--font-sans);color:var(--ink2)">
+        <span style="display:inline-flex;gap:8px;align-items:center"><span style="width:18px;height:6px;border-radius:3px;background:var(--mirch)"></span>On screen</span>
+        <span style="display:inline-flex;gap:8px;align-items:center"><span style="width:18px;height:14px;border-radius:4px;background:var(--haldi)"></span>At the stove</span>
+      </div>
+      <sc-for list="{{ clocks }}" as="c" hint-placeholder-count="3">
+        <div class="clk" style="display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:center;padding:18px 0;border-top:1px solid var(--line)">
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font:600 15px/1.3 var(--font-sans)">{{ c.name }}</span><span style="font:400 13px/1.4 var(--font-sans);color:var(--muted)">{{ c.sub }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px"><span style="width:{{ c.vw }};min-width:4px;height:6px;border-radius:3px;background:var(--mirch)"></span><span class="tnum" style="font:600 13px/1 var(--font-sans);color:var(--mirch-d)">{{ c.vl }}</span></div>
+            <div style="display:flex;align-items:center;gap:10px"><span style="display:flex;width:{{ c.sw }};height:14px"><span style="flex:{{ c.sf1 }};background:var(--haldi);border-radius:{{ c.r1 }}"></span><span style="flex:{{ c.sf2 }};background:var(--haldi-t);border-radius:0 4px 4px 0"></span></span><span class="tnum" style="font:600 13px/1 var(--font-sans);white-space:nowrap">{{ c.sl }}</span></div>
+          </div>
+        </div>
+      </sc-for>
+      <div class="clk" style="display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;padding-top:10px;border-top:1px solid var(--line)">
+        <span></span>
+        <div class="tnum" style="position:relative;height:12px;font:500 10px/1 var(--font-mono);color:var(--muted)"><span style="position:absolute;left:0">0</span><span style="position:absolute;left:22.29%;transform:translateX(-50%)">10 min</span><span style="position:absolute;left:44.57%;transform:translateX(-50%)">20 min</span><span style="position:absolute;left:66.86%;transform:translateX(-50%)">30 min</span></div>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.2</span>Same scale. Screen times from the video’s timestamps; stove times from the recipe. 35 min is an estimate.</span><span class="k">Recipe analysis</span></figcaption>
+  </figure>
+</section>
+
+<section id="insight" data-nav="insight" class="sec">
+  <div class="w880" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px">
+    <p style="margin:0;font:700 clamp(28px,3.4vw,44px)/1.14 var(--font-display);letter-spacing:-0.035em;max-width:760px;text-wrap:balance">Dirty hands were a symptom. The recipe moved at the creator’s pace, <span style="color:var(--mirch)">not the cook’s.</span></p>
+    <p class="lede" style="text-align:center">So I kept the video people already chose, and split it into steps that wait.</p>
+  </div>
+</section>
+
+<!-- COOK BAND: dhania -->
+<section id="cook" data-nav="cook" aria-label="Cook" style="margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;position:relative;overflow:hidden;background:var(--dhania);color:#fff;text-align:center;scroll-margin-top:72px">
+  <div style="max-width:780px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 24px;position:relative;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <span class="mono" style="color:#BFDCCB">Cook: Design</span>
+    <p style="margin:0;font:800 clamp(44px,6.4vw,84px)/0.98 var(--font-display);letter-spacing:-0.05em;text-wrap:balance">Keep their video, and make it wait for them.</p>
+    <p class="lede" style="color:#E3F1EA">Not a recipe app: no feed, no login and no chatbot. Only the next step, when the cook is ready for it.</p>
+  </div>
+  <div aria-hidden="true" style="position:relative;height:270px;max-width:460px;margin:0 auto">
+    <svg viewBox="0 0 120 110" style="position:absolute;left:50%;bottom:140px;width:120px;margin-left:-60px;overflow:visible"><g fill="none" stroke="#BFDCCB" stroke-width="5" stroke-linecap="round"><path d="M34 104 C 22 86, 46 74, 34 54 C 26 40, 40 28, 36 14"></path><path d="M60 104 C 48 84, 72 70, 60 48 C 52 34, 66 20, 62 4"></path><path d="M86 104 C 74 86, 98 74, 86 54 C 78 40, 92 28, 88 14"></path></g></svg>
+    <div style="position:absolute;left:50%;bottom:118px;width:40px;height:16px;margin-left:-20px;border-radius:8px 8px 0 0;background:#1B1F1C"></div>
+    <div style="position:absolute;left:10%;right:10%;bottom:96px;height:24px;border-radius:200px 200px 0 0;background:#C3CBC7"></div>
+    <div style="position:absolute;left:4%;right:4%;bottom:86px;height:12px;border-radius:6px;background:#E8ECEA"></div>
+    <div style="position:absolute;left:8%;right:8%;bottom:-40px;height:128px;border-radius:0 0 140px 140px;background:#AEB8B3"></div>
+    <div style="position:absolute;left:0;bottom:52px;width:12%;height:12px;border-radius:6px 0 0 6px;background:#1B1F1C"></div>
+    <div style="position:absolute;right:0;bottom:52px;width:12%;height:12px;border-radius:0 6px 6px 0;background:#1B1F1C"></div>
+  </div>
+</section>
+
+<section id="flow" data-nav="flow" class="sec">
+  <div class="head">
+    <h2 class="h2">From YouTube’s share menu, through the recipe and back</h2>
+    <p class="lede">Cooking Assist sits inside a habit people already have. It opens from Share, prepares the steps in a few seconds, and hands the cook back to YouTube when the curry is done.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="hscroll" style="background:var(--dhania-t);border-radius:28px;padding:40px clamp(16px,3vw,32px) 32px">
+      <ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1.6vw,20px);align-items:start">
+        <sc-for list="{{ flow }}" as="f" hint-placeholder-count="5">
+          <li style="display:flex;flex-direction:column;gap:14px;transform:translateY({{ f.dy }})">
+            <div class="phone"><img src="{{ f.img }}" alt="{{ f.alt }}"></div>
+            <div style="display:flex;flex-direction:column;gap:4px;padding:0 4px"><span style="font:600 16px/1.2 var(--font-display);letter-spacing:-0.01em">{{ f.t }}</span><span style="font:400 13px/1.45 var(--font-sans);color:var(--ink2)">{{ f.d }}</span></div>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">2.0</span>Screens recorded from the working prototype. The YouTube page and share sheet are simulated.</span><span class="k">Prototype</span></figcaption>
+  </figure>
+</section>
+
+<section id="iterations" data-nav="iterations" class="sec">
+  <div class="head">
+    <h2 class="h2">Four ideas I crossed out on the way</h2>
+    <p class="lede">Each was dropped for a reason I could name. The corrections in green are what the prototype does now.</p>
+  </div>
+  <figure class="w880" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--card);border-radius:24px;padding:clamp(24px,4vw,40px);position:relative;overflow:hidden">
+      <div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;height:10px;background:var(--dhania)"></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:2px solid var(--ink)">
+        <h3 style="margin:0;font:700 clamp(24px,2.6vw,32px)/1.1 var(--font-display);letter-spacing:-0.03em">Method, as amended</h3>
+        <span style="font:400 13px/1.4 var(--font-sans);color:var(--muted)">Struck: tried and dropped</span>
+      </div>
+      <sc-for list="{{ crossed }}" as="c" hint-placeholder-count="4">
+        <div class="crow" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)">
+          <span class="strike" style="font:500 16px/1.4 var(--font-sans);color:var(--muted)">{{ c.tried }}</span>
+          <span style="font:600 17px/1.35 var(--font-display);letter-spacing:-0.01em;color:var(--dhania)">{{ c.now }}</span>
+          <span style="font:400 13px/1.5 var(--font-sans);color:var(--ink2)">{{ c.why }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">2.1</span>How the concept changed before testing. Read across: tried, became, and why.</span><span class="k">Iterations</span></figcaption>
+  </figure>
+</section>
+
+<section id="anatomy" data-nav="anatomy" class="sec">
+  <div class="head">
+    <h2 class="h2">Every part of a step screen does a job for busy hands</h2>
+    <p class="lede">I designed for the situational column of the ability table: hands full, a noisy kitchen, attention split between the pan and the phone.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="split" style="background:var(--sunken);border-radius:28px;padding:clamp(20px,3vw,40px);display:grid;grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr);gap:clamp(20px,3vw,40px);align-items:center">
+      <div style="position:relative;max-width:320px;width:100%;margin:0 auto">
+        <div class="phone"><img src="assets/v3/d4c6273899fd.png" alt="Step 2 of 11, Make the tomato paste: video, step type label, quantities with Swap buttons, Previous, Repeat and Next, and the hands-free voice bar"></div>
+        <sc-for list="{{ pins }}" as="p" hint-placeholder-count="7">
+          <button type="button" class="pin" onClick="{{ p.pick }}" aria-pressed="{{ p.sel }}" aria-label="{{ p.aria }}" style="left:{{ p.x }};top:{{ p.y }};background:{{ p.bg }};color:{{ p.fg }};box-shadow:{{ p.ring }}">{{ p.id }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <sc-for list="{{ pins }}" as="p" hint-placeholder-count="7">
+          <button type="button" class="anno" onClick="{{ p.pick }}" aria-pressed="{{ p.sel }}">
+            <span style="width:26px;height:26px;border-radius:50%;background:{{ p.bg }};color:{{ p.fg }};display:grid;place-items:center;font:600 11px/1 var(--font-mono)">{{ p.id }}</span>
+            <span style="display:flex;flex-direction:column;gap:4px">
+              <span style="font:600 15px/1.3 var(--font-sans);color:var(--ink)">{{ p.t }}</span>
+              <sc-if value="{{ p.isSel }}" hint-placeholder-val="{{ false }}"><span style="font:400 14px/1.5 var(--font-sans);color:var(--ink2)">{{ p.d }}</span><span class="mono" style="font-size:10px;color:var(--dhania);margin-top:4px">Serves: {{ p.s }}</span></sc-if>
+            </span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">2.2</span>Tap a letter. Step 2 of the chicken curry, portrait, as built.</span><span class="k">Interactive, prototype</span></figcaption>
+  </figure>
+</section>
+
+<section id="types" data-nav="types" class="sec">
+  <div class="head">
+    <h2 class="h2">The layout changes with what the hands are doing</h2>
+    <p class="lede">Each of the 11 steps is tagged by what it asks of the cook. The tag decides what gets the most room on the screen.</p>
+  </div>
+  <div class="w1040" style="display:flex;flex-direction:column;gap:20px">
+    <div role="tablist" aria-label="Step types" style="display:flex;gap:6px;align-self:center;flex-wrap:wrap;justify-content:center">
+      <sc-for list="{{ types }}" as="t" hint-placeholder-count="3">
+        <button type="button" role="tab" class="btn" aria-selected="{{ t.sel }}" onClick="{{ t.pick }}" style="height:44px;padding:0 18px;font-size:14px">{{ t.name }} <span class="tnum" style="font:500 11px/1 var(--font-mono);margin-left:8px;opacity:.7">{{ t.count }}</span></button>
+      </sc-for>
+    </div>
+    <figure role="tabpanel" style="margin:0;display:flex;flex-direction:column;gap:10px">
+      <div class="split" style="background:{{ typeSel.bg }};border-radius:28px;padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:center;transition:background 220ms var(--ease)">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <span class="tnum" style="font:800 clamp(56px,7vw,96px)/0.9 var(--font-display);letter-spacing:-0.05em">{{ typeSel.big }}<span style="font-size:.36em;letter-spacing:-0.02em;color:var(--ink2)"> of 11 steps</span></span>
+          <p style="margin:0;font:600 clamp(20px,2vw,24px)/1.3 var(--font-display);letter-spacing:-0.02em;max-width:420px">{{ typeSel.line }}</p>
+          <p class="p" style="color:var(--ink);max-width:420px">{{ typeSel.d }}</p>
+        </div>
+        <div style="display:flex;justify-content:center">
+          <sc-if value="{{ typeSel.isPhone }}" hint-placeholder-val="{{ true }}"><div class="phone" style="width:100%;max-width:260px"><img src="{{ typeSel.img }}" alt="{{ typeSel.alt }}"></div></sc-if>
+          <sc-if value="{{ typeSel.isPhoto }}" hint-placeholder-val="{{ false }}"><div style="background:var(--card);border-radius:20px;padding:6px;width:100%"><img class="photo" src="{{ typeSel.img }}" alt="{{ typeSel.alt }}" style="aspect-ratio:4/3"></div></sc-if>
+        </div>
+      </div>
+      <figcaption class="cap"><span class="l"><span class="n">2.3</span>Step counts from the chicken curry recipe. Wait is shown on the counter in the test kitchen.</span><span class="k">Interactive, prototype</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="voice" data-nav="voice" class="sec">
+  <div class="head">
+    <h2 class="h2">Hands-free means it acts only after “Hey Cook”</h2>
+    <p class="lede">An offline Indian-English model runs in the browser and listens for this recipe’s commands, so the mic can stay open without beeps. Open questions fall back to Chrome’s speech recognition.</p>
+  </div>
+  <div class="w1040 split" style="display:grid;grid-template-columns:minmax(0,0.62fr) minmax(0,1.38fr);gap:16px;align-items:stretch">
+    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+      <div style="background:var(--iron);border-radius:24px;padding:6px;flex:1;display:flex">
+        <video src="assets/v3/c487e9928a79.mp4" autoplay="" muted="" loop="" playsinline="" aria-label="Footage: the prototype on a phone propped in the kitchen, showing Season the masala while the video plays" style="display:block;width:100%;height:100%;min-height:360px;object-fit:cover;border-radius:19px"></video>
+      </div>
+      <figcaption class="cap"><span class="l"><span class="n">2.4</span>Test kitchen footage, Season the masala.</span><span class="k">Footage</span></figcaption>
+    </figure>
+    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+      <div style="background:var(--card);border-radius:24px;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:28px;flex:1">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <h3 class="h3">The follow-up window</h3>
+          <div class="tl hscroll"><div style="position:relative;height:120px">
+            <div style="position:absolute;left:0;width:66.6%;top:30px;height:44px;border-radius:12px;background:var(--haldi-t)"></div>
+            <div style="position:absolute;left:0;right:0;top:51px;height:2px;background:var(--line)"></div>
+            <span style="position:absolute;left:0;top:0;font:600 12px/1 var(--font-sans);color:var(--haldi-d)">8 seconds to chain commands</span>
+            <sc-for list="{{ wake }}" as="w" hint-placeholder-count="4">
+              <span style="position:absolute;left:{{ w.x }};top:38px;transform:translateX({{ w.tx }});display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-radius:999px;background:{{ w.bg }};color:{{ w.fg }};font:600 12px/1 var(--font-sans);white-space:nowrap;text-decoration:{{ w.deco }};box-shadow:{{ w.ring }}">{{ w.t }}</span>
+            </sc-for>
+            <div style="position:absolute;left:0;right:0;top:92px;display:flex;justify-content:space-between;font:500 10px/1 var(--font-mono);color:var(--muted)"><span>0 s</span><span>4 s</span><span>8 s</span><span>12 s</span></div>
+          </div></div>
+          <p style="margin:0;font:400 13px/1.5 var(--font-sans);color:var(--ink2)">After the window closes, a bare “Next” is ignored, so talk at the stove doesn’t move the recipe.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <h3 class="h3">The voice bar says what it heard</h3>
+          <div class="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+            <sc-for list="{{ vstates }}" as="v" hint-placeholder-count="6">
+              <div style="display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:14px;background:{{ v.bg }};box-shadow:inset 0 0 0 1.5px {{ v.edge }}">
+                <span aria-hidden="true" style="flex:none;width:26px;height:26px;border-radius:50%;background:{{ v.dot }};display:grid;place-items:center"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="{{ v.ic }}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="{{ v.path }}"></path></svg></span>
+                <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font:600 13px/1.2 var(--font-sans);color:var(--ink)">{{ v.t }}</span><span style="font:400 11px/1.3 var(--font-sans);color:var(--ink2)">{{ v.d }}</span></span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <figcaption class="cap"><span class="l"><span class="n">2.5</span>Interaction spec, and six voice-bar states redrawn from the prototype.</span><span class="k">Interaction design</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="swaps" data-nav="swaps" class="sec">
+  <div class="head">
+    <h2 class="h2">Every answer says whose advice it is</h2>
+    <p class="lede">Swaps the chef gives in his video are marked “From recipe”. Anything I wrote is marked “Not from the original recipe”, so a cook knows whom they’re trusting.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="split" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px">
+      <div style="background:var(--dhania-t);border-radius:24px;padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;gap:20px">
+        <div style="background:var(--card);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;box-shadow:0 8px 24px rgba(22,25,23,.08)">
+          <span style="align-self:flex-start;display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:8px;background:var(--dhania-t);color:var(--dhania);font:600 12px/1 var(--font-sans)">From recipe</span>
+          <span style="font:600 18px/1.35 var(--font-sans)">Use ¾ cup curd instead of the tomatoes.</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:12px"><span class="tnum" style="font:800 56px/1 var(--font-display);letter-spacing:-0.04em;color:var(--dhania)">9</span><span style="font:500 15px/1.4 var(--font-sans)">swaps the chef gives in the video, kept as his advice</span></div>
+      </div>
+      <div style="background:var(--haldi-t);border-radius:24px;padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;gap:20px">
+        <div style="background:var(--card);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;box-shadow:0 8px 24px rgba(22,25,23,.08)">
+          <span style="align-self:flex-start;display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:8px;background:var(--haldi-t);color:var(--haldi-d);font:600 12px/1 var(--font-sans)">Not from the original recipe</span>
+          <span style="font:600 18px/1.35 var(--font-sans)">Use ½ tbsp ready ginger-garlic paste.</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:12px"><span class="tnum" style="font:800 56px/1 var(--font-display);letter-spacing:-0.04em;color:var(--haldi-d)">13</span><span style="font:500 15px/1.4 var(--font-sans)">swaps I wrote as general cooking advice, labelled every time</span></div>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">2.6</span>All 22 swaps written for this recipe, counted from the prototype’s recipe file.</span><span class="k">Content design</span></figcaption>
+  </figure>
+</section>
+
+<!-- TASTE TEST BAND: steel -->
+<section id="taste" data-nav="taste" aria-label="Taste test" style="margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;position:relative;overflow:hidden;background:var(--steel);color:#fff;text-align:center;scroll-margin-top:72px">
+  <div style="max-width:780px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 40px;position:relative;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <span class="mono" style="color:#C9D3D8">Taste test: Evaluate</span>
+    <p style="margin:0;font:800 clamp(44px,6.4vw,84px)/0.98 var(--font-display);letter-spacing:-0.05em;text-wrap:balance">Six cooks, one curry, one hostel kitchen.</p>
+    <p class="lede" style="color:#E2E8EB">Students who cook three or four times a week made the same chicken curry, with the prototype propped beside the stove.</p>
+  </div>
+  <div aria-hidden="true" style="display:flex;justify-content:center;gap:clamp(10px,2vw,22px);padding:24px 20px 0;margin-bottom:-36px">
+    <sc-for list="{{ bandBowls }}" as="b" hint-placeholder-count="6">
+      <div style="width:clamp(52px,8vw,92px);aspect-ratio:1;border-radius:50%;background:#C3CBC7;display:grid;place-items:center"><div style="width:80%;height:80%;border-radius:50%;background:#E8ECEA;display:grid;place-items:center"><div style="width:84%;height:84%;border-radius:50%;background:{{ b.c }}"></div></div></div>
+    </sc-for>
+  </div>
+  <div style="height:72px"></div>
+</section>
+
+<section id="kitchen" data-nav="kitchen" class="sec">
+  <div class="head">
+    <h2 class="h2">Tested where the problem lives, next to the stove</h2>
+    <p class="lede">Phone on the spice shelf, hands on the pan, and dinner at the end. Every session started from YouTube’s share sheet.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="bento" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:220px 220px 220px;gap:8px">
+      <div style="grid-column:1 / span 2;grid-row:1 / span 2;background:var(--sunken);border-radius:20px;padding:6px"><img class="photo" src="assets/v3/78857fd66c0e.jpg" alt="Close-up: a cook stirs onions in a steel pan while the step screen plays on a phone on the shelf behind" style="object-position:50% 60%"></div>
+      <div style="grid-column:3;grid-row:1;background:var(--sunken);border-radius:20px;padding:6px"><img class="photo" src="assets/v3/3766e3082410.jpg" alt="A hand holds a phone showing Cook this recipe? with a Start cooking button" style="object-position:50% 40%"></div>
+      <div style="grid-column:4;grid-row:1 / span 2;background:var(--sunken);border-radius:20px;padding:6px"><img class="photo" src="assets/v3/c50eea42d751.jpg" alt="A cook slices onions on a board, the phone propped upright showing Chop the onions" style="object-position:50% 50%"></div>
+      <div style="grid-column:3;grid-row:2;background:var(--sunken);border-radius:20px;padding:6px"><img class="photo" src="assets/v3/f76d45fc1ae3.jpg" alt="A hand lifts the lid of a pot while a landscape phone shows the simmer timer at 08:44" style="object-position:50% 40%"></div>
+      <div style="grid-column:1;grid-row:3;background:var(--sunken);border-radius:20px;padding:6px"><img class="photo" src="assets/v3/8f00212a424c.jpg" alt="A participant reads the share screen on his phone before starting" style="object-position:50% 30%"></div>
+      <div style="grid-column:2 / span 2;grid-row:3;background:var(--iron);border-radius:20px;padding:6px"><video src="assets/v3/52983e048c04.mp4" autoplay="" muted="" loop="" playsinline="" aria-label="Footage: the phone in landscape on the counter, moving from Cook the chicken to Season the masala" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:14px"></video></div>
+      <div style="grid-column:4;grid-row:3;background:var(--sunken);border-radius:20px;padding:6px"><img class="photo" src="assets/v3/64ed081df043.jpg" alt="Wide shot: a cook chops on a board, the phone glowing on the shelf above the induction stove" style="object-position:50% 50%"></div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">3.0</span>Hostel kitchen, October 2026. Photos and footage from the sessions.</span><span class="k">Usability test</span></figcaption>
+  </figure>
+</section>
+
+<section id="results" data-nav="results" class="sec">
+  <div class="head">
+    <h2 class="h2">Voice was hit and miss. The big buttons weren’t.</h2>
+    <p class="lede">Four of six cooked the dish start to finish. Nobody stopped to wash their hands before touching the phone.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--card);border-radius:24px;padding:clamp(20px,3vw,36px)">
+      <sc-for list="{{ bowls }}" as="r" hint-placeholder-count="4">
+        <div class="split" style="display:grid;grid-template-columns:minmax(0,1fr) auto 96px;gap:20px;align-items:center;padding:18px 0;border-top:{{ r.bt }}">
+          <span style="font:500 16px/1.4 var(--font-sans)">{{ r.t }}</span>
+          <span style="display:flex;gap:8px;flex-wrap:wrap" role="img" aria-label="{{ r.aria }}">
+            <sc-for list="{{ r.cups }}" as="c" hint-placeholder-count="6">
+              <svg class="kat" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="21" fill="#C3CBC7"></circle><circle cx="22" cy="22" r="17" fill="#E8ECEA"></circle><path d="{{ c.d }}" fill="#C8551F"></path><circle cx="16" cy="15" r="2.5" fill="#fff" opacity="{{ c.hi }}"></circle></svg>
+            </sc-for>
+          </span>
+          <span class="tnum" style="font:700 22px/1 var(--font-display);letter-spacing:-0.02em;text-align:right">{{ r.v }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">3.1</span>One bowl per cook; filled means it happened. The voice rate is from P1–P3 only.</span><span class="k">Observed, n = 6</span></figcaption>
+  </figure>
+</section>
+
+<section id="changes" data-nav="changes" class="sec">
+  <div class="head">
+    <h2 class="h2">Three changes after tasting, each from something cooks said</h2>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+      <sc-for list="{{ fixes }}" as="f" hint-placeholder-count="3">
+        <article style="background:var(--card);border-radius:24px;padding:6px;display:flex;flex-direction:column">
+          <div style="background:var(--sunken);border-radius:18px;padding:16px 16px 0;overflow:hidden"><img src="assets/v3/d4c6273899fd.png" alt="{{ f.alt }}" style="display:block;width:100%;aspect-ratio:{{ f.ar }};object-fit:cover;object-position:50% {{ f.pos }};border-radius:12px 12px 0 0;box-shadow:0 0 0 1px rgba(22,25,23,.06)"></div>
+          <div style="padding:20px 16px 16px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <p style="margin:0;font:500 17px/1.35 var(--font-display);letter-spacing:-0.01em;color:var(--muted)">“{{ f.said }}”</p>
+            <span style="font:600 18px/1.3 var(--font-display);letter-spacing:-0.02em;color:var(--ink)">{{ f.now }}</span>
+            <span style="font:400 13px/1.5 var(--font-sans);color:var(--ink2);margin-top:auto;padding-top:10px;border-top:1px solid var(--line)">{{ f.why }}</span>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">3.2</span>Participant requests in quotes. All three were built into v2 of the prototype after testing.</span><span class="k">Iteration</span></figcaption>
+  </figure>
+</section>
+
+<section id="limits" data-nav="limits" class="sec">
+  <div class="head">
+    <h2 class="h2">What one curry can tell me, and what it can’t</h2>
+  </div>
+  <div class="w880 g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px">
+    <div style="display:flex;flex-direction:column">
+      <h3 class="h3" style="padding-bottom:14px;border-bottom:2px solid var(--ink)">What I can’t claim yet</h3>
+      <sc-for list="{{ cant }}" as="c" hint-placeholder-count="3"><p style="margin:0;padding:14px 0;border-bottom:1px solid var(--line);font:400 15px/1.55 var(--font-sans);color:var(--ink2)">{{ c }}</p></sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column">
+      <h3 class="h3" style="padding-bottom:14px;border-bottom:2px solid var(--ink)">What I’d cook next</h3>
+      <sc-for list="{{ nexts }}" as="c" hint-placeholder-count="3"><p style="margin:0;padding:14px 0;border-bottom:1px solid var(--line);font:400 15px/1.55 var(--font-sans);color:var(--ink2)">{{ c }}</p></sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1040px;margin:0 auto;padding-top:128px">
+  <div style="margin-bottom:16px;font:500 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Next project</div>
+  <a class="next" href="olx.html" style="display:flex;flex-wrap:wrap;gap:6px;padding:6px;background:var(--sunken);border-radius:20px;text-decoration:none;color:var(--ink)">
+    <div style="flex:1 1 320px;min-width:0;background:var(--card);border-radius:14px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+      <span class="mono" style="color:var(--muted)">OLX Redesign, usability study, 2026</span>
+      <span style="font:700 clamp(26px,2.6vw,32px)/1.1 var(--font-display);letter-spacing:-0.03em;text-wrap:balance">Keeping the deal on screen, so buyers and sellers stop haggling from memory</span>
+      <span style="font:600 13px/1 var(--font-sans);color:#2149E0">Read case study</span>
+    </div>
+    <div style="flex:1.2 1 320px;min-width:0;min-height:260px;position:relative;background:#1D47C8;border-radius:14px;overflow:hidden"><img src="assets/v3/0e23cad8b2ab.jpg" alt="OLX redesign: listings as two-up cards beside one listing’s buyers with their last offers, and a haggled price tag reading ₹16,500, on tarpaulin blue" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block"></div>
+  </a>
+</section>
+
+</main>
+
+<!-- SERVE: cast iron footer -->
+<footer style="margin-top:128px;background:var(--iron);color:#F1F3F2;position:relative;overflow:hidden">
+  <div aria-hidden="true" class="hide-sm" style="position:absolute;right:-90px;top:-90px;width:320px;height:320px;border-radius:50%;background:#2A2F2C">
+    <div style="position:absolute;inset:14px;border-radius:50%;background:#353B37"></div>
+    <div style="position:absolute;left:62px;top:150px;width:70px;height:70px;border-radius:50%;background:#C3CBC7;display:grid;place-items:center"><div style="width:76%;height:76%;border-radius:50%;background:var(--curry)"></div></div>
+    <div style="position:absolute;left:140px;top:196px;width:58px;height:58px;border-radius:50%;background:#C3CBC7;display:grid;place-items:center"><div style="width:76%;height:76%;border-radius:50%;background:var(--haldi)"></div></div>
+    <div style="position:absolute;left:96px;top:236px;width:50px;height:50px;border-radius:50%;background:#C3CBC7;display:grid;place-items:center"><div style="width:76%;height:76%;border-radius:50%;background:var(--dhania-m)"></div></div>
+  </div>
+  <div style="max-width:1280px;margin:0 auto;padding:128px clamp(20px,5vw,80px) 32px;display:flex;flex-direction:column;gap:112px;position:relative">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px">
+      <span style="font:500 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:#A3ADA7">Serve: what it leaves behind</span>
+      <p style="margin:0;font:700 clamp(36px,5vw,60px)/1.04 var(--font-display);letter-spacing:-0.04em;text-wrap:balance;max-width:780px">A recipe should wait for the cook, <span style="color:var(--haldi)">not the other way round.</span></p>
+      <p style="font:400 16px/1.55 var(--font-sans);color:#D6DCD8;max-width:520px;margin:0">The video stays the creator’s. The pace becomes the cook’s.</p>
+      <p style="font:400 13px/1.5 var(--font-sans);color:#A3ADA7;max-width:520px;margin:0">Designed and built by Parthiv Nair. Inclusive Design, B.Des Semester 7.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <a class="pill-link" href="mailto:parthivnair10c@gmail.com" style="height:40px;padding:0 18px;background:var(--haldi);color:var(--ink)">Let’s talk</a>
+        <a class="pill-link" href="index.html#work" style="height:40px;padding:0 18px;border:1px solid #3A413D;color:#F1F3F2">All work</a>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:1px solid #2C322E;padding-top:20px;font:400 12px/1 var(--font-mono);color:#A3ADA7">
+      <span>© 2026 Parthiv</span>
+      <span style="display:flex;gap:20px"><a href="https://www.linkedin.com/in/parthiv-nair-a1ba23273" target="_blank" rel="noopener" style="color:inherit">LinkedIn ↗</a><a href="https://drive.google.com/drive/folders/1yHF96X8kEyGxpA_ee23sn0sXkNUF6tDy" target="_blank" rel="noopener" style="color:inherit">CV ↗</a></span>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":16500}}'>
+class Component extends DCLogic {
+  state = { active: 'overview', railOn: false, wide: false, pin: 'D', type: 0 };
+
+  componentDidMount() {
+    this.reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.check = () => {
+      let active = 'overview';
+      document.querySelectorAll('[data-nav]').forEach(s => { if (s.getBoundingClientRect().top < 200) active = s.getAttribute('data-nav'); });
+      const wide = window.innerWidth >= 1180, railOn = window.scrollY > 500;
+      if (active !== this.state.active || wide !== this.state.wide || railOn !== this.state.railOn) this.setState({ active, wide, railOn });
+    };
+    window.addEventListener('scroll', this.check, { passive: true });
+    window.addEventListener('resize', this.check);
+    this.check();
+    this.t1 = setTimeout(this.check, 400);
+    if (this.reduce) document.querySelectorAll('video').forEach(v => { try { v.pause(); v.setAttribute('controls', ''); } catch (e) {} });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.check);
+    window.removeEventListener('resize', this.check);
+    clearTimeout(this.t1);
+  }
+  jump(id) {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: this.reduce ? 'auto' : 'smooth' });
+  }
+
+  renderVals() {
+    const st = this.state;
+    const green = '#245C45';
+
+    // contents rail: a step tracker, like the app's
+    const groups = [
+      ['overview', 'Overview'],
+      ['h', 'Prep: Discover'], ['ingredients', 'Ingredients'], ['survey', 'Survey'], ['clocks', 'Two clocks'], ['insight', 'Insight'],
+      ['h', 'Cook: Design'], ['flow', 'Flow'], ['iterations', 'Iterations'], ['anatomy', 'Step screen'], ['types', 'Step types'], ['voice', 'Voice'], ['swaps', 'Swaps'],
+      ['h', 'Taste test: Evaluate'], ['kitchen', 'Test kitchen'], ['results', 'Results'], ['changes', 'Changes'], ['limits', 'Limits']
+    ];
+    const items = groups.filter(g => g[0] !== 'h').map(g => g[0]);
+    const map = { prep: 'ingredients', cook: 'flow', taste: 'kitchen' };
+    const act = map[st.active] || st.active;
+    const idx = Math.max(0, items.indexOf(act));
+    const toc = groups.map(([id, label]) => {
+      if (id === 'h') return { isHead: true, isItem: false, label };
+      const on = act === id;
+      return { isHead: false, isItem: true, label, color: on ? 'var(--ink)' : 'var(--muted)', w: on ? '14px' : '6px', bar: on ? green : 'var(--line)', onClick: () => this.jump(id) };
+    });
+    const dashes = items.map((_, i) => ({ c: i <= idx ? green : '#D3DAD5' }));
+    const stepLabel = 'Step ' + (idx + 1) + ' of ' + items.length;
+
+    // prep band spoons (spice trio)
+    const spoons = [
+      { d: '96px', h: '72px', c: '#F2B12B', t: '1 tbsp haldi' },
+      { d: '72px', h: '60px', c: '#7A1F10', t: '1 tsp mirch' },
+      { d: '56px', h: '48px', c: '#7DB394', t: '½ tsp dhania' }
+    ];
+
+    // ingredients
+    const ingr = [
+      { q: '3', t: 'Exploratory interviews, before any design', k: 'Mine', c: 'var(--mirch)' },
+      { q: '20', t: 'Survey responses: following recipes while cooking', k: 'Mine', c: 'var(--mirch)' },
+      { q: '47', t: 'Responses to someone else’s survey', k: 'Secondary', c: 'var(--ink)' },
+      { q: '4', t: 'Published studies on kitchens, video and voice', k: 'Literature', c: 'var(--ink)' }
+    ];
+
+    // measuring jugs
+    const xl = y => 24 + 10 * (y - 24) / 144, xr = y => 112 - 10 * (y - 24) / 144;
+    const jugs = [
+      ['Wipe, wash or use a “clean finger” to touch the phone', 15, true],
+      ['Pause or rewind again and again', 14, false],
+      ['Hands dirty, wet or busy when they need the phone', 13, false],
+      ['Quantities hard to find in the video', 10, false]
+    ].map(([t, n, hot]) => {
+      const y = 168 - 144 * n / 20;
+      return { t, n, aria: t + ': ' + n + ' of 20', fill: hot ? '#F2B12B' : '#7DB394', weight: hot ? '600' : '400',
+        pts: `${xl(y).toFixed(1)},${y.toFixed(1)} ${xr(y).toFixed(1)},${y.toFixed(1)} 102,168 34,168`,
+        sx1: (xl(y) + 3).toFixed(1), sx2: (xr(y) - 3).toFixed(1), sy: (y + 1).toFixed(1) };
+    });
+
+    // two clocks (minutes, scale 35)
+    const pc = m => (m / 35 * 78).toFixed(2) + '%';
+    const clocks = [
+      { name: 'The whole recipe', sub: 'Chicken curry, 11 steps', v: 849 / 60, vl: '14:09', s1: 35, s2: 0, sl: 'about 35 min' },
+      { name: 'Marinate the chicken', sub: 'Step 3', v: 49 / 60, vl: '0:49', s1: 10, s2: 5, sl: 'rest 10–15 min' },
+      { name: 'Simmer covered', sub: 'Step 10', v: 28 / 60, vl: '0:28', s1: 10, s2: 0, sl: '10 min, lid on' }
+    ].map(c => ({ name: c.name, sub: c.sub, vl: c.vl, sl: c.sl, vw: pc(c.v), sw: pc(c.s1 + c.s2), sf1: String(c.s1), sf2: String(c.s2 || 0.0001), r1: c.s2 ? '4px 0 0 4px' : '4px' }));
+
+    // flow
+    const flow = [
+      { img: 'assets/v3/547b01284396.png', t: 'Share', d: 'Cooking Assist sits in YouTube’s share row.', alt: 'YouTube share sheet with Cooking Assist among the apps', dy: '0px' },
+      { img: 'assets/v3/1fa7854824ea.png', t: 'Prepare', d: 'Ingredients, steps and video moments, matched.', alt: 'Getting your recipe ready: finding ingredients, organising steps, matching video moments', dy: '24px' },
+      { img: 'assets/v3/d4c6273899fd.png', t: 'Cook', d: 'One step, its own slice of the video.', alt: 'Step 2 of 11, Make the tomato paste, with quantities and controls', dy: '0px' },
+      { img: 'assets/v3/8883188e0ec7.png', t: 'Ask', d: '“Hey Cook, how much tomatoes?”', alt: 'Spoken answer card over the video: 4 medium, Tomatoes, Step 2, From recipe', dy: '24px' },
+      { img: 'assets/v3/c9b07bf532cc.png', t: 'Return', d: 'Done, and back to YouTube.', alt: 'Done screen: Chicken Curry complete, Finish cooking and Return to YouTube', dy: '0px' }
+    ];
+
+    // crossed-out ideas
+    const crossed = [
+      { tried: 'A voice remote for YouTube', now: 'Move through recipe steps', why: 'Play and pause still left quantities buried in the captions.' },
+      { tried: 'Skip back 10 seconds', now: 'Repeat replays the whole step', why: 'Ten-second jumps never lined up with where a step began.' },
+      { tried: 'A separate app: paste a link', now: 'Open from YouTube’s share menu', why: 'Copying a link is extra work before the stove is even on.' },
+      { tried: 'Shrink the video to a thumbnail', now: 'Layout shifts by step type', why: 'The video is why they chose this recipe. Hiding it lost that.' }
+    ];
+
+    // anatomy pins
+    const pinData = [
+      ['A', '103%', '15.7%', 'Progress in segments', 'Eleven dashes, one per step. You know where you are without reading a word.', 'Cognitive'],
+      ['B', '-3%', '44.9%', 'A clean video, timing underneath', 'The creator’s player keeps its own title and captions. Step time and the segment strip sit below it.', 'Visual, Jakob’s law'],
+      ['C', '-3%', '52.8%', 'Step type: icon and label', 'Measure & add, Watch & do, or Wait. Never colour alone.', 'Visual, Cognitive'],
+      ['D', '-3%', '72%', 'Quantity first', 'Amounts lead each row in bold, big enough to read from the counter.', 'Visual'],
+      ['E', '103%', '72%', 'Swap, visible', 'Alternatives were voice-only in v1. Now any ingredient with one shows a button.', 'Cognitive, Hick’s law'],
+      ['F', '103%', '87.4%', '64 px controls', 'Previous, Repeat and Next, big enough for a knuckle or a clean little finger.', 'Motor, Fitts’s law'],
+      ['G', '-3%', '95.2%', 'Voice state, always shown', 'What the mic heard is written down, and touch always works.', 'Speech, Auditory']
+    ];
+    const pins = pinData.map(([id, x, y, t, d, s]) => {
+      const sel = st.pin === id;
+      return { id, x, y, t, d, s, sel: sel ? 'true' : 'false', isSel: sel,
+        bg: sel ? '#F2B12B' : '#1B1F1C', fg: sel ? '#1B1F1C' : '#fff',
+        ring: sel ? '0 0 0 4px #fff, 0 0 0 6px #1B1F1C' : '0 0 0 3px #fff',
+        aria: id + ': ' + t, pick: () => this.setState({ pin: id }) };
+    });
+
+    // step types
+    const typeData = [
+      { name: 'Measure & add', count: '6', big: '6', line: 'Quantities take the screen; the video shrinks but stays.', d: 'Every amount sits beside its step, so nobody scrubs back to find “how much”.', img: 'assets/v3/d4c6273899fd.png', alt: 'Measure & add step: Make the tomato paste, with quantities and Swap buttons', bg: 'var(--haldi-t)', photo: false },
+      { name: 'Watch & do', count: '4', big: '4', line: 'The video leads, with “Replay this moment” for the tricky bit.', d: 'Technique is easier to copy than to read, so these steps keep the creator’s hands on screen.', img: 'assets/v3/c46c4fbb31c5.png', alt: 'Watch & do step: Chop the onions, with the video large and Replay this moment', bg: 'var(--dhania-t)', photo: false },
+      { name: 'Wait', count: '1', big: '1', line: 'Landscape on the counter, with a timer readable from the stove.', d: 'The video’s 28-second simmer becomes a 10-minute countdown the cook can glance at.', img: 'assets/v3/8230b3215fda.jpg', alt: 'Phone in landscape on the counter showing a Simmer covered timer at 08:54', bg: 'var(--mirch-t)', photo: true }
+    ];
+    const types = typeData.map((t, i) => ({ name: t.name, count: t.count, sel: st.type === i ? 'true' : 'false', pick: () => this.setState({ type: i }) }));
+    const ts = typeData[st.type];
+    const typeSel = Object.assign({}, ts, { isPhone: !ts.photo, isPhoto: ts.photo });
+
+    // wake word timeline (0–12 s)
+    const wake = [
+      { x: '0%', tx: '0', t: 'Hey Cook', bg: '#1B1F1C', fg: '#fff', deco: 'none', ring: 'none' },
+      { x: '20%', tx: '-30%', t: 'Next', bg: '#245C45', fg: '#fff', deco: 'none', ring: 'none' },
+      { x: '44%', tx: '-40%', t: 'How much tomatoes?', bg: '#245C45', fg: '#fff', deco: 'none', ring: 'none' },
+      { x: '100%', tx: '-100%', t: 'Next', bg: '#fff', fg: '#5C645E', deco: 'line-through', ring: 'inset 0 0 0 1.5px #DCE2DD' }
+    ];
+    const mic = 'M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3';
+    const vstates = [
+      { t: 'Tap to speak', d: 'Mic off, touch always works', bg: '#fff', edge: '#DCE2DD', dot: '#E4E9E5', ic: '#5C645E', path: 'M3 3l18 18M9 9v3a3 3 0 0 0 5 2M15 9.3V6a3 3 0 0 0-5.7-1.3M5 11a7 7 0 0 0 11 5.7M12 18v3' },
+      { t: 'Getting voice ready', d: 'First time only, 20–40 s', bg: '#DDE9E1', edge: '#DDE9E1', dot: '#245C45', ic: '#fff', path: 'M12 3v4M12 17v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M3 12h4M17 12h4' },
+      { t: 'Hands-free on', d: 'Say “Hey Cook”, then a command', bg: '#DDE9E1', edge: '#DDE9E1', dot: '#245C45', ic: '#fff', path: mic },
+      { t: 'Listening', d: '“hey cook…”', bg: '#DDE9E1', edge: '#245C45', dot: '#245C45', ic: '#fff', path: 'M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4' },
+      { t: 'Heard “Next”', d: 'Step 3, Marinate the chicken', bg: '#DDE9E1', edge: '#DDE9E1', dot: '#245C45', ic: '#fff', path: 'M5 12l5 5L20 7' },
+      { t: 'Answering', d: '“4 medium tomatoes”', bg: '#FCEBBF', edge: '#FCEBBF', dot: '#F2B12B', ic: '#1B1F1C', path: 'M11 5L6 9H3v6h3l5 4zM15.5 8.5a5 5 0 0 1 0 7' }
+    ];
+
+    // taste band bowls
+    const bandBowls = [1, 1, 1, 1, 0, 0].map(f => ({ c: f ? '#C8551F' : '#E8ECEA' }));
+
+    // results as katoris
+    const pie = frac => {
+      if (frac >= 1) return 'M22 8a14 14 0 1 0 0.001 0Z';
+      if (frac <= 0) return '';
+      const a = frac * 2 * Math.PI - Math.PI / 2, x = 22 + 14 * Math.cos(a), y = 22 + 14 * Math.sin(a);
+      return `M22 22 L22 8 A14 14 0 ${frac > 0.5 ? 1 : 0} 1 ${x.toFixed(2)} ${y.toFixed(2)} Z`;
+    };
+    const row = (t, fills, v, aria) => ({ t, v, aria, cups: fills.map(f => ({ d: pie(f), hi: f > 0 ? '.45' : '0' })) });
+    const bowls = [
+      row('Cooked the dish start to finish', [1, 1, 1, 1, 0, 0], '4 of 6', '4 of 6 cooks finished'),
+      row('Used a clean finger on the big buttons', [1, 1, 1, 1, 1, 1], '6 of 6', '6 of 6 used the large buttons with a clean finger'),
+      row('Washed their hands to use the phone', [0, 0, 0, 0, 0, 0], '0 of 6', 'none of 6 washed their hands to use it'),
+      row('Voice commands understood (P1–P3)', [0.667], '~2 in 3', 'about two in three voice commands understood')
+    ].map((r, i) => Object.assign(r, { bt: i ? '1px solid var(--line)' : '0' }));
+
+    // after-test fixes (crops of the step screen)
+    const fixes = [
+      { said: 'Voice wake up', now: '“Hey Cook” wake word, with an 8-second window', why: 'Talk at the stove triggered commands. Now nothing acts without the wake word.', ar: '576 / 120', pos: '100%', alt: 'Voice bar: Hands-free on, say Hey Cook, then a command' },
+      { said: 'Suggest alternatives', now: 'A visible Swap button on every ingredient that has one', why: '3 of 6 asked for swaps that already existed, but only by voice.', ar: '576 / 200', pos: '79%', alt: 'Quantity rows with Swap buttons beside tomatoes and curd' },
+      { said: 'Instruction-based step colour', now: 'An icon and a label for each step type', why: 'I kept the idea but not the colour, so colour is never the only cue.', ar: '576 / 200', pos: '55%', alt: 'Measure & add label above the step title Make the tomato paste' }
+    ];
+
+    const cant = [
+      'One hand-prepared recipe. Steps and quantities were written by me from the video, not generated.',
+      'YouTube’s page and share sheet were simulated in the prototype.',
+      'Six students who cook often. It shows direction, not proof.'
+    ];
+    const nexts = [
+      'Build the steps from a video’s transcript and description automatically.',
+      'Hindi and Indian-English commands beyond this one recipe.',
+      'Test with people with motor impairments, not only busy hands.'
+    ];
+
+    return { railVisible: st.wide && st.railOn, toc, dashes, stepLabel, spoons, ingr, jugs, clocks, flow, crossed, pins, types, typeSel, wake, vstates, bandBowls, bowls, fixes, cant, nexts };
+  }
+}
+</script>
+</body>
+</html>

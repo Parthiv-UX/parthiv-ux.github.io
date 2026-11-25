@@ -1,535 +1,595 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ASHA Companion: a triage app for India’s community health workers, from field research in Dehradun. Case study by Parthiv Nair.">
+<title>ASHA Companion: case study</title>
 <script src="./support.js"></script>
-<title>Par's Works</title>
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="ds/pdsparsdesignsystem_716ab0/tokens.css">
+<link rel="stylesheet" href="ds/pdsparsdesignsystem_716ab0/components/bundle.css">
+<script src="ds/pdsparsdesignsystem_716ab0/components/bundle.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/fonts.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/accents.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/colors.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/typography.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/spacing.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/effects.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/tokens/base.css">
-<link rel="stylesheet" href="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/styles.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-<script src="_ds/pds-par-s-design-system-716ab0e8-08fc-4c59-b91f-ec859f0bd502/_ds_bundle.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
-html,body{margin:0;background:#0E0E0E}
-input[type=range]{accent-color:var(--accent);width:100%}
-a{color:var(--text-accent)}a:hover{color:var(--text-primary)}
+html,body{margin:0;background:#F4F6F8}
+:root{--font-display:"Plus Jakarta Sans","Inter",ui-sans-serif,system-ui,sans-serif;--font-sans:"Inter",ui-sans-serif,system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;
+--paper:#F4F6F8;--card:#FFFFFF;--sunken:#E5E9EE;--ink:#161B24;--ink2:#3C4350;--muted:#5D6470;--line:#DCE1E7;
+--pink:#C2185B;--pink-d:#8E0F43;--pink-t:#FCE4EE;
+--blue:#1F3FA8;--blue-d:#162E7E;--blue-t:#E3E9FB;--blue-l:#B9C7F2;
+--green:#1E7A4C;--green-d:#145A37;--green-t:#DDF1E6;
+--red:#B3261E;--red-t:#FBE1DD;--amber:#E3A21A;--amber-t:#FCEFD0;
+--app:#3D7BE6;--appbg:#E3E9F0;--appink:#14213D;
+--ease:cubic-bezier(.16,1,.3,1);--ease-io:cubic-bezier(.65,0,.35,1)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
+.mono{font:500 11px/1.3 var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.tnum{font-variant-numeric:tabular-nums}
+.h2{font:700 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.03em;text-wrap:balance;max-width:680px;margin:0;color:var(--ink)}
+.lede{max-width:580px;font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0;text-wrap:pretty}
+.head{max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+.sec{padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px}
+.w1040{max-width:1040px;margin:0 auto;width:100%}
+.w880{max-width:880px;margin:0 auto;width:100%}
+.cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px;flex-wrap:wrap}
+.cap .l{display:flex;gap:10px;align-items:baseline;font:400 13px/1.45 var(--font-sans);color:var(--ink2)}
+.cap .n{font:500 11px/1 var(--font-mono);color:var(--ink)}
+.cap .k{font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.h3{font:600 20px/1.25 var(--font-display);letter-spacing:-0.02em;margin:0;color:var(--ink)}
+.ftitle{margin:0;font:700 clamp(24px,2.6vw,32px)/1.1 var(--font-display);letter-spacing:-0.03em;color:var(--ink)}
+.p{font:400 15px/1.6 var(--font-sans);color:var(--ink2);margin:0;text-wrap:pretty}
+.photo{display:block;width:100%;height:100%;object-fit:cover;border-radius:14px}
+.btn{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 13px/1 var(--font-sans);height:40px;padding:0 16px;border-radius:999px;cursor:pointer;transition:background 220ms var(--ease),border-color 220ms var(--ease),color 220ms var(--ease),transform 120ms var(--ease)}
+.btn:hover{border-color:var(--ink)}
+.btn:active{transform:scale(.97)}
+.btn[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn:disabled{opacity:.4;cursor:default}
+.pill-link{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 14px;border-radius:999px;font:600 13px/1 var(--font-sans);text-decoration:none;transition:background 220ms var(--ease),transform 120ms var(--ease)}
+.pill-link:active{transform:scale(.97)}
+.navp{padding:8px 14px;border-radius:999px;font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--muted)}
+.navp:hover{color:var(--ink)}
+.rail{background:color-mix(in srgb,#F4F6F8 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;padding:14px 14px 12px;box-shadow:0 1px 2px rgba(22,27,36,.06)}
+.toc{display:flex;align-items:center;gap:9px;padding:5px 0;font:500 13px/1.2 var(--font-sans);cursor:pointer;background:none;border:0;text-align:left;width:100%;transition:color 120ms var(--ease)}
+.cap-ic{flex:none;width:16px;height:8px;border-radius:999px;box-sizing:border-box;transition:background 220ms var(--ease),border-color 220ms var(--ease)}
+.ring{appearance:none;cursor:pointer;transition:background 220ms var(--ease),border-color 220ms var(--ease)}
+.chip{position:absolute;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 10px;font:500 12px/1.1 var(--font-sans);white-space:nowrap;transition:opacity 220ms var(--ease),background 220ms var(--ease)}
+.step{appearance:none;border:0;background:transparent;text-align:left;cursor:pointer;display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:center;padding:10px 12px;border-radius:12px;color:var(--muted);font:600 14px/1.3 var(--font-sans);transition:background 220ms var(--ease),color 220ms var(--ease)}
+.step:hover{color:var(--ink)}
+.step[aria-pressed="true"]{background:var(--card);color:var(--ink)}
+.phone{width:296px;flex:none;background:#10141D;border-radius:42px;padding:9px;box-shadow:0 2px 6px rgba(22,27,36,.10),0 30px 60px rgba(22,27,36,.18)}
+.tag-hole{position:absolute;left:50%;top:22px;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 4px rgba(22,27,36,.12)}
+.next{transition:transform 220ms var(--ease)}.next:hover{transform:translateY(-3px)}
+.tally{position:relative;display:inline-flex;gap:5px;height:30px;padding:0 3px;align-items:stretch}
+.tally i{display:block;width:2.5px;border-radius:2px;background:var(--blue)}
+.tally b{position:absolute;left:-3px;right:-3px;top:50%;height:2.5px;border-radius:2px;background:var(--blue);transform:rotate(-24deg)}
+@media (min-width:1180px){.w1040{max-width:min(1040px,calc(100vw - 540px))}.w880{max-width:min(880px,calc(100vw - 540px))}}
+@media (prefers-reduced-motion:reduce){.toc,.cap-ic,.chip,.ring,.step,.btn,.next{transition:none!important}}
+@media (max-width:1100px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:860px){.g2,.g3,.split{grid-template-columns:minmax(0,1fr)!important}.hide-sm{display:none!important}.hscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}.hscroll>*{min-width:620px}.bento{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:none!important}.bento>*{grid-column:auto!important;grid-row:auto!important;aspect-ratio:3/4}.visit{flex-direction:column!important;align-items:center!important}.trow{grid-template-columns:minmax(0,1fr)!important}.trow .tl{display:none!important}}
+@media (max-width:640px){.g4{grid-template-columns:minmax(0,1fr)!important}.bento{grid-template-columns:minmax(0,1fr)!important}.lane{grid-template-columns:minmax(0,1fr)!important}.rrow{grid-template-columns:minmax(0,1fr)!important;gap:4px!important}.stamp{width:96px!important;top:-40px!important}}
+.glass{position:sticky;top:0;z-index:40;background:color-mix(in srgb,#F4F6F8 68%,transparent);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(17,21,27,.07)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:#F4F6F8}}
+@media (prefers-reduced-transparency:reduce),(prefers-contrast:more){.glass{background:#F4F6F8;-webkit-backdrop-filter:none;backdrop-filter:none}}
+.glass nav{background:rgba(255,255,255,.82)!important;border-color:rgba(17,21,27,.09)!important}
+.glass nav a:not([aria-current="page"]){color:#4A4F57!important}
+@media (max-width:640px){.decocard{padding-top:72px!important}.deco{transform:scale(.6);transform-origin:100% 0}.decocard-b{padding-bottom:72px!important}.deco-b{transform:scale(.6);transform-origin:100% 100%}}@media (max-width:860px){.hscroll::before{content:"Scroll sideways to see all of it";display:block;position:sticky;left:0;width:max-content;margin:0 0 12px;font:500 10px/1.3 var(--font-mono,monospace);letter-spacing:.08em;text-transform:uppercase;color:#5E6470}}
 </style>
 </helmet>
 
-<div data-theme="{{ theme }}" data-accent="{{ accent }}" style="background:var(--bg-page);color:var(--text-primary);font:var(--type-body);min-height:100vh;overflow-x:clip">
+<div style="background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--font-sans);min-height:100vh;overflow-x:clip">
 
-<header style="position:sticky;top:0;z-index:40;background:color-mix(in srgb, var(--bg-page) 82%, transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
-  <div style="max-width:var(--max-content);margin:0 auto;padding:0 var(--margin-page);min-height:72px;display:grid;grid-template-columns:{{ hdrCols }};grid-template-rows:{{ hdrRows }};align-items:center;column-gap:12px">
-    <a href="index.html" style="font:400 26px/1 var(--font-display);letter-spacing:-0.02em;text-decoration:none;color:var(--text-primary)">Parthiv<span style="color:var(--accent)">.</span></a>
-    <nav style="display:flex;gap:2px;padding:3px;border:1px solid var(--border-default);border-radius:var(--radius-pill);background:var(--surface-card);grid-column:{{ navCol }};order:{{ navOrder }};justify-self:center;margin-bottom:{{ navMb }}">
-      <a href="index.html#work" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;background:var(--surface-sunken);color:var(--text-primary)">Work</a>
-      <a href="index.html#about" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--text-muted)">About</a>
-      <a href="index.html#contact" style="padding:8px 14px;border-radius:var(--radius-pill);font:500 13px/1 var(--font-sans);text-decoration:none;color:var(--text-muted)">Contact</a>
+<header class="glass">
+  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,80px);min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+    <a href="index.html" style="font:800 24px/1 var(--font-display);letter-spacing:-0.03em;text-decoration:none;color:var(--ink)">Parthiv<span style="color:#2B59FF">.</span></a>
+    <nav aria-label="Main" class="hide-sm" style="display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--card)">
+      <a class="navp" href="index.html#work" aria-current="page" style="background:var(--sunken);color:var(--ink)">Work</a>
+      <a class="navp" href="index.html#about">About</a>
+      <a class="navp" href="index.html#contact">Contact</a>
     </nav>
-<div style="display:flex;justify-content:flex-end;align-items:center;gap:8px">
-      <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.IconButton" icon="{{ themeIcon }}" label="{{ themeLabel }}" variant="ghost" size="sm" on-click="{{ toggleTheme }}" hint-size="32px,32px"></x-import>
-      <sc-if value="{{ showTalk }}" hint-placeholder-val="{{ true }}">
-      <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="accent" size="sm" icon-right="arrow-up-right" on-click="{{ goContact }}" hint-size="110px,32px">Let's talk</x-import>
-      </sc-if>
-    </div>
+    <a class="pill-link" href="mailto:parthivnair10c@gmail.com" style="background:var(--ink);color:#fff">Let’s talk</a>
   </div>
 </header>
 
+<!-- CONTENTS RAIL: a blister strip. Each section is a tablet; read ones are popped. -->
 <sc-if value="{{ railVisible }}" hint-placeholder-val="{{ false }}">
-  <nav style="position:fixed;left:var(--margin-page);top:120px;z-index:30;display:flex;flex-direction:column;gap:2px;width:170px">
-    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted);margin-bottom:10px">Contents</span>
-    <sc-for list="{{ toc }}" as="t" hint-placeholder-count="11">
-      <a onClick="{{ t.onClick }}" style="display:flex;align-items:center;gap:8px;padding:5px 0;font:500 13px/1.2 var(--font-sans);text-decoration:none;cursor:pointer;color:{{ t.color }};transition:color var(--dur-fast) var(--ease-out)"><span style="width:{{ t.w }};height:1px;background:{{ t.bar }};transition:width var(--dur-base) var(--ease-out)"></span>{{ t.label }}</a>
+  <nav aria-label="Contents" class="rail" style="position:fixed;left:clamp(12px,3vw,48px);top:96px;z-index:30;width:174px;display:flex;flex-direction:column;gap:2px">
+    <span style="font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Contents</span>
+    <div aria-hidden="true" style="width:100%;background:linear-gradient(180deg,#E9ECF0,#D7DCE2);border-radius:10px;padding:8px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin-bottom:6px">
+      <sc-for list="{{ blister }}" as="b" hint-placeholder-count="14">
+        <span style="aspect-ratio:1;border-radius:50%;background:{{ b.bg }};box-shadow:{{ b.sh }};transition:background 220ms var(--ease)"></span>
+      </sc-for>
+    </div>
+    <sc-for list="{{ toc }}" as="t" hint-placeholder-count="18">
+      <sc-if value="{{ t.isHead }}" hint-placeholder-val="{{ false }}"><span style="font:500 10px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 0 4px">{{ t.label }}</span></sc-if>
+      <sc-if value="{{ t.isItem }}" hint-placeholder-val="{{ true }}"><button type="button" class="toc" onClick="{{ t.onClick }}" style="color:{{ t.color }}"><span class="cap-ic" style="background:{{ t.fill }};border:1.5px solid {{ t.edge }}"></span>{{ t.label }}</button></sc-if>
     </sc-for>
   </nav>
 </sc-if>
 
-<main style="padding:0 var(--margin-page)">
-
-<header id="overview" data-nav="overview" style="padding-top:72px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px">
-    <a href="index.html#work" style="display:inline-flex;align-items:center;gap:6px;font:500 13px/1 var(--font-sans);color:var(--text-muted);text-decoration:none"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="arrow-left" size="{{ 14 }}" hint-size="14px,14px"></x-import>All work</a>
-    <span style="font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">ASHA Companion · Designing for social needs — 2025</span>
-    <h1 data-reveal="" style="font:400 clamp(36px,4.6vw,56px)/1.04 var(--font-display);letter-spacing:-0.02em;text-wrap:balance;margin:0">If people can't get to a doctor, the system already has someone <em style="color:var(--text-accent)">at their door</em></h1>
-    <p style="font:400 17px/1.6 var(--font-sans);color:var(--text-secondary);max-width:580px;margin:0">A university project that started with field visits around Dehradun and ended with a triage tool for ASHA workers, the community health volunteers India already sends into every village and settlement.</p>
+<!-- HERO: the ASHA's pink -->
+<section id="overview" data-nav="overview" aria-label="ASHA Companion" style="position:relative;background:linear-gradient(180deg,var(--pink) 0,var(--pink) 66%,var(--paper) 66%,var(--paper) 100%);text-align:center;scroll-margin-top:96px;padding:0 clamp(20px,5vw,80px)">
+  <div style="max-width:880px;margin:0 auto;padding:80px 0 0;display:flex;flex-direction:column;align-items:center;gap:18px;color:#fff">
+    <h1 style="margin:0;font:800 clamp(60px,10.5vw,152px)/0.92 var(--font-display);letter-spacing:-0.055em">ASHA Companion</h1>
+    <p style="margin:0;font:500 clamp(18px,2vw,24px)/1.4 var(--font-display);letter-spacing:-0.01em;max-width:600px;text-wrap:balance">A triage app for the health worker already at the door: treat what’s safe, refer the rest with evidence.</p>
   </div>
-
-  <figure style="max-width:1040px;margin:48px auto 0;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px">
-      <img src="assets/asha/banner.jpg" alt="An ASHA worker holding a phone showing the Who is the patient screen, over a desk with ORS sachets, iron tablets, a stethoscope, the community health register and her ASHA ID card" style="width:100%;aspect-ratio:2576/1438;object-fit:cover;display:block;border-radius:10px">
-    
+  <figure style="position:relative;max-width:1040px;margin:56px auto 0;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--card);border-radius:26px;padding:8px;box-shadow:0 2px 6px rgba(22,27,36,.08),0 30px 60px rgba(22,27,36,.16)">
+      <img src="assets/v3/0440b7163c3d.jpg" alt="Concept render: an ASHA holds a phone showing the Who is the patient screen, over her register, ORS sachets and a stethoscope" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:19px">
     </div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">0.0</span>The ASHA Companion, starting a household checkup</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Mockup</span>
-    </figcaption>
+    <!-- the one playful touch: a rubber stamp from the visit -->
+    <svg class="stamp" role="img" aria-label="Rubber stamp: house call, Dehradun, 2025" viewBox="0 0 160 160" style="position:absolute;right:clamp(-18px,-1.4vw,-8px);top:-58px;width:clamp(110px,13vw,150px);transform:rotate(-14deg);overflow:visible">
+      <defs><path id="stampArc" d="M80 80 m-58 0 a58 58 0 1 1 116 0 a58 58 0 1 1 -116 0"></path></defs>
+      <g fill="none" stroke="#C2185B" opacity=".92">
+        <circle cx="80" cy="80" r="74" stroke-width="4" stroke-dasharray="150 3 60 4 90 2 120"></circle>
+        <circle cx="80" cy="80" r="44" stroke-width="2"></circle>
+      </g>
+      <text font-family="JetBrains Mono, monospace" font-size="13.5" font-weight="500" letter-spacing="2.6" fill="#C2185B" opacity=".92"><textPath href="#stampArc">HOUSE CALL   DEHRADUN   2025   </textPath></text>
+      <text x="80" y="77" text-anchor="middle" font-family="Plus Jakarta Sans, Inter, sans-serif" font-weight="800" font-size="19" fill="#C2185B" opacity=".92" letter-spacing="-0.5">SEEN</text>
+      <text x="80" y="96" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#C2185B" opacity=".92" letter-spacing="1">AT THE DOOR</text>
+    </svg>
+    <figcaption class="cap" style="text-align:left"><span class="l">Made to show the app where it would live: in her hand, over the paper register.</span><span class="k">Concept render</span></figcaption>
   </figure>
+</section>
 
-  <div style="max-width:880px;margin:0 auto;padding-top:56px;display:flex;flex-wrap:wrap;gap:40px">
-    <dl style="flex:1 1 240px;margin:0;display:flex;flex-direction:column;gap:18px">
-      <div style="display:flex;flex-direction:column;gap:6px"><dt style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">My role</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Field research with classmates · concept, triage logic and UI my own</dd></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><dt style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Context</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">University module · Designing for social needs</dd></div>
-      <div style="display:flex;flex-direction:column;gap:6px"><dt style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Evidence</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Site visits and street interviews in Dehradun · secondary research · no testing with ASHAs</dd></div>
-    </dl>
-    <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:14px">
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Overview</span>
-      <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">The brief was to pick a social need. I picked healthcare, and assumed the story would be about bad government hospitals. My own experience of them had never been good, so I went to test that.</p>
-      <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">What we found on the street was more uncomfortable. For many low-income families, the free option wasn't the cheap one, and the most common treatment was waiting for the illness to pass. That moved the question from “how do we fix the hospital?” to “how does care reach someone who won't go?”</p>
+<main style="padding:0 clamp(20px,5vw,80px)">
+
+<div class="w880" style="padding-top:56px;display:flex;flex-wrap:wrap;gap:40px">
+  <dl style="flex:1 1 240px;margin:0;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Role</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Fieldwork with classmates; the concept, flows and UI are mine</dd></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Course</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Designing for social needs, UPES Dehradun</dd></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><dt class="mono" style="font-size:10px;color:var(--muted)">Timeline and methods</dt><dd style="margin:0;font:400 14px/1.5 var(--font-sans)">Nov – Dec 2025: street and site interviews, a clinic doctor, an ASHA questionnaire, two facility visits, desk research</dd></div>
+  </dl>
+  <div style="flex:1.5 1 340px;display:flex;flex-direction:column;gap:14px">
+    <span class="mono" style="font-size:10px;color:var(--muted)">Overview</span>
+    <p style="font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0">In Dehradun’s bastis (informal settlements), a fever is often waited out, because every route to care costs a day’s wage or cash. ASHA Companion turns the ASHA, the government health worker who already visits these homes, into a first responder, backed by a doctor she doesn’t have to wait for.</p>
+    <p style="font:400 16px/1.7 var(--font-sans);color:var(--ink2);margin:0">The case study follows a house call: the history, the diagnosis, then the prescription.</p>
+  </div>
+</div>
+
+<div class="w880 decocard" style="margin-top:40px;background:var(--ink);color:#fff;border-radius:24px;padding:40px;position:relative;overflow:hidden">
+  <svg class="deco" aria-hidden="true" viewBox="0 0 200 200" style="position:absolute;right:-46px;top:-46px;width:180px;height:180px"><circle cx="100" cy="100" r="92" fill="#2A3140"></circle><path d="M100 52 v96 M52 100 h96" stroke="#C2185B" stroke-width="26"></path></svg>
+  <p style="position:relative;margin:0;font:600 clamp(22px,2.4vw,30px)/1.28 var(--font-display);letter-spacing:-0.02em;max-width:600px;text-wrap:balance">Why do daily-wage families wait out an illness, and who could reach them <span style="color:#F48FB8">before it gets worse?</span></p>
+</div>
+
+<!-- HISTORY BAND: ballpoint blue -->
+<section id="history" data-nav="history" aria-label="History" style="margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;position:relative;overflow:hidden;background:var(--blue);color:#fff;text-align:center;scroll-margin-top:72px">
+  <div style="max-width:760px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 24px;position:relative;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <span class="mono" style="color:#C9D4FA">History: Discover</span>
+    <p style="margin:0;font:800 clamp(44px,6.4vw,84px)/0.98 var(--font-display);letter-spacing:-0.05em">Take the history before you prescribe.</p>
+    <p class="lede" style="color:#E2E8FD">Where do people go when they fall sick, and what does getting there cost them?</p>
+  </div>
+  <!-- a stethoscope, its tube running across the band -->
+  <svg aria-hidden="true" viewBox="0 0 1200 170" preserveAspectRatio="xMidYMid meet" style="display:block;width:100%;max-width:1200px;height:auto;margin:0 auto 40px">
+    <g fill="none" stroke="#fff" stroke-linecap="round">
+      <path d="M-20 60 C 200 60, 260 140, 470 128 S 700 40, 820 88" stroke-width="10" stroke-opacity=".9"></path>
+      <path d="M820 88 C 880 112, 900 60, 860 40" stroke-width="10" stroke-opacity=".9"></path>
+      <path d="M820 88 C 860 140, 940 140, 952 88" stroke-width="10" stroke-opacity=".9"></path>
+      <path d="M860 40 l-6 -16 M952 88 l4 -18" stroke-width="6"></path>
+    </g>
+    <circle cx="854" cy="22" r="7" fill="#fff"></circle><circle cx="957" cy="68" r="7" fill="#fff"></circle>
+    <circle cx="-20" cy="60" r="34" fill="#C9D4FA"></circle><circle cx="-20" cy="60" r="22" fill="#fff"></circle>
+  </svg>
+</section>
+
+<section id="fieldwork" data-nav="fieldwork" class="sec">
+  <div class="head">
+    <h2 class="h2">We listened where people fall sick, not only where they get treated</h2>
+    <p class="lede">Construction sites, a basti clinic at night, a government health centre and a private hospital’s waiting room.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="bento" style="display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:260px 260px;gap:8px">
+      <div style="grid-column:1;grid-row:1 / span 2"><img class="photo" src="assets/v3/bdfad8ea0406.jpg" alt="Parthiv taking notes at night outside Prem Clinic, Dr Pradeep Chamoli’s small clinic in Kandoli" style="object-position:40% 40%"></div>
+      <div><img class="photo" src="assets/v3/1c23c3a01cdd.jpg" alt="Photographing the entrance of the Community Health Centre in Raipur, Dehradun" style="object-position:50% 45%"></div>
+      <div><img class="photo" src="assets/v3/cef96113eca3.jpg" alt="Rows of grey steel chairs in a hospital waiting hall" style="object-position:50% 60%"></div>
+      <div style="grid-column:2 / span 2"><img class="photo" src="assets/v3/035916d3c030.jpg" alt="Whiteboard synthesis: a construction worker, a dependent woman and a child as stakeholders, linked to Dr Chamoli and the factors that bring people to him" style="object-position:30% 55%"></div>
     </div>
-  </div>
-
-  <div style="max-width:1040px;margin:72px auto 0;display:flex;flex-direction:column;gap:16px">
-    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Highlights</span>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
-      <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:10px">
-        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/asha/mock-home.jpg" alt="Hand holding a phone showing the app home: New Checkup and 3 cases pending upload" style="width:100%;aspect-ratio:4/3.4;object-fit:cover;object-position:50% 50%;display:block;border-radius:10px"></div>
-        <figcaption style="display:flex;justify-content:space-between;gap:12px;padding:0 4px"><span style="font:500 14px/1.3 var(--font-sans)">Works with no signal</span><span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">ASHA app</span></figcaption>
-      </figure>
-      <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:10px">
-        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><div style="width: 100%; aspect-ratio: 4/3.4; border-radius: 10px; display: flex; justify-content: center; overflow: hidden; background-color: #E2E8F0"><img src="assets/asha/app-pain.png" alt="Body map screen" style="height: 334px; margin-top: -4%; display: block; width: 149px"></div></div>
-        <figcaption style="display:flex;justify-content:space-between;gap:12px;padding:0 4px"><span style="font:500 14px/1.3 var(--font-sans)">A body map instead of a form</span><span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">ASHA app</span></figcaption>
-      </figure>
-      <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:10px">
-        <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/asha/mock-laptop.jpg" alt="Laptop on a clinic desk showing the doctor's priority queue sorted by risk score" style="width:100%;aspect-ratio:4/3.4;object-fit:cover;object-position:45% 50%;display:block;border-radius:10px"></div>
-        <figcaption style="display:flex;justify-content:space-between;gap:12px;padding:0 4px"><span style="font:500 14px/1.3 var(--font-sans)">Sickest first, not first come</span><span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Doctor portal</span></figcaption>
-      </figure>
-    </div>
-  </div>
-</header>
-
-<section id="context" data-nav="context" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">01</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Context</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">In India, getting sick is one of the fastest ways to <em style="color:var(--text-accent)">become poor</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">A low-income patient has two options, and both cost something. Government care costs time and dignity. Private care costs money. Most decisions about health get made somewhere in that tug of war.</p>
-  </div>
-
-  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-direction:column">
-    <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--border-strong);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span>The scale, from secondary research</span><span>What it measures</span></div>
-    <sc-for list="{{ scale }}" as="s" hint-placeholder-count="3">
-      <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:8px 32px;padding:22px 0;border-bottom:1px solid var(--border-default);align-items:baseline">
-        <span style="flex:0 0 200px;font:500 clamp(30px,3.4vw,40px)/1 var(--font-sans);letter-spacing:-0.03em;font-variant-numeric:tabular-nums">{{ s.v }}</span>
-        <span style="flex:1 1 360px;font:400 15px/1.6 var(--font-sans);color:var(--text-secondary)">{{ s.d }}</span>
+    <figcaption class="cap"><span class="l"><span class="n">1.0</span>Fieldwork in Dehradun, November 2025, and the whiteboard where the stakeholders first took shape.</span><span class="k">Field visits</span></figcaption>
+  </figure>
+  <div class="w880" style="display:flex;flex-direction:column;border-top:2px solid var(--ink)">
+    <sc-for list="{{ who }}" as="w" hint-placeholder-count="4">
+      <div class="rrow" style="display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)">
+        <span class="tnum" style="font:700 clamp(28px,3vw,38px)/1 var(--font-display);letter-spacing:-0.04em;color:{{ w.c }}">{{ w.n }}</span>
+        <span style="font:500 16px/1.45 var(--font-sans)">{{ w.t }}</span>
+        <span class="mono" style="font-size:10px;color:var(--muted)">{{ w.k }}</span>
       </div>
     </sc-for>
   </div>
 </section>
 
-<section id="field" data-nav="field" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">02</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Fieldwork</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">We went to three places, and were turned away from <em style="color:var(--text-accent)">the first</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">The plan was to see a government Community Health Centre, talk to the people who rely on it, then compare a private hospital. The CHC didn't give us permission to interview staff, so we observed from the public areas instead.</p>
+<section id="distance" data-nav="distance" class="sec">
+  <div class="head">
+    <h2 class="h2">Care starts at home, and every ring outward costs more</h2>
+    <p class="lede">Who people turn to first, in the order they described it. The ASHA lives in the second ring, but nobody named her as someone who treats.</p>
   </div>
-
-  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-direction:column;gap:5px">
-      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:10px 12px">
-        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tabs" variant="pill" items="{{ siteItems }}" value="{{ site }}" on-change="{{ onSite }}" hint-size="420px,40px"></x-import>
-        <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">{{ cs.where }}</span>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:5px">
-        <div style="flex:1.2 1 360px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px">
-          <sc-for list="{{ cs.photos }}" as="p" hint-placeholder-count="2">
-            <img src="{{ p.src }}" alt="{{ p.alt }}" style="width:100%;height:100%;min-height:220px;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:10px">
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <h3 class="ftitle" style="margin-bottom:8px">The distance to care</h3>
+    <div class="split" style="display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);gap:16px;align-items:stretch">
+      <div class="hscroll" style="background:var(--card);border-radius:24px;padding:16px">
+        <div style="position:relative;width:100%;aspect-ratio:1;max-width:560px;margin:0 auto">
+          <sc-for list="{{ rings }}" as="r" hint-placeholder-count="3">
+            <div aria-hidden="true" style="position:absolute;inset:{{ r.inset }};border-radius:50%;background:{{ r.bg }};border:1.5px {{ r.dash }} {{ r.edge }};transition:background 220ms var(--ease)"></div>
+          </sc-for>
+          <div style="position:absolute;left:50%;top:50%;width:15%;aspect-ratio:1;transform:translate(-50%,-50%);display:grid;place-items:center">
+            <svg role="img" aria-label="The patient’s home" viewBox="0 0 60 60" style="width:100%"><path d="M8 28 L30 8 L52 28" fill="none" stroke="#161B24" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"></path><path d="M14 26 V52 H46 V26" fill="#fff" stroke="#161B24" stroke-width="4" stroke-linejoin="round"></path><rect x="25" y="36" width="10" height="16" fill="#C2185B"></rect></svg>
+          </div>
+          <sc-for list="{{ places }}" as="pl" hint-placeholder-count="11">
+            <span class="chip" style="left:{{ pl.x }};top:{{ pl.y }};background:{{ pl.bg }};color:{{ pl.fg }};opacity:{{ pl.op }};box-shadow:0 1px 2px rgba(22,27,36,.08),0 4px 12px rgba(22,27,36,.06)">{{ pl.name }}</span>
           </sc-for>
         </div>
-        <div style="flex:1 1 320px;background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:18px">
-          <span style="font:400 26px/1.1 var(--font-display);text-wrap:balance">{{ cs.title }}</span>
-          <sc-for list="{{ cs.notes }}" as="n" hint-placeholder-count="3">
-            <div style="display:flex;gap:12px;padding-top:14px;border-top:1px solid var(--border-subtle)">
-              <span style="flex:none;width:14px;font:500 15px/1.4 var(--font-sans);color:{{ n.color }}">{{ n.sign }}</span>
-              <div style="display:flex;flex-direction:column;gap:4px"><span style="font:500 14px/1.35 var(--font-sans)">{{ n.t }}</span><span style="font:400 13px/1.55 var(--font-sans);color:var(--text-muted)">{{ n.d }}</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div role="group" aria-label="Rings" style="display:flex;flex-direction:column;gap:6px">
+          <sc-for list="{{ ringBtns }}" as="b" hint-placeholder-count="3">
+            <button type="button" class="ring" onClick="{{ b.pick }}" aria-pressed="{{ b.sel }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-radius:16px;border:1.5px solid {{ b.edge }};background:{{ b.bg }};font:600 15px/1.2 var(--font-sans);color:var(--ink);text-align:left"><span>{{ b.name }}</span><span class="mono" style="font-size:10px;color:var(--muted)">{{ b.k }}</span></button>
+          </sc-for>
+        </div>
+        <div aria-live="polite" style="flex:1;background:var(--ink);color:#fff;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+            <div><span class="mono" style="font-size:10px;color:#A8B0BE">Paid in money</span><p class="tnum" style="margin:6px 0 0;font:600 17px/1.3 var(--font-display)">{{ ringSel.money }}</p></div>
+            <div><span class="mono" style="font-size:10px;color:#A8B0BE">Paid in time</span><p style="margin:6px 0 0;font:600 17px/1.3 var(--font-display)">{{ ringSel.time }}</p></div>
+          </div>
+          <p style="margin:0;font:400 14px/1.6 var(--font-sans);color:#DCE1EA;border-top:1px solid #2E3647;padding-top:14px">{{ ringSel.note }}</p>
+        </div>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.1</span>Rings show the order people turn to, not kilometres. Mapped from interviews and desk research.</span><span class="k">Interactive, care map</span></figcaption>
+  </figure>
+</section>
+
+<section id="bill" data-nav="bill" class="sec">
+  <div class="head">
+    <h2 class="h2">Free care stops being free once you count the day it takes</h2>
+    <p class="lede">For a daily-wage worker, the government centre is paid for in time, the basti clinic in cash, and waiting costs nothing until it does.</p>
+  </div>
+  <figure class="w880" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div style="position:relative;background:var(--card);border-radius:20px 20px 0 0;padding:clamp(24px,4vw,40px) clamp(20px,4vw,40px) 36px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:2px dashed var(--ink)">
+        <h3 class="ftitle">The bill for one fever</h3>
+        <span style="display:flex;gap:16px;font:400 12px/1 var(--font-sans);color:var(--ink2)"><span style="display:inline-flex;gap:8px;align-items:center"><span style="width:18px;height:10px;border-radius:3px;background:var(--pink)"></span>Cash</span><span style="display:inline-flex;gap:8px;align-items:center"><span style="width:18px;height:10px;border-radius:3px;background:var(--blue)"></span>Wage lost to time</span></span>
+      </div>
+      <sc-for list="{{ bill }}" as="b" hint-placeholder-count="3">
+        <div style="padding:22px 0;border-bottom:1px dashed #C9D0DA;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap"><span style="font:600 18px/1.25 var(--font-display);letter-spacing:-0.01em">{{ b.name }}</span><span class="tnum" style="font:700 22px/1 var(--font-display);letter-spacing:-0.02em;color:{{ b.tc }}">{{ b.total }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <sc-for list="{{ b.lines }}" as="li" hint-placeholder-count="2"><div style="display:flex;justify-content:space-between;gap:16px;font:400 14px/1.5 var(--font-mono);color:var(--ink2)"><span>{{ li.t }}</span><span class="tnum" style="white-space:nowrap">{{ li.v }}</span></div></sc-for>
+          </div>
+          <div aria-hidden="true" style="display:flex;height:12px;border-radius:4px;background:#EEF1F4;overflow:hidden"><span style="width:{{ b.mw }};background:var(--pink)"></span><span style="width:{{ b.tw }};background:var(--blue)"></span></div>
+        </div>
+      </sc-for>
+      <p style="margin:20px 0 0;font:500 16px/1.5 var(--font-display);color:var(--ink)">One hospital admission costs an urban family about <span class="tnum">₹6,800</span>, about fourteen days’ wages.</p>
+    </div>
+    <div aria-hidden="true" style="height:14px;margin-top:-10px;background:linear-gradient(-45deg,transparent 9px,#fff 0) 0 0/18px 14px repeat-x,linear-gradient(45deg,transparent 9px,#fff 0) 0 0/18px 14px repeat-x"></div>
+    <figcaption class="cap"><span class="l"><span class="n">1.2</span>Bars on one scale, time converted at ₹482 for a nine-hour day. Wage and admission cost from desk research; clinic price from my notes. Not costed per case.</span><span class="k">Desk research</span></figcaption>
+  </figure>
+</section>
+
+<section id="doctors" data-nav="doctors" class="sec">
+  <div class="head">
+    <h2 class="h2">The doctor is the scarcest thing in the system</h2>
+    <p class="lede">The norm is one doctor for every thousand people. In Uttarakhand, each government doctor serves almost eight times that, and the hills are emptier still.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--card);border-radius:24px;padding:clamp(20px,3vw,36px);display:flex;flex-direction:column;gap:8px">
+      <sc-for list="{{ queues }}" as="q" hint-placeholder-count="2">
+        <div class="lane" style="display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:center;padding:18px 0;border-top:{{ q.bt }}">
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font:600 15px/1.3 var(--font-sans)">{{ q.name }}</span><span class="tnum" style="font:700 26px/1 var(--font-display);letter-spacing:-0.03em;color:{{ q.c }}">{{ q.ratio }}</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px">
+            <span title="One doctor" style="flex:none;width:28px;height:28px;border-radius:8px;background:var(--ink);display:grid;place-items:center"><svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14"><path d="M10 4v12M4 10h12" stroke="#fff" stroke-width="3.2"></path></svg></span>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;padding-top:6px">
+              <sc-for list="{{ q.dots }}" as="d" hint-placeholder-count="20"><span style="width:12px;height:16px;border-radius:6px 6px 3px 3px;background:{{ q.c }}"></span></sc-for>
             </div>
+          </div>
+        </div>
+      </sc-for>
+      <p style="margin:12px 0 0;padding-top:18px;border-top:1px solid var(--line);font:500 16px/1.5 var(--font-display);color:var(--ink);max-width:720px">Dehradun district is 45% short of specialists, and its Chief Medical Officer has called the local health centres “referral centres”.</p>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.3</span>Each seat is 100 people per government doctor. State figure from 2016; the norm is the commonly cited 1 : 1,000.</span><span class="k">Desk research</span></figcaption>
+  </figure>
+</section>
+
+<section id="asha" data-nav="asha" class="sec">
+  <div class="head">
+    <h2 class="h2">Someone already visits every home, and she spends the visit on paperwork</h2>
+    <p class="lede">India pays an ASHA (Accredited Social Health Activist) from each community to visit its households. We asked 22 of them about their day, their apps and what they feel allowed to do.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="split" style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);gap:16px;align-items:stretch">
+      <div style="background:var(--card);border-radius:20px;padding:clamp(24px,3vw,36px);background-image:repeating-linear-gradient(180deg,transparent 0,transparent 47px,#DCE4F7 47px,#DCE4F7 48px);background-position:0 92px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:14px;border-bottom:2px solid var(--blue)">
+          <h3 class="ftitle">The register</h3>
+          <span class="mono" style="font-size:10px;color:var(--blue)">22 ASHA respondents</span>
+        </div>
+        <sc-for list="{{ tallies }}" as="r" hint-placeholder-count="3">
+          <div style="padding:16px 0;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font:600 15px/1.35 var(--font-sans);color:var(--ink)">{{ r.t }}</span><span class="tnum" style="font:700 22px/1 var(--font-display);color:var(--blue)">{{ r.v }}</span></div>
+            <sc-if value="{{ r.isTally }}" hint-placeholder-val="{{ true }}">
+              <div aria-hidden="true" style="display:flex;flex-wrap:wrap;gap:12px">
+                <sc-for list="{{ r.groups }}" as="g" hint-placeholder-count="5"><span class="tally"><sc-for list="{{ g.sticks }}" as="s" hint-placeholder-count="4"><i></i></sc-for><sc-if value="{{ g.diag }}" hint-placeholder-val="{{ true }}"><b></b></sc-if></span></sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ r.isBar }}" hint-placeholder-val="{{ false }}">
+              <div aria-hidden="true" style="position:relative;height:30px;border-radius:6px;background:repeating-linear-gradient(90deg,#EEF2FB 0,#EEF2FB 9.6%,#fff 9.6%,#fff 10%)"><span style="position:absolute;left:0;top:0;bottom:0;width:20%;background:var(--blue);border-radius:6px 0 0 6px"></span><span style="position:absolute;left:20%;top:0;bottom:0;width:10%;background:repeating-linear-gradient(-45deg,var(--blue) 0,var(--blue) 3px,var(--blue-l) 3px,var(--blue-l) 7px)"></span></div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <sc-for list="{{ ashaNotes }}" as="a" hint-placeholder-count="3">
+          <div style="padding:18px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px"><span style="font:600 16px/1.35 var(--font-display);letter-spacing:-0.01em">{{ a.t }}</span><span class="p" style="font-size:14px">{{ a.d }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">1.4</span>Tally marks are counts, not individuals. 63% shown as 14 of 22, rounded. Hatched: the 20 to 30% range of visits with no signal.</span><span class="k">ASHA questionnaire, n = 22</span></figcaption>
+  </figure>
+</section>
+
+<section id="insight" class="sec" style="padding-top:112px">
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div style="border-radius:20px;overflow:hidden;background:var(--sunken)"><img src="assets/v3/3302f4561e5a.jpg" alt="Whiteboard: the system treats patients’ time as worthless, with physical losses (money, dubious diagnosis, lost wage, improper medication, time) and emotional ones (stress, dignity, confidence)" style="display:block;width:100%;aspect-ratio:21/9;object-fit:cover;object-position:20% 72%"></div>
+    <figcaption class="cap"><span class="l"><span class="n">1.5</span>The synthesis wall, lower left: what one sick day takes from a daily-wage family.</span><span class="k">Synthesis</span></figcaption>
+  </figure>
+  <div class="w880" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px;padding-top:16px">
+    <p style="margin:0;font:700 clamp(28px,3.4vw,44px)/1.14 var(--font-display);letter-spacing:-0.035em;max-width:780px;text-wrap:balance">The system already pays someone to visit every home. It never <span style="color:var(--pink)">let her decide anything.</span></p>
+      </div>
+</section>
+
+<!-- DIAGNOSIS BAND: the ASHA's pink -->
+<section id="diagnosis" data-nav="diagnosis" aria-label="Diagnosis" style="margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;position:relative;overflow:hidden;background:var(--pink);color:#fff;text-align:center;scroll-margin-top:72px">
+  <div style="max-width:760px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 40px;position:relative;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <span class="mono" style="color:#FFD3E3">Diagnosis: Define</span>
+    <p style="margin:0;font:800 clamp(44px,6.4vw,84px)/0.98 var(--font-display);letter-spacing:-0.05em">Name the condition before you treat it.</p>
+    <p class="lede" style="color:#FFE6EF">If doctors can’t be added, what can the person at the door safely do?</p>
+  </div>
+  <!-- a clinical thermometer, read like the triage it leads to -->
+  <div aria-hidden="true" style="max-width:820px;margin:0 auto;padding:16px clamp(20px,5vw,80px) 72px">
+    <div style="position:relative;height:44px;display:flex;align-items:center">
+      <span style="position:absolute;left:0;width:44px;height:44px;border-radius:50%;background:#fff"></span>
+      <span style="position:absolute;left:30px;right:0;height:20px;border-radius:0 999px 999px 0;background:#fff"></span>
+      <span style="position:absolute;left:8px;width:28px;height:28px;border-radius:50%;background:var(--red)"></span>
+      <span style="position:absolute;left:30px;width:58%;height:10px;border-radius:0 6px 6px 0;background:linear-gradient(90deg,var(--red) 0,var(--red) 100%)"></span>
+      <span style="position:absolute;left:30px;right:16px;top:30px;height:8px;background:repeating-linear-gradient(90deg,#8E0F43 0,#8E0F43 1.5px,transparent 1.5px,transparent 4%)"></span>
+    </div>
+    <div class="mono" style="display:flex;justify-content:space-between;padding:14px 0 0 44px;font-size:10px;color:#FFD3E3"><span>Treat at the door</span><span>Refer with evidence</span></div>
+  </div>
+</section>
+
+<section id="constraint" data-nav="constraint" class="sec">
+  <div class="head">
+    <h2 class="h2">I can’t add doctors, so each doctor’s minute has to go further</h2>
+    <p class="lede">eSanjeevani, the government’s teleconsult app, already exists. It asks the patient and the doctor to be online at the same moment, which the hills rarely allow.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--card);border-radius:24px;padding:clamp(20px,3vw,36px);display:flex;flex-direction:column;gap:4px">
+      <sc-for list="{{ lanes }}" as="l" hint-placeholder-count="2">
+        <div style="padding:18px 0;border-top:{{ l.bt }};display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font:600 17px/1.3 var(--font-display)">{{ l.name }}</span><span class="mono" style="font-size:10px;color:{{ l.kc }}">{{ l.k }}</span></div>
+          <div class="hscroll"><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px">
+            <sc-for list="{{ l.segs }}" as="s" hint-placeholder-count="4">
+              <div style="border-radius:12px;padding:14px;min-height:86px;display:flex;flex-direction:column;gap:6px;background:{{ s.bg }};border:1.5px {{ s.dash }} {{ s.edge }}"><span class="mono" style="font-size:10px;color:{{ s.kc }}">{{ s.who }}</span><span style="font:600 14px/1.3 var(--font-sans);color:var(--ink)">{{ s.t }}</span></div>
+            </sc-for>
+          </div></div>
+        </div>
+      </sc-for>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">2.0</span>The two models side by side. A diagram of the waiting, not a timed measurement.</span><span class="k">Live call vs store-and-forward</span></figcaption>
+  </figure>
+  <div class="w880" style="background:var(--ink);color:#fff;border-radius:24px;padding:36px 40px;position:relative;overflow:hidden">
+    <svg aria-hidden="true" viewBox="0 0 120 120" style="position:absolute;right:-30px;bottom:-30px;width:130px;height:130px"><circle cx="60" cy="60" r="56" fill="#2A3140"></circle><path d="M42 30 h18 a14 14 0 0 1 0 28 h-18 z M42 30 v60 M58 58 l22 32 M66 90 l14 -14" fill="none" stroke="#C2185B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+    <p style="position:relative;margin:0;font:600 clamp(19px,1.9vw,23px)/1.45 var(--font-display);letter-spacing:-0.015em;max-width:680px">The reasoning in one chain: doctors are scarce and won’t move to the hills. The ASHA is already in the home but won’t act without backing. So she triages. Safe cases end at her door, and the rest reach a doctor as <span style="color:#F48FB8">a packet he reviews in his own time.</span></p>
+  </div>
+</section>
+
+<section id="role" data-nav="role" class="sec">
+  <div class="head">
+    <h2 class="h2">From data clerk to health navigator</h2>
+    <p class="lede">The same visit, the same woman, a different job description.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="hscroll" style="background:var(--card);border-radius:24px;padding:8px">
+      <div>
+        <div style="display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1fr)"><span class="mono" style="padding:16px;font-size:10px;color:var(--muted)">On the visit</span><span class="mono" style="padding:16px;font-size:10px;color:var(--muted)">Today</span><span class="mono" style="padding:16px;font-size:10px;color:var(--pink-d);background:var(--pink-t);border-radius:12px 12px 0 0">With the app</span></div>
+        <sc-for list="{{ roles }}" as="r" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1fr);border-top:1px solid var(--line);align-items:stretch">
+            <span style="padding:16px;font:600 14px/1.35 var(--font-sans)">{{ r.k }}</span>
+            <span style="padding:16px;font:400 14px/1.5 var(--font-sans);color:var(--muted)">{{ r.a }}</span>
+            <span style="padding:16px;font:500 14px/1.5 var(--font-sans);color:var(--ink);background:var(--pink-t);border-radius:{{ r.rad }}">{{ r.b }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">2.1</span>“Today” from the questionnaire and interviews; “With the app” is the proposal, untested.</span><span class="k">Role reframe</span></figcaption>
+  </figure>
+  <div class="w1040" style="background:var(--ink);color:#fff;border-radius:28px;padding:clamp(28px,4vw,48px);text-align:center;position:relative;overflow:hidden">
+    <span class="mono" style="position:relative;color:#A8B0BE">How might we</span>
+    <p style="position:relative;margin:16px auto 0;font:700 clamp(24px,3vw,36px)/1.2 var(--font-display);letter-spacing:-0.03em;max-width:800px;text-wrap:balance">help an ASHA settle minor illness at the doorstep, and send the rest to a doctor <span style="color:#F48FB8">with the evidence he needs,</span> without adding paperwork?</p>
+  </div>
+</section>
+
+<!-- PRESCRIPTION BAND: triage green -->
+<section id="prescription" data-nav="prescription" aria-label="Prescription" style="margin:128px calc(-1 * clamp(20px,5vw,80px)) 0;position:relative;overflow:hidden;background:var(--green);color:#fff;text-align:center;scroll-margin-top:72px">
+  <div style="max-width:780px;margin:0 auto;padding:112px clamp(20px,5vw,80px) 24px;position:relative;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <span class="mono" style="color:#C8EBD8">Prescription: Design</span>
+    <p style="margin:0;font:800 clamp(44px,6.4vw,84px)/0.98 var(--font-display);letter-spacing:-0.05em">Write a prescription she can follow.</p>
+    <p class="lede" style="color:#E3F5EB">An extension to eSanjeevani, offline and in Hindi, built around one house call.</p>
+  </div>
+  <!-- a blister strip of five: one per part of the prescription -->
+  <div aria-hidden="true" style="display:flex;justify-content:center;padding:24px 20px 72px">
+    <div style="display:flex;align-items:center;gap:clamp(10px,2vw,22px);background:linear-gradient(180deg,#E9EEF0,#C7D0D4);border-radius:18px;padding:18px clamp(16px,3vw,30px)">
+      <span style="font:800 40px/1 var(--font-display);color:var(--green-d);margin-right:4px">℞</span>
+      <sc-for list="{{ rxPills }}" as="p" hint-placeholder-count="5">
+        <span style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:clamp(34px,5vw,54px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0,#F3F6F7 40%,#D5DCDF 100%);box-shadow:inset 0 -3px 6px rgba(0,0,0,.12),0 1px 0 #fff;display:grid;place-items:center"><span style="width:58%;height:30%;border-radius:999px;background:{{ p.c }}"></span></span><span class="mono" style="font-size:10px;color:var(--green-d)">{{ p.id }}</span></span>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="trace" data-nav="trace" class="sec">
+  <div class="head">
+    <h2 class="h2">Every part of the prescription answers a symptom we heard</h2>
+    <p class="lede">Five symptoms from the fieldwork, five parts of the design. Nothing in the app exists without one.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;flex-direction:column;border-top:2px solid var(--ink)">
+      <sc-for list="{{ trace }}" as="t" hint-placeholder-count="5">
+        <div class="trow" style="display:grid;grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr);gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)">
+          <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:baseline"><span class="mono" style="color:var(--red)">{{ t.s }}</span><span style="font:400 15px/1.45 var(--font-sans);color:var(--ink2)">{{ t.sym }}<span class="mono" style="font-size:10px;color:var(--muted);margin-left:8px">{{ t.ev }}</span></span></div>
+          <span class="tl" aria-hidden="true" style="height:2px;background:repeating-linear-gradient(90deg,#AEB6C2 0 6px,transparent 6px 10px)"></span>
+          <div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:baseline"><span class="mono" style="color:var(--green)">{{ t.rx }}</span><span style="font:600 15px/1.4 var(--font-sans);color:var(--ink)">{{ t.fix }}</span></div>
+        </div>
+      </sc-for>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">3.0</span>S = symptom, Rx = the design’s answer. S3 is my inference from literacy research, not a survey finding.</span><span class="k">Traceability</span></figcaption>
+  </figure>
+</section>
+
+<section id="visit" data-nav="visit" class="sec">
+  <div class="head">
+    <h2 class="h2">One house call, from knock to verdict</h2>
+    <p class="lede">Step through the five screens as the ASHA would. Each one says which part of the prescription it carries.</p>
+  </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="visit" style="background:linear-gradient(180deg,var(--sunken) 0,#EEF1F4 100%);border-radius:28px;padding:clamp(20px,4vw,48px);display:flex;gap:clamp(24px,4vw,56px);align-items:center">
+      <div class="phone"><img src="{{ stepSel.img }}" alt="{{ stepSel.alt }}" style="display:block;width:100%;aspect-ratio:824/1834;border-radius:34px;background:var(--appbg)"></div>
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:14px;width:100%">
+        <div role="group" aria-label="Visit screens" style="display:flex;flex-direction:column;gap:2px">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+            <button type="button" class="step" aria-pressed="{{ s.sel }}" onClick="{{ s.pick }}"><span class="tnum" style="width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:600 11px/1 var(--font-mono);background:{{ s.dot }};color:{{ s.dotc }}">{{ s.n }}</span>{{ s.name }}</button>
           </sc-for>
         </div>
-      </div>
-    </div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">2.{{ siteNum }}</span>{{ cs.caption }}</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Field photos · notes</span>
-    </figcaption>
-  </figure>
-
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
-    <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="2">
-      <blockquote data-reveal="" style="margin:0;border-top:1px solid var(--border-strong);padding-top:24px;display:flex;flex-direction:column;gap:14px">
-        <span style="font:400 italic 28px/1.2 var(--font-display);text-wrap:balance">“{{ q.hi }}”</span>
-        <span style="font:400 15px/1.55 var(--font-sans);color:var(--text-secondary)">{{ q.en }}</span>
-        <span style="font:500 10px/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">— {{ q.who }}</span>
-      </blockquote>
-    </sc-for>
-  </div>
-
-  <div style="max-width:720px;margin:0 auto;width:100%;background:var(--accent-soft);border-radius:var(--radius-lg);padding:28px 32px;display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;box-sizing:border-box">
-    <span style="display:inline-flex;align-items:center;gap:8px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="lightbulb" size="{{ 14 }}" hint-size="14px,14px"></x-import>Insight</span>
-    <p style="font:400 26px/1.3 var(--font-display);color:var(--text-primary);text-wrap:balance;margin:0">If ₹300 is too much to visit her own daughter, it's hard to imagine her spending it on <em>a fever</em>.</p>
-  </div>
-</section>
-
-<section id="cost" data-nav="cost" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">03</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The real cost</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:620px;margin:0">Free care stops being free once you count <em style="color:var(--text-accent)">the day it takes</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">I mapped where the settlements we visited sit against the nearest care. The government centres were a bus ride away. Small private clinics, the single-room kind often run by an unqualified practitioner, were a short walk.</p>
-  </div>
-
-  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-direction:column;gap:5px">
-      <div style="display:flex;flex-wrap:wrap;gap:5px;align-items:stretch">
-        <div style="flex:1.25 1 340px;background:var(--surface-card);border-radius:10px;padding:5px;display:flex;flex-direction:column;gap:5px">
-          <img src="./anewsocial-needs.jpg" alt="Map of Dehradun with eight pins spread across the city: Kulhan, Hathibarkala, Indra Nagar, central Dehradun, Raipur, Ajabpur Kalan and Banjarawala" style="width:100%;flex:1;min-height:0;aspect-ratio:7896/6306;object-fit:cover;display:block;border-radius:6px">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 10px 8px"><span style="font:400 22px/1.1 var(--font-display)">Informal settlements</span><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Spread across the city</span></div>
+        <div aria-live="polite" style="background:var(--card);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:10px">
+          <span class="mono" style="font-size:10px;color:var(--green)">{{ stepSel.rx }}</span>
+          <p style="margin:0;font:500 17px/1.45 var(--font-display);color:var(--ink)">{{ stepSel.note }}</p>
         </div>
-        <div style="flex:1 1 280px;background:var(--surface-card);border-radius:10px;padding:5px;display:flex;flex-direction:column;gap:5px">
-          <img src="./bnewsocial-needs.jpg" alt="Closer map of Dehradun with pins clustered around the city centre, Karanpur and Ajabpur Kalan" style="width:100%;flex:1;min-height:0;aspect-ratio:7896/6306;object-fit:cover;object-position:50% 45%;display:block;border-radius:6px">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 10px 8px"><span style="font:400 22px/1.1 var(--font-display)">Tier-3 private clinics</span><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Clustered close by</span></div>
-        </div>
+        <div style="display:flex;gap:8px"><button type="button" class="btn" onClick="{{ prev }}" disabled="{{ atStart }}">Back</button><button type="button" class="btn" onClick="{{ next }}" disabled="{{ atEnd }}" style="background:var(--ink);color:#fff;border-color:var(--ink)">Next screen</button></div>
       </div>
-      <p style="font:400 14px/1.55 var(--font-sans);color:var(--text-secondary);margin:0;padding:12px 14px">Tier 3 covers everything from a 20-bed nursing home to a single-room clinic run by an unregistered practitioner. Near Kulhan and Ajabpur Kalan, the clinics sit within walking distance of the settlements.</p>
     </div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">3.0</span>Settlements sit next to tier-3 private care, Dehradun</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Maps · FigJam</span>
-    </figcaption>
+    <div class="hide-sm" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;padding:8px 4px 0">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5"><button type="button" onClick="{{ s.pick }}" aria-label="{{ s.label }}" style="appearance:none;border:0;padding:0;background:none;cursor:pointer;opacity:{{ s.op }};transition:opacity 220ms var(--ease)"><img src="{{ s.img }}" alt="" style="display:block;width:100%;aspect-ratio:824/1834"></button></sc-for>
+    </div>
+    <figcaption class="cap"><span class="l"><span class="n">3.1</span>The five latest frames from my Figma file, unedited. Example data; the authorised action and its limit are placeholders.</span><span class="k">Interactive, prototype screens</span></figcaption>
   </figure>
-
-  <figure style="max-width:960px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-wrap:wrap;gap:5px">
-      <div style="flex:1.2 1 320px;background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:20px">
-        <label style="display:flex;flex-direction:column;gap:10px">
-          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Daily wage<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">₹{{ wage }}</span></span>
-          <input type="range" min="100" max="1000" step="25" value="{{ wage }}" onInput="{{ onWage }}" onChange="{{ onWage }}">
-        </label>
-        <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent);padding-top:6px;border-top:1px solid var(--border-subtle)">Government centre</span>
-        <label style="display:flex;flex-direction:column;gap:10px">
-          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Travel, both ways<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">₹{{ pubTravel }}</span></span>
-          <input type="range" min="0" max="600" step="10" value="{{ pubTravel }}" onInput="{{ onPubTravel }}" onChange="{{ onPubTravel }}">
-        </label>
-        <label style="display:flex;flex-direction:column;gap:10px">
-          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Hours away from work<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">{{ pubHours }} h</span></span>
-          <input type="range" min="1" max="8" step="1" value="{{ pubHours }}" onInput="{{ onPubHours }}" onChange="{{ onPubHours }}">
-        </label>
-        <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent);padding-top:6px;border-top:1px solid var(--border-subtle)">Local private clinic</span>
-        <label style="display:flex;flex-direction:column;gap:10px">
-          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Fee, with medicine<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">₹{{ privFee }}</span></span>
-          <input type="range" min="50" max="800" step="10" value="{{ privFee }}" onInput="{{ onPrivFee }}" onChange="{{ onPrivFee }}">
-        </label>
-        <label style="display:flex;flex-direction:column;gap:10px">
-          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Hours away from work<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">{{ privHours }} h</span></span>
-          <input type="range" min="0" max="8" step="1" value="{{ privHours }}" onInput="{{ onPrivHours }}" onChange="{{ onPrivHours }}">
-        </label>
-      </div>
-      <div style="flex:1 1 280px;background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:22px;justify-content:center">
-        <sc-for list="{{ costBars }}" as="b" hint-placeholder-count="2">
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">{{ b.label }}</span><span style="font:500 32px/1 var(--font-sans);letter-spacing:-0.03em;font-variant-numeric:tabular-nums">₹{{ b.total }}</span></div>
-            <div style="height:10px;border-radius:var(--radius-pill);background:var(--surface-sunken);overflow:hidden"><div style="height:100%;width:{{ b.w }};background:{{ b.fill }};border-radius:var(--radius-pill);transition:width var(--dur-base) var(--ease-out)"></div></div>
-            <span style="font:400 12px/1.4 var(--font-sans);color:var(--text-muted)">{{ b.split }}</span>
-          </div>
-        </sc-for>
-        <p style="font:400 14px/1.55 var(--font-sans);color:var(--text-secondary);margin:0;padding-top:14px;border-top:1px solid var(--border-subtle)">{{ costVerdict }}</p>
-      </div>
-    </div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">3.1</span>What one visit costs a daily-wage worker · example numbers</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Interactive model</span>
-    </figcaption>
-  </figure>
-
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:14px">
-    <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Comparing our interview notes with published fee data, the nearby private clinic came out cheaper and faster than the government centre in a surprising number of cases. But the cheapest option of all was the one people kept describing: do nothing, and wait for it to go away. Every reason above points there.</p>
-  </div>
 </section>
 
-<section id="doctors" data-nav="doctors" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">04</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The other side</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:620px;margin:0">India trains a lot of doctors. Few of them <em style="color:var(--text-accent)">want these posts</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">India has over a lakh MBBS seats a year, one of the highest numbers in the world, and public facilities are still short-staffed. So I looked at why a young doctor might avoid a government posting.</p>
+<section id="channels" data-nav="channels" class="sec">
+  <div class="head">
+    <h2 class="h2">Two channels: solved at the door, or sent with a file</h2>
+    <p class="lede">Every case leaves with a tag, like triage in an emergency ward. Green ends at home. Red travels to a doctor who never had to be online with her.</p>
   </div>
-
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px">
-    <sc-for list="{{ motives }}" as="m" hint-placeholder-count="4">
-      <div data-reveal="" style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:20px;display:flex;flex-direction:column;gap:12px">
-        <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">{{ m.n }}</span>
-        <span style="font:400 24px/1.1 var(--font-display)">{{ m.t }}</span>
-        <span style="font:400 13px/1.55 var(--font-sans);color:var(--text-secondary)">{{ m.d }}</span>
-      </div>
-    </sc-for>
-  </div>
-
-  <sc-if value="{{ corrections }}" hint-placeholder-val="{{ false }}">
-    <div style="max-width:720px;margin:0 auto;width:100%;display:flex;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid var(--border-default);border-bottom:1px solid var(--border-default);flex-wrap:wrap">
-      <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="warning" hint-size="auto,22px">Fact check</x-import>
-      <span style="flex:1 1 400px;font:400 14px/1.55 var(--font-sans);color:var(--text-secondary)">I first used a figure of 1.8 lakh MBBS graduates a year. National Medical Commission seat counts put it closer to 1.1–1.2 lakh. The argument holds either way, but the number was wrong.</span>
-    </div>
-  </sc-if>
-</section>
-
-<section id="reframe" data-nav="reframe" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">05</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The reframe</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:620px;margin:0">We didn't need a new system. <em style="color:var(--text-accent)">She's already there.</em></h2>
-    <p style="max-width:580px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">None of the research pointed at one problem until I flipped it. If people can't get to healthcare, healthcare has to get to them, and India already employs someone to do that: the ASHA, an Accredited Social Health Activist, a woman from the community paid per task to visit households.</p>
-  </div>
-
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
-    <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;gap:14px">
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">How she's used today</span>
-      <span style="font:400 32px/1.05 var(--font-display)">A surveyor</span>
-      <p style="font:400 15px/1.6 var(--font-sans);color:var(--text-secondary);margin:0">Most of her digital work is data collection for government programmes, spread across several apps (the NCD app, the RCH portal and others). She carries a kit of basic medicines, but nothing tells her when it's safe to use them.</p>
-    </div>
-    <div style="background:var(--surface-card);border:1px solid var(--border-strong);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;gap:14px">
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)">What she could be</span>
-      <span style="font:400 32px/1.05 var(--font-display)">A first responder</span>
-      <p style="font:400 15px/1.6 var(--font-sans);color:var(--text-secondary);margin:0">The same visit, but ending in a decision: treat this from the kit, or send it to a doctor with the evidence already attached. The medicine and the trust exist. What's missing is the authority to act on them.</p>
-    </div>
-  </div>
-
-  <div style="max-width:720px;margin:0 auto;width:100%;background:var(--accent-soft);border-radius:var(--radius-lg);padding:28px 32px;display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;box-sizing:border-box">
-    <span style="display:inline-flex;align-items:center;gap:8px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)"><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="help-circle" size="{{ 14 }}" hint-size="14px,14px"></x-import>How might we</span>
-    <p style="font:400 26px/1.3 var(--font-display);color:var(--text-primary);text-wrap:balance;margin:0">How might we give an ASHA worker the confidence to treat what's minor, and <em>the evidence to escalate</em> what isn't?</p>
-  </div>
-</section>
-
-<section id="design" data-nav="design" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">06</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The ASHA Companion</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:620px;margin:0">A checkup she can finish <em style="color:var(--text-accent)">without typing</em>, or a signal</h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">She already juggles enough government apps, so I designed this as an extension to one she has, eSanjeevani, rather than another icon on her home screen. It works offline and in local languages.</p>
-  </div>
-
-  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-wrap:wrap;gap:5px">
-      <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:2px;padding:12px">
-        <sc-for list="{{ flow }}" as="f" hint-placeholder-count="5">
-          <button onClick="{{ f.onClick }}" style="all:unset;cursor:pointer;display:flex;gap:12px;align-items:baseline;padding:10px 12px;border-radius:var(--radius-sm);background:{{ f.bg }};transition:background var(--dur-fast) var(--ease-out)">
-            <span style="font:500 11px/1 var(--font-mono);color:{{ f.numColor }}">{{ f.n }}</span>
-            <span style="font:500 14px/1.3 var(--font-sans);color:{{ f.color }}">{{ f.t }}</span>
-          </button>
-        </sc-for>
-      </div>
-      <div style="flex:2.4 1 420px;background:var(--surface-card);border-radius:10px;display:flex;flex-wrap:wrap;overflow:hidden">
-        <div style="flex:1 1 220px;background:#121212;display:flex;align-items:center;justify-content:center;padding:28px 20px">
-          <img src="{{ cur.src }}" alt="{{ cur.alt }}" style="width:100%;max-width:240px;aspect-ratio:824/1834;object-fit:contain;display:block">
-        </div>
-        <div style="flex:1.2 1 260px;padding:28px 24px;display:flex;flex-direction:column;gap:12px">
-          <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent)">{{ cur.principle }}</span>
-          <span style="font:400 28px/1.1 var(--font-display);text-wrap:balance">{{ cur.t }}</span>
-          <span style="font:400 14px/1.65 var(--font-sans);color:var(--text-secondary)">{{ cur.d }}</span>
-          <div style="display:flex;gap:8px;margin-top:auto;padding-top:12px">
-            <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="secondary" size="sm" icon-left="arrow-left" on-click="{{ prev }}" hint-size="80px,32px">Back</x-import>
-            <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="primary" size="sm" icon-right="arrow-right" on-click="{{ next }}" hint-size="80px,32px">Next</x-import>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start">
+      <sc-for list="{{ tags }}" as="t" hint-placeholder-count="2">
+        <div style="position:relative;padding-top:18px">
+          <svg aria-hidden="true" viewBox="0 0 100 40" preserveAspectRatio="none" style="position:absolute;left:50%;top:-14px;width:120px;height:44px;margin-left:-60px;overflow:visible"><path d="M50 40 C 40 20, 20 10, 4 2" fill="none" stroke="#8A919C" stroke-width="2" stroke-linecap="round"></path></svg>
+          <div style="position:relative;background:{{ t.bg }};color:{{ t.fg }};clip-path:polygon(18% 0,82% 0,100% 9%,100% 100%,0 100%,0 9%);border-radius:0 0 22px 22px;padding:64px clamp(22px,3vw,32px) 28px;display:flex;flex-direction:column;gap:16px">
+            <span class="tag-hole"></span>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font:800 clamp(24px,2.6vw,32px)/1.05 var(--font-display);letter-spacing:-0.03em">{{ t.head }}</span><span class="mono" style="font-size:10px;opacity:.85">{{ t.k }}</span></div>
+            <p style="margin:0;font:400 15px/1.55 var(--font-sans);opacity:.95">{{ t.d }}</p>
+            <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-top:1px solid {{ t.rule }}">
+              <sc-for list="{{ t.steps }}" as="s" hint-placeholder-count="5"><li style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid {{ t.rule }};font:400 14px/1.45 var(--font-sans)"><span style="font-weight:600">{{ s.k }}</span><span style="opacity:.92">{{ s.v }}</span></li></sc-for>
+            </ol>
           </div>
         </div>
-      </div>
+      </sc-for>
     </div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">6.{{ stepNum }}</span>One household visit, screen by screen</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Click through</span>
-    </figcaption>
+    <figcaption class="cap"><span class="l"><span class="n">3.2</span>Only the green verdict has a screen so far. The red channel and the doctor’s side are designed flows; a drafted prescription is never sent without his edit and signature.</span><span class="k">Service flow</span></figcaption>
   </figure>
-
-  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-direction:column">
-    <sc-for list="{{ decisions }}" as="r" hint-placeholder-count="3">
-      <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:28px 0;border-top:1px solid var(--border-default)">
-        <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:10px">
-          <span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">{{ r.n }}</span>
-          <span style="font:400 26px/1.1 var(--font-display);text-wrap:balance">{{ r.t }}</span>
-        </div>
-        <p style="flex:1.5 1 320px;font:400 15px/1.65 var(--font-sans);color:var(--text-secondary);margin:0">{{ r.d }}</p>
-      </div>
-    </sc-for>
+  <div class="w880" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px">
+    <p style="margin:0;font:700 clamp(26px,3vw,38px)/1.18 var(--font-display);letter-spacing:-0.03em;max-width:720px;text-wrap:balance">The app’s most important job is saying no. A danger sign skips the kit and goes <span style="color:var(--red)">straight to the red channel.</span></p>
+    <p class="lede" style="font-size:15px">Working thresholds would come from the state’s standing orders and a clinician, not from me.</p>
   </div>
 </section>
 
-<section id="guardrail" data-nav="guardrail" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">07</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The safety guardrail</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:620px;margin:0">The app's most important job is <em style="color:var(--text-accent)">saying no</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Letting a community volunteer hand out medicine is only safe if something stops her when it shouldn't. The app follows the government's standing orders for ASHAs and locks the kit the moment a danger sign appears.</p>
+<section id="faircopy" data-nav="faircopy" class="sec">
+  <div class="head">
+    <h2 class="h2">The app is her rough notebook, and it writes the fair copy</h2>
+    <p class="lede">Today she writes in the register during the visit, then types it all again into an app. Here, the taps become the register line.</p>
   </div>
-
-  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px;display:flex;flex-wrap:wrap;gap:5px">
-      <div style="flex:1.2 1 340px;background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:22px">
-        <label style="display:flex;flex-direction:column;gap:10px">
-          <span style="display:flex;justify-content:space-between;gap:12px;font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Temperature<span style="font:500 14px/1 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--text-primary)">{{ tempLabel }}</span></span>
-          <input type="range" min="97" max="106" step="0.5" value="{{ temp }}" onInput="{{ onTemp }}" onChange="{{ onTemp }}">
-        </label>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Fever for</span>
-          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tabs" variant="pill" items="{{ durItems }}" value="{{ dur }}" on-change="{{ onDur }}" hint-size="300px,40px"></x-import>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Danger signs · tap any</span>
-          <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <sc-for list="{{ flags }}" as="g" hint-placeholder-count="5">
-              <button onClick="{{ g.onClick }}" style="all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:var(--radius-pill);border:1px solid {{ g.border }};background:{{ g.bg }};color:{{ g.color }};font:500 13px/1 var(--font-sans);transition:all var(--dur-fast) var(--ease-out)"><span style="width:6px;height:6px;border-radius:50%;background:{{ g.dot }}"></span>{{ g.label }}</button>
-            </sc-for>
-          </div>
+  <figure class="w1040" style="margin:0 auto;display:flex;flex-direction:column;gap:10px">
+    <div class="split" style="display:grid;grid-template-columns:minmax(0,0.8fr) 56px minmax(0,1.2fr);gap:12px;align-items:center">
+      <div style="background:var(--card);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:12px">
+        <span class="mono" style="font-size:10px;color:var(--muted)">What she taps</span>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{ taps }}" as="tp" hint-placeholder-count="7"><span style="display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;background:#EEF3FD;color:#1B3A7A;font:600 13px/1 var(--font-sans)">{{ tp }}</span></sc-for>
         </div>
       </div>
-      <div style="flex:1 1 300px;background:var(--surface-card);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:16px">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Outcome</span>
-          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="{{ out.tone }}" dot="{{ true }}" hint-size="auto,22px">{{ out.channel }}</x-import>
-        </div>
-        <span style="font:400 32px/1.08 var(--font-display);text-wrap:balance">{{ out.title }}</span>
-        <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:var(--radius-md);background:var(--surface-sunken)">
-          <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="{{ out.icon }}" size="{{ 18 }}" color="{{ out.iconColor }}" hint-size="18px,18px"></x-import>
-          <span style="font:500 14px/1.35 var(--font-sans)">{{ out.kit }}</span>
-        </div>
-        <p style="font:400 14px/1.6 var(--font-sans);color:var(--text-secondary);margin:0">{{ out.d }}</p>
-        <span style="font:400 12px/1.5 var(--font-sans);color:var(--text-muted);margin-top:auto;padding-top:14px;border-top:1px solid var(--border-subtle)">Thresholds here are placeholders for the demo. Real ones would come from the standing orders and a clinician, not from me.</span>
+      <div class="hide-sm" aria-hidden="true" style="height:2px;background:repeating-linear-gradient(90deg,#AEB6C2 0 6px,transparent 6px 10px)"></div>
+      <div style="background:var(--card);border-radius:20px;padding:22px;background-image:repeating-linear-gradient(180deg,transparent 0,transparent 39px,#DCE4F7 39px,#DCE4F7 40px);background-position:0 54px">
+        <span class="mono" style="font-size:10px;color:var(--blue)">What the register gets</span>
+        <div class="hscroll" style="margin-top:16px"><div style="display:grid;grid-template-columns:70px 1.2fr 1.4fr 70px 1fr;gap:10px;font:500 13px/40px var(--font-mono);color:var(--blue-d)">
+          <span style="color:var(--muted);font-size:10px">Date</span><span style="color:var(--muted);font-size:10px">Patient</span><span style="color:var(--muted);font-size:10px">Complaint</span><span style="color:var(--muted);font-size:10px">Temp</span><span style="color:var(--muted);font-size:10px">Action</span>
+          <span class="tnum">12 Dec</span><span>Ramesh, M, adult</span><span>Fever, knee pain, moderate</span><span class="tnum">102°F</span><span style="color:var(--green)">1 tab, green</span>
+        </div></div>
       </div>
     </div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">7.0</span>A fever case through the exclusion logic</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Interactive · decision logic</span>
-    </figcaption>
+    <figcaption class="cap"><span class="l"><span class="n">3.3</span>A diagram of the designed behaviour behind the My Register tab, not a screen. Answers S2: every respondent entered the same data twice.</span><span class="k">Designed behaviour</span></figcaption>
   </figure>
 </section>
 
-<section id="backend" data-nav="backend" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">08</span><span style="width:24px;height:1px;background:var(--border-default)"></span>The doctor's end</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:620px;margin:0">The doctor doesn't have to live in the village to <em style="color:var(--text-accent)">clear its queue</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Everything the ASHA records lands in a queue for a doctor, sorted by risk rather than arrival. The heavy lifting, transcribing her voice notes and scoring urgency, happens on the doctor's side, where the devices and the internet are better.</p>
+<section id="limits" data-nav="limits" class="sec">
+  <div class="head">
+    <h2 class="h2">What this house call can claim, and what it can’t yet</h2>
   </div>
-
-  <figure style="max-width:1040px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:10px">
-    <div style="background:var(--surface-sunken);border-radius:var(--radius-lg);padding:5px"><img src="assets/asha/doctor-queue.png" alt="Doctor portal: Dr. Verma online, 12 waiting, priority queue with Ramesh Kumar critical at 104°F and fainted, then a 6-year-old with vomiting at medium" style="width:100%;aspect-ratio:2340/700;object-fit:cover;object-position:0 0;display:block;border-radius:10px"></div>
-    <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 4px">
-      <span style="display:flex;gap:10px;align-items:baseline;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)"><span style="font:500 11px/1 var(--font-mono);color:var(--text-primary)">8.0</span>Priority queue: photo, vitals and transcript in one row</span>
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">Hi-fi screen</span>
-    </figcaption>
-  </figure>
-
-  <div style="max-width:1040px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
-    <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;gap:14px">
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--success)">Green channel</span>
-      <span style="font:400 28px/1.08 var(--font-display)">Solved at the doorstep</span>
-      <p style="font:400 15px/1.6 var(--font-sans);color:var(--text-secondary);margin:0">Fever, acidity and other minor cases are treated from the kit. The patient keeps the day's wage, and the hospital never sees the case.</p>
+  <div class="w880 g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px">
+    <div style="display:flex;flex-direction:column">
+      <h3 class="h3" style="padding-bottom:14px;border-bottom:2px solid var(--ink)">What I can’t claim yet</h3>
+      <sc-for list="{{ cant }}" as="c" hint-placeholder-count="4"><p style="margin:0;padding:14px 0;border-bottom:1px solid var(--line);font:400 15px/1.55 var(--font-sans);color:var(--ink2)">{{ c }}</p></sc-for>
     </div>
-    <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;gap:14px">
-      <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--danger)">Red channel</span>
-      <span style="font:400 28px/1.08 var(--font-display)">Arrives with a referral</span>
-      <p style="font:400 15px/1.6 var(--font-sans);color:var(--text-secondary);margin:0">Serious cases reach the hospital with a digital referral ticket, already reviewed by a doctor, so they skip the registration counter instead of starting from zero.</p>
+    <div style="display:flex;flex-direction:column">
+      <h3 class="h3" style="padding-bottom:14px;border-bottom:2px solid var(--ink)">The next visit</h3>
+      <sc-for list="{{ nexts }}" as="c" hint-placeholder-count="3"><p style="margin:0;padding:14px 0;border-bottom:1px solid var(--line);font:400 15px/1.55 var(--font-sans);color:var(--ink2)">{{ c }}</p></sc-for>
     </div>
-  </div>
-
-  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:16px">
-    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--border-strong)"><span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">A further proposal · surge reviewers</span><x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="outline" hint-size="auto,22px">Speculative</x-import></div>
-    <p style="font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">Government doctors are busiest between roughly 10 am and 2 pm. Because cases are stored and reviewed later rather than live, a private practitioner in the city could log in during their own quiet hours and clear rural cases for a subsidised per-case fee. It's closer to how ride-hailing adds drivers at peak times than to hiring, and it speaks directly to the “ghost village” problem: the doctor stays in the city, the patient still gets seen.</p>
-  </div>
-</section>
-
-<section id="limits" data-nav="limits" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">09</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Assumptions and limits</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">We met the patients. We never met <em style="color:var(--text-accent)">an ASHA</em></h2>
-    <p style="max-width:560px;font:400 16px/1.7 var(--font-sans);color:var(--text-secondary);margin:0">The research is strongest on why people avoid care and weakest on the person the design is for. Here is what the concept rests on.</p>
-  </div>
-
-  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-direction:column">
-    <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--border-strong);font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span>Assumption</span><span>Status</span></div>
-    <sc-for list="{{ assumptions }}" as="a" hint-placeholder-count="6">
-      <div style="display:flex;flex-wrap:wrap;gap:8px 24px;padding:18px 0;border-bottom:1px solid var(--border-default);align-items:baseline">
-        <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:4px">
-          <span style="font:500 15px/1.35 var(--font-sans)">{{ a.t }}</span>
-          <span style="font:400 13px/1.5 var(--font-sans);color:var(--text-muted)">{{ a.d }}</span>
-        </div>
-        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Badge" tone="{{ a.tone }}" hint-size="auto,22px">{{ a.status }}</x-import>
-      </div>
-    </sc-for>
-  </div>
-
-  <div style="max-width:880px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center">
-    <span style="font:500 10px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted);margin-right:8px">First questions for an ASHA</span>
-    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">What's in your kit today?</x-import>
-    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">When do you hold back from using it?</x-import>
-    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">Which app do you open most?</x-import>
-    <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Tag" hint-size="auto,28px">How late do incentives arrive?</x-import>
-  </div>
-</section>
-
-<section id="reflection" data-nav="reflection" style="padding-top:128px;display:flex;flex-direction:column;gap:48px;scroll-margin-top:96px">
-  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
-    <span style="display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span style="color:var(--text-accent)">10</span><span style="width:24px;height:1px;background:var(--border-default)"></span>Retrospective</span>
-    <h2 data-reveal="" style="font:400 clamp(30px,3.4vw,42px)/1.08 var(--font-display);letter-spacing:-0.015em;text-wrap:balance;max-width:600px;margin:0">The best idea came from <em style="color:var(--text-accent)">not building anything new</em></h2>
-  </div>
-  <div style="max-width:880px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px">
-    <sc-for list="{{ retro }}" as="r" hint-placeholder-count="4">
-      <div style="border:1px solid var(--border-default);border-radius:var(--radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1 var(--font-mono);color:var(--text-accent)">{{ r.n }}</span><span style="font:500 15px/1.3 var(--font-sans)">{{ r.t }}</span><span style="font:400 13px/1.55 var(--font-sans);color:var(--text-secondary)">{{ r.d }}</span></div>
-    </sc-for>
   </div>
 </section>
 
 <section style="max-width:1040px;margin:0 auto;padding-top:128px">
-  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)"><span>Next project</span><span>01 / 03</span></div>
-  <a href="aimxr.html" style="display:flex;flex-wrap:wrap;gap:5px;padding:5px;background:var(--surface-sunken);border-radius:var(--radius-lg);border:1px solid transparent;text-decoration:none;color:var(--text-primary);transition:transform var(--dur-base) var(--ease-out), border-color var(--dur-fast) var(--ease-out)" style-hover="transform:translateY(-3px);border-color:var(--border-default);color:var(--text-primary)">
-    <div style="flex:1 1 320px;min-width:0;background:var(--surface-card);border-radius:10px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
-      <span style="font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">AimXR · Usability study · 2026</span>
-      <h3 style="font:400 clamp(26px,2.6vw,32px)/1.08 var(--font-display);letter-spacing:-0.01em;text-wrap:balance;margin:0">Finding where first-time VR players get stuck learning a tactical shooter</h3>
-      <span style="display:inline-flex;align-items:center;gap:6px;font:500 13px/1 var(--font-sans);color:var(--text-accent)">Read case study<x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Icon" name="arrow-right" size="{{ 14 }}" hint-size="14px,14px"></x-import></span>
+  <div style="margin-bottom:16px;font:500 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Next project</div>
+  <a class="next" href="aura-space.html" style="display:flex;flex-wrap:wrap;gap:6px;padding:6px;background:var(--sunken);border-radius:20px;text-decoration:none;color:var(--ink)">
+    <div style="flex:1 1 320px;min-width:0;background:var(--card);border-radius:14px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+      <span class="mono" style="color:var(--muted)">Aura Space, speculative concept, 2026</span>
+      <span style="font:700 clamp(26px,2.6vw,32px)/1.1 var(--font-display);letter-spacing:-0.03em;text-wrap:balance">What if travellers waited at the gate only because they chose to?</span>
+      <span style="font:600 13px/1 var(--font-sans);color:#2149E0">Read case study</span>
     </div>
-    <div style="flex:1.2 1 320px;min-width:0;min-height:260px;position:relative"><img src="assets/aimxr-cover.png" alt="Participant in a VR headset holding both controllers" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block;border-radius:10px"></div>
+    <div style="flex:1.2 1 320px;min-width:0;min-height:260px;position:relative;background:#FFD400;border-radius:14px;overflow:hidden"><img src="assets/v3/45c5f05d3767.jpg" alt="The Aura Space phone-down screen, gate F50 opens in 45 minutes, beside split-flap tiles reading 45 min, on airport sign yellow" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block"></div>
   </a>
 </section>
 
 </main>
 
-<footer data-theme="dark" style="background:var(--band-bg);color:var(--band-fg);margin-top:var(--space-11)">
-  <div style="max-width:var(--max-content);margin:0 auto;padding:128px var(--margin-page) 32px;display:flex;flex-direction:column;gap:112px">
+<!-- FOLLOW-UP: night footer, the course finished -->
+<footer style="margin-top:128px;background:#121722;color:#F1F3F7;position:relative;overflow:hidden">
+  <div aria-hidden="true" class="hide-sm" style="position:absolute;right:-40px;top:64px;transform:rotate(-12deg);display:flex;gap:10px;background:#1E2533;border-radius:16px;padding:14px 18px">
+    <span style="width:30px;height:30px;border-radius:50%;background:#121722;box-shadow:inset 0 2px 4px rgba(0,0,0,.6)"></span><span style="width:30px;height:30px;border-radius:50%;background:#121722;box-shadow:inset 0 2px 4px rgba(0,0,0,.6)"></span><span style="width:30px;height:30px;border-radius:50%;background:#121722;box-shadow:inset 0 2px 4px rgba(0,0,0,.6)"></span><span style="width:30px;height:30px;border-radius:50%;background:#121722;box-shadow:inset 0 2px 4px rgba(0,0,0,.6)"></span><span style="width:30px;height:30px;border-radius:50%;background:#121722;box-shadow:inset 0 2px 4px rgba(0,0,0,.6)"></span>
+  </div>
+  <div style="max-width:1280px;margin:0 auto;padding:128px clamp(20px,5vw,80px) 32px;display:flex;flex-direction:column;gap:112px;position:relative">
     <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px">
-      <span style="font:500 11px/1 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)">ASHA Companion · University project · 2025</span>
-      <div data-reveal="" style="font:400 clamp(40px,5vw,64px)/1.02 var(--font-display);letter-spacing:-0.02em;text-wrap:balance;max-width:760px">The cheapest clinic is the one that <em style="color:var(--text-accent)">knocks on your door.</em></div>
-      <p style="font:400 15px/1.5 var(--font-sans);color:var(--text-muted);max-width:520px;margin:0">Field research in Dehradun with classmates. Concept and screens are mine. Nothing was tested with ASHA workers or clinicians.</p>
+      <span style="font:500 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:#A8B0BE">Follow-up: the course is finished</span>
+      <p style="margin:0;font:700 clamp(36px,5vw,60px)/1.04 var(--font-display);letter-spacing:-0.04em;text-wrap:balance;max-width:820px">A fever shouldn’t cost a day’s wage when someone trusted is <span style="color:#F48FB8">already at the door.</span></p>
+      <p style="font:400 16px/1.55 var(--font-sans);color:#D5DAE3;max-width:540px;margin:0">The doctor stays scarce. The ASHA stops being only a surveyor.</p>
+      <p style="font:400 13px/1.5 var(--font-sans);color:#A8B0BE;max-width:520px;margin:0">Concept, flows and UI by Parthiv Nair; fieldwork with classmates. Designing for social needs, UPES Dehradun.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
-        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="accent" icon-right="arrow-up-right" on-click="{{ goContact }}" hint-size="120px,40px">Let's talk</x-import>
-        <x-import component-from-global-scope="PDSParSDesignSystem_716ab0.Button" variant="secondary" icon-left="arrow-left" on-click="{{ goWork }}" hint-size="120px,40px">All work</x-import>
+        <a class="pill-link" href="mailto:parthivnair10c@gmail.com" style="height:40px;padding:0 18px;background:#F48FB8;color:#161B24">Let’s talk</a>
+        <a class="pill-link" href="index.html#work" style="height:40px;padding:0 18px;border:1px solid #3A4252;color:#F1F3F7">All work</a>
       </div>
     </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:1px solid var(--border-default);padding-top:20px;font:400 12px/1 var(--font-mono);color:var(--text-muted)">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:1px solid #2A3140;padding-top:20px;font:400 12px/1 var(--font-mono);color:#A8B0BE">
       <span>© 2026 Parthiv</span>
-      <span style="display:flex;gap:20px"><a href="https://www.linkedin.com/in/parthiv-nair-a1ba23273" target="_blank" rel="noopener" style="color:inherit">LinkedIn</a><a href="https://drive.google.com/drive/folders/1yHF96X8kEyGxpA_ee23sn0sXkNUF6tDy?usp=sharing" target="_blank" rel="noopener" style="color:inherit">CV</a></span>
+      <span style="display:flex;gap:20px"><a href="https://www.linkedin.com/in/parthiv-nair-a1ba23273" target="_blank" rel="noopener" style="color:inherit">LinkedIn ↗</a><a href="https://drive.google.com/drive/folders/1yHF96X8kEyGxpA_ee23sn0sXkNUF6tDy" target="_blank" rel="noopener" style="color:inherit">CV ↗</a></span>
     </div>
   </div>
 </footer>
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;link&quot;,&quot;marker&quot;,&quot;clay&quot;,&quot;par&quot;,&quot;mono&quot;],&quot;default&quot;:&quot;link&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;corrections&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":15200}}'>
 class Component extends DCLogic {
-  state = { active: 'overview', wide: false, railOn: false, site: 'chc', step: 0, wage: 400, pubTravel: 150, pubHours: 8, privFee: 200, privHours: 1, temp: 102, dur: 'lt1', flags: {} };
+  state = { active: 'overview', railOn: false, wide: false, ring: 1, step: 0 };
 
   componentDidMount() {
-    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const motion = (this.props.motion ?? true) && !reduce;
-    const H = () => window.innerHeight || 800;
-    const show = n => { n.style.opacity = '1'; n.style.transform = 'none'; n.dataset.shown = '1'; };
-    document.querySelectorAll('[data-reveal]').forEach(n => {
-      if (!motion) return show(n);
-      n.style.transition = 'opacity 900ms cubic-bezier(.16,1,.3,1), transform 900ms cubic-bezier(.16,1,.3,1)';
-      if (n.getBoundingClientRect().top < H() * 0.92) show(n);
-      else if (!n.dataset.shown) { n.style.opacity = '0'; n.style.transform = 'translateY(20px)'; }
-    });
+    this.reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.check = () => {
-      const h = H();
-      document.querySelectorAll('[data-reveal]').forEach(n => { if (!n.dataset.shown && n.getBoundingClientRect().top < h * 0.92) show(n); });
       let active = 'overview';
       document.querySelectorAll('[data-nav]').forEach(s => { if (s.getBoundingClientRect().top < 200) active = s.getAttribute('data-nav'); });
       const wide = window.innerWidth >= 1180, railOn = window.scrollY > 500;
@@ -538,157 +598,180 @@ class Component extends DCLogic {
     window.addEventListener('scroll', this.check, { passive: true });
     window.addEventListener('resize', this.check);
     this.check();
-    this.t1 = setTimeout(this.check, 300);
-    this.t2 = setTimeout(this.check, 1200);
+    this.t1 = setTimeout(this.check, 400);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.check);
     window.removeEventListener('resize', this.check);
-    clearTimeout(this.t1); clearTimeout(this.t2);
+    clearTimeout(this.t1);
   }
   jump(id) {
     const el = document.getElementById(id);
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: 'smooth' });
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: this.reduce ? 'auto' : 'smooth' });
   }
 
-  getTheme() { if (this.state.theme) return this.state.theme; let t; try { t = localStorage.getItem('par-theme'); } catch (e) {} return t === 'light' ? 'light' : 'dark'; }
-  themeVals() {
-    const theme = this.getTheme();
-    try { document.documentElement.style.background = document.body.style.background = theme === 'dark' ? '#0E0E0E' : '#FFFFFF'; } catch (e) {}
-    if (!this._rz) { this._rz = () => this.forceUpdate(); window.addEventListener('resize', this._rz); }
-    const narrow = (window.innerWidth || 1200) < 640;
-    const lay = { narrow, showTalk: !narrow, hdrCols: narrow ? '1fr auto' : '1fr auto 1fr', hdrRows: narrow ? '64px auto' : 'auto', navCol: narrow ? '1 / -1' : 'auto', navOrder: narrow ? '3' : '0', navMb: narrow ? '12px' : '0' };
-    return { ...lay, theme, themeIcon: theme === 'dark' ? 'sun' : 'moon', themeLabel: theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
-      toggleTheme: () => { const t = theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('par-theme', t); } catch (e) {} this.setState({ theme: t }); } };
-  }
   renderVals() {
-    const { active, site, step, wage, pubTravel, pubHours, privFee, privHours, temp, dur, flags } = this.state;
-    const tocList = [['overview', 'Overview'], ['context', 'Context'], ['field', 'Fieldwork'], ['cost', 'The real cost'], ['doctors', 'The other side'], ['reframe', 'The reframe'], ['design', 'The app'], ['guardrail', 'Safety guardrail'], ['backend', "Doctor's end"], ['limits', 'Limits'], ['reflection', 'Retrospective']];
+    const st = this.state;
 
-    const plus = (t, d) => ({ t, d, sign: '+', color: 'var(--success)' });
-    const minus = (t, d) => ({ t, d, sign: '−', color: 'var(--danger)' });
-    const obs = (t, d) => ({ t, d, sign: '·', color: 'var(--text-accent)' });
-    const sites = {
-      chc: { where: 'Community Health Centre · Raipur, Dehradun', title: 'We watched from the waiting area', caption: 'Government CHC, observed without interviews',
-        photos: [{ src: 'assets/asha/chc-front.png', alt: 'Entrance of the Community Health Centre, Raipur, Dehradun' }, { src: 'assets/asha/field-roadside.jpg', alt: 'Parthiv on the roadside outside, watching a row of stalls' }],
-        notes: [minus('No way to find your doctor', 'Every sign was in Hindi, yet none said where a department was or how far to walk.'), minus('Too few seats', 'With nowhere to sit, patients and family kept moving, which made the corridors feel more chaotic than they were.'), minus('Poor hygiene', 'Dull, stained walls and toilets we could smell from the entrance.')] },
-      people: { where: 'Settlements and street vendors · Dehradun', title: 'The people who rely on it', caption: 'Settlements near the city centre, where we held street interviews',
-        photos: [{ src: 'assets/asha/slum-shack.jpg', alt: 'Tin-walled home in an informal settlement at sunset' }, { src: 'assets/asha/street-stalls.jpg', alt: 'Roadside stalls and makeshift shelters along a pavement' }],
-        notes: [obs('Government care was a last resort', 'People spoke about the government hospital as somewhere you end up, not somewhere you choose.'), obs('Travel was the barrier, not fees', 'A round trip into town was a real expense, before counting a lost day of work.'), obs('Waiting it out was the default', 'Several people said they would rather wait for an illness to pass than see anyone.')] },
-      private: { where: 'Private hospital and a tier-3 clinic · Dehradun', title: 'The private side worked better, mostly', caption: 'A private hospital and a single-room neighbourhood clinic',
-        photos: [{ src: 'assets/asha/private-waiting.jpg', alt: 'Private hospital waiting area with rows of metal seats and numbered consulting rooms' }, { src: 'assets/asha/field-clinic-notes.jpg', alt: 'Parthiv taking notes outside a small neighbourhood clinic at night' }],
-        notes: [plus('Signage everywhere, plenty of seats', 'It was hard to get lost, and carers had somewhere to sit out of the way.'), plus('Patient IDs did the walking', 'Moving between doctors happened behind the screen. The patient only had to confirm their details.'), minus('The token system only existed', 'Queue displays hung over every door, switched off. A central pharmacy with no entry point was mobbed from all sides.'), minus('Small things nobody fixed', 'No braille on signs or forms, and TVs for waiting families looping the same two or three ads.')] }
-    };
-    const cs = sites[site];
-
-    const flowData = [
-      { t: 'Home', principle: 'Offline-first', src: 'assets/asha/app-home.png', alt: 'Home: New Checkup button and 3 cases pending upload', d: 'One button starts a checkup. Below it, the sync card says what she needs to hear in a village with no signal: three cases are waiting to upload, and the data is safe. Records are stored on the phone and sent when the network returns.' },
-      { t: 'Who is the patient?', principle: 'No-type input', src: 'assets/asha/app-patient.png', alt: 'Patient screen with photo, voice name, gender and age pictograms', d: 'A photo and a spoken name identify the patient. Gender and age are three large pictograms each. Nothing here requires reading or typing, which matters for workers with limited literacy or a cracked screen.' },
-      { t: 'Where does it hurt?', principle: 'Visual triage', src: 'assets/asha/app-pain.png', alt: 'Body map with a marker on the knee and three severity faces', d: 'She taps the body, front or back, instead of choosing a medical term. Tapping a stomach is faster than typing “abdominal pain”, and harder to get wrong. Severity is three faces the patient can point to themselves.' },
-      { t: 'Checkup readings', principle: 'Evidence for the doctor', src: 'assets/asha/app-vitals.png', alt: 'Readings: symptom photo, voice details, temperature, O2, BP', d: 'A photo of any visible symptom and a voice note answering “Kab se dard hai?” (how long has it hurt?) give the doctor context a form can\'t. Temperature, oxygen and blood pressure come from the kit she already carries.' },
-      { t: 'Checkup complete', principle: 'Authority + transparency', src: 'assets/asha/app-complete.png', alt: 'Complete: give 1 tablet, go to doctor if fever stays 24 hours, earned ₹20', d: 'The result is an instruction she\'s allowed to follow, a clear point at which to escalate, and the ₹20 she earned for the visit, shown immediately even though the payment arrives later.' }
+    // contents rail: a blister strip
+    const groups = [
+      ['h', 'Overview'], ['overview', 'Overview'],
+      ['h', 'History: Discover'], ['fieldwork', 'Fieldwork'], ['distance', 'Distance to care'], ['bill', 'The bill'], ['doctors', 'Doctors'], ['asha', 'The ASHA'],
+      ['h', 'Diagnosis: Define'], ['constraint', 'The constraint'], ['role', 'A new role'],
+      ['h', 'Prescription: Design'], ['trace', 'Symptoms to Rx'], ['visit', 'The house call'], ['channels', 'Two channels'], ['faircopy', 'Fair copy'], ['limits', 'Limits']
     ];
-    const cur = flowData[step];
-    const go = i => this.setState({ step: (i + flowData.length) % flowData.length });
+    const order = groups.filter(g => g[0] !== 'h').map(g => g[0]);
+    const alias = { history: 'fieldwork', diagnosis: 'constraint', prescription: 'trace' };
+    const act = alias[st.active] || st.active;
+    const idx = Math.max(0, order.indexOf(act));
+    const toc = groups.filter((g, i) => i > 0).map(([id, label]) => {
+      if (id === 'h') return { isHead: true, isItem: false, label };
+      const i = order.indexOf(id), on = i === idx, done = i < idx;
+      return { isHead: false, isItem: true, label,
+        color: on ? 'var(--ink)' : 'var(--muted)',
+        fill: on ? 'var(--pink)' : done ? '#D7DCE2' : '#fff',
+        edge: on ? 'var(--pink)' : done ? '#C2C9D2' : '#AEB6C2',
+        onClick: () => this.jump(id) };
+    });
+    const blister = order.map((id, i) => ({
+      bg: i === idx ? 'var(--pink)' : i < idx ? 'rgba(255,255,255,.35)' : 'radial-gradient(circle at 35% 30%,#fff 0,#F1F3F6 50%,#C9D0D8 100%)',
+      sh: i < idx ? 'inset 0 1px 3px rgba(0,0,0,.25)' : '0 1px 2px rgba(0,0,0,.12)'
+    }));
 
-    const lost = h => Math.round(wage * h / 8);
-    const pub = pubTravel + lost(pubHours), priv = privFee + lost(privHours);
-    const max = Math.max(pub, priv, 1);
-    const diff = Math.abs(pub - priv);
+    const who = [
+      { n: '25', t: 'Daily-wage labourers on construction sites, aged 28 to 40: 17 men and 8 women', k: 'Interviews', c: 'var(--blue)' },
+      { n: '1', t: 'Dr Pradeep Chamoli, the clinic doctor most of them visit first in Kandoli', k: 'Interview', c: 'var(--blue)' },
+      { n: '22', t: 'ASHAs on their day, their apps and their authority', k: 'Questionnaire', c: 'var(--pink)' },
+      { n: '2', t: 'A government health centre in Raipur and a private hospital in the city', k: 'Site visits', c: 'var(--ink)' }
+    ];
 
-    const flagList = [['faint', 'Fainted'], ['breath', 'Fast breathing'], ['fits', 'Convulsions'], ['drink', "Can't drink"], ['blood', 'Blood in vomit or stool']];
-    const anyFlag = flagList.some(([k]) => flags[k]);
-    let out;
-    if (anyFlag || temp >= 104 || dur === 'gt3') {
-      const why = anyFlag ? 'A danger sign was recorded' : temp >= 104 ? 'The temperature is above the safe limit' : 'The fever has lasted too long';
-      out = { channel: 'Red channel', tone: 'danger', title: 'Refer to a doctor', icon: 'lock', iconColor: 'var(--danger)', kit: 'Medicine kit locked', d: why + ', so the app won\'t suggest paracetamol or ORS. The case jumps to the top of the doctor\'s queue with photo, vitals and voice note, and the patient gets a digital referral ticket.' };
-    } else if (temp >= 100) {
-      out = { channel: 'Green channel', tone: 'success', title: 'Give 1 tablet for fever', icon: 'unlock', iconColor: 'var(--success)', kit: 'Authorised from the kit', d: 'No danger signs, so she can act on the standing order. The app adds a warning: if the fever stays for 24 hours, go to a doctor. A doctor still reviews the record when it syncs.' };
-    } else {
-      out = { channel: 'Green channel', tone: 'neutral', title: 'No medicine needed', icon: 'check', iconColor: 'var(--text-muted)', kit: 'Kit not required', d: 'The reading is normal. She records it, advises fluids and rest, and the visit still counts toward her incentive.' };
-    }
+    // distance to care
+    const ringData = [
+      { name: 'At home', k: 'Ring 1', r: 17, money: '₹0', time: 'Minutes', note: 'Turmeric, an elder’s advice, a roommate’s leftover tablet. Fast and trusted, but nobody examines anything.' },
+      { name: 'In the basti', k: 'Ring 2', r: 32, money: 'Up to ₹150 for a pudia', time: 'About 20 min, open till 10 pm', note: 'The medical store and the unregistered clinic sell two days of loose pills in a paper pouch. The ASHA lives here too, trained to survey, not to treat.' },
+      { name: 'In the city', k: 'Ring 3', r: 46, money: 'Consult free, medicine if in stock', time: 'A working day, about ₹482', note: 'Queues, IDs and referrals. Local centres often send people on to Doon Hospital, so one visit can become two.' }
+    ];
+    const rings = ringData.slice().reverse().map((r, j) => {
+      const i = 2 - j, on = i === st.ring;
+      return { inset: (50 - r.r - 4) + '%', bg: on ? (i === 1 ? '#FCE4EE' : '#E3E9FB') : (i === 0 ? '#F4F6F8' : i === 1 ? '#F7F8FA' : '#FBFCFD'), edge: on ? (i === 1 ? '#C2185B' : '#1F3FA8') : '#D4DAE2', dash: i === 2 ? 'dashed' : 'solid' };
+    });
+    const pl = [
+      ['Kitchen remedies', 0, 205], ['The elder', 0, 335], ['Leftover tablet', 0, 92],
+      ['Medical store', 1, 160], ['Pudia clinic', 1, 22], ['The dai', 1, 245], ['ASHA', 1, 300],
+      ['UPHC or PHC', 2, 198], ['CHC', 2, 128], ['Doon Hospital', 2, 52], ['Private hospital', 2, 338]
+    ];
+    const places = pl.map(([name, ri, deg]) => {
+      const r = ringData[ri].r - 6, a = deg * Math.PI / 180, asha = name === 'ASHA';
+      const on = ri === st.ring;
+      return { name, x: (50 + r * Math.cos(a)).toFixed(2) + '%', y: (50 + r * Math.sin(a)).toFixed(2) + '%',
+        bg: asha ? 'var(--pink)' : '#fff', fg: asha ? '#fff' : 'var(--ink)', op: on || asha ? 1 : 0.55 };
+    });
+    const ringBtns = ringData.map((r, i) => ({ name: r.name, k: r.k, sel: i === st.ring ? 'true' : 'false',
+      bg: i === st.ring ? 'var(--card)' : 'transparent', edge: i === st.ring ? 'var(--ink)' : 'var(--line)', pick: () => this.setState({ ring: i }) }));
+    const ringSel = ringData[st.ring];
+
+    // the bill: one scale, max = a day's wage
+    const max = 482;
+    const bill = [
+      { name: 'Government centre', total: '₹482', tc: 'var(--blue)', m: 0, t: 482, lines: [{ t: 'Consultation and medicine', v: '₹0' }, { t: 'A working day in travel and queues', v: '≈ ₹482 in wages' }] },
+      { name: 'Basti clinic, the pudia', total: '≈ ₹168', tc: 'var(--pink)', m: 150, t: 18, lines: [{ t: 'Two days of loose pills in a paper pouch', v: '₹150' }, { t: 'About 20 minutes, walk in after work', v: '≈ ₹18 in wages' }] },
+      { name: 'Wait it out', total: '₹0 today', tc: 'var(--ink)', m: 0, t: 0, lines: [{ t: 'Nothing spent, nothing examined', v: '₹0' }, { t: 'If it turns into an admission', v: '≈ ₹6,800' }] }
+    ].map(b => ({ ...b, mw: (b.m / max * 100).toFixed(1) + '%', tw: (b.t / max * 100).toFixed(1) + '%' }));
+
+    const queues = [
+      { name: 'The norm', ratio: '1 : 1,000', c: '#9AA3B0', bt: '0', dots: Array.from({ length: 10 }, () => ({})) },
+      { name: 'Uttarakhand, 2016', ratio: '1 : 7,911', c: 'var(--pink)', bt: '1px solid var(--line)', dots: Array.from({ length: 79 }, () => ({})) }
+    ];
+
+    const tally = (n) => {
+      const out = [];
+      for (let i = 0; i < Math.floor(n / 5); i++) out.push({ sticks: [{}, {}, {}, {}], diag: true });
+      const r = n % 5;
+      if (r) out.push({ sticks: Array.from({ length: r }, () => ({})), diag: false });
+      return out;
+    };
+    const tallies = [
+      { t: 'Kept the paper register and typed it again into the app', v: '22 of 22', isTally: true, isBar: false, groups: tally(22) },
+      { t: 'Hesitant to act on their training and medicine kit', v: '63%', isTally: true, isBar: false, groups: tally(14) },
+      { t: 'Share of visits in areas with no signal', v: '20–30%', isTally: false, isBar: true, groups: [] }
+    ];
+    const ashaNotes = [
+      { t: 'Double work is the job', d: 'Everyone called the second entry unnecessary work.' },
+      { t: 'Trained, but not trusted to act', d: 'She carries paracetamol and ORS, but holds back for fear of blame.' },
+      { t: 'Uploads wait for the road home', d: 'In dead zones, cases wait until she reaches signal.' }
+    ];
+
+    const lanes = [
+      { name: 'eSanjeevani today: a live call', k: 'Both online at once', kc: 'var(--red)', bt: '0', segs: [
+        { who: 'ASHA', t: 'Opens a video call from the patient’s home', bg: '#F4F6F8', edge: 'transparent', dash: 'solid', kc: 'var(--muted)' },
+        { who: 'Both', t: 'Wait until a doctor is free', bg: 'var(--red-t)', edge: 'var(--red)', dash: 'dashed', kc: 'var(--red)' },
+        { who: 'Network', t: 'Signal drops, the call restarts', bg: 'var(--red-t)', edge: 'var(--red)', dash: 'dashed', kc: 'var(--red)' },
+        { who: 'Doctor', t: 'Consults by video, one case at a time', bg: '#F4F6F8', edge: 'transparent', dash: 'solid', kc: 'var(--muted)' } ] },
+      { name: 'ASHA Companion: store-and-forward', k: 'Nobody waits for anybody', kc: 'var(--green)', bt: '1px solid var(--line)', segs: [
+        { who: 'ASHA, offline', t: 'Records photo, voice note and vitals', bg: 'var(--green-t)', edge: 'transparent', dash: 'solid', kc: 'var(--green)' },
+        { who: 'Phone', t: 'Uploads the packet when signal returns', bg: 'var(--green-t)', edge: 'transparent', dash: 'solid', kc: 'var(--green)' },
+        { who: 'Doctor, later', t: 'Reviews a queue sorted by urgency', bg: 'var(--green-t)', edge: 'transparent', dash: 'solid', kc: 'var(--green)' },
+        { who: 'ASHA', t: 'Gets a signed prescription back', bg: 'var(--green-t)', edge: 'transparent', dash: 'solid', kc: 'var(--green)' } ] }
+    ];
+
+    const roles = [
+      ['Her identity', 'Data clerk: surveys and reports', 'Health navigator: triage and relief'],
+      ['A patient has fever', 'She hesitates, fearing blame', 'The app confirms protocol green: safe to treat'],
+      ['What happens next', 'Sent away, often to an unregistered clinic', 'Paracetamol or ORS from her kit, right away'],
+      ['Paperwork', 'Paper register, then the same in an app', 'Entered once; the app writes the register line'],
+      ['Her incentive', 'Paid months late, with no trail', 'Shown the moment the case is logged']
+    ].map(([k, a, b], i, arr) => ({ k, a, b, rad: i === arr.length - 1 ? '0 0 12px 12px' : '0' }));
+
+    const rxPills = [['Rx1', '#3D7BE6'], ['Rx2', '#1F3FA8'], ['Rx3', '#E3A21A'], ['Rx4', '#1E7A4C'], ['Rx5', '#C2185B']].map(([id, c]) => ({ id, c }));
+
+    const trace = [
+      { s: 'S1', sym: 'No signal on 20–30% of visits', ev: '22 ASHAs', rx: 'Rx1', fix: 'Cases save offline and upload on their own' },
+      { s: 'S2', sym: 'Every respondent entered data twice', ev: '22 ASHAs', rx: 'Rx2', fix: 'Taps become the register’s fair copy' },
+      { s: 'S3', sym: 'Typed forms assume she can spell the disease', ev: 'Inferred', rx: 'Rx3', fix: 'Point on a body map, speak the history' },
+      { s: 'S4', sym: '63% hesitate to act on their training', ev: '22 ASHAs', rx: 'Rx4', fix: 'A verdict that authorises one safe action, with a limit' },
+      { s: 'S5', sym: 'Incentives arrive months late', ev: 'Interviews', rx: 'Rx5', fix: 'Earnings show the moment a case is logged' }
+    ];
+
+    // the house call: the five latest Figma frames, unedited
+    const stepData = [
+      { name: 'Home', img: 'assets/v3/2e69c48b401d.webp', alt: 'Home: Sunita Devi, a large New Checkup button, and a card saying 3 cases are pending upload and the data is safe', rx: 'Rx1: Offline by default', note: 'One big button starts a visit. Unsent cases wait here, saved on the phone, so a dead zone no longer costs her the data.' },
+      { name: 'Who is the patient', img: 'assets/v3/2588416f069a.webp', alt: 'Who is the patient: take the patient’s photo, say the name, then gender and age as picture tiles', rx: 'Rx3: No typing', note: 'A photo and a spoken name replace the form. Gender and age are picture tiles, two taps in all.' },
+      { name: 'Where does it hurt', img: 'assets/v3/d2201fb0dba0.webp', alt: 'Where does it hurt: front and back body map with a tap on the knee, and severity faces Neutral, Sad and Agony', rx: 'Rx3: Point, don’t spell', note: 'She points on the body, the patient picks a face. The doctor receives standard terms instead of three spellings of tummy pain.' },
+      { name: 'Checkup readings', img: 'assets/v3/3fc29072d1a9.webp', alt: 'Checkup readings: take a symptom photo, record details by voice, then temperature, oxygen and blood pressure fields', rx: 'Rx3: Voice and photo as evidence', note: 'A symptom photo and a voice note in Hindi carry the history. Each vital sits next to a drawing of the device she reads it from.' },
+      { name: 'Checkup complete', img: 'assets/v3/54ad39dc5a07.webp', alt: 'Checkup complete: a blister strip with one tablet popped, an authorised action to give one tablet for fever, a warning to see a doctor if fever lasts 24 hours, and data recorded, earned ₹20', rx: 'Rx4, Rx1 and Rx5: Backing, saved, paid', note: 'One authorised action and its limit, so she treats with backing instead of hesitating. The case is saved for upload, and the ₹20 she earned shows straight away.' }
+    ];
+    const steps = stepData.map((s, i) => ({ n: i + 1, name: s.name, img: s.img, label: 'Show screen ' + (i + 1) + ': ' + s.name, sel: i === st.step ? 'true' : 'false', op: i === st.step ? 1 : 0.45, dot: i === st.step ? 'var(--green)' : i < st.step ? 'var(--green-t)' : 'var(--sunken)', dotc: i === st.step ? '#fff' : 'var(--ink)', pick: () => this.setState({ step: i }) }));
+
+    const tags = [
+      { head: 'Green: solved at the door', k: 'Doorstep', bg: 'var(--green)', fg: '#fff', rule: 'rgba(255,255,255,.22)',
+        d: 'Minor fever, pain or diarrhoea, inside the protocol.',
+        steps: [{ k: 'Action', v: 'Paracetamol or ORS from her existing kit' }, { k: 'Limit', v: 'A warning that says when to refer' }, { k: 'Record', v: 'Written to the register, uploaded later' }, { k: 'For the family', v: 'No travel, no lost day’s wage' }] },
+      { head: 'Red: sent with a file', k: 'To a doctor', bg: 'var(--red)', fg: '#fff', rule: 'rgba(255,255,255,.22)',
+        d: 'Anything outside the protocol, or any danger sign.',
+        steps: [{ k: 'Smart queue', v: 'Sorted by urgency; cases with photos flagged' }, { k: 'Review', v: 'Photo, vitals and transcript on one screen' }, { k: 'Human check', v: 'The doctor edits a drafted prescription' }, { k: 'Sign and send', v: 'A signed prescription returns to the ASHA' }, { k: 'Next case', v: 'Loads on its own, no trip back to a dashboard' }] }
+    ];
+
+    const taps = ['Photo', 'Ramesh (voice)', 'Male', 'Adult', 'Left knee', 'Moderate', '102°F'];
+
+    const cant = [
+      'The app hasn’t been tested with ASHAs. These are prototype frames, not a measured result.',
+      'The questionnaire answers are self-reported, from one district.',
+      'Clinical rules are placeholders. Who may give what needs standing orders, a clinician and a legal review.',
+      'The doctor’s side is a flow on paper, with no screens yet.'
+    ];
+    const nexts = [
+      'Run the house call with a handful of ASHAs on their own phones, timing each case and noting where they hesitate.',
+      'Review the green and red protocols with a PHC medical officer.',
+      'Pilot store-and-forward with one doctor’s queue before anything else.'
+    ];
 
     return {
-      ...this.themeVals(),
-      goWork: () => { window.location.href = 'index.html#work'; },
-      goContact: () => { window.location.href = 'index.html#contact'; },
-      accent: this.props.accent ?? 'link',
-      corrections: this.props.corrections ?? false,
-      railVisible: this.state.wide && this.state.railOn,
-      toc: tocList.map(([id, label]) => {
-        const on = active === id;
-        return { label, color: on ? 'var(--text-primary)' : 'var(--text-muted)', w: on ? '14px' : '6px', bar: on ? 'var(--accent)' : 'var(--border-default)', onClick: () => this.jump(id) };
-      }),
-
-      scale: [
-        { v: '~4,300', d: 'Estimated deaths a day in India linked to poor-quality care, from a 2018 Lancet commission (about 1.6 million a year).' },
-        { v: '55M', d: 'People pushed below the poverty line in a single year by out-of-pocket health spending, per a 2018 Public Health Foundation of India study.' },
-        { v: '1 : 1,511', d: 'Allopathic doctors to population, as reported in Parliament. The WHO benchmark is 1 : 1,000.' }
-      ],
-
-      siteItems: [{ id: 'chc', label: 'Government CHC' }, { id: 'people', label: 'The reliant' }, { id: 'private', label: 'Private care' }],
-      site, onSite: id => this.setState({ site: id }), cs,
-      siteNum: { chc: 0, people: 1, private: 2 }[site],
-      quotes: [
-        { hi: 'Humari kya, kisi ki bhi naubat na aaye sarkaari hospital jaane ki', en: 'Forget us, may nobody ever be reduced to going to a government hospital.', who: 'Chai vendor near the CHC, Dehradun' },
-        { hi: 'Beti se milne nahi ja paati kyunki 300 Rs. ka gaadi kharcha padta hai', en: 'I can\'t go to see my daughter, because the ride costs ₹300.', who: 'A woman from Srinagar, Uttarakhand, living in a chawl' }
-      ],
-
-      wage, pubTravel, pubHours, privFee, privHours,
-      onWage: e => this.setState({ wage: +e.target.value }),
-      onPubTravel: e => this.setState({ pubTravel: +e.target.value }),
-      onPubHours: e => this.setState({ pubHours: +e.target.value }),
-      onPrivFee: e => this.setState({ privFee: +e.target.value }),
-      onPrivHours: e => this.setState({ privHours: +e.target.value }),
-      costBars: [
-        { label: 'Government centre', total: pub.toLocaleString('en-IN'), w: (pub / max * 100) + '%', fill: pub >= priv ? 'var(--accent)' : 'var(--gray-600)', split: '₹0 fee · ₹' + pubTravel + ' travel · ₹' + lost(pubHours) + ' lost wages' },
-        { label: 'Local private clinic', total: priv.toLocaleString('en-IN'), w: (priv / max * 100) + '%', fill: priv > pub ? 'var(--accent)' : 'var(--gray-600)', split: '₹' + privFee + ' fee · walking distance · ₹' + lost(privHours) + ' lost wages' }
-      ],
-      costVerdict: pub > priv
-        ? 'With these numbers, the “free” visit costs ₹' + diff + ' more. And neither is as cheap as staying home, which is what people told us they did.'
-        : pub === priv ? 'With these numbers, the two cost the same. Staying home is still cheaper than both.'
-        : 'With these numbers, the government centre wins by ₹' + diff + '. It took a short trip and a short wait to get here, which wasn\'t what we heard.',
-
-      motives: [
-        { n: '01', t: 'The pay gap', d: 'Private salaries have pulled far enough ahead that a government post can feel like a financial penalty, though some states now offer “you quote, we pay” packages.' },
-        { n: '02', t: 'The ghost village', d: 'Postings can come with no decent housing, no good school for their children and no social circle.' },
-        { n: '03', t: 'Nothing to work with', d: 'A remote health centre may lack the equipment a doctor trained on, so much of the job becomes paperwork and referral.' },
-        { n: '04', t: 'Losing their edge', d: 'Three years in a remote post can mean de-skilling. Peers who stayed in city hospitals return to postgraduate exams sharper.' }
-      ],
-
-      flow: flowData.map((f, i) => ({ n: String(i + 1).padStart(2, '0'), t: f.t, onClick: () => go(i), bg: i === step ? 'var(--surface-card)' : 'transparent', color: i === step ? 'var(--text-primary)' : 'var(--text-muted)', numColor: i === step ? 'var(--text-accent)' : 'var(--text-muted)' })),
-      cur, stepNum: step + 1, prev: () => go(step - 1), next: () => go(step + 1),
-
-      decisions: [
-        { n: '01', t: 'An extension, not another app', d: 'ASHAs already work across several government apps. Adding one more would compete for the same phone storage and the same patience. Built into a platform she already has, the triage kit becomes one more option inside a familiar tool.' },
-        { n: '02', t: 'Heavy work happens on the doctor\'s side', d: 'Her phone may be old and her signal may be gone. So the phone only captures photos, audio and numbers. Transcription and risk scoring run on the doctor\'s end, where better devices and internet are a safer assumption.' },
-        { n: '03', t: 'Show the money now', d: 'ASHAs are paid per task, and the payment is reportedly slow and hard to track. Showing ₹20 the moment a checkup is done doesn\'t pay her faster, but it makes the system less opaque, and gives her a reason to log every visit.' }
-      ],
-
-      temp, tempLabel: temp.toFixed(1) + '°F',
-      onTemp: e => this.setState({ temp: +e.target.value }),
-      durItems: [{ id: 'lt1', label: 'Under a day' }, { id: '1to3', label: '1–3 days' }, { id: 'gt3', label: '3+ days' }],
-      dur, onDur: id => this.setState({ dur: id }),
-      flags: flagList.map(([k, label]) => {
-        const on = !!flags[k];
-        return { label, onClick: () => this.setState(s => ({ flags: { ...s.flags, [k]: !s.flags[k] } })), border: on ? 'var(--danger)' : 'var(--border-default)', bg: on ? 'color-mix(in srgb, var(--danger) 14%, transparent)' : 'transparent', color: on ? 'var(--text-primary)' : 'var(--text-secondary)', dot: on ? 'var(--danger)' : 'var(--border-strong)' };
-      }),
-      out,
-
-      assumptions: [
-        { t: 'ASHAs would trust and use a triage tool', d: 'We didn\'t interview a single ASHA worker. Everything about her workflow comes from secondary sources.', status: 'Unverified', tone: 'outline' },
-        { t: 'Patients would trust her over the local quack', d: 'I argued that clinical authority from the app would shift trust. That\'s a hope, not something we observed.', status: 'Unverified', tone: 'outline' },
-        { t: 'Private care is often cheaper and faster', d: 'Based on a small number of interviews and published fees, in one city. It suggests a pattern; it doesn\'t prove one.', status: 'Small sample', tone: 'warning' },
-        { t: 'A doctor can review a case in under 30 seconds', d: 'I presented this as a result. It\'s a design target, and nobody has timed it.', status: 'Target, not result', tone: 'warning' },
-        { t: 'Standing orders let ASHAs give basic medicine', d: 'ASHA drug kits do include items like paracetamol and ORS. Exactly what each state allows still needs checking.', status: 'Broadly true', tone: 'success' },
-        { t: 'Private doctors would take subsidised rural cases', d: 'The surge-reviewer idea assumes the fee is worth their time and that liability can be shared. Neither is tested.', status: 'Speculative', tone: 'outline' }
-      ],
-      retro: [
-        { n: '01', t: 'The reframe did the real work', d: 'Weeks of research didn\'t point at a problem until I stopped asking how to get people to care, and asked who already reaches them. Everything after that was easier.' },
-        { n: '02', t: 'I designed for someone I never met', d: 'We met patients, vendors and families, and not one ASHA. If I did this again, finding two or three would come before the first screen.' },
-        { n: '03', t: '“Gamifying” was the wrong word', d: 'I pitched the earnings tab as gamifying her income. It\'s really just showing her money she\'s already owed, sooner. That\'s a smaller claim and a more honest one.' },
-        { n: '04', t: 'Being turned away was useful', d: 'Not getting permission at the CHC felt like a setback. It pushed us onto the street, where the most important finding was: many people just don\'t go.' }
-      ]
+      railVisible: st.wide && st.railOn, toc, blister, who,
+      rings, places, ringBtns, ringSel, bill, queues, tallies, ashaNotes, lanes, roles, rxPills, trace,
+      steps, stepSel: stepData[st.step],
+      prev: () => this.setState({ step: Math.max(0, st.step - 1) }), next: () => this.setState({ step: Math.min(4, st.step + 1) }),
+      atStart: st.step === 0, atEnd: st.step === 4,
+      tags, taps, cant, nexts
     };
   }
 }
